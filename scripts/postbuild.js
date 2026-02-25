@@ -1,13 +1,13 @@
-// Cross-platform postbuild: copies newsletter/dist → react-app/dist/newsletter
+// Cross-platform postbuild: copies newsletter/dist → dist/newsletter
+// (dist/ is at the repo root, output by Vite via build.outDir: '../dist')
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(__dirname, "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const src = path.join(root, "newsletter", "dist");
-const dst = path.join(root, "react-app", "dist", "newsletter");
+const dst = path.join(root, "dist", "newsletter");
 
 function copyDir(from, to) {
   fs.mkdirSync(to, { recursive: true });
@@ -23,4 +23,4 @@ function copyDir(from, to) {
 }
 
 copyDir(src, dst);
-console.log(`✓ Copied newsletter/dist → react-app/dist/newsletter`);
+console.log(`✓ Copied newsletter/dist → dist/newsletter`);
