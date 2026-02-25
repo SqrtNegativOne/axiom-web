@@ -200,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ───────────────────────────────────────────────────────── */}
-      <section className="w-[82%] max-w-5xl mx-auto py-20">
+      <section className="w-[90%] max-w-5xl mx-auto py-20">
         <p className="label-mono mb-6">— Purpose</p>
         <PullQuote attribution="Socrates">
           The unexamined life is not worth living.
@@ -217,10 +217,10 @@ export default function Home() {
         </p>
       </section>
 
-      <SectionDivider className="w-[82%] max-w-7xl mx-auto" />
+      <SectionDivider className="w-[90%] max-w-7xl mx-auto" />
 
       {/* ── CTA CARDS ─────────────────────────────────────────────────────── */}
-      <section className="w-[82%] max-w-7xl mx-auto py-20">
+      <section className="w-[90%] max-w-7xl mx-auto py-20">
         <p className="label-mono mb-3">— Explore</p>
         <h2 className="section-heading mb-12">Where would you like to go?</h2>
 
@@ -248,10 +248,10 @@ export default function Home() {
         </div>
       </section>
 
-      <SectionDivider className="w-[82%] max-w-7xl mx-auto" />
+      <SectionDivider className="w-[90%] max-w-7xl mx-auto" />
 
       {/* ── NEWSLETTER PREVIEW ────────────────────────────────────────────── */}
-      <section className="w-[82%] max-w-7xl mx-auto py-20">
+      <section className="w-[90%] max-w-7xl mx-auto py-20">
         <div className="flex items-baseline justify-between mb-12 flex-wrap gap-4">
           <div>
             <p className="label-mono mb-2">— Latest writing</p>
@@ -308,7 +308,7 @@ export default function Home() {
         )}
       </section>
 
-      <SectionDivider className="w-[82%] max-w-7xl mx-auto" />
+      <SectionDivider className="w-[90%] max-w-7xl mx-auto" />
 
       {/* ── JOIN US HERO — Creation of Adam ───────────────────────────────── */}
       <section className="relative w-full overflow-hidden" style={{ minHeight: '70vh' }}>

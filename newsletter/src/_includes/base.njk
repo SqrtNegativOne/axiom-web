@@ -6,6 +6,10 @@
   <meta name="description" content="{{ description or site.description }}" />
   <title>{{ title }} — Axiom Newsletter</title>
 
+  <!-- Feed discovery -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="{{ site.url }}/newsletter/feed.xml" />
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom" href="{{ site.url }}/newsletter/atom.xml" />
+
   <!-- Shared design tokens -->
   <link rel="stylesheet" href="/newsletter/css/design-tokens.css" />
 
@@ -206,8 +210,9 @@
       margin: 2rem 0;
       font-family: var(--font-heading);
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1.35rem;
       color: var(--color-green);
+      line-height: 1.6;
     }
     .article-body ol, .article-body ul {
       margin: 1rem 0 1.25rem 1.5rem;
@@ -222,6 +227,35 @@
       border-top: 0.5px solid var(--color-gold);
       margin: 2.5rem 0;
     }
+
+    /* Footnotes (markdown-it-footnote) */
+    .footnotes-sep {
+      border: none;
+      border-top: 0.5px solid rgba(201, 164, 76, 0.3);
+      margin: 3rem 0 1.5rem;
+    }
+    .footnotes {
+      font-size: 0.82rem;
+      color: rgba(26, 26, 24, 0.55);
+      line-height: 1.7;
+    }
+    .footnotes ol {
+      margin-left: 1.25rem;
+    }
+    .footnotes li { margin-bottom: 0.35rem; }
+    .footnotes a { color: var(--color-terracotta); text-decoration: none; }
+    .footnotes a:hover { text-decoration: underline; }
+    /* Superscript footnote ref in body */
+    .footnote-ref { font-size: 0.7em; vertical-align: super; line-height: 0; }
+    .footnote-ref a {
+      color: var(--color-terracotta);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+    .footnote-ref a:hover { text-decoration: underline; }
+    /* Back-reference arrow */
+    .footnote-backref { font-size: 0.8em; }
 
     /* Back link */
     .back-link {
@@ -278,6 +312,9 @@
 
   <footer class="footer">
     <p>© {{ site.title }} · <a href="{{ site.reactBaseUrl }}">axiom.nsut</a></p>
+    <p style="margin-top: 0.5rem; font-size: 0.7rem; opacity: 0.6;">
+      <a href="/newsletter/feed.xml">RSS</a> · <a href="/newsletter/atom.xml">Atom</a>
+    </p>
   </footer>
 </body>
 </html>
