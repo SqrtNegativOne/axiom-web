@@ -8,6 +8,14 @@ export default defineConfig({
     // Output to repo root /dist so Vercel finds it at its default location
     outDir: '../dist',
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split three.js + fiber into their own chunk so they load separately
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/postprocessing', 'postprocessing'],
+        },
+      },
+    },
   },
   server: {
     // Proxy /newsletter/ to Eleventy dev server so newsletter links + API work during dev

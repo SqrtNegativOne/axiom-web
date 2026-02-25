@@ -108,7 +108,7 @@
     background-size: 48px 48px;
   }
 
-  /* ── AXIOM wordmark with hover-to-mono effect ──────────────────── */
+  /* ── AXIOM wordmark with hover-to-Doto effect ──────────────────── */
   .axiom-wordmark {
     cursor: default;
     text-align: center;
@@ -119,19 +119,22 @@
   .axiom-wordmark-text {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 300;
-    color: var(--color-cream, #F8F4EC);
+    color: #F8F4EC;
     letter-spacing: 0.3em;
-    font-size: clamp(4rem, 14vw, 9rem);
+    font-size: clamp(3rem, 10vw, 7rem);
     display: inline-block;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: font-family 0.01s, font-weight 0.3s, letter-spacing 0.4s cubic-bezier(0.23, 1, 0.32, 1), color 0.4s, text-shadow 0.4s;
+    /* readable over the image */
+    text-shadow: 0 2px 24px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5);
+    user-select: none;
   }
 
-  .axiom-wordmark-text.is-mono {
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    color: var(--color-gold, #C9A44C);
-    text-shadow: 0 0 30px rgba(201, 164, 76, 0.3);
+  .axiom-wordmark-text.is-doto {
+    font-family: 'Doto', monospace;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #C9A44C;
+    text-shadow: 0 0 20px rgba(201, 164, 76, 0.5), 0 2px 24px rgba(0,0,0,0.7);
   }
 }
 

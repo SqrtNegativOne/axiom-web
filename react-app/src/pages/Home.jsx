@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import DitherCanvas from '../components/DitherCanvas'
+import Dither from '../components/Dither'
 import SpotlightCard from '../components/SpotlightCard'
 import SectionDivider from '../components/SectionDivider'
 import PullQuote from '../components/PullQuote'
-import CircularText from '../components/CircularText'
 
-// ── Rotating philosophical prompts ──────────────────────────────────────────
+// ── Typewriter philosophical prompts ────────────────────────────────────────
 const PROMPTS = [
   '> What do you know?',
   '> What ought you do?',
@@ -16,27 +15,43 @@ const PROMPTS = [
   '> What is consciousness?',
 ]
 
-function RotatingPrompt() {
+function TypewriterPrompt() {
   const [idx, setIdx] = useState(0)
-  const [visible, setVisible] = useState(true)
+  const [displayed, setDisplayed] = useState('')
+  const [phase, setPhase] = useState('typing') // 'typing' | 'lingering' | 'erasing'
 
   useEffect(() => {
-    const cycle = setInterval(() => {
-      setVisible(false)
-      setTimeout(() => {
+    const full = PROMPTS[idx]
+
+    if (phase === 'typing') {
+      if (displayed.length < full.length) {
+        const t = setTimeout(() => setDisplayed(full.slice(0, displayed.length + 1)), 45)
+        return () => clearTimeout(t)
+      } else {
+        const t = setTimeout(() => setPhase('lingering'), 3000)
+        return () => clearTimeout(t)
+      }
+    }
+
+    if (phase === 'lingering') {
+      const t = setTimeout(() => setPhase('erasing'), 0)
+      return () => clearTimeout(t)
+    }
+
+    if (phase === 'erasing') {
+      if (displayed.length > 0) {
+        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 25)
+        return () => clearTimeout(t)
+      } else {
         setIdx((i) => (i + 1) % PROMPTS.length)
-        setVisible(true)
-      }, 400)
-    }, 3200)
-    return () => clearInterval(cycle)
-  }, [])
+        setPhase('typing')
+      }
+    }
+  }, [displayed, phase, idx])
 
   return (
-    <span
-      className="font-mono text-gold/80 text-sm md:text-base tracking-wider transition-opacity duration-400"
-      style={{ opacity: visible ? 1 : 0 }}
-    >
-      {PROMPTS[idx]}
+    <span className="font-mono text-gold/80 text-sm md:text-base tracking-wider">
+      {displayed}
       <span className="animate-blink ml-0.5">_</span>
     </span>
   )
@@ -92,100 +107,93 @@ export default function Home() {
         className="relative flex flex-col items-center justify-center text-center px-6 overflow-hidden"
         style={{ minHeight: '100svh' }}
       >
-        {/* Animated dithered wave background */}
-        <DitherCanvas />
+        {/* Reactbits WebGL dither background */}
+        <div className="absolute inset-0" style={{ zIndex: 0 }}>
+          <Dither
+            waveColor={[0.23, 0.43, 0.33]}
+            disableAnimation={false}
+            enableMouseInteraction
+            mouseRadius={0.1}
+            colorNum={4}
+            pixelSize={2}
+            waveAmplitude={0.3}
+            waveFrequency={3}
+            waveSpeed={0.05}
+          />
+        </div>
 
         {/* Grid overlay */}
-        <div className="absolute inset-0 grid-overlay pointer-events-none" />
+        <div className="absolute inset-0 grid-overlay pointer-events-none" style={{ zIndex: 1 }} />
 
         {/* Vignette */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, rgba(26,46,38,0.85) 100%)' }}
+          style={{
+            zIndex: 1,
+            background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, rgba(10,22,17,0.9) 100%)',
+          }}
         />
 
         {/* Content */}
-        <div className="relative max-w-4xl mx-auto flex flex-col items-center">
+        <div className="relative flex flex-col items-center" style={{ zIndex: 2 }}>
 
-          {/* Hero image from Met Museum */}
-          <div className="relative mb-8 animate-on-load" style={{ animationDelay: '100ms' }}>
-            <div className="relative w-56 h-56 md:w-72 md:h-72 mx-auto">
+          {/* Image + AXIOM overlay — both centred in frame */}
+          <div className="relative mb-2 animate-on-load" style={{ animationDelay: '150ms' }}>
+            <div
+              className="relative overflow-hidden shadow-2xl"
+              style={{ width: 'clamp(260px, 38vw, 400px)', height: 'clamp(260px, 38vw, 400px)' }}
+            >
               <img
                 src="https://collectionapi.metmuseum.org/api/collection/v1/iiif/343581/731551/main-image"
-                alt="Classical artwork"
-                className="w-full h-full object-cover rounded-full border-2 border-gold/30 shadow-2xl"
-                style={{ filter: 'sepia(0.2) contrast(1.1)' }}
+                alt="Fall of Icarus"
+                className="w-full h-full object-cover"
+                style={{ filter: 'sepia(0.25) contrast(1.05) brightness(0.85)' }}
               />
-              {/* Gold ring accent */}
-              <div className="absolute inset-0 rounded-full border border-gold/20" style={{ transform: 'scale(1.08)' }} />
-
-              {/* Circular text orbiting the image */}
-              <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'scale(1.55)' }}>
-                <CircularText
-                  text="· PHILOSOPHY · INQUIRY · WISDOM · AXIOM "
-                  spinDuration={25}
-                  onHover="speedUp"
-                  className="!w-full !h-full !text-gold/50 !font-mono"
-                />
+              {/* Gradient so text reads over the image */}
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(to bottom, rgba(10,22,17,0.25) 0%, rgba(10,22,17,0.55) 100%)' }}
+              />
+              {/* AXIOM over the image */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h1
+                  className="axiom-wordmark"
+                  onMouseEnter={() => setAxiomHovered(true)}
+                  onMouseLeave={() => setAxiomHovered(false)}
+                >
+                  <span className={`axiom-wordmark-text ${axiomHovered ? 'is-doto' : ''}`}>
+                    AXIOM
+                  </span>
+                </h1>
               </div>
             </div>
           </div>
 
-          {/* Wordmark — hover switches to monospace */}
-          <h1
-            className="axiom-wordmark mb-2 animate-on-load"
-            style={{ animationDelay: '200ms' }}
-            onMouseEnter={() => setAxiomHovered(true)}
-            onMouseLeave={() => setAxiomHovered(false)}
-          >
-            <span className={`axiom-wordmark-text ${axiomHovered ? 'is-mono' : ''}`}>
-              AXIOM
-            </span>
-          </h1>
-
-          {/* Subtitle — flowy font */}
+          {/* "the philosophy society" — right below, tight */}
           <p
-            className="font-heading italic font-light text-cream/70 tracking-[0.15em] mb-6 animate-on-load"
-            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', animationDelay: '250ms' }}
+            className="font-heading italic font-light text-cream/65 tracking-[0.12em] mb-5 animate-on-load"
+            style={{ fontSize: 'clamp(0.95rem, 2vw, 1.25rem)', animationDelay: '250ms' }}
           >
-            The Philosophy Society
+            the philosophy society
           </p>
 
           {/* Gold rule */}
-          <div className="flex items-center justify-center gap-4 mb-6 animate-on-load" style={{ animationDelay: '300ms' }}>
-            <div className="h-px w-16 bg-gold/40" />
-            <span className="font-mono text-gold/40" style={{ fontSize: '0.55rem', letterSpacing: '0.3em' }}>
+          <div className="flex items-center justify-center gap-4 mb-5 animate-on-load" style={{ animationDelay: '300ms' }}>
+            <div className="h-px w-14 bg-gold/40" />
+            <span className="font-mono text-gold/40" style={{ fontSize: '0.52rem', letterSpacing: '0.3em' }}>
               EST. 2017
             </span>
-            <div className="h-px w-16 bg-gold/40" />
+            <div className="h-px w-14 bg-gold/40" />
           </div>
 
-          {/* Rotating prompt */}
-          <div className="h-8 mb-8 animate-on-load" style={{ animationDelay: '350ms' }}>
-            <RotatingPrompt />
-          </div>
-
-          {/* Tagline */}
-          <p
-            className="font-heading italic font-light text-cream/50 mb-10 animate-on-load"
-            style={{ fontSize: 'clamp(0.9rem, 1.8vw, 1.15rem)', animationDelay: '400ms' }}
-          >
-            Where curious minds gather over chai and ideas.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4 justify-center animate-on-load" style={{ animationDelay: '500ms' }}>
-            <Link to="/about-us" className="btn-ghost text-xs tracking-[0.15em] uppercase">
-              Discover Axiom
-            </Link>
-            <Link to="/events" className="inline-block border border-gold/50 text-gold/90 px-6 py-3 font-body text-xs tracking-[0.15em] uppercase transition-all duration-200 hover:border-gold hover:text-gold">
-              Our Events
-            </Link>
+          {/* Typewriter prompt */}
+          <div className="h-7 animate-on-load" style={{ animationDelay: '350ms' }}>
+            <TypewriterPrompt />
           </div>
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40" style={{ zIndex: 2 }}>
           <div className="w-px h-8 bg-cream/50" />
           <div className="w-1 h-1 rounded-full bg-cream/50" />
         </div>
@@ -304,22 +312,18 @@ export default function Home() {
 
       {/* ── JOIN US HERO — Creation of Adam ───────────────────────────────── */}
       <section className="relative w-full overflow-hidden" style={{ minHeight: '70vh' }}>
-        {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg)',
           }}
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-ink/70" />
-        {/* Grain texture overlay */}
         <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
           backgroundSize: '128px 128px',
         }} />
 
-        {/* Content */}
         <div className="relative flex flex-col items-center justify-center text-center px-6" style={{ minHeight: '70vh' }}>
           <p className="label-mono text-gold/60 mb-4">— Become part of the dialogue</p>
           <h2
