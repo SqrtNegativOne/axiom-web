@@ -1,0 +1,25 @@
+/* Axiom Design Tokens — Single source of truth for colors and fonts */
+:root {
+  /* Colors */
+  --color-cream: #F8F4EC;
+  --color-cream-dark: #EDE9DF;
+  --color-green: #2C4A3E;
+  --color-terracotta: #C4704F;
+  --color-gold: #C9A44C;
+  --color-ink: #1A1A18;
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  /* Spacing rhythm */
+  --section-padding: clamp(3rem, 6vw, 6rem);
+
+  /* Transitions */
+  --transition-base: 200ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Decorative */
+  --rule-color: var(--color-gold);
+  --rule-width: 0.5px;
+}

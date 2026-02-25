@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "react-app/dist",
+  "rewrites": [
+    { "source": "/newsletter/(.*)", "destination": "/newsletter/$1" }
+  ]
+}

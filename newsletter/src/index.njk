@@ -1,0 +1,39 @@
+---
+layout: base.njk
+title: Newsletter
+description: Long-form philosophical writing from the Axiom Society, NSUT.
+---
+
+<div class="main">
+  <div class="page-header">
+    <p class="eyebrow">Axiom Writes</p>
+    <h1>The Newsletter</h1>
+    <p>Essays, reflections, and philosophical musings — written by us, for everyone who thinks.</p>
+  </div>
+
+  {% if collections.posts.length %}
+    <div class="post-list">
+      {% for post in collections.posts %}
+        <article class="post-item">
+          <p class="post-date">
+            <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+          </p>
+          <h2 class="post-title">
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </h2>
+          {% if post.data.author %}
+            <p class="post-author">by {{ post.data.author }}</p>
+          {% endif %}
+          {% if post.data.excerpt %}
+            <p class="post-excerpt">{{ post.data.excerpt }}</p>
+          {% endif %}
+          <a href="{{ post.url }}" class="post-read-more">Read essay →</a>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p style="color: rgba(26,26,24,0.5); text-align:center; padding: 4rem 0;">
+      The first issue is being written. Check back soon.
+    </p>
+  {% endif %}
+</div>
