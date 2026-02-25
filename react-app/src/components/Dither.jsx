@@ -66,8 +66,8 @@ export default function Dither({ waveSpeed = 0.05 } = {}) {
     const ctx = canvas.getContext('2d')
 
     // Render at a low pixel resolution for the chunky dither look
-    const W = 160
-    const H = 90
+    const W = 240
+    const H = 135
     canvas.width  = W
     canvas.height = H
 
@@ -76,7 +76,7 @@ export default function Dither({ waveSpeed = 0.05 } = {}) {
 
     function render(ts) {
       if (!startRef.current) startRef.current = ts
-      const t = ((ts - startRef.current) / 1000) * waveSpeed * 20  // normalised time
+      const t = ((ts - startRef.current) / 1000) * waveSpeed * 11  // normalised time
 
       for (let y = 0; y < H; y++) {
         for (let x = 0; x < W; x++) {

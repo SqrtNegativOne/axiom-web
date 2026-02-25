@@ -13,7 +13,7 @@ navActive: newsletter
 
 We use the word constantly. We named our society after it, we cite philosophers in our WhatsApp arguments, we call it "the love of wisdom" when someone asks us to define it, and then we quietly move on, hoping no one asks a follow-up.
 
-## ...but what the duck is philosophy?
+# ...but what the duck is philosophy?
 
 The Wikipedia page on philosophy tells us the following.
 
@@ -21,7 +21,7 @@ The Wikipedia page on philosophy tells us the following.
 
 Good enough I guess. But could you *possibly* get any vaguer? What does it *feel* like to do philosophy? Why would anyone choose to spend a Tuesday evening doing it instead of literally anything else?
 
-## A programming language for Attention
+# A programming language for Attention
 
 The editor believes a more applicable definition is to think of it as the theory, of Meta-ness.
 
@@ -42,13 +42,13 @@ Surprising to think that the brain even works despite this. And I am not referri
 
 Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of choosing your own damn lenses, and then looking through them to see the world in a way that surprises you.
 
-## What was the point of this, miss?
+# What was the point of this, miss?
 
 We are aware of the irony of philosophy society existing at a technical university. And the cliché of an arts professor yelling at clouds on how important the arts is and how engineers just want to make money, yeah, everyone knows it.
 
 And if there is anything to learn from Peter Watt's seminal novel *Blindsight*, it's the fact that humans can lose against aliens with 0 metacognition. Novices prepare while experts... just do; Michael Phelps probably doesn't need to understand the Navier-Stokes equations to win. So why bother with philosophy?
 
-## It's human.
+# It's human.
 
 We do it because we fucking can and because we have to. Once you get high on the supply of yet-elegant derivations of the structure of this universe, you're fucked. We are always doing philosophy. Even when you think you're not doing it you're doing it, so you might as well do it explicitly.
 
@@ -62,13 +62,13 @@ Every major decision in technology rests on a philosophical foundation:
 
 And as our world's greatest leaders in Artificial Intelligence race to make the Torture Nexus from the hit indie book "Don't Build the fucking Torture Nexus" you should think about this questions before you hear it from a Beer Biceps podcast.
 
-## What We Do at Axiom
+# What We Do at Axiom
 
 At Axiom, we don't pretend to have answers. What we have instead is a coterie of rag-tag communists mucking around in the campus, writhing in the mud of unsolvable questions. And sometimes, sometimes, we change some minds.
 
 Maybe that's the true definition of philosophy. Mucking around.
 
-## Footnotes
+# Footnotes
 [^1]: See [The unbearable slowness of being: Why do we live at 10 bits/s?](https://www.cell.com/neuron/fulltext/S0896-6273(24)00808-0)
 [^2]: See the brilliant [The Lens That Sees Its Flaws](https://www.lesswrong.com/posts/46qnWRSR7L2eyNbMA/the-lens-that-sees-its-flaws)
 

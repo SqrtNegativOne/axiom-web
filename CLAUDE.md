@@ -1,6 +1,6 @@
 # Axiom Web — CLAUDE.md
 
-This is the website for **Axiom**, the philosophy society at NSUT (Netaji Subhas University of Technology). Built with React + Vite + Tailwind (main site) and Eleventy (newsletter).
+This is the website for **Axiom**, the philosophy society at NSUT. Built with React + Vite + Tailwind (main site) and Eleventy (newsletter).
 
 ---
 
@@ -32,12 +32,11 @@ npm run build          # Full production build (both systems + postbuild)
 npm run preview        # Serve dist/ at :4173
 ```
 
-Workspace-specific (rarely needed directly):
-
+Installing packages for the React app specifically:
 ```bash
-npm run dev --workspace=react-app
-npm run build --workspace=newsletter
+npm install <pkg> --workspace=react-app --legacy-peer-deps
 ```
+Always use `--legacy-peer-deps` when installing into the react-app workspace to avoid peer dep resolution failures.
 
 ---
 
@@ -49,8 +48,11 @@ npm run build --workspace=newsletter
 | React Router | ^6.28.0 | Hash-based routing (`/#/about-us`) |
 | Vite | ^6.0.5 | Dev server + bundler |
 | Tailwind CSS | ^3.4.16 | Utility CSS |
+| motion | ^12.x | Animations (CircularText etc.) |
 | Eleventy | ^3.0.0 | Newsletter static site |
 | Concurrently | ^8.2.2 | Parallel dev scripts |
+
+**Do not install three.js / @react-three/fiber.** The Canvas element from react-three/fiber captures all pointer events (blocks page scroll) and its WebGL context can throw on init — without an ErrorBoundary this crashes the entire React tree to a white screen.
 
 ---
 
@@ -82,6 +84,9 @@ The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a
 - **Headings**: Cormorant Garamond — `font-heading`, typically `font-light` (300)
 - **Body/UI**: DM Sans — `font-body`, weights 300–600
 - **Tech accent**: IBM Plex Mono — `font-mono`, used for labels, numbers, metadata
+- **Display/hover accent**: Doto — loaded via Google Fonts in `index.html`, used for the AXIOM wordmark hover state (`.is-doto` CSS class)
+
+All four fonts are loaded in `react-app/index.html` via a single Google Fonts `<link>`.
 
 ### Tailwind utilities
 
@@ -96,6 +101,13 @@ The `label-mono` CSS class (defined in `index.css`) combines `font-mono text-xs 
 - Eyebrow labels: `label-mono` class or `text-xs tracking-[0.3em] uppercase text-gold`
 - Section headings: `font-heading font-light text-green` at `clamp(2rem, 4vw, 3rem)`
 - Large monospace numerals (01, 02, 03…) used as editorial decorations on event cards and CTA sections
+- Text selection: inverted — `::selection { background: #1A1A18; color: #F8F4EC }`
+
+### Home page layout
+
+- Hero section: full-viewport height, Dither canvas background, Icarus transparent PNG centred with AXIOM wordmark overlaid. No `overflow-hidden` or gradient overlays on the image container (the PNG has a transparent background — overlays create a visible dark rectangle).
+- Content sections below hero use `w-[82%] max-w-Nxl mx-auto` — no `px-N` padding class.
+- NavBar is **completely hidden** on the home page until the user scrolls 60px, then slides in as a cream bar.
 
 ---
 
@@ -209,16 +221,40 @@ The filter is defined in `.eleventy.js` as `(url) => \`/newsletter\${url}\``.
 
 | Component | Purpose |
 |-----------|---------|
-| `NavBar.jsx` | Sticky nav; `<Link>` for internal routes, `<a>` for newsletter |
-| `Footer.jsx` | Green footer with nav + social links |
+| `NavBar.jsx` | Hidden on home hero; slides in as cream bar after 60px scroll. `<Link>` for internal routes, `<a>` for newsletter/external |
+| `Footer.jsx` | Green footer with nav + social links. Navigate list includes Branding (Google Drive link). Instagram: @axiomnsut |
 | `TeamCard.jsx` | Circular photo + name + quote; initials fallback |
 | `AlumniCard.jsx` | Alumni photo, batch, testimonial |
-| `EventCard.jsx` | Date, location, description, scrollable image strip, lightbox |
+| `EventCard.jsx` | Date, location, description, scrollable image strip, lightbox. Content column needs `min-w-0` to allow overflow-x-auto to work inside CSS Grid |
 | `GalleryCarousel.jsx` | Auto-advancing image carousel (pauses on hover) |
 | `SectionDivider.jsx` | Thin 0.5px gold horizontal rule |
 | `PullQuote.jsx` | Blockquote with terracotta left border |
-| `DitherCanvas.jsx` | Canvas with Bayer ordered dithering on a green radial gradient; used as hero background |
+| `Dither.jsx` | Canvas-based animated Perlin FBM wave + Bayer ordered dither background. Pure canvas (no three.js). Canvas renders at 80×45 and is scaled up with `image-rendering: pixelated` for the chunky pixel look. Palette: 4 Axiom green levels |
 | `SpotlightCard.jsx` | Wrapper that stores mouse position in CSS custom properties (`--x`, `--y`) for a zero-rerender spotlight effect via `::before` gradient |
+| `ClickSpark.jsx` | Pure canvas click-spark animation (created but currently unused in App.jsx) |
+| `CircularText.jsx` | Spinning text ring using `motion/react` (created but currently unused in Home.jsx) |
+
+### Home page hero structure
+
+```
+<section>  ← full viewport, dither canvas bg
+  <Dither />  ← absolute, z-index 0
+  <grid-overlay />  ← absolute, z-index 1
+  <vignette />  ← absolute, z-index 1
+  <div>  ← content, z-index 2
+    <div>  ← image frame (no overflow-hidden, no bg)
+      <img Icarus PNG />
+      <div>  ← absolute overlay, flex-col centred
+        EST. 2017 label (dark pill bg)
+        <h1 .axiom-wordmark>AXIOM</h1>
+        "the philosophy society" italic
+      </div>
+    </div>
+    TypewriterPrompt  ← CSS block cursor (inline span), NOT Unicode █
+  </div>
+  scroll cue
+</section>
+```
 
 ---
 
