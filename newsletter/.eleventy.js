@@ -20,6 +20,9 @@ export default function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toISODate();
   });
 
+  // Prefix a page.url with /newsletter/ for use in hrefs
+  eleventyConfig.addFilter("withPrefix", (url) => `/newsletter${url}`);
+
   // Posts collection, newest first
   eleventyConfig.addCollection("posts", (collectionApi) => {
     return collectionApi

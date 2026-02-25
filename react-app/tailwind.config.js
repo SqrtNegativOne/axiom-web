@@ -17,11 +17,13 @@ export default {
       fontFamily: {
         heading: ['Cormorant Garamond', 'Georgia', 'serif'],
         body: ['DM Sans', 'system-ui', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease forwards',
         'fade-up': 'fadeUp 0.7s ease forwards',
         'slide-in': 'slideIn 0.6s ease forwards',
+        'blink': 'blink 1.1s step-end infinite',
       },
       keyframes: {
         fadeIn: {
@@ -35,6 +37,10 @@ export default {
         slideIn: {
           '0%': { opacity: '0', transform: 'translateX(-16px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
         },
       },
     },
