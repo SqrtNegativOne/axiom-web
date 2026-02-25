@@ -22,6 +22,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  ::selection {
+    background-color: #1A1A18;
+    color: #F8F4EC;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading text-green;
   }
@@ -121,10 +126,9 @@
     font-weight: 300;
     color: #F8F4EC;
     letter-spacing: 0.3em;
-    font-size: clamp(3rem, 10vw, 7rem);
+    font-size: clamp(4rem, 13vw, 9rem);
     display: inline-block;
-    transition: font-family 0.01s, font-weight 0.3s, letter-spacing 0.4s cubic-bezier(0.23, 1, 0.32, 1), color 0.4s, text-shadow 0.4s;
-    /* readable over the image */
+    transition: font-weight 0.12s, letter-spacing 0.15s ease-out;
     text-shadow: 0 2px 24px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5);
     user-select: none;
   }
@@ -132,9 +136,9 @@
   .axiom-wordmark-text.is-doto {
     font-family: 'Doto', monospace;
     font-weight: 700;
-    letter-spacing: 0.18em;
-    color: #C9A44C;
-    text-shadow: 0 0 20px rgba(201, 164, 76, 0.5), 0 2px 24px rgba(0,0,0,0.7);
+    letter-spacing: 0.55em;
+    color: #F8F4EC;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.7);
   }
 }
 
