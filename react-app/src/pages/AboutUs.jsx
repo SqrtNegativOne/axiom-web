@@ -26,7 +26,7 @@ export default function AboutUs() {
     <div className="pt-20 animate-on-load">
       {/* Page header */}
       <section className="max-w-4xl mx-auto px-6 py-16 text-center">
-        <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Who We Are</p>
+        <p className="label-mono mb-4">Who We Are</p>
         <h1 className="section-heading mb-6">About Axiom</h1>
         <div className="h-px w-16 bg-gold/50 mx-auto mb-8" />
         <p className="font-body text-ink/70 leading-relaxed max-w-2xl mx-auto"
@@ -45,7 +45,7 @@ export default function AboutUs() {
           {pillars.map(({ label, text }) => (
             <div key={label} className="bg-cream-dark p-8 relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" />
-              <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 pl-4">{label}</p>
+              <p className="label-mono mb-4 pl-4 text-gold">{label}</p>
               <p className="font-body text-sm text-ink/70 leading-relaxed pl-4">{text}</p>
             </div>
           ))}
@@ -56,7 +56,7 @@ export default function AboutUs() {
 
       {/* Origin story */}
       <section className="max-w-4xl mx-auto px-6 py-16">
-        <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">Our Story</p>
+        <p className="label-mono mb-6">Our Story</p>
         <h2 className="font-heading text-green font-light text-3xl mb-8">How it began</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
@@ -92,7 +92,7 @@ export default function AboutUs() {
 
       {/* Team */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 text-center">The People</p>
+        <p className="label-mono mb-4 text-center">The People</p>
         <h2 className="section-heading text-center mb-3">Our Team</h2>
         <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
           Meet the brilliant minds who keep Axiom running — thinkers, organisers, and dedicated stewards of philosophical culture at NSUT.
@@ -102,7 +102,7 @@ export default function AboutUs() {
           <div key={group.role} className="mb-14">
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px flex-1 bg-gold/20" />
-              <h3 className="font-body text-xs tracking-[0.3em] uppercase text-gold px-4">{group.role}</h3>
+              <h3 className="label-mono px-4">{group.role}</h3>
               <div className="h-px flex-1 bg-gold/20" />
             </div>
             <div
@@ -126,7 +126,7 @@ export default function AboutUs() {
 
       {/* Alumni */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 text-center">Those Who Came Before</p>
+        <p className="label-mono mb-4 text-center">Those Who Came Before</p>
         <h2 className="section-heading text-center mb-3">Alumni</h2>
         <p className="font-body text-ink/60 text-center mb-12 max-w-xl mx-auto">
           In their own words — what Axiom meant to the people who built it.
@@ -143,7 +143,7 @@ export default function AboutUs() {
       {/* Gallery */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6 mb-8">
-          <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4 text-center">Moments</p>
+          <p className="label-mono mb-4 text-center">Moments</p>
           <h2 className="section-heading text-center mb-4">Gallery</h2>
         </div>
         <GalleryCarousel />

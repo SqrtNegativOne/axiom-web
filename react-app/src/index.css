@@ -27,13 +27,15 @@
   }
 }
 
-/* Decorative utilities */
+/* Component layer */
 @layer components {
+  /* ── Decorative rules ────────────────────────────────────────────── */
   .gold-rule {
     border: none;
     border-top: 0.5px solid var(--color-gold);
   }
 
+  /* ── Typography ──────────────────────────────────────────────────── */
   .pull-quote {
     @apply border-l-4 border-terracotta pl-6 my-8 italic text-green;
     font-family: var(--font-heading);
@@ -46,6 +48,14 @@
     font-size: clamp(2rem, 4vw, 3rem);
   }
 
+  /* Monospace eyebrow — the "tech" accent */
+  .label-mono {
+    @apply font-mono text-gold tracking-widest uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+  }
+
+  /* ── Buttons ─────────────────────────────────────────────────────── */
   .btn-primary {
     @apply inline-block bg-terracotta text-cream px-6 py-3 font-body font-medium tracking-wide transition-all duration-200;
     @apply hover:bg-green hover:text-cream;
@@ -56,31 +66,67 @@
     @apply hover:bg-green hover:text-cream;
   }
 
-  .card {
-    @apply bg-cream-dark p-6 transition-all duration-300;
-    @apply hover:shadow-md;
+  .btn-ghost {
+    @apply inline-block border border-cream/30 text-cream/80 px-6 py-3 font-body font-medium tracking-wide transition-all duration-200;
+    @apply hover:border-cream/60 hover:text-cream;
+  }
+
+  /* ── Spotlight Card ──────────────────────────────────────────────── */
+  /*
+   * Mouse position is written to --x / --y CSS custom properties by
+   * SpotlightCard.jsx on mousemove. The ::before pseudo-element reads
+   * them to position the radial gradient — zero React re-renders needed.
+   */
+  .spotlight-card {
+    @apply relative overflow-hidden;
+    background: var(--color-cream-dark);
+  }
+
+  .spotlight-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle 280px at var(--x, -9999px) var(--y, -9999px),
+      var(--spotlight, rgba(201,164,76,0.12)),
+      transparent
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .spotlight-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Dither hero grid overlay ────────────────────────────────────── */
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(201,164,76,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,164,76,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 }
 
-/* Fade-in animation for page entry */
+/* Page-load fade-in */
 .animate-on-load {
-  animation: fadeUp 0.8s ease forwards;
+  animation: fadeUp 0.8s ease both;
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Staggered animation delays */
+/* Stagger helpers */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+
+/* Thin scrollbar for image strips */
+.scrollbar-thin::-webkit-scrollbar        { height: 3px; }
+.scrollbar-thin::-webkit-scrollbar-track  { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb  { background: rgba(201,164,76,0.4); border-radius: 2px; }

@@ -6,11 +6,11 @@ export default function Events() {
   return (
     <div className="pt-20 animate-on-load">
       {/* Page header */}
-      <section className="max-w-4xl mx-auto px-6 py-16 text-center">
-        <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">What We Do</p>
-        <h1 className="section-heading mb-6">Events</h1>
-        <div className="h-px w-16 bg-gold/50 mx-auto mb-8" />
-        <p className="font-body text-ink/70 leading-relaxed max-w-2xl mx-auto"
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <p className="label-mono mb-4">— What we do</p>
+        <h1 className="section-heading mb-4">Events</h1>
+        <div className="h-px w-16 bg-gold/50 mb-8" />
+        <p className="font-body text-ink/70 leading-relaxed max-w-2xl"
            style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}>
           From intimate chai sessions to campus-wide philosophical games — here is everything
           Axiom has put together for the curious minds of NSUT.
@@ -21,8 +21,8 @@ export default function Events() {
 
       {/* Events list */}
       <section className="max-w-5xl mx-auto px-6 py-16">
-        {events.map((event) => (
-          <EventCard key={event.title} {...event} />
+        {events.map((event, i) => (
+          <EventCard key={event.title} {...event} index={i} />
         ))}
       </section>
     </div>

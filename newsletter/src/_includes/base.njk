@@ -12,7 +12,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -101,6 +101,18 @@
       margin-top: 1rem;
       font-size: 0.95rem;
     }
+
+    /* Monospace accents — tech font for dates/metadata */
+    .post-date,
+    .post-author,
+    .article-meta,
+    .post-read-more,
+    .back-link {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    }
+    .post-date { font-size: 0.65rem; letter-spacing: 0.2em; }
+    .post-read-more { font-size: 0.7rem; letter-spacing: 0.1em; }
+    .back-link { font-size: 0.7rem; letter-spacing: 0.1em; }
 
     /* Post list */
     .post-list {

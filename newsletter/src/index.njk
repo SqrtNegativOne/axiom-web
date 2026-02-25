@@ -19,7 +19,7 @@ description: Long-form philosophical writing from the Axiom Society, NSUT.
             <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
           </p>
           <h2 class="post-title">
-            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            <a href="{{ post.url | withPrefix }}">{{ post.data.title }}</a>
           </h2>
           {% if post.data.author %}
             <p class="post-author">by {{ post.data.author }}</p>
@@ -27,7 +27,7 @@ description: Long-form philosophical writing from the Axiom Society, NSUT.
           {% if post.data.excerpt %}
             <p class="post-excerpt">{{ post.data.excerpt }}</p>
           {% endif %}
-          <a href="{{ post.url }}" class="post-read-more">Read essay →</a>
+          <a href="{{ post.url | withPrefix }}" class="post-read-more">Read essay →</a>
         </article>
       {% endfor %}
     </div>
