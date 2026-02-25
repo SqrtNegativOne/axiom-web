@@ -38,6 +38,11 @@ npm install <pkg> --workspace=react-app --legacy-peer-deps
 ```
 Always use `--legacy-peer-deps` when installing into the react-app workspace to avoid peer dep resolution failures.
 
+Installing packages for the newsletter specifically:
+```bash
+npm install <pkg> --workspace=axiom-newsletter
+```
+
 ---
 
 ## Tech Stack
@@ -214,6 +219,19 @@ In Eleventy v3, `page.url` in templates does **not** include `pathPrefix`. Alway
 The filter is defined in `.eleventy.js` as `(url) => \`/newsletter\${url}\``.
 
 **Markdown support**: headings, paragraphs, blockquotes (renders with terracotta border), ordered/unordered lists, bold, italic, horizontal rules (renders as gold line).
+
+### Newsletter — Markdown & Plugins
+
+Eleventy uses **markdown-it** configured via `eleventyConfig.setLibrary("md", ...)` in `.eleventy.js`.
+Active plugins: `markdown-it-footnote` — footnote syntax `[^1]` inline and `[^1]: ...` definitions work out of the box, rendering as linked superscripts with a back-reference section. To add more plugins: `npm install <pkg> --workspace=axiom-newsletter`.
+
+### Newsletter — Images in Posts
+
+Images co-located with posts (`newsletter/src/posts/image.png`) are passed through to `dist/posts/image.png` via a glob passthrough in `.eleventy.js`. A post at `src/posts/slug.md` renders to `/newsletter/posts/slug/`, so reference images one level up: `../image.png` (resolves to `/newsletter/posts/image.png`).
+
+### Newsletter — Feeds
+
+RSS feed: `/newsletter/feed.xml` · Atom feed: `/newsletter/atom.xml` — both generated from Nunjucks templates in `newsletter/src/`. Auto-discovery `<link rel="alternate">` tags are in `base.njk`. Absolute feed URLs use `site.url` from `newsletter/src/_data/site.js` — update this to the real Vercel domain once known.
 
 ---
 

@@ -33,7 +33,7 @@ Ever come out of a room and immediately forget why you went in there? Absentmind
 
 The human brain is a wonderful thing. A group of people recently sat down, locked in, and estimated that we get (in the range of) a billion [Shannon bits of information](https://en.wikipedia.org/wiki/Shannon_(unit)) *every* second, while our conscious mind, the "speed limit" of our narrow light cone of attention in this vast universe, so to speak, is 10.[^1]
 
-![Yeah](berries.png)
+![Yeah](../berries.png)
 
 Surprising to think that the brain even works despite this. And I am not referring to the capability of ignoring more than 999,999,999 bits of information every second, that's pretty easy (just don't gaf about what's going on like a tall Oak tree). I am referring to the fact that we can do what we can do *despite* this.
 
