@@ -1,5 +1,5 @@
 node_modules/
-react-app/dist/
+dist/
 newsletter/dist/
 .DS_Store
 *.local
