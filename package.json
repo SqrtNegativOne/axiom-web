@@ -1,0 +1,15 @@
+{
+  "name": "axiom-web",
+  "private": true,
+  "type": "module",
+  "workspaces": ["react-app", "newsletter"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=react-app\" \"npm run dev --workspace=newsletter\"",
+    "build": "npm run build --workspace=react-app && npm run build --workspace=newsletter",
+    "postbuild": "node scripts/postbuild.js",
+    "preview": "npm run preview --workspace=react-app"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

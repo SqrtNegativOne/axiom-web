@@ -1,0 +1,86 @@
+/* Import design tokens */
+@import '../../shared/design-tokens.css';
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-green;
+  }
+}
+
+/* Decorative utilities */
+@layer components {
+  .gold-rule {
+    border: none;
+    border-top: 0.5px solid var(--color-gold);
+  }
+
+  .pull-quote {
+    @apply border-l-4 border-terracotta pl-6 my-8 italic text-green;
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 300;
+  }
+
+  .section-heading {
+    @apply font-heading text-green font-light tracking-wide;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .btn-primary {
+    @apply inline-block bg-terracotta text-cream px-6 py-3 font-body font-medium tracking-wide transition-all duration-200;
+    @apply hover:bg-green hover:text-cream;
+  }
+
+  .btn-outline {
+    @apply inline-block border border-green text-green px-6 py-3 font-body font-medium tracking-wide transition-all duration-200;
+    @apply hover:bg-green hover:text-cream;
+  }
+
+  .card {
+    @apply bg-cream-dark p-6 transition-all duration-300;
+    @apply hover:shadow-md;
+  }
+}
+
+/* Fade-in animation for page entry */
+.animate-on-load {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }

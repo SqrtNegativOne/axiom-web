@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+
+<div class="main">
+  <a href="/newsletter/" class="back-link">← All essays</a>
+
+  <header class="article-header">
+    <h1>{{ title }}</h1>
+    <p class="article-meta">
+      {% if author %}<span>{{ author }}</span> · {% endif %}
+      <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+    </p>
+  </header>
+
+  <div class="article-body">
+    {{ content | safe }}
+  </div>
+</div>
