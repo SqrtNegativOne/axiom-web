@@ -12,8 +12,7 @@ export default function Footer() {
           <div>
             <p className="font-heading text-2xl font-light tracking-[0.15em] text-cream mb-3">AXIOM</p>
             <p className="font-body text-sm leading-relaxed text-cream/60">
-              The Philosophy Society of<br />
-              Netaji Subhas University of Technology
+              The Philosophy Society
             </p>
           </div>
 
@@ -82,7 +81,7 @@ export default function Footer() {
 
         <div className="border-t border-gold/20 mt-10 pt-6 text-center">
           <p className="font-body text-xs text-cream/40">
-            © {new Date().getFullYear()} Axiom — Philosophy Society, NSUT. All rights reserved.
+            © {new Date().getFullYear()} Axiom — The Philosophy Society. All rights reserved.
           </p>
         </div>
       </div>

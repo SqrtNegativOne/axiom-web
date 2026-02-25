@@ -23,6 +23,10 @@ export default function NavBar() {
     setMenuOpen(false)
   }, [pathname])
 
+  // On the home page, use light text when not scrolled (hero is dark)
+  const isHome = pathname === '/'
+  const useLightText = isHome && !scrolled
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -35,10 +39,12 @@ export default function NavBar() {
           <img
             src="/assets/logo.svg"
             alt="Axiom"
-            className="h-8 w-auto"
+            className={`h-8 w-auto transition-all duration-300 ${useLightText ? 'brightness-200 invert' : ''}`}
             onError={(e) => { e.target.style.display = 'none' }}
           />
-          <span className="font-heading text-2xl font-light tracking-[0.15em] text-green group-hover:text-terracotta transition-colors duration-200">
+          <span className={`font-heading text-2xl font-light tracking-[0.15em] transition-colors duration-300 ${
+            useLightText ? 'text-cream group-hover:text-gold' : 'text-green group-hover:text-terracotta'
+          }`}>
             AXIOM
           </span>
         </Link>
@@ -50,8 +56,12 @@ export default function NavBar() {
               <li key={to}>
                 <Link
                   to={to}
-                  className={`font-body text-sm tracking-wider uppercase transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 ${
-                    pathname === to ? 'text-terracotta after:scale-x-100' : 'text-green hover:text-green'
+                  className={`font-body text-sm tracking-wider uppercase transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 ${
+                    pathname === to
+                      ? 'text-terracotta after:scale-x-100'
+                      : useLightText
+                        ? 'text-cream/80 hover:text-cream'
+                        : 'text-green hover:text-green'
                   }`}
                 >
                   {label}
@@ -61,7 +71,9 @@ export default function NavBar() {
               <li key={to}>
                 <a
                   href={to}
-                  className="font-body text-sm tracking-wider uppercase text-green hover:text-terracotta transition-colors duration-200"
+                  className={`font-body text-sm tracking-wider uppercase transition-colors duration-300 ${
+                    useLightText ? 'text-cream/80 hover:text-gold' : 'text-green hover:text-terracotta'
+                  }`}
                 >
                   {label}
                 </a>
@@ -76,9 +88,9 @@ export default function NavBar() {
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span className={`block w-6 h-px transition-all duration-300 ${useLightText ? 'bg-cream' : 'bg-green'} ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-6 h-px transition-all duration-300 ${useLightText ? 'bg-cream' : 'bg-green'} ${menuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-px transition-all duration-300 ${useLightText ? 'bg-cream' : 'bg-green'} ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </nav>
 

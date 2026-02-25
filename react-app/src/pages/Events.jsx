@@ -13,7 +13,7 @@ export default function Events() {
         <p className="font-body text-ink/70 leading-relaxed max-w-2xl"
            style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}>
           From intimate chai sessions to campus-wide philosophical games — here is everything
-          Axiom has put together for the curious minds of NSUT.
+          Axiom has put together for the curious minds among us.
         </p>
       </section>
 

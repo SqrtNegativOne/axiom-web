@@ -23,7 +23,7 @@ export default function EventCard({ title, date, location, description, images, 
       </div>
 
       {/* ── Main content ────────────────────────────────────────────────── */}
-      <div>
+      <div className="min-w-0">
         {/* Metadata */}
         <div className="flex flex-wrap gap-4 mb-3 items-center">
           <span className="font-mono text-gold text-xs tracking-widest">{date}</span>
@@ -46,7 +46,7 @@ export default function EventCard({ title, date, location, description, images, 
 
         {/* Image strip */}
         {validImages.length > 0 && (
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+          <div className="flex gap-2 overflow-x-auto overflow-y-hidden pb-2 scrollbar-thin max-w-full">
             {validImages.map((src, idx) => (
               <button
                 key={idx}
