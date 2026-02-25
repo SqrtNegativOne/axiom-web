@@ -9,9 +9,7 @@ Pull requests welcome. Encouraged, actually.
 # future ideas/todos
 replace the background with some iconic image of NSUT (and add dynamic dither effect on top of that)?
 
-slow down the current dither effect and add more pixels for a more calming effect
-
-ask claude to rewrite claude.md and deployment.md
+use IBM font as main on newsletter, with georgia for headings.
 
 try this dithering pattern
 https://r3f.maximeheckel.com/dithered-waves
