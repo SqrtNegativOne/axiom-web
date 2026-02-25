@@ -25,10 +25,10 @@ function TypewriterPrompt() {
 
     if (phase === 'typing') {
       if (displayed.length < full.length) {
-        const t = setTimeout(() => setDisplayed(full.slice(0, displayed.length + 1)), 45)
+        const t = setTimeout(() => setDisplayed(full.slice(0, displayed.length + 1)), 22)
         return () => clearTimeout(t)
       } else {
-        const t = setTimeout(() => setPhase('lingering'), 3000)
+        const t = setTimeout(() => setPhase('lingering'), 2500)
         return () => clearTimeout(t)
       }
     }
@@ -40,7 +40,7 @@ function TypewriterPrompt() {
 
     if (phase === 'erasing') {
       if (displayed.length > 0) {
-        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 25)
+        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 14)
         return () => clearTimeout(t)
       } else {
         setIdx((i) => (i + 1) % PROMPTS.length)
@@ -52,7 +52,11 @@ function TypewriterPrompt() {
   return (
     <span className="font-mono text-gold/80 text-sm md:text-base tracking-wider">
       {displayed}
-      <span className="animate-blink ml-0.5">_</span>
+      <span
+        className="animate-blink inline-block bg-gold/80 align-text-bottom ml-0.5"
+        style={{ width: '0.5em', height: '1.1em' }}
+        aria-hidden="true"
+      />
     </span>
   )
 }
@@ -97,7 +101,6 @@ function useLatestPosts(n = 3) {
 // ── Home page ───────────────────────────────────────────────────────────────
 export default function Home() {
   const latestPosts = useLatestPosts(3)
-  const [axiomHovered, setAxiomHovered] = useState(false)
 
   return (
     <div className="animate-on-load">
@@ -138,56 +141,53 @@ export default function Home() {
         <div className="relative flex flex-col items-center" style={{ zIndex: 2 }}>
 
           {/* Image + AXIOM overlay — both centred in frame */}
-          <div className="relative mb-2 animate-on-load" style={{ animationDelay: '150ms' }}>
+          <div className="relative animate-on-load" style={{ animationDelay: '150ms' }}>
+            {/* The image — transparent PNG so no wrapper background, no overflow-hidden */}
             <div
-              className="relative overflow-hidden shadow-2xl"
-              style={{ width: 'clamp(260px, 38vw, 400px)', height: 'clamp(260px, 38vw, 400px)' }}
+              className="relative"
+              style={{ width: 'clamp(340px, 54vw, 580px)', height: 'clamp(340px, 54vw, 580px)' }}
             >
               <img
-                src="https://collectionapi.metmuseum.org/api/collection/v1/iiif/343581/731551/main-image"
+                src="https://icarusmarketing.nl/wp-content/uploads/2024/10/4-1024x1024.png"
                 alt="Fall of Icarus"
-                className="w-full h-full object-cover"
-                style={{ filter: 'sepia(0.25) contrast(1.05) brightness(0.85)' }}
+                className="w-full h-full object-contain"
               />
-              {/* Gradient so text reads over the image */}
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(to bottom, rgba(10,22,17,0.25) 0%, rgba(10,22,17,0.55) 100%)' }}
-              />
-              {/* AXIOM over the image */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h1
-                  className="axiom-wordmark"
-                  onMouseEnter={() => setAxiomHovered(true)}
-                  onMouseLeave={() => setAxiomHovered(false)}
-                >
-                  <span className={`axiom-wordmark-text ${axiomHovered ? 'is-doto' : ''}`}>
-                    AXIOM
+
+              {/* Text overlay — centred in frame, column layout */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-0">
+
+                {/* EST. 2017 — directly above AXIOM, no gap */}
+                <div style={{ marginBottom: '0.15em' }}>
+                  <span className="font-mono text-cream" style={{
+                    fontSize: '0.5rem',
+                    letterSpacing: '0.3em',
+                    backgroundColor: 'rgba(26,26,24,0.72)',
+                    padding: '0.35em 0.8em',
+                    display: 'inline-block',
+                  }}>
+                    EST. 2017
                   </span>
+                </div>
+
+                {/* AXIOM */}
+                <h1 className="axiom-wordmark">
+                  <span className="axiom-wordmark-text">AXIOM</span>
                 </h1>
+
+                {/* "the philosophy society" — directly below AXIOM */}
+                <p
+                  className="font-heading italic font-light text-cream/70 tracking-[0.12em]"
+                  style={{ fontSize: 'clamp(0.85rem, 1.8vw, 1.15rem)', marginTop: '0.1em' }}
+                >
+                  the philosophy society
+                </p>
+
               </div>
             </div>
           </div>
 
-          {/* "the philosophy society" — right below, tight */}
-          <p
-            className="font-heading italic font-light text-cream/65 tracking-[0.12em] mb-5 animate-on-load"
-            style={{ fontSize: 'clamp(0.95rem, 2vw, 1.25rem)', animationDelay: '250ms' }}
-          >
-            the philosophy society
-          </p>
-
-          {/* Gold rule */}
-          <div className="flex items-center justify-center gap-4 mb-5 animate-on-load" style={{ animationDelay: '300ms' }}>
-            <div className="h-px w-14 bg-gold/40" />
-            <span className="font-mono text-gold/40" style={{ fontSize: '0.52rem', letterSpacing: '0.3em' }}>
-              EST. 2017
-            </span>
-            <div className="h-px w-14 bg-gold/40" />
-          </div>
-
           {/* Typewriter prompt */}
-          <div className="h-7 animate-on-load" style={{ animationDelay: '350ms' }}>
+          <div className="h-7 mt-2 animate-on-load" style={{ animationDelay: '350ms' }}>
             <TypewriterPrompt />
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ───────────────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-6 py-20">
+      <section className="w-[82%] max-w-5xl mx-auto py-20">
         <p className="label-mono mb-6">— Purpose</p>
         <PullQuote attribution="Socrates">
           The unexamined life is not worth living.
@@ -217,10 +217,10 @@ export default function Home() {
         </p>
       </section>
 
-      <SectionDivider className="px-6 max-w-6xl mx-auto" />
+      <SectionDivider className="w-[82%] max-w-7xl mx-auto" />
 
       {/* ── CTA CARDS ─────────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      <section className="w-[82%] max-w-7xl mx-auto py-20">
         <p className="label-mono mb-3">— Explore</p>
         <h2 className="section-heading mb-12">Where would you like to go?</h2>
 
@@ -248,10 +248,10 @@ export default function Home() {
         </div>
       </section>
 
-      <SectionDivider className="px-6 max-w-6xl mx-auto" />
+      <SectionDivider className="w-[82%] max-w-7xl mx-auto" />
 
       {/* ── NEWSLETTER PREVIEW ────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      <section className="w-[82%] max-w-7xl mx-auto py-20">
         <div className="flex items-baseline justify-between mb-12 flex-wrap gap-4">
           <div>
             <p className="label-mono mb-2">— Latest writing</p>
@@ -308,7 +308,7 @@ export default function Home() {
         )}
       </section>
 
-      <SectionDivider className="px-6 max-w-6xl mx-auto" />
+      <SectionDivider className="w-[82%] max-w-7xl mx-auto" />
 
       {/* ── JOIN US HERO — Creation of Adam ───────────────────────────────── */}
       <section className="relative w-full overflow-hidden" style={{ minHeight: '70vh' }}>
@@ -325,7 +325,7 @@ export default function Home() {
         }} />
 
         <div className="relative flex flex-col items-center justify-center text-center px-6" style={{ minHeight: '70vh' }}>
-          <p className="label-mono text-gold/60 mb-4">— Become part of the dialogue</p>
+          <p className="label-mono text-cream/50 mb-4">Become part of the dialogue</p>
           <h2
             className="font-heading font-light text-cream tracking-[0.2em] mb-8"
             style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}
