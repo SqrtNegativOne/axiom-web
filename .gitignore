@@ -3,3 +3,5 @@ dist/
 newsletter/dist/
 .DS_Store
 *.local
+
+.vercel

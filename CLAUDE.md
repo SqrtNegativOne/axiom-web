@@ -14,10 +14,10 @@ axiom-web/
 ├── newsletter/         # Eleventy (newsletter index + posts)
 ├── shared/             # design-tokens.css (shared by both)
 ├── scripts/            # postbuild.js (Node.js, cross-platform)
-└── react-app/dist/     # Final merged output (deployed to Vercel)
+└── dist/               # Final merged output at repo root (deployed to Vercel)
 ```
 
-The postbuild step copies `newsletter/dist/` into `react-app/dist/newsletter/` so the entire site ships from one directory.
+The postbuild step copies `newsletter/dist/` into `dist/newsletter/` so the entire site ships from one directory. Vite outputs to `../dist` (repo root) via `build.outDir` in `vite.config.js`.
 
 ---
 
@@ -29,7 +29,7 @@ Run from the repo root:
 npm install            # Install all workspace dependencies
 npm run dev            # React :5173 + Eleventy :8081 in parallel
 npm run build          # Full production build (both systems + postbuild)
-npm run preview        # Serve react-app/dist at :4173
+npm run preview        # Serve dist/ at :4173
 ```
 
 Workspace-specific (rarely needed directly):
@@ -81,17 +81,21 @@ The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a
 
 - **Headings**: Cormorant Garamond — `font-heading`, typically `font-light` (300)
 - **Body/UI**: DM Sans — `font-body`, weights 300–600
+- **Tech accent**: IBM Plex Mono — `font-mono`, used for labels, numbers, metadata
 
 ### Tailwind utilities
 
-Custom tokens are mapped into Tailwind (`tailwind.config.js`), so use `text-green`, `bg-terracotta`, `border-gold`, etc. directly.
+Custom tokens are mapped into Tailwind (`tailwind.config.js`), so use `text-green`, `bg-terracotta`, `border-gold`, `font-mono`, etc. directly.
+
+The `label-mono` CSS class (defined in `index.css`) combines `font-mono text-xs tracking-[0.2em] uppercase text-gold` — use it for eyebrow labels and metadata tags.
 
 ### Decorative conventions
 
 - Horizontal rules: 0.5px gold (`border-gold/20`, `border-gold/30`)
 - Pull quotes: 4px terracotta left border, italic Cormorant Garamond
-- Eyebrow labels: `text-xs tracking-[0.3em] uppercase text-gold`
+- Eyebrow labels: `label-mono` class or `text-xs tracking-[0.3em] uppercase text-gold`
 - Section headings: `font-heading font-light text-green` at `clamp(2rem, 4vw, 3rem)`
+- Large monospace numerals (01, 02, 03…) used as editorial decorations on event cards and CTA sections
 
 ---
 
@@ -181,6 +185,22 @@ excerpt: "One sentence shown on the index listing."
 
 Posts are automatically sorted newest-first on the index. The `tags: [posts]` entry is required for Eleventy to include the file in the `posts` collection.
 
+### Newsletter posts JSON endpoint
+
+`newsletter/src/posts.json.11ty.js` generates `/newsletter/posts.json` — a machine-readable list of all posts consumed by the React Home page to show recent articles. It uses a `.11ty.js` JavaScript template (not `.njk`) because Nunjucks HTML-encodes JSON output (`&quot;` instead of `"`).
+
+During dev, `react-app/vite.config.js` proxies `/newsletter/` → `http://localhost:8081` so `fetch('/newsletter/posts.json')` works without a production build.
+
+### Eleventy URL gotcha
+
+In Eleventy v3, `page.url` in templates does **not** include `pathPrefix`. Always use the `withPrefix` filter when building hrefs to posts:
+
+```njk
+<a href="{{ post.url | withPrefix }}">...</a>
+```
+
+The filter is defined in `.eleventy.js` as `(url) => \`/newsletter\${url}\``.
+
 **Markdown support**: headings, paragraphs, blockquotes (renders with terracotta border), ordered/unordered lists, bold, italic, horizontal rules (renders as gold line).
 
 ---
@@ -197,6 +217,8 @@ Posts are automatically sorted newest-first on the index. The `tags: [posts]` en
 | `GalleryCarousel.jsx` | Auto-advancing image carousel (pauses on hover) |
 | `SectionDivider.jsx` | Thin 0.5px gold horizontal rule |
 | `PullQuote.jsx` | Blockquote with terracotta left border |
+| `DitherCanvas.jsx` | Canvas with Bayer ordered dithering on a green radial gradient; used as hero background |
+| `SpotlightCard.jsx` | Wrapper that stores mouse position in CSS custom properties (`--x`, `--y`) for a zero-rerender spotlight effect via `::before` gradient |
 
 ---
 
@@ -206,11 +228,27 @@ Vercel reads `vercel.json` at the repo root:
 
 ```json
 {
+  "framework": null,
+  "installCommand": "npm install",
   "buildCommand": "npm run build",
-  "outputDirectory": "react-app/dist",
+  "outputDirectory": "dist",
   "rewrites": [{ "source": "/newsletter/(.*)", "destination": "/newsletter/$1" }]
 }
 ```
+
+`"framework": null` is required — without it Vercel auto-detects Vite and overrides `outputDirectory` with its own preset.
+
+**Critical Vercel setting**: The project's **Root Directory** must be empty (repo root), not `react-app`. If Root Directory is set to `react-app`, only 135 packages install (one workspace) instead of ~280, and the newsletter build never runs. This setting lives on the Vercel project server-side and can be cleared via the dashboard or via the REST API:
+
+```bash
+# One-time fix if the dashboard setting is wrong:
+curl -X PATCH https://api.vercel.com/v9/projects/<projectId>?teamId=<teamId> \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"rootDirectory": null}'
+```
+
+The auth token is at `%APPDATA%/com.vercel.cli/Data/auth.json` after `vercel login`. Project/team IDs are in `.vercel/project.json`.
 
 Every push to `main` triggers an automatic redeploy. See `DEPLOYMENT.md` for full setup instructions and a guide to adding content.
 
