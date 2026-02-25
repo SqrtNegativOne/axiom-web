@@ -6,8 +6,10 @@ Two build systems, one output:
 
 | System | Pages | Output |
 |--------|-------|--------|
-| Vite + React + Tailwind | Home, About Us, Events | `react-app/dist/` |
-| Eleventy | Newsletter | `newsletter/dist/` → merged into `react-app/dist/newsletter/` |
+| Vite + React + Tailwind | Home, About Us, Events | `react-app/dist/` → `dist/` (repo root) |
+| Eleventy | Newsletter | `newsletter/dist/` → merged into `dist/newsletter/` |
+
+The `scripts/postbuild.js` script merges both outputs into `dist/` at the repo root. Vercel deploys from there.
 
 ---
 
@@ -35,6 +37,8 @@ npm run dev
 - React app → `http://localhost:5173`
 - Newsletter → `http://localhost:8081`
 
+The React dev server proxies `/newsletter/` to Eleventy, so all links work correctly without a production build.
+
 Navigate between them:
 - From React, click the **Newsletter** link in the nav
 - From Newsletter, all nav links go back to React hash routes (`/#/about-us`, etc.)
@@ -48,9 +52,9 @@ npm run build
 ```
 
 This runs in sequence:
-1. `vite build` → `react-app/dist/`
+1. `vite build` → `dist/` (repo root, via `build.outDir: '../dist'` in vite.config.js)
 2. `eleventy` → `newsletter/dist/`
-3. `node scripts/postbuild.js` → copies newsletter output into `react-app/dist/newsletter/`
+3. `node scripts/postbuild.js` → copies newsletter output into `dist/newsletter/`
 
 ### Preview the production build
 
@@ -58,7 +62,7 @@ This runs in sequence:
 npm run preview
 ```
 
-Serves `react-app/dist/` at `http://localhost:4173`. Check that:
+Serves `dist/` at `http://localhost:4173`. Check that:
 - `localhost:4173` — Home page
 - `localhost:4173/#/about-us` — About Us
 - `localhost:4173/#/events` — Events
@@ -73,19 +77,23 @@ The repo includes `vercel.json` at the root which configures Vercel automaticall
 
 ```json
 {
+  "framework": null,
   "buildCommand": "npm run build",
-  "outputDirectory": "react-app/dist",
+  "outputDirectory": "dist",
   "rewrites": [{ "source": "/newsletter/(.*)", "destination": "/newsletter/$1" }]
 }
 ```
+
+`"framework": null` is required — without it Vercel auto-detects Vite and overrides `outputDirectory`.
 
 ### First-time setup
 
 1. Push this repo to GitHub
 2. Go to [vercel.com](https://vercel.com) → **New Project**
 3. Import the GitHub repo
-4. Vercel will auto-detect the `vercel.json` — no manual settings needed
-5. Click **Deploy**
+4. **Important**: In project settings, ensure **Root Directory** is blank (repo root). If set to `react-app`, only one workspace installs and the newsletter build fails.
+5. Vercel will pick up `vercel.json` automatically — no other settings needed
+6. Click **Deploy**
 
 ### Subsequent deploys
 
@@ -158,7 +166,7 @@ Regular paragraph text.
 npm run dev
 ```
 
-Open `http://localhost:8081` — your new post should appear at the top of the list.
+Open `http://localhost:8081` — your new post should appear at the top of the list. The React home page also pulls the latest 3 posts from `/newsletter/posts.json` automatically.
 
 ### Step 5: Deploy
 
@@ -216,7 +224,7 @@ In `events.js`, add an object (keep them newest-first):
 },
 ```
 
-Copy event photos to `react-app/public/assets/events/your-folder-name/`.
+Copy event photos to `react-app/public/assets/events/your-folder-name/`. Images that fail to load are hidden automatically — no broken image icons.
 
 ---
 
@@ -234,3 +242,12 @@ All colors and fonts are defined in `shared/design-tokens.css`. This file is imp
 | `--color-ink` | `#1A1A18` | Body text |
 | `--font-heading` | Cormorant Garamond | All headings |
 | `--font-body` | DM Sans | All body/UI text |
+| `--font-mono` | IBM Plex Mono | Labels, metadata, code accents |
+
+Additional font **Doto** is loaded via Google Fonts in `react-app/index.html` for the AXIOM wordmark display effect. It is not part of the design-tokens file.
+
+### Social links
+
+- Instagram: [@axiomnsut](https://www.instagram.com/axiomnsut)
+- LinkedIn: [axiom-nsut](https://www.linkedin.com/company/axiom-nsut)
+- Branding assets: [Google Drive folder](https://drive.google.com/drive/folders/1ghyc8NSUbn0NVhi1VjHnhtuaOrUcy2FQ)
