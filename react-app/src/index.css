@@ -107,6 +107,32 @@
       linear-gradient(90deg, rgba(201,164,76,0.06) 1px, transparent 1px);
     background-size: 48px 48px;
   }
+
+  /* ── AXIOM wordmark with hover-to-mono effect ──────────────────── */
+  .axiom-wordmark {
+    cursor: default;
+    text-align: center;
+    /* Compensate for letter-spacing making text appear off-center */
+    padding-left: 0.3em;
+  }
+
+  .axiom-wordmark-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    color: var(--color-cream, #F8F4EC);
+    letter-spacing: 0.3em;
+    font-size: clamp(4rem, 14vw, 9rem);
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .axiom-wordmark-text.is-mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--color-gold, #C9A44C);
+    text-shadow: 0 0 30px rgba(201, 164, 76, 0.3);
+  }
 }
 
 /* Page-load fade-in */
