@@ -9,16 +9,20 @@ Pull requests welcome. Encouraged, actually.
 # future ideas/todos
 replace the background with some iconic image of NSUT (and add dynamic dither effect on top of that)?
 
-use IBM font as main on newsletter, with georgia for headings.
+use IBM font as main on newsletter, with georgia for headings. or just steal these fonts https://anytype.io/
 
-try this dithering pattern
-https://r3f.maximeheckel.com/dithered-waves
+make dither pattern even slower?
 
-image trail is composed of pictures of philosophers
-```
-<div style={{ width: '1080px', height: '1080px', position: 'relative' }}>
-  <ImageTrail
-    variant="1"
-  />
-</div>
-```
+
+collect the names and faces and quotes and socials of everyone in the society and rebuild the team page, but also add a link to the old team page.<br>
+after that, add a section like https://zed.dev/ on the main page with everyone's face
+
+also have events older than one year get archived in a separate section, and have a "recent events" section on the main page
+
+ask gpt to hallucinate event descriptions and get images from https://drive.google.com/drive/folders/1-G3my0bNT35C-nrd7BWmGWjUDcww5SAI
+
+reduce margins, increase font size
+
+ambitious: have a script that checks our socials for new posts or the drive link for new folders and automatically adds them to the event section
+
+allow changing theme
