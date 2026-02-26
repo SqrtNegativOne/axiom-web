@@ -333,7 +333,7 @@ export default function Home() {
             JOIN US
           </h2>
           <a
-            href="https://example.com"
+            href="https://chat.whatsapp.com/DGTXdFZKd53B93VvDbPuv6"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block border border-cream/40 text-cream/90 px-10 py-4 font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-cream hover:text-ink hover:border-cream"
