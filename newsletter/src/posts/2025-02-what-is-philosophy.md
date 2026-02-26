@@ -31,11 +31,11 @@ Or, in short, when you strip bare the syllabi and formalisms, it is **the practi
 
 Ever come out of a room and immediately forget why you went in there? Absentmindedly get your shoes before your socks? Open your phone to do something and start scrolling for no reason?
 
-The human brain is a wonderful thing. A group of people recently sat down, locked in, and estimated that we get (in the range of) a billion [Shannon bits of information](https://en.wikipedia.org/wiki/Shannon_(unit)) *every* second, while our conscious mind, the "speed limit" of our narrow light cone of attention in this vast universe, so to speak, is 10.[^1]
+The human brain is a wonderful thing. Scientists only recently were able to estimate that we get (in the range of) a billion [Shannon bits of information](https://en.wikipedia.org/wiki/Shannon_(unit)) *every* second, while our conscious mind, the "speed limit" of our narrow light cone of attention in this vast universe, so to speak, is 10.[^1]
 
 ![Yeah](../berries.png)
 
-Surprising to think that the brain even works despite this. And I am not referring to the capability of ignoring more than 999,999,999 bits of information every second, that's pretty easy (just don't gaf about what's going on like a tall Oak tree). I am referring to the fact that we can do what we can do *despite* this.
+Surprising to think that the brain even works despite this. And I am not referring to the ability to simply ignore 999,999,999 bits of information every second, that's pretty easy; you can do that just by killing yourself. What really begs the question is the fact that we can do what we can do, *despite* this.
 
 > Mice can see, but they can’t understand seeing. You can understand seeing, and because of that, you can do things that mice cannot do. Take a moment to marvel at this, for it is indeed marvelous.
 > Mice see, but they don’t know they have visual cortexes, so they can’t correct for optical illusions. A mouse lives in a mental world that includes cats, holes, cheese and mousetraps—but not mouse brains. Their camera does not take pictures of its own lens. But we, as humans, can look at a seemingly bizarre image, and realize that part of what we’re seeing is the lens itself. You don’t always have to believe your own eyes, but you have to realize that you have eyes—you must have distinct mental buckets for the map and the territory, for the senses and reality. Lest you think this a trivial ability, remember how rare it is in the animal kingdom.[^2]
@@ -43,6 +43,8 @@ Surprising to think that the brain even works despite this. And I am not referri
 Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of choosing your own damn lenses, and then looking through them to see the world in a way that surprises you.
 
 # What was the point of this, miss?
+
+Every day people go about their lives. They go to work, write code, make money, have fun, fall in love, go to the dentist and so on. And they do it without wondering about the metaphysical nature of existence.
 
 We are aware of the irony of philosophy society existing at a technical university. And the cliché of an arts professor yelling at clouds on how important the arts is and how engineers just want to make money, yeah, everyone knows it.
 
