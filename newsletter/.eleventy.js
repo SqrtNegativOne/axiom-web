@@ -1,5 +1,6 @@
 import markdownIt from "markdown-it";
 import markdownItFootnote from "markdown-it-footnote";
+import markdownItImageFigures from "markdown-it-image-figures";
 
 export default function (eleventyConfig) {
   // Pass through the shared design tokens CSS
@@ -11,9 +12,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/posts/**/*.{jpg,jpeg,png,gif,svg,webp,avif}");
 
   // Configure markdown-it with footnote support
-  const md = markdownIt({ html: true, linkify: true, typographer: true }).use(
-    markdownItFootnote
-  );
+  const md = markdownIt({ html: true, linkify: true, typographer: true })
+    .use(markdownItFootnote)
+    .use(markdownItImageFigures, { figcaption: "title" });
   eleventyConfig.setLibrary("md", md);
 
   // Readable date filter: "February 10, 2025"
