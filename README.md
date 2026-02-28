@@ -6,6 +6,12 @@ Run locally using the `run.ps1` file.
 
 Pull requests welcome. Encouraged, actually.
 
+## Screenshots
+
+| Home | Newsletter | 404 |
+|------|------------|-----|
+| ![Home hero with dither background and Icarus statue](screenshots/home-hero.png) | ![Newsletter post page](screenshots/newsletter-post.png) | ![404 page](screenshots/404-page.png) |
+
 # future ideas/todos
 ## imp
 find a better hosting service that is free and doesn't take _minutes_ to just appear when you enter the url. also we need to find a better url.
