@@ -1,8 +1,4 @@
-# Axiom Web — CLAUDE.md
-
 This is the website for **Axiom**, the philosophy society at NSUT. Built with React + Vite + Tailwind (main site) and Eleventy (newsletter).
-
----
 
 ## Architecture
 
@@ -18,8 +14,6 @@ axiom-web/
 ```
 
 The postbuild step copies `newsletter/dist/` into `dist/newsletter/` so the entire site ships from one directory. Vite outputs to `../dist` (repo root) via `build.outDir` in `vite.config.js`.
-
----
 
 ## Commands
 
@@ -43,8 +37,6 @@ Installing packages for the newsletter specifically:
 npm install <pkg> --workspace=axiom-newsletter
 ```
 
----
-
 ## Tech Stack
 
 | Tool | Version | Role |
@@ -58,15 +50,11 @@ npm install <pkg> --workspace=axiom-newsletter
 
 **Do not install three.js / @react-three/fiber.** The Canvas element from react-three/fiber captures all pointer events (blocks page scroll) and its WebGL context can throw on init — without an ErrorBoundary this crashes the entire React tree to a white screen.
 
----
-
 ## Routing
 
 React uses **BrowserRouter** — routes are `/`, `/about`, `/events`, `/colophon`. A catch-all `path="*"` renders the 404 page. Vercel's rewrite rule (`"source": "/(.*)"`) ensures deep links resolve to `index.html`.
 
 The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a `<Link>`), crossing the build-system boundary. Eleventy nav links back to React using absolute paths (`/about`, `/events`).
-
----
 
 ## Design System
 
@@ -111,8 +99,6 @@ The `label-mono` CSS class (defined in `index.css`) combines `font-mono text-xs 
 - Content sections below hero use `w-[82%] max-w-Nxl mx-auto` — no `px-N` padding class.
 - NavBar is **completely hidden** on the home page until the user scrolls 60px, then slides in as a cream bar.
 
----
-
 ## Images
 
 All images live in `react-app/public/assets/` and are referenced as absolute paths — **never import images through Vite**:
@@ -136,8 +122,6 @@ public/assets/
 Reference in code: `<img src="/assets/team/nikita.jpeg" />` or as a string in data files.
 
 If a photo is missing, `TeamCard` and `AlumniCard` render a colored **initials avatar** automatically via their `onError` handler.
-
----
 
 ## Content Data Files
 
@@ -171,8 +155,6 @@ Edit these to update site content — no component changes needed:
   images: ["/assets/events/folder/img.jpg", ...]
 }
 ```
-
----
 
 ## Newsletter Posts
 
@@ -230,8 +212,6 @@ Images co-located with posts (`newsletter/src/posts/image.png`) are passed throu
 
 RSS feed: `/newsletter/feed.xml` · Atom feed: `/newsletter/atom.xml` — both generated from Nunjucks templates in `newsletter/src/`. Auto-discovery `<link rel="alternate">` tags are in `base.njk`. Absolute feed URLs use `site.url` from `newsletter/src/_data/site.js` — update this to the real Vercel domain once known.
 
----
-
 ## Components
 
 | Component | Purpose |
@@ -271,8 +251,6 @@ RSS feed: `/newsletter/feed.xml` · Atom feed: `/newsletter/atom.xml` — both g
 </section>
 ```
 
----
-
 ## Deployment
 
 Vercel reads `vercel.json` at the repo root:
@@ -302,9 +280,3 @@ curl -X PATCH https://api.vercel.com/v9/projects/<projectId>?teamId=<teamId> \
 The auth token is at `%APPDATA%/com.vercel.cli/Data/auth.json` after `vercel login`. Project/team IDs are in `.vercel/project.json`.
 
 Every push to `main` triggers an automatic redeploy. See `DEPLOYMENT.md` for full setup instructions and a guide to adding content.
-
----
-
-## Source Reference
-
-Original content (team, events, alumni data and images) was ported from `../axiom-nsut/`. That repo remains as reference — do not modify it.

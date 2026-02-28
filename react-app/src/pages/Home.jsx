@@ -252,7 +252,7 @@ export default function Home() {
 
       {/* ── NEWSLETTER PREVIEW ────────────────────────────────────────────── */}
       <section className="w-[90%] max-w-5xl mx-auto py-14">
-        <div className="flex items-baseline justify-between mb-12 flex-wrap gap-4">
+        <div className="flex items-baseline justify-between mb-4 flex-wrap gap-4">
           <div>
             <p className="label-mono mb-2">— Latest writing</p>
             <h2 className="section-heading">From the Newsletter</h2>

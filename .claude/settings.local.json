@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(tail:*)",
-      "Bash(cd /c/Users/arkma/Documents/GitHub/axiom-web && npm run build 2>&1)",
-      "Skill(claude-md-management:revise-claude-md)"
-    ]
-  }
-}
