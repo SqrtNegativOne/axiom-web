@@ -55,24 +55,27 @@ export default function Footer() {
           <div>
             <p className="font-body text-xs tracking-widest uppercase text-gold mb-4">Connect</p>
             <div className="flex flex-col gap-2">
-              <a
-                href="/newsletter/feed.xml"
-                className="font-body text-sm text-cream/70 hover:text-cream transition-colors duration-200 flex items-center gap-2"
-              >
-                <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 006.18 7.27V4.44M4 10.1a9.9 9.9 0 019.9 9.9H11.1A7.07 7.07 0 004 12.93V10.1z" />
-                </svg>
-                RSS Feed
-              </a>
-              <a
-                href="/newsletter/atom.xml"
-                className="font-body text-sm text-cream/70 hover:text-cream transition-colors duration-200 flex items-center gap-2"
-              >
-                <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 006.18 7.27V4.44M4 10.1a9.9 9.9 0 019.9 9.9H11.1A7.07 7.07 0 004 12.93V10.1z" />
-                </svg>
-                Atom Feed
-              </a>
+              {/* Feeds section */}
+              <div className="flex items-start h-5 gap-3">
+                <a
+                  href="/newsletter/feed.xml"
+                  className="font-body text-sm text-cream/70 hover:text-cream transition-colors duration-200 flex items-center gap-1"
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 006.18 7.27V4.44M4 10.1a9.9 9.9 0 019.9 9.9H11.1A7.07 7.07 0 004 12.93V10.1z" />
+                  </svg>
+                  RSS
+                </a>
+                <a
+                  href="/newsletter/atom.xml"
+                  className="font-body text-sm text-cream/70 hover:text-cream transition-colors duration-200 flex items-center gap-1"
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 006.18 7.27V4.44M4 10.1a9.9 9.9 0 019.9 9.9H11.1A7.07 7.07 0 004 12.93V10.1z" />
+                  </svg>
+                  Atom
+                </a>
+              </div>
               <a
                 href="https://www.instagram.com/axiomnsut"
                 target="_blank"
