@@ -4,6 +4,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/newsletter/(.*)", "destination": "/newsletter/$1" }
+    { "source": "/newsletter/(.*)", "destination": "/newsletter/$1" },
+    { "source": "/((?!newsletter/).*)", "destination": "/index.html" }
   ]
 }

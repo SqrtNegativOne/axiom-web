@@ -14,5 +14,9 @@ export default defineConfig({
     proxy: {
       '/newsletter/': 'http://localhost:8081',
     },
+    // Pre-transform entry files so the first browser request is fast
+    warmup: {
+      clientFiles: ['./src/main.jsx', './src/App.jsx', './src/pages/Home.jsx'],
+    },
   },
 })

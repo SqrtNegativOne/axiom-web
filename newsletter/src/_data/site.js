@@ -4,9 +4,9 @@ export default {
   url: "https://axiom-web.vercel.app",
   reactBaseUrl: "/",
   navLinks: [
-    { label: "Home", href: "/#/" },
-    { label: "About Us", href: "/#/about-us" },
-    { label: "Events", href: "/#/events" },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Events", href: "/events" },
     { label: "Newsletter", href: "/newsletter/", active: true },
   ],
 };
