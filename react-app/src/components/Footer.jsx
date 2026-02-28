@@ -128,6 +128,28 @@ export default function Footer() {
                 </svg>
                 WhatsApp Community
               </a>
+              <a
+                href="https://www.youtube.com/@AxiomNSUT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-sm text-cream/70 hover:text-cream transition-colors duration-200 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+                YouTube
+              </a>
+              <a
+                href="https://linktr.ee/AxiomNSUT_Official"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-sm text-cream/70 hover:text-cream transition-colors duration-200 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10zm3.5-10c0 1.93-1.57 3.5-3.5 3.5s-3.5-1.57-3.5-3.5 1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5zm2-8h-10v2h10v-2zm0 4h-10v2h10v-2zm0 4h-10v2h10v-2z" />
+                </svg>
+                Linktree
+              </a>
             </div>
           </div>
         </div>
