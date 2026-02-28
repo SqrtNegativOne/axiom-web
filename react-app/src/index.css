@@ -113,7 +113,7 @@
     background-size: 48px 48px;
   }
 
-  /* ── AXIOM wordmark with hover-to-Doto effect ──────────────────── */
+  /* ── AXIOM wordmark ─────────────────────────────────────────────── */
   .axiom-wordmark {
     cursor: default;
     text-align: center;
@@ -128,17 +128,8 @@
     letter-spacing: 0.3em;
     font-size: clamp(4rem, 13vw, 9rem);
     display: inline-block;
-    transition: font-weight 0.12s, letter-spacing 0.15s ease-out;
     text-shadow: 0 2px 24px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5);
     user-select: none;
-  }
-
-  .axiom-wordmark-text.is-doto {
-    font-family: 'Doto', monospace;
-    font-weight: 700;
-    letter-spacing: 0.55em;
-    color: #F8F4EC;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.7);
   }
 }
 

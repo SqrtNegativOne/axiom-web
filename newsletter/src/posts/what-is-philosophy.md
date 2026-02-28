@@ -1,7 +1,7 @@
 ---
 layout: post.njk
 title: "What Is Philosophy, Anyway?"
-date: 2025-02-10
+date: 2025-02-28
 author: Ark Malhotra
 excerpt: If you didn't notice, this is a philosophy society.
 tags:
@@ -13,17 +13,17 @@ navActive: newsletter
 
 If you didn't notice, this is a philosophy society.
 
-Surely there must be something about it. As of 2026-02-28 (in Big Endian notation), this society has 79 members, and has been around for 8 years. We have a newsletter, a Whatsapp group, an Instagram page, and weekly public events several of which are open to all. And the one question that gets asked, is...
+Surely there must be something about it. As of February, 2026, this society has 79 members, and has been around for 8 years. We have a newsletter, a Whatsapp group, an Instagram page, and weekly public events, several of which are open to all. And the one question that gets asked, is...
 
 "What is philosophy?"
 
-Never in the "thoughtful" or "academic" manner, no, but in the "What the hell are you guys even doing?" one. I can't blame them, it's a damn fair question. Why _would_ one waste their formative years in pursuing this rare and ancient balderdash and not even get something to put on their resume? And I have a confession: I don't know the exact answer to it. I don't think anyone does. We just call it "the love of wisdom" and hope no one comes up with a follow-up.
+Never in the "thoughtful" or "academic" manner, no, but in the "What the hell are you guys even doing?" one. I can't blame them, it's a damn fair question. Why would one waste their formative years in pursuing this unwonted and primeval field in the humanities and not even get something to put on their resume? And I have a confession: I don't know the exact answer to it. I don't think anyone does.
 
-And in my defense, it doesn't look like anyone else does either.
+But in my defense, it doesn't look like anyone else does either.
 
 ![Maybe one day we will know.](../whatisphilosophy.jpg "Maybe one day we will know.")
 
-Trying to define philosophy is philosophy itself.
+> Trying to define philosophy is philosophy itself.
 
 The Wikipedia page on philosophy tells us the following.
 
@@ -57,7 +57,7 @@ Surprising to think that the brain even works despite this. And I am not referri
 
 What really begs the question is the fact that we can do what we can do, *despite* this.
 
-> Mice can see, but they can’t understand seeing. You can understand seeing, and because of that, you can do things that mice cannot do. Take a moment to marvel at this, for it is indeed marvelous.
+> Mice can see, but they can’t understand seeing. You can understand seeing, and because of that, you can do things that mice cannot do. Take a moment to marvel at this, for it is indeed marvelous.<br>
 > Mice see, but they don’t know they have visual cortexes, so they can’t correct for optical illusions. A mouse lives in a mental world that includes cats, holes, cheese and mousetraps—but not mouse brains. Their camera does not take pictures of its own lens. But we, as humans, can look at a seemingly bizarre image, and realize that part of what we’re seeing is the lens itself. You don’t always have to believe your own eyes, but you have to realize that you have eyes—you must have distinct mental buckets for the map and the territory, for the senses and reality. Lest you think this a trivial ability, remember how rare it is in the animal kingdom.[^2]
 
 Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of choosing your own damn lenses, and then looking through them to see the world in a way that surprises you.

@@ -67,7 +67,7 @@ const ctaCards = [
     num: '01',
     title: 'About Us',
     description: 'Meet the team, discover our origins, and read what our alumni say.',
-    link: '/about-us',
+    link: '/about',
     internal: true,
   },
   {
@@ -103,7 +103,7 @@ export default function Home() {
   const latestPosts = useLatestPosts(3)
 
   return (
-    <div className="animate-on-load">
+    <div>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
@@ -121,7 +121,7 @@ export default function Home() {
             pixelSize={2}
             waveAmplitude={0.3}
             waveFrequency={3}
-            waveSpeed={0.05}
+            waveSpeed={0.015}
           />
         </div>
 
@@ -141,7 +141,7 @@ export default function Home() {
         <div className="relative flex flex-col items-center" style={{ zIndex: 2 }}>
 
           {/* Image + AXIOM overlay — both centred in frame */}
-          <div className="relative animate-on-load" style={{ animationDelay: '150ms' }}>
+          <div className="relative">
             {/* The image — transparent PNG so no wrapper background, no overflow-hidden */}
             <div
               className="relative"
@@ -187,7 +187,7 @@ export default function Home() {
           </div>
 
           {/* Typewriter prompt */}
-          <div className="h-7 mt-2 animate-on-load" style={{ animationDelay: '350ms' }}>
+          <div className="h-7 mt-2">
             <TypewriterPrompt />
           </div>
         </div>
@@ -200,27 +200,27 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ───────────────────────────────────────────────────────── */}
-      <section className="w-[90%] max-w-5xl mx-auto py-20">
+      <section className="w-[90%] max-w-3xl mx-auto py-14">
         <p className="label-mono mb-6">— Purpose</p>
         <PullQuote attribution="Socrates">
           The unexamined life is not worth living.
         </PullQuote>
-        <p className="font-body text-ink/70 leading-relaxed mt-8" style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}>
+        <p className="font-body text-ink/70 leading-relaxed mt-8" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)' }}>
           Axiom was born from a simple conviction: that philosophy is not merely an academic
           discipline but a way of inhabiting the world with greater depth and honesty. We create
           spaces — both formal and informal — where students from all departments can grapple with
           fundamental questions about knowledge, morality, consciousness, and society.
         </p>
-        <p className="font-body text-ink/70 leading-relaxed mt-4" style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}>
+        <p className="font-body text-ink/70 leading-relaxed mt-4" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)' }}>
           Whether it's a spirited Chai Pe Charcha on free will, a walking seminar around campus,
           or a curated newsletter essay — Axiom is where curiosity finds a home.
         </p>
       </section>
 
-      <SectionDivider className="w-[90%] max-w-7xl mx-auto" />
+      <SectionDivider className="w-[90%] max-w-5xl mx-auto" />
 
       {/* ── CTA CARDS ─────────────────────────────────────────────────────── */}
-      <section className="w-[90%] max-w-7xl mx-auto py-20">
+      <section className="w-[90%] max-w-6xl mx-auto py-14">
         <p className="label-mono mb-3">— Explore</p>
         <h2 className="section-heading mb-12">Where would you like to go?</h2>
 
@@ -232,7 +232,7 @@ export default function Home() {
                 {num}
               </p>
               <h3 className="font-heading text-xl text-green mb-3">{title}</h3>
-              <p className="font-body text-sm text-ink/60 leading-relaxed mb-8">{description}</p>
+              <p className="font-body text-base text-ink/60 leading-relaxed mb-8">{description}</p>
               {internal ? (
                 <Link to={link} className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider">
                   explore →
@@ -248,10 +248,10 @@ export default function Home() {
         </div>
       </section>
 
-      <SectionDivider className="w-[90%] max-w-7xl mx-auto" />
+      <SectionDivider className="w-[90%] max-w-5xl mx-auto" />
 
       {/* ── NEWSLETTER PREVIEW ────────────────────────────────────────────── */}
-      <section className="w-[90%] max-w-7xl mx-auto py-20">
+      <section className="w-[90%] max-w-5xl mx-auto py-14">
         <div className="flex items-baseline justify-between mb-12 flex-wrap gap-4">
           <div>
             <p className="label-mono mb-2">— Latest writing</p>
@@ -277,7 +277,7 @@ export default function Home() {
                     <a href={post.url} className="block">
                       <h3
                         className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-200"
-                        style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)' }}
+                        style={{ fontSize: 'clamp(1.35rem, 2.7vw, 1.8rem)' }}
                       >
                         {post.title}
                       </h3>
@@ -286,7 +286,7 @@ export default function Home() {
                       <p className="font-body text-xs text-ink/50 mt-1">by {post.author}</p>
                     )}
                     {post.excerpt && (
-                      <p className="font-body text-sm text-ink/60 leading-relaxed mt-2 max-w-2xl">
+                      <p className="font-body text-base text-ink/60 leading-relaxed mt-2 max-w-2xl">
                         {post.excerpt}
                       </p>
                     )}
@@ -308,7 +308,7 @@ export default function Home() {
         )}
       </section>
 
-      <SectionDivider className="w-[90%] max-w-7xl mx-auto" />
+      <SectionDivider className="w-[90%] max-w-5xl mx-auto" />
 
       {/* ── JOIN US HERO — Creation of Adam ───────────────────────────────── */}
       <section className="relative w-full overflow-hidden" style={{ minHeight: '70vh' }}>

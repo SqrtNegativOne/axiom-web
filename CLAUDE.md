@@ -50,10 +50,9 @@ npm install <pkg> --workspace=axiom-newsletter
 | Tool | Version | Role |
 |------|---------|------|
 | React | ^18.3.1 | UI |
-| React Router | ^6.28.0 | Hash-based routing (`/#/about-us`) |
+| React Router | ^6.28.0 | BrowserRouter — clean URL routing (`/about`, `/events`) |
 | Vite | ^6.0.5 | Dev server + bundler |
 | Tailwind CSS | ^3.4.16 | Utility CSS |
-| motion | ^12.x | Animations (CircularText etc.) |
 | Eleventy | ^3.0.0 | Newsletter static site |
 | Concurrently | ^8.2.2 | Parallel dev scripts |
 
@@ -63,9 +62,9 @@ npm install <pkg> --workspace=axiom-newsletter
 
 ## Routing
 
-React uses **HashRouter** — all routes are `/#/`, `/#/about-us`, `/#/events`. This works on static hosts without rewrite rules.
+React uses **BrowserRouter** — routes are `/`, `/about`, `/events`, `/colophon`. A catch-all `path="*"` renders the 404 page. Vercel's rewrite rule (`"source": "/(.*)"`) ensures deep links resolve to `index.html`.
 
-The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a `<Link>`), crossing the build-system boundary. Eleventy nav links back to React using absolute hash paths (`/#/about-us`).
+The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a `<Link>`), crossing the build-system boundary. Eleventy nav links back to React using absolute paths (`/about`, `/events`).
 
 ---
 
@@ -89,9 +88,7 @@ The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a
 - **Headings**: Cormorant Garamond — `font-heading`, typically `font-light` (300)
 - **Body/UI**: DM Sans — `font-body`, weights 300–600
 - **Tech accent**: IBM Plex Mono — `font-mono`, used for labels, numbers, metadata
-- **Display/hover accent**: Doto — loaded via Google Fonts in `index.html`, used for the AXIOM wordmark hover state (`.is-doto` CSS class)
-
-All four fonts are loaded in `react-app/index.html` via a single Google Fonts `<link>`.
+All three fonts are loaded in `react-app/index.html` via a single Google Fonts `<link>`.
 
 ### Tailwind utilities
 
@@ -250,7 +247,7 @@ RSS feed: `/newsletter/feed.xml` · Atom feed: `/newsletter/atom.xml` — both g
 | `Dither.jsx` | Canvas-based animated Perlin FBM wave + Bayer ordered dither background. Pure canvas (no three.js). Canvas renders at 80×45 and is scaled up with `image-rendering: pixelated` for the chunky pixel look. Palette: 4 Axiom green levels |
 | `SpotlightCard.jsx` | Wrapper that stores mouse position in CSS custom properties (`--x`, `--y`) for a zero-rerender spotlight effect via `::before` gradient |
 | `ClickSpark.jsx` | Pure canvas click-spark animation (created but currently unused in App.jsx) |
-| `CircularText.jsx` | Spinning text ring using `motion/react` (created but currently unused in Home.jsx) |
+| `CircularText.jsx` | Spinning text ring using `motion/react` (unused — `motion` package remains as a dev dependency) |
 
 ### Home page hero structure
 
