@@ -40,22 +40,26 @@ export default function Colophon() {
 
           {/* Tools */}
           <section>
-            <p className="label-mono mb-4">Built with</p>
-            <ul className="space-y-3 text-sm">
+            <p className="label-mono mb-6">Built with</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 border border-gold/20">
               {[
-                ['React 18', 'UI component library with BrowserRouter for clean URL routing'],
-                ['Vite', 'Development server and production bundler'],
-                ['Tailwind CSS', 'Utility-first CSS with custom design tokens'],
-                ['Eleventy', 'Static site generator for the newsletter'],
-  
-                ['markdown-it', 'Markdown renderer with footnote support for newsletter posts'],
-              ].map(([tool, desc]) => (
-                <li key={tool} className="flex gap-4">
-                  <span className="font-mono text-xs text-gold w-32 shrink-0 mt-0.5">{tool}</span>
-                  <span className="text-ink/60">{desc}</span>
-                </li>
+                { index: '01', tool: 'React 18', tag: 'UI', desc: 'Component library with BrowserRouter for clean URL routing.' },
+                { index: '02', tool: 'Vite', tag: 'Tooling', desc: 'Development server and production bundler with hot module replacement.' },
+                { index: '03', tool: 'Tailwind CSS', tag: 'Styling', desc: 'Utility-first CSS framework driven by custom design tokens.' },
+                { index: '04', tool: 'Eleventy', tag: 'Content', desc: 'Static site generator powering the newsletter layer.' },
+                { index: '05', tool: 'markdown-it', tag: 'Content', desc: 'Markdown renderer with footnote plugin for newsletter posts.' },
+                { index: '06', tool: 'Vercel', tag: 'Deploy', desc: 'Edge hosting with automatic deploys from the main branch.' },
+              ].map(({ index, tool, tag, desc }) => (
+                <div key={tool} className="border-b border-r border-gold/20 p-5 flex flex-col gap-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[10px] text-gold/50">{index}</span>
+                    <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-terracotta/60">{tag}</span>
+                  </div>
+                  <p className="font-mono text-sm text-green">{tool}</p>
+                  <p className="text-xs text-ink/55 leading-relaxed">{desc}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </section>
 
           <div className="border-t border-gold/20" />
@@ -88,12 +92,23 @@ export default function Colophon() {
           {/* Hosting */}
           <section>
             <p className="label-mono mb-4">Hosting &amp; deployment</p>
-            <p className="text-sm text-ink/70">
+            <p className="text-sm text-ink/70 mb-5">
               Deployed on <strong className="text-ink font-medium">Vercel</strong> from the{' '}
               <code className="font-mono text-xs bg-cream-dark px-1.5 py-0.5 rounded">main</code> branch.
               The site ships as a single static directory merging two independent build systems —
               React/Vite for the main site and Eleventy for the newsletter — via a Node.js postbuild script.
             </p>
+            <a
+              href="https://github.com/SqrtNegativOne/axiom-web"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 font-mono text-xs text-green border border-gold/30 px-4 py-2.5 hover:bg-cream-dark hover:border-gold/60 transition-colors duration-200"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 opacity-70">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              github.com/SqrtNegativOne/axiom-web
+            </a>
           </section>
 
 
