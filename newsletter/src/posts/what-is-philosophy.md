@@ -17,13 +17,11 @@ Surely there must be something about it. As of February, 2026, this society has 
 
 "What is philosophy?"
 
-Never in the "thoughtful" or "academic" manner, no, but in the "What the hell are you guys even doing?" one. I can't blame them, it's a damn fair question. Why would one waste their formative years in pursuing this unwonted and primeval field in the humanities and not even get something to put on their resume? And I have a confession: I don't know the exact answer to it. I don't think anyone does.
+Never in the "thoughtful" or "academic" manner, no, but in the "What the hell are you guys even doing?" one. I can't blame them, it's a damn fair question. Why would one waste their formative years in pursuing this unwonted and primeval field in the humanities and not even get something to put on their resume? And I have a confession: I don't know the exact answer to it.
 
 But in my defense, it doesn't look like anyone else does either.
 
 ![Maybe one day we will know.](../whatisphilosophy.jpg "Maybe one day we will know.")
-
-> Trying to define philosophy is philosophy itself.
 
 The Wikipedia page on philosophy tells us the following.
 
@@ -31,17 +29,19 @@ The Wikipedia page on philosophy tells us the following.
 
 Good enough I guess. But could you *possibly* get any vaguer? Couldn't you say the same for science, psychology, parts of math, even engineering, or some eclectic combination of it? What does it even *mean* to "study" these questions? And what does it even *mean* to "love" wisdom? Why not do literally *anything* else?
 
+> Trying to define philosophy is philosophy itself.
+
 # Welcome to the Metaverse
 
 Allow me to affirm one simple contention: a more applicatable, dare I say intuitive, definition of philosophy, is that it is the practice of Meta-ness.
 
 We prepend the "meta-" prefix to all sorts of things — meta-ethics, meta-cognition, in literature and media we have "metanarrative", "metatext", "metafiction", "metacommunication", "metanalysis", and in programming we have "metaprogramming", "metaobjects", "metaclasses", "metadata" and so on.
 
-I think you see the concept-space I am referring to. The "meta-" prefix is acting as an operator to refer to a higher level of abstraction on the same concept. Philosophy, then, is merely the set of all objects obtained through, I would reckon, at least two levels of this. Applying the meta operator to philosophy, gives you philosophy itself.
+I think you see the concept-space I am referring to. The "meta-" prefix is acting as an operator to refer to a higher level of abstraction on the same concept. Philosophy, then, is merely the set of all objects obtained through, I would reckon, at least two levels of this; a meta-analysis of meta. Thus, applying the meta operator to philosophy, gives you philosophy itself.
 
 And what does that give us?
 
-# A programming language for Attention
+# A programming language for attention
 
 In short, when you strip bare my contrived formalisms, it simply reduces to the **practice** of **refusing to let things go unexamined.**
 
