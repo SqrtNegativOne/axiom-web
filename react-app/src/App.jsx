@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -7,9 +8,16 @@ import Events from './pages/Events'
 import Colophon from './pages/Colophon'
 import NotFound from './pages/NotFound'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
+
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-cream">
         <NavBar />
         <main className="flex-1">
