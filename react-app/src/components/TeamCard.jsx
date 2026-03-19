@@ -113,7 +113,7 @@ export default function TeamCard({ name, image, quote, socials, compact = false 
           <img
             src={image}
             alt={`Portrait of ${name}`}
-            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             onError={() => setImgFailed(true)}
           />
         ) : (
