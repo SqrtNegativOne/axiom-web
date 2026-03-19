@@ -26,6 +26,7 @@ function useSingleLineName(name) {
         return
       }
     }
+
     // Single word still too long — truncate characters with '..'
     let chars = words[0]
     while (chars.length > 2) {
