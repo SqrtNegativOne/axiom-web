@@ -1,4 +1,47 @@
-import { useState } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
+
+// Measures the name element after render and shortens it if it wraps to a second line.
+// Strategy: drop the last word until it fits; if it's one word and still too long, truncate with '..'.
+function useSingleLineName(name) {
+  const ref = useRef(null)
+  const [displayName, setDisplayName] = useState(name)
+
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const lineHeight = parseFloat(getComputedStyle(el).lineHeight) || 24
+
+    // Already fits on one line
+    if (el.offsetHeight <= lineHeight * 1.4) return
+
+    const words = name.split(' ')
+
+    // Drop last word(s) until it fits
+    while (words.length > 1) {
+      words.pop()
+      el.textContent = words.join(' ')
+      if (el.offsetHeight <= lineHeight * 1.4) {
+        setDisplayName(words.join(' '))
+        return
+      }
+    }
+    // Single word still too long — truncate characters with '..'
+    let chars = words[0]
+    while (chars.length > 2) {
+      chars = chars.slice(0, -1)
+      el.textContent = chars + '..'
+      if (el.offsetHeight <= lineHeight * 1.4) {
+        setDisplayName(chars + '..')
+        return
+      }
+    }
+
+    setDisplayName(chars + '..')
+  }, [name])
+
+  return { ref, displayName }
+}
 
 // Default person silhouette — used when no photo is available
 function DefaultAvatar({ className = '' }) {
@@ -57,6 +100,7 @@ function SocialIcons({ name, socials }) {
 
 export default function TeamCard({ name, image, quote, socials, compact = false }) {
   const [imgFailed, setImgFailed] = useState(false)
+  const { ref: nameRef, displayName } = useSingleLineName(name)
 
   const avatarSize = compact ? 'w-20 h-20' : 'w-32 h-32'
 
@@ -76,9 +120,9 @@ export default function TeamCard({ name, image, quote, socials, compact = false 
         )}
       </div>
 
-      {/* Name */}
-      <h4 className={`font-heading font-medium text-green ${compact ? 'text-base mb-0.5' : 'text-xl mb-1'}`}>
-        {name}
+      {/* Name — single line, drops overflowing words */}
+      <h4 ref={nameRef} className={`font-heading font-medium text-green ${compact ? 'text-base mb-0.5' : 'text-xl mb-1'}`}>
+        {displayName}
       </h4>
 
       {/* Quote — hidden in compact mode or when no quote */}
