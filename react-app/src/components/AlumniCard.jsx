@@ -1,10 +1,16 @@
 import { useState } from 'react'
 
-function InitialsAvatar({ name, className = '' }) {
-  const initials = name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase()
+function DefaultAvatar({ className = '' }) {
   return (
-    <div className={`flex items-center justify-center bg-green-dark text-cream font-heading text-xl font-light ${className}`}>
-      {initials}
+    <div className={`flex items-center justify-center bg-green ${className}`}>
+      <svg viewBox="0 0 80 80" fill="none" className="w-3/5 h-3/5">
+        <circle cx="40" cy="28" r="12" fill="#F8F4EC" opacity="0.35" />
+        <path
+          d="M16 72c0-13.255 10.745-24 24-24s24 10.745 24 24"
+          fill="#F8F4EC"
+          opacity="0.35"
+        />
+      </svg>
     </div>
   )
 }
@@ -24,7 +30,7 @@ export default function AlumniCard({ name, batch, image, thought }) {
               onError={() => setImgFailed(true)}
             />
           ) : (
-            <InitialsAvatar name={name} className="w-full h-full" />
+            <DefaultAvatar className="w-full h-full" />
           )}
         </div>
         <div>
@@ -33,7 +39,7 @@ export default function AlumniCard({ name, batch, image, thought }) {
         </div>
       </div>
       <div className="border-t border-gold/20" />
-      <p className="font-body text-sm text-ink/70 leading-relaxed italic">"{thought}"</p>
+      <p className="font-body text-sm text-ink/70 leading-relaxed italic">&ldquo;{thought}&rdquo;</p>
     </div>
   )
 }

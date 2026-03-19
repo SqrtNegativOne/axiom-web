@@ -1,5 +1,6 @@
-import team from '../data/team'
-import alumni from '../data/alumni'
+import { Link } from 'react-router-dom'
+import { core, execomm, members } from '../data/team'
+import alumniLegacy from '../data/alumni-legacy'
 import TeamCard from '../components/TeamCard'
 import AlumniCard from '../components/AlumniCard'
 import GalleryCarousel from '../components/GalleryCarousel'
@@ -90,36 +91,64 @@ export default function AboutUs() {
 
       <SectionDivider className="px-6 max-w-6xl mx-auto" />
 
-      {/* Team */}
+      {/* ── Core Team ────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <p className="label-mono mb-4 text-center">The People</p>
-        <h2 className="section-heading text-center mb-3">Our Team</h2>
+        <h2 className="section-heading text-center mb-3">Core Team</h2>
         <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
-          Meet the brilliant minds who keep Axiom running — thinkers, organisers, and dedicated stewards of philosophical culture at NSUT.
+          The leadership that steers Axiom — thinkers, organisers, and dedicated stewards of philosophical culture at NSUT.
         </p>
 
-        {team.map((group) => (
+        {core.map((group) => (
           <div key={group.role} className="mb-14">
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px flex-1 bg-gold/20" />
               <h3 className="label-mono px-4">{group.role}</h3>
               <div className="h-px flex-1 bg-gold/20" />
             </div>
-            <div
-              className={`grid gap-10 ${
-                group.members.length === 1
-                  ? 'grid-cols-1 place-items-center'
-                  : group.members.length === 2
-                  ? 'grid-cols-1 sm:grid-cols-2 max-w-lg mx-auto'
-                  : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4'
-              }`}
-            >
+            <div className="flex flex-wrap justify-center gap-10">
               {group.members.map((member) => (
-                <TeamCard key={member.name} {...member} />
+                <div key={member.name} className="w-40">
+                  <TeamCard {...member} />
+                </div>
               ))}
             </div>
           </div>
         ))}
+      </section>
+
+      <SectionDivider className="px-6 max-w-6xl mx-auto" />
+
+      {/* ── Executive Committee ──────────────────────────────────── */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <p className="label-mono mb-4 text-center">The Engine Room</p>
+        <h2 className="section-heading text-center mb-3">Executive Committee</h2>
+        <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
+          The people who make things happen — planning events, building community, and keeping the philosophical spirit alive.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
+          {execomm.map((member) => (
+            <TeamCard key={member.name} {...member} />
+          ))}
+        </div>
+      </section>
+
+      <SectionDivider className="px-6 max-w-6xl mx-auto" />
+
+      {/* ── Members ──────────────────────────────────────────────── */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <p className="label-mono mb-4 text-center">The Community</p>
+        <h2 className="section-heading text-center mb-3">Members</h2>
+        <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
+          The heart and soul of Axiom — every voice matters.
+        </p>
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-6">
+          {members.map((member) => (
+            <div key={member.name} className="w-[120px]">
+              <TeamCard {...member} compact />
+            </div>
+          ))}
+        </div>
       </section>
 
       <SectionDivider className="px-6 max-w-6xl mx-auto" />
@@ -132,9 +161,17 @@ export default function AboutUs() {
           In their own words — what Axiom meant to the people who built it.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {alumni.map((person) => (
+          {alumniLegacy.map((person) => (
             <AlumniCard key={person.name} {...person} />
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            to="/alumni"
+            className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
+          >
+            See previous leadership &rarr;
+          </Link>
         </div>
       </section>
 
