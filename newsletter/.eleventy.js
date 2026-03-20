@@ -17,6 +17,29 @@ export default function (eleventyConfig) {
     .use(markdownItImageFigures, { figcaption: "title" });
   eleventyConfig.setLibrary("md", md);
 
+  // {% footnotes %} shortcode — outputs a placement marker.
+  // The "footnote-placement" transform below detects this marker and moves
+  // the footnotes block from the document end to wherever you placed it.
+  // If you never use {% footnotes %}, footnotes stay at the end as usual.
+  eleventyConfig.addShortcode("footnotes", () => `<div class="fn-placement-marker"></div>`);
+
+  // Footnote placement transform
+  eleventyConfig.addTransform("footnote-placement", (content, outputPath) => {
+    if (!outputPath?.endsWith(".html")) return content;
+    if (!content.includes("fn-placement-marker")) return content;
+
+    // Grab the <hr> separator + <section class="footnotes">...</section>
+    const fnBlock = content.match(/<hr class="footnotes-sep">[\s\S]*?<\/section>/);
+    if (!fnBlock) return content;
+
+    // Remove it from wherever markdown-it put it (the end)
+    content = content.replace(fnBlock[0], "");
+    // Drop it at the marker
+    content = content.replace(`<div class="fn-placement-marker"></div>`, fnBlock[0]);
+
+    return content;
+  });
+
   // Readable date filter: "February 10, 2025"
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return new Intl.DateTimeFormat("en-US", {
