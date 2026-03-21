@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import teamLegacy from '../data/team-2024'
-import alumniLegacy from '../data/alumni-legacy'
 import TeamCard from '../components/TeamCard'
-import AlumniCard from '../components/AlumniCard'
 import SectionDivider from '../components/SectionDivider'
 
 export default function Alumni() {
@@ -11,7 +9,7 @@ export default function Alumni() {
       {/* Page header */}
       <section className="max-w-4xl mx-auto px-6 py-16 text-center">
         <p className="label-mono mb-4">Those Who Came Before</p>
-        <h1 className="section-heading mb-6">Alumni</h1>
+        <h1 className="section-heading mb-6">Previous Leadership</h1>
         <div className="h-px w-16 bg-gold/50 mx-auto mb-8" />
         <p className="font-body text-ink/70 leading-relaxed max-w-2xl mx-auto"
            style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}>
@@ -54,29 +52,19 @@ export default function Alumni() {
         ))}
       </section>
 
-      <SectionDivider className="px-6 max-w-6xl mx-auto" />
-
-      {/* Alumni Voices */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <p className="label-mono mb-4 text-center">In Their Own Words</p>
-        <h2 className="section-heading text-center mb-3">Alumni Voices</h2>
-        <p className="font-body text-ink/60 text-center mb-12 max-w-xl mx-auto">
-          What Axiom meant to the people who were part of it.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {alumniLegacy.map((person) => (
-            <AlumniCard key={person.name} {...person} />
-          ))}
-        </div>
-      </section>
-
-      {/* Back to About link */}
-      <section className="max-w-4xl mx-auto px-6 py-8 text-center">
+      {/* Navigation links */}
+      <section className="max-w-4xl mx-auto px-6 py-8 flex justify-center gap-8">
         <Link
           to="/about"
           className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
         >
           &larr; Back to current team
+        </Link>
+        <Link
+          to="/about/2023"
+          className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
+        >
+          Team 2023 &rarr;
         </Link>
       </section>
     </div>
