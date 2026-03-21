@@ -167,7 +167,7 @@ export default function AboutUs() {
         </div>
         <div className="mt-8 text-center">
           <Link
-            to="/alumni"
+            to="/about/2024"
             className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
           >
             See previous leadership &rarr;

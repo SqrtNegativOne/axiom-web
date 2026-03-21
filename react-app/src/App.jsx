@@ -7,6 +7,7 @@ import AboutUs from './pages/AboutUs'
 import Events from './pages/Events'
 import Colophon from './pages/Colophon'
 import Alumni from './pages/Alumni'
+import Leadership2023 from './pages/Leadership2023'
 import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
@@ -27,7 +28,8 @@ export default function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/events" element={<Events />} />
             <Route path="/colophon" element={<Colophon />} />
-            <Route path="/alumni" element={<Alumni />} />
+            <Route path="/about/2024" element={<Alumni />} />
+            <Route path="/about/2023" element={<Leadership2023 />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
