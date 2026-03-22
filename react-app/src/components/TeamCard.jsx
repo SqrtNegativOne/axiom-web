@@ -122,8 +122,8 @@ export default function TeamCard({ name, image, quote, socials, compact = false 
           )}
         </div>
 
-        {/* Thought bubble — shown on hover when a quote exists */}
-        {quote && (
+        {/* Thought bubble — compact mode only, shown on hover when a quote exists */}
+        {compact && quote && (
           <div
             className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20"
             aria-hidden="true"
@@ -147,6 +147,13 @@ export default function TeamCard({ name, image, quote, socials, compact = false 
       <h4 ref={nameRef} className={`font-heading font-medium text-green ${compact ? 'text-base mb-0.5' : 'text-xl mb-1'}`}>
         {displayName}
       </h4>
+
+      {/* Quote — non-compact only, always visible */}
+      {!compact && quote && (
+        <p className="font-body text-sm text-ink/60 italic leading-relaxed max-w-xs">
+          &ldquo;{quote}&rdquo;
+        </p>
+      )}
 
       {/* Social icons — always visible, small and gray */}
       <SocialIcons name={name} socials={socials} />
