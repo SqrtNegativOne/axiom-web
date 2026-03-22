@@ -107,17 +107,39 @@ export default function TeamCard({ name, image, quote, socials, compact = false 
 
   return (
     <div className="flex flex-col items-center text-center group">
-      {/* Photo */}
-      <div className={`${avatarSize} rounded-full overflow-hidden mb-3 ring-2 ring-gold/30 group-hover:ring-gold transition-all duration-300`}>
-        {image && !imgFailed ? (
-          <img
-            src={image}
-            alt={`Portrait of ${name}`}
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-            onError={() => setImgFailed(true)}
-          />
-        ) : (
-          <DefaultAvatar className="w-full h-full" />
+      {/* Photo + thought bubble wrapper */}
+      <div className="relative">
+        <div className={`${avatarSize} rounded-full overflow-hidden mb-3 ring-2 ring-gold/30 group-hover:ring-gold transition-all duration-300`}>
+          {image && !imgFailed ? (
+            <img
+              src={image}
+              alt={`Portrait of ${name}`}
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              onError={() => setImgFailed(true)}
+            />
+          ) : (
+            <DefaultAvatar className="w-full h-full" />
+          )}
+        </div>
+
+        {/* Thought bubble — compact mode only, shown on hover when a quote exists */}
+        {compact && quote && (
+          <div
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20"
+            aria-hidden="true"
+          >
+            <div className="bg-cream border border-gold/40 rounded-2xl px-3.5 py-2.5 shadow-md">
+              <p className="font-body text-xs text-ink/70 italic leading-relaxed text-center">
+                &ldquo;{quote}&rdquo;
+              </p>
+            </div>
+            {/* Thought bubble tail dots */}
+            <div className="flex justify-center items-end gap-1 mt-1">
+              <div className="w-2 h-2 rounded-full bg-cream border border-gold/40" />
+              <div className="w-1.5 h-1.5 rounded-full bg-cream border border-gold/40" />
+              <div className="w-1 h-1 rounded-full bg-cream border border-gold/40" />
+            </div>
+          </div>
         )}
       </div>
 
@@ -126,7 +148,7 @@ export default function TeamCard({ name, image, quote, socials, compact = false 
         {displayName}
       </h4>
 
-      {/* Quote — hidden in compact mode or when no quote */}
+      {/* Quote — non-compact only, always visible */}
       {!compact && quote && (
         <p className="font-body text-sm text-ink/60 italic leading-relaxed max-w-xs">
           &ldquo;{quote}&rdquo;

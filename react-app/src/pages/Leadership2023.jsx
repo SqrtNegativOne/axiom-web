@@ -8,9 +8,8 @@ export default function Leadership2023() {
         <h1 className="section-heading mb-6">Previous Leadership</h1>
         <div className="h-px w-16 bg-gold/50 mx-auto mb-8" />
         <h2 className="font-heading text-green font-light text-3xl mb-8">Team 2023</h2>
-        <p className="font-body text-ink/50 leading-relaxed max-w-md mx-auto"
-           style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}>
-          Coming soon.
+        <p className="font-mono text-gold/70 tracking-widest text-sm">
+          NO DATA AVAILABLE
         </p>
       </section>
 
