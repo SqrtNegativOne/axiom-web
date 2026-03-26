@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 import teamLegacy from '../data/team-2024'
 import TeamCard from '../components/TeamCard'
 import SectionDivider from '../components/SectionDivider'
@@ -6,6 +7,11 @@ import SectionDivider from '../components/SectionDivider'
 export default function Alumni() {
   return (
     <div className="pt-20 animate-on-load">
+      <SEO
+        title="Previous Leadership — 2024"
+        path="/about/2024"
+        description="The 2024 executive committee and members of Axiom, the philosophy society at NSUT."
+      />
       {/* Page header */}
       <section className="max-w-4xl mx-auto px-6 py-16 text-center">
         <p className="label-mono mb-4">Those Who Came Before</p>

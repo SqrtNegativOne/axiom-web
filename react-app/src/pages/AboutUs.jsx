@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 import { core, execomm, members } from '../data/team'
 import alumniLegacy from '../data/alumni-legacy'
 import TeamCard from '../components/TeamCard'
@@ -25,6 +26,11 @@ const pillars = [
 export default function AboutUs() {
   return (
     <div className="pt-20 animate-on-load">
+      <SEO
+        title="About Us"
+        path="/about"
+        description="Meet the Axiom team — our mission, vision, and the people behind NSUT's philosophy society, established in 2017."
+      />
       {/* Page header */}
       <section className="max-w-4xl mx-auto px-6 py-16 text-center">
         <p className="label-mono mb-4">Who We Are</p>

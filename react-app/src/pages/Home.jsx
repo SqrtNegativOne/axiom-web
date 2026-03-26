@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import Dither from '../components/Dither'
 import SpotlightCard from '../components/SpotlightCard'
 import SectionDivider from '../components/SectionDivider'
@@ -104,6 +106,32 @@ export default function Home() {
 
   return (
     <div>
+      <SEO
+        path="/"
+        description="Axiom is the philosophy society at NSUT — fostering intellectual curiosity, critical thinking, and philosophical inquiry since 2017."
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Axiom — The Philosophy Society',
+            alternateName: 'Axiom NSUT',
+            url: 'https://axiomnsut.in',
+            logo: 'https://axiomnsut.in/assets/logo.png',
+            description:
+              'Axiom is the philosophy society at NSUT, established in 2017. We foster intellectual curiosity, critical thinking, and philosophical inquiry among students.',
+            foundingDate: '2017',
+            memberOf: {
+              '@type': 'EducationalOrganization',
+              name: 'Netaji Subhas University of Technology',
+              alternateName: 'NSUT',
+              url: 'https://www.nsut.ac.in',
+            },
+            sameAs: ['https://www.instagram.com/axiomnsut/'],
+          })}
+        </script>
+      </Helmet>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section

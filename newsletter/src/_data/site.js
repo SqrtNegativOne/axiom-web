@@ -1,7 +1,7 @@
 export default {
   title: "Axiom Newsletter",
   description: "Long-form philosophical writing from the Axiom Society, NSUT.",
-  url: "https://axiom-web.vercel.app",
+  url: "https://axiomnsut.in",
   reactBaseUrl: "/",
   navLinks: [
     { label: "Home", href: "/" },
