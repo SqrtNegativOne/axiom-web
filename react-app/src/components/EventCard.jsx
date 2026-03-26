@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import EventCarousel from './EventCarousel'
 
 export default function EventCard({ title, date, location, description, images, index }) {
-  const [lightboxIdx, setLightboxIdx] = useState(null)
   const validImages = (images || []).filter(Boolean)
 
   // Zero-padded event number for editorial styling
@@ -44,81 +43,11 @@ export default function EventCard({ title, date, location, description, images, 
           {description}
         </p>
 
-        {/* Image strip */}
+        {/* 3D Carousel */}
         {validImages.length > 0 && (
-          <div className="flex gap-2 overflow-x-auto overflow-y-hidden pb-2 scrollbar-thin max-w-full">
-            {validImages.map((src, idx) => (
-              <button
-                key={idx}
-                onClick={() => setLightboxIdx(idx)}
-                className="flex-shrink-0 w-44 h-28 overflow-hidden focus:outline-none focus:ring-1 focus:ring-gold/50 group/img relative"
-                aria-label={`View ${title} photo ${idx + 1}`}
-              >
-                <img
-                  src={src}
-                  alt={`${title} — photo ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500"
-                  onError={(e) => { e.target.parentElement.style.display = 'none' }}
-                />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-ink/0 group-hover/img:bg-ink/20 transition-colors duration-300 flex items-center justify-center">
-                  <span className="font-mono text-xs text-cream opacity-0 group-hover/img:opacity-100 transition-opacity duration-200">
-                    expand
-                  </span>
-                </div>
-              </button>
-            ))}
-          </div>
+          <EventCarousel images={validImages} eventTitle={title} />
         )}
       </div>
-
-      {/* ── Lightbox ────────────────────────────────────────────────────── */}
-      {lightboxIdx !== null && (
-        <div
-          className="fixed inset-0 z-50 bg-ink/92 flex items-center justify-center p-4"
-          onClick={() => setLightboxIdx(null)}
-        >
-          {/* Close */}
-          <button
-            className="absolute top-5 right-5 font-mono text-cream/50 hover:text-cream text-2xl leading-none transition-colors"
-            onClick={() => setLightboxIdx(null)}
-            aria-label="Close"
-          >
-            ✕
-          </button>
-
-          {/* Counter */}
-          <p className="absolute top-5 left-5 font-mono text-xs text-cream/40 tracking-widest">
-            {String(lightboxIdx + 1).padStart(2,'0')} / {String(validImages.length).padStart(2,'0')}
-          </p>
-
-          {/* Prev */}
-          <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-cream/40 hover:text-cream text-3xl px-3 py-6 transition-colors"
-            onClick={(e) => { e.stopPropagation(); setLightboxIdx((i) => (i - 1 + validImages.length) % validImages.length) }}
-            aria-label="Previous"
-          >‹</button>
-
-          <img
-            src={validImages[lightboxIdx]}
-            alt={`${title} — photo ${lightboxIdx + 1}`}
-            className="max-h-[85vh] max-w-[90vw] object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
-
-          {/* Next */}
-          <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-cream/40 hover:text-cream text-3xl px-3 py-6 transition-colors"
-            onClick={(e) => { e.stopPropagation(); setLightboxIdx((i) => (i + 1) % validImages.length) }}
-            aria-label="Next"
-          >›</button>
-
-          {/* Title */}
-          <p className="absolute bottom-5 left-1/2 -translate-x-1/2 font-mono text-xs text-cream/40 tracking-widest">
-            {title.toLowerCase()}
-          </p>
-        </div>
-      )}
     </article>
   )
 }

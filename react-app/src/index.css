@@ -154,3 +154,62 @@
 .scrollbar-thin::-webkit-scrollbar        { height: 3px; }
 .scrollbar-thin::-webkit-scrollbar-track  { background: transparent; }
 .scrollbar-thin::-webkit-scrollbar-thumb  { background: rgba(201,164,76,0.4); border-radius: 2px; }
+
+/* ── Event Carousel (Swiper 3D Coverflow) ───────────────────────────── */
+.event-carousel-wrapper {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.event-swiper {
+  width: 100%;
+  padding: 3rem 0 4rem;
+}
+
+.event-swiper .swiper-slide {
+  width: 320px;
+  height: 240px;
+  background: var(--color-cream-dark);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Navigation arrows */
+.event-swiper .swiper-button-next,
+.event-swiper .swiper-button-prev {
+  color: var(--color-gold);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.event-swiper .swiper-button-next:hover,
+.event-swiper .swiper-button-prev:hover {
+  opacity: 1;
+  color: var(--color-terracotta);
+}
+
+.event-swiper .swiper-button-next::after,
+.event-swiper .swiper-button-prev::after {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Pagination dots */
+.event-swiper .swiper-pagination-bullet {
+  background: var(--color-gold);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.event-swiper .swiper-pagination-bullet-active {
+  background: var(--color-terracotta);
+  opacity: 1;
+}
+
+/* Responsive sizing */
+@media (max-width: 640px) {
+  .event-swiper .swiper-slide {
+    width: 280px;
+    height: 210px;
+  }
+}
