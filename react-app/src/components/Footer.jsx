@@ -4,8 +4,6 @@ export default function Footer() {
   return (
     <footer className="bg-green text-cream/80">
       <div className="max-w-6xl mx-auto px-6 py-12">
-        {/* Top rule */}
-        <div className="border-t border-gold/30 mb-8" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}

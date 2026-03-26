@@ -5,6 +5,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/newsletter/(.*)", "destination": "/newsletter/$1" },
-    { "source": "/((?!newsletter/).*)", "destination": "/index.html" }
+    { "source": "/data/(.*)", "destination": "/data/$1" },
+    { "source": "/((?!newsletter/|data/).*)", "destination": "/index.html" }
   ]
 }

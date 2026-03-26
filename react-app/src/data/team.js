@@ -4,7 +4,7 @@
 // People who submitted the Google Form have: image, quote, socials
 // People who didn't submit have only their name (shown with default avatar)
 //
-// IMAGE DOWNLOAD GUIDE — save each file to react-app/public/assets/2025team/
+// IMAGE DOWNLOAD GUIDE — save each file to react-app/public/data/portraits/
 // The Google Drive images need to be downloaded manually (Drive requires auth).
 // Open each link below, download the image, and save with the filename shown.
 //
@@ -51,7 +51,7 @@ export const core = [
     members: [
       {
         name: "Adarsh Jain",
-        image: "/assets/2025team/adarsh-jain.jpg",
+        image: "/data/portraits/adarsh-jain.jpg",
         quote: "Do not take life seriously. You will never get out of it alive.",
         socials: {
           linkedin: "https://www.linkedin.com/in/adarsh-jain-ba2801291/",
@@ -66,7 +66,7 @@ export const core = [
     members: [
       {
         name: "Aman Kumar",
-        image: "/assets/2025team/aman-kumar.jpg",
+        image: "/data/portraits/aman-kumar.jpg",
         quote: "Make The Logo Bigger",
         socials: {
           linkedin: "https://in.linkedin.com/in/aman-kumar-meena-754816288",
@@ -117,7 +117,7 @@ export const execomm = [
   // — has photo —
   {
     name: "Ark Malhotra",
-    image: "/assets/2025team/ark-malhotra.jpg",
+    image: "/data/portraits/ark-malhotra.jpg",
     quote: "All map and no territory made Jack a very dull boy.",
     socials: {
       linkedin: "https://www.linkedin.com/in/ark-malhotra/",
@@ -126,7 +126,7 @@ export const execomm = [
   },
   {
     name: "Arnav Gupta",
-    image: "/assets/2025team/arnav-gupta.jpg",
+    image: "/data/portraits/arnav-gupta.jpg",
     quote: "P\u00B2C\u00B2 \u2014 Principles before position, comprehension before conclusion",
     socials: {
       linkedin: "https://www.linkedin.com/in/arnav-gupta-65a575323",
@@ -135,7 +135,7 @@ export const execomm = [
   },
   {
     name: "Bhavishya Maheshwari",
-    image: "/assets/2025team/bhavishya-maheshwari.jpg",
+    image: "/data/portraits/bhavishya-maheshwari.jpg",
     quote: "The dildo of consequences rarely arrives lubed.",
     socials: {
       linkedin: "https://www.linkedin.com/in/bhavishyamaheshwari/",
@@ -144,7 +144,7 @@ export const execomm = [
   },
   {
     name: "Hansika",
-    image: "/assets/2025team/hansika.jpeg",
+    image: "/data/portraits/hansika.jpeg",
     quote: "Everything you lose is a step you take",
     socials: {
       linkedin: "https://www.linkedin.com/in/hansika-c-bbb34339a/",
@@ -152,7 +152,7 @@ export const execomm = [
   },
   {
     name: "Iba Shibli",
-    image: "/assets/2025team/iba-shibli.jpg",
+    image: "/data/portraits/iba-shibli.jpg",
     quote: "Things happen, life goes on.",
     socials: {
       linkedin: "https://www.linkedin.com/in/iba-shibli-277a37323",
@@ -161,7 +161,7 @@ export const execomm = [
   },
   {
     name: "Prableen Kaur",
-    image: "/assets/2025team/prableen-kaur.png",
+    image: "/data/portraits/prableen-kaur.png",
     quote: "Aspire to Inspire",
     socials: {
       linkedin: "https://www.linkedin.com/in/linkdin-link-prableenkaur",
@@ -170,7 +170,7 @@ export const execomm = [
   },
   {
     name: "Taneesha Bangia",
-    image: "/assets/2025team/taneesha-bangia.jpg",
+    image: "/data/portraits/taneesha-bangia.jpg",
     quote: "Everything that is real was imagined first",
     socials: {
       linkedin: "https://www.linkedin.com/in/taneesha-bangia",
@@ -178,7 +178,7 @@ export const execomm = [
   },
   {
     name: "Utsav Dwivedi",
-    image: "/assets/2025team/utsav-dwivedi.jpg",
+    image: "/data/portraits/utsav-dwivedi.jpg",
     quote: "Sunrise parabellum",
     socials: {
       linkedin: "https://www.linkedin.com/in/utsav-dwivedi-980575323",
@@ -203,7 +203,7 @@ export const members = [
   // — has photo —
   {
     name: "Adit Gaur",
-    image: "/assets/2025team/adit-gaur.jpeg",
+    image: "/data/portraits/adit-gaur.jpeg",
     quote: "To pray is to accept defeat",
     socials: {
       linkedin: "https://www.linkedin.com/in/aditgaur/",
@@ -212,7 +212,7 @@ export const members = [
   },
   {
     name: "Aditi Poonia",
-    image: "/assets/2025team/aditi-poonia.jpeg",
+    image: "/data/portraits/aditi-poonia.jpeg",
     quote: "He who has a why to live can bear almost any how.",
     socials: {
       linkedin: "https://in.linkedin.com/in/aditi-poonia-55638b3a5",
@@ -221,7 +221,7 @@ export const members = [
   },
   {
     name: "Adwita Suri",
-    image: "/assets/2025team/adwita-suri.jpg",
+    image: "/data/portraits/adwita-suri.jpg",
     quote: "I exist. In thousand of agonies I exist.",
     socials: {
       instagram: "https://www.instagram.com/adwitasuri",
@@ -229,7 +229,7 @@ export const members = [
   },
   {
     name: "Anju",
-    image: "/assets/2025team/anju.jpg",
+    image: "/data/portraits/anju.jpg",
     quote: "Every season serves a purpose!",
     socials: {
       linkedin: "https://www.linkedin.com/in/anju-kumari-a12a0936b",
@@ -238,7 +238,7 @@ export const members = [
   },
   {
     name: "Ankit Kumar",
-    image: "/assets/2025team/ankit-kumar.jpg",
+    image: "/data/portraits/ankit-kumar.jpg",
     quote: "Climb mountain so you can see the world, not so the world can see you.",
     socials: {
       linkedin: "https://in.linkedin.com/in/ankit-kumar-42800a37b",
@@ -247,7 +247,7 @@ export const members = [
   },
   {
     name: "Ashish Joshi",
-    image: "/assets/2025team/ashish-joshi.jpg",
+    image: "/data/portraits/ashish-joshi.jpg",
     quote: "Life is pointless, so make sure to embarrass yourself in every possible way",
     socials: {
       linkedin: "https://www.linkedin.com/in/ashishjoshi540",
@@ -256,7 +256,7 @@ export const members = [
   },
   {
     name: "Charu Vats",
-    image: "/assets/2025team/charu-vats.jpg",
+    image: "/data/portraits/charu-vats.jpg",
     socials: {
       linkedin: "https://www.linkedin.com/in/charu-vats-a93586338",
       instagram: "https://www.instagram.com/designdiaries5",
@@ -264,7 +264,7 @@ export const members = [
   },
   {
     name: "Dev Manchanda",
-    image: "/assets/2025team/dev-manchanda.png",
+    image: "/data/portraits/dev-manchanda.png",
     quote: "I always get to where I\u2019m going by walking away from where I\u2019ve been. \u2014 Winnie the Pooh",
     socials: {
       linkedin: "https://www.linkedin.com/in/dev-manchanda-7a0867269/",
@@ -273,7 +273,7 @@ export const members = [
   },
   {
     name: "Dhruv Bansal",
-    image: "/assets/2025team/dhruv-bansal.jpeg",
+    image: "/data/portraits/dhruv-bansal.jpeg",
     quote: "We only feel free because we lack the language to articulate our unfreedom",
     socials: {
       linkedin: "https://www.linkedin.com/in/dhruv-bansal-35270b302",
@@ -281,7 +281,7 @@ export const members = [
   },
   {
     name: "Dushyant Singh Rathore",
-    image: "/assets/2025team/dushyant-rathore.jpg",
+    image: "/data/portraits/dushyant-rathore.jpg",
     quote: "Loyalty is tested when betrayal is the most profitable option",
     socials: {
       linkedin: "https://www.linkedin.com/in/dushyant-singh-rathore-7bb319242",
@@ -290,7 +290,7 @@ export const members = [
   },
   {
     name: "Himanshi",
-    image: "/assets/2025team/himanshi.jpeg",
+    image: "/data/portraits/himanshi.jpeg",
     quote: "Whatever will be, will be",
     socials: {
       linkedin: "https://www.linkedin.com/in/himanshi-b2b478359",
@@ -299,7 +299,7 @@ export const members = [
   },
   {
     name: "Joseph Jisso Aliyath",
-    image: "/assets/2025team/joseph-aliyath.jpg",
+    image: "/data/portraits/joseph-aliyath.jpg",
     quote: "Hallelujah",
     socials: {
       linkedin: "https://www.linkedin.com/in/josephjissoa",
@@ -308,7 +308,7 @@ export const members = [
   },
   {
     name: "Khushi Mittal",
-    image: "/assets/2025team/khushi-mittal.jpeg",
+    image: "/data/portraits/khushi-mittal.jpeg",
     quote: "A smile is a curve that sets everything straight.",
     socials: {
       instagram: "https://www.instagram.com/khushi_mittal01",
@@ -316,7 +316,7 @@ export const members = [
   },
   {
     name: "Md Rashid Iqbal",
-    image: "/assets/2025team/md-rashid-iqbal.jpg",
+    image: "/data/portraits/md-rashid-iqbal.jpg",
     quote: "One is never afraid of the unknown; one is afraid of the known coming to an end",
     socials: {
       linkedin: "https://www.linkedin.com/in/md-rashid-iqbal01",
@@ -325,7 +325,7 @@ export const members = [
   },
   {
     name: "Navratan Choudhary",
-    image: "/assets/2025team/navratan-choudhary.jpeg",
+    image: "/data/portraits/navratan-choudhary.jpeg",
     quote: "It is better to die on your feet than to live on your knees.",
     socials: {
       linkedin: "https://www.linkedin.com/in/navratan-choudhary-aa81bb325",
@@ -334,7 +334,7 @@ export const members = [
   },
   {
     name: "Prachetas Shukla",
-    image: "/assets/2025team/prachetas-shukla.jpeg",
+    image: "/data/portraits/prachetas-shukla.jpeg",
     quote: "Curiosity is Discipline disguised as Wonder",
     socials: {
       linkedin: "https://www.linkedin.com/in/prachetasshukla/",
@@ -342,7 +342,7 @@ export const members = [
   },
   {
     name: "Prince Gangwar",
-    image: "/assets/2025team/prince-gangwar.jpg",
+    image: "/data/portraits/prince-gangwar.jpg",
     quote: "The truth is rarely pure and never simple.",
     socials: {
       instagram: "https://www.instagram.com/ern1l/",
@@ -350,7 +350,7 @@ export const members = [
   },
   {
     name: "Shivangi Amat",
-    image: "/assets/2025team/shivangi-amat.png",
+    image: "/data/portraits/shivangi-amat.png",
     quote: "Life is short. Smile while you still have teeth.",
     socials: {
       linkedin: "https://www.linkedin.com/in/shivangi-amat-431112369/",
@@ -359,7 +359,7 @@ export const members = [
   },
   {
     name: "Tushar Kumar Karn",
-    image: "/assets/2025team/tushar-karn.png",
+    image: "/data/portraits/tushar-karn.png",
     quote: "If you can be anything in this world, be kind.",
     socials: {
       linkedin: "https://www.linkedin.com/in/tushar-kumar-karn-9a5356378",
@@ -368,7 +368,7 @@ export const members = [
   },
   {
     name: "Vinayak Mittal",
-    image: "/assets/2025team/vinayak-mittal.png",
+    image: "/data/portraits/vinayak-mittal.png",
     quote: "The universe is under no obligation to make sense to you. \u2014 Neil deGrasse Tyson",
     socials: {
       linkedin: "https://www.linkedin.com/in/vinayak-mittal-2846b4312/",
