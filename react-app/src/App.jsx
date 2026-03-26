@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import Events from './pages/Events'
+import EventsByYear from './pages/EventsByYear'
 import Colophon from './pages/Colophon'
 import Alumni from './pages/Alumni'
 import Leadership2023 from './pages/Leadership2023'
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/events/:year" element={<EventsByYear />} />
             <Route path="/colophon" element={<Colophon />} />
             <Route path="/about/2024" element={<Alumni />} />
             <Route path="/about/2023" element={<Leadership2023 />} />

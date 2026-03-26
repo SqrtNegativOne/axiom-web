@@ -1,0 +1,130 @@
+{
+  "2023": [
+    {
+      "title": "Wheel of Doom — Nsutthon 2023",
+      "date": "October 12, 2023",
+      "location": "NSUT Campus",
+      "description": "The debut edition of Wheel of Doom at Nsutthon 2023 brought philosophical challenges and intellectual games to life. Participants spun the wheel to face various thought-provoking tasks that tested their reasoning and quick thinking abilities.",
+      "imageFolder": "wheel-of-doom-23"
+    },
+    {
+      "title": "Axiom Day 2023",
+      "date": "September 2, 2023",
+      "location": "NSUT Campus",
+      "description": "Our inaugural Axiom Day celebration brought together philosophy enthusiasts for a day of intellectual exploration, games, and community building. It marked the beginning of Axiom's journey as NSUT's premier philosophy society.",
+      "imageFolder": "axiom-day-23"
+    },
+    {
+      "title": "Induction 2023",
+      "date": "August 2023",
+      "location": "NSUT Campus",
+      "description": "Welcome to the world of philosophical inquiry! The 2023 induction introduced new members to Axiom's mission, values, and community. Fresh minds eager to question, debate, and explore life's fundamental questions joined our intellectual family.",
+      "imageFolder": "induction-23"
+    }
+  ],
+  "2024": [
+    {
+      "title": "Scribble & Scramble — Nsutthon 2024",
+      "date": "November 2024",
+      "location": "NSUT NESCI Ground",
+      "description": "A creative fusion of art and philosophy at Nsutthon 2024. Scribble & Scramble challenged participants to express abstract philosophical concepts through artistic means, stimulating both logical and creative thinking in unique ways.",
+      "imageFolder": "scribble-scramble-24"
+    },
+    {
+      "title": "Axiom Photoshoot 2024",
+      "date": "October 2024",
+      "location": "NSUT Campus",
+      "description": "Capturing the essence of Axiom through the lens. Our 2024 photoshoot immortalized the society's vibrant energy, diverse membership, and intellectual spirit in stunning visuals that tell our story.",
+      "imageFolder": "photoshoot-24"
+    },
+    {
+      "title": "Axiom Ethnic Day 2024",
+      "date": "October 2024",
+      "location": "NSUT Campus",
+      "description": "Celebrating diversity and cultural philosophy through traditional attire and customs. Ethnic Day 2024 explored how different cultures approach fundamental philosophical questions, creating a beautiful tapestry of global wisdom.",
+      "imageFolder": "ethnic-day-24"
+    },
+    {
+      "title": "Wheel of Doom — Moksha 2024",
+      "date": "September 2024",
+      "location": "NESCI Ground, NSUT",
+      "description": "The Wheel returned at Moksha 2024 with even more thrilling challenges! Participants faced the wheel's verdict with courage, tackling philosophical puzzles, ethical dilemmas, and brain teasers that tested their intellectual agility.",
+      "imageFolder": "wheel-of-doom-24"
+    },
+    {
+      "title": "Axiom Day 2024",
+      "date": "September 2024",
+      "location": "NSUT Campus",
+      "description": "The second annual Axiom Day expanded on our inaugural success with more activities, deeper discussions, and greater community engagement. A celebration of philosophy, friendship, and the joy of questioning everything.",
+      "imageFolder": "axiom-day-24"
+    },
+    {
+      "title": "Induction 2024",
+      "date": "August 2024",
+      "location": "NSUT Campus",
+      "description": "Welcoming a new generation of philosophical minds to Axiom. The 2024 induction was marked by enthusiastic participation, thought-provoking icebreakers, and the beginning of countless intellectual friendships.",
+      "imageFolder": "induction-24"
+    },
+    {
+      "title": "Farewell 2024",
+      "date": "May 10, 2024",
+      "location": "NSUT Conference Hall",
+      "description": "A heartfelt ceremony bidding farewell to our graduating members. The event celebrated their contributions to Axiom, reflected on the philosophical journey shared together, and looked forward to the wisdom they'll carry into the world.",
+      "imageFolder": "farewell-24"
+    },
+    {
+      "title": "Philo Walk 2024",
+      "date": "March 2024",
+      "location": "NSUT Campus",
+      "description": "Following in the footsteps of ancient philosophers who taught while walking, Philo Walk 2024 took participants on a contemplative journey through campus. Deep philosophical discussions flowed naturally as we moved through the physical and intellectual landscape.",
+      "imageFolder": "philo-walk-24"
+    },
+    {
+      "title": "Trust Fall Disaster — Reso 2024",
+      "date": "February 2024",
+      "location": "NSUT Block 5 Ground",
+      "description": "A thrilling team-building exercise at Reso 2024 that challenged participants to build trust through guided falls. This event focused on developing mutual confidence, strengthening bonds, and exploring the philosophy of trust in human relationships.",
+      "imageFolder": "trustfall-24"
+    }
+  ],
+  "2025": [
+    {
+      "title": "Axiom Photoshoot 2025",
+      "date": "March 2025",
+      "location": "NSUT Campus",
+      "description": "Our 2025 photoshoot captured the evolving spirit of Axiom with fresh perspectives and creative compositions. These images showcase the society's growth, dynamism, and the philosophical depth reflected in every frame.",
+      "imageFolder": "photoshoot-25"
+    },
+    {
+      "title": "Jagriti 2025",
+      "date": "February 15, 2025",
+      "location": "NSUT Auditorium",
+      "description": "Jagriti, our annual philosophical awakening event, brought together thinkers from various fields to ignite intellectual curiosity. The 2025 edition featured thought-provoking panels, interactive discussions, and philosophical debates that encouraged critical thinking.",
+      "imageFolder": "jagriti-25"
+    },
+    {
+      "title": "Axiom Ethnic Day 2025",
+      "date": "January 2025",
+      "location": "NSUT Campus",
+      "description": "The 2025 Ethnic Day continued our tradition of celebrating cultural diversity through the lens of philosophy. Students explored how traditional wisdom and modern philosophical thought intersect across different cultures and traditions.",
+      "imageFolder": "ethnic-day-25"
+    },
+    {
+      "title": "Axiom Day 2025",
+      "date": "January 2025",
+      "location": "NSUT Campus",
+      "description": "Axiom Day 2025 kicked off the year with renewed energy and intellectual vigor. A full day of philosophical activities, games, and discussions brought our community together to celebrate the life of the mind.",
+      "imageFolder": "axiom-day-25"
+    }
+  ],
+  "2026": [],
+  "ongoing": [
+    {
+      "title": "CPC — Chai Pe Charcha",
+      "date": "Weekly",
+      "location": "NSUT Canteen",
+      "description": "Join us every week for engaging discussions over chai. Share ideas, debate philosophical concepts, and connect with like-minded individuals in a casual setting. Each session focuses on a different theme, allowing for diverse perspectives and enriching conversations. CPC is the heartbeat of Axiom — informal, curious, and always stimulating.",
+      "imageFolder": "cpc-all"
+    }
+  ]
+}

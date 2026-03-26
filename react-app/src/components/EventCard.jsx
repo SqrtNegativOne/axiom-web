@@ -1,7 +1,13 @@
 import EventCarousel from './EventCarousel'
+import imageManifest from '../data/images-manifest.json'
 
-export default function EventCard({ title, date, location, description, images, index }) {
-  const validImages = (images || []).filter(Boolean)
+export default function EventCard({ title, date, location, description, imageFolder, index }) {
+  // Get images from manifest if imageFolder is provided
+  const images = imageFolder && imageManifest.events[imageFolder] 
+    ? imageManifest.events[imageFolder].map(filename => `/data/events/${imageFolder}/${filename}`)
+    : []
+
+  const validImages = images.filter(Boolean)
 
   // Zero-padded event number for editorial styling
   const num = String((index ?? 0) + 1).padStart(2, '0')

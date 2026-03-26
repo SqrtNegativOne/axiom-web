@@ -24,3 +24,27 @@ function copyDir(from, to) {
 
 copyDir(src, dst);
 console.log(`✓ Copied newsletter/dist → dist/newsletter`);
+
+// Symlink /data folder to dist/data for serving images (no copy needed)
+const dataSrc = path.join(root, "data");
+const dataDst = path.join(root, "dist", "data");
+
+if (fs.existsSync(dataSrc)) {
+  // Remove existing symlink or directory if it exists
+  if (fs.existsSync(dataDst)) {
+    fs.rmSync(dataDst, { recursive: true, force: true });
+  }
+  
+  try {
+    // Try to create symlink (requires admin on Windows, works on Unix)
+    fs.symlinkSync(dataSrc, dataDst, 'junction');
+    console.log(`✓ Symlinked data → dist/data`);
+  } catch (err) {
+    // Fallback to copying if symlink fails
+    console.log(`⚠ Symlink failed, copying instead...`);
+    copyDir(dataSrc, dataDst);
+    console.log(`✓ Copied data → dist/data`);
+  }
+} else {
+  console.log(`⚠ Warning: /data folder not found, skipping`);
+}
