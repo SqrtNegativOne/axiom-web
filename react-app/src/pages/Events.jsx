@@ -1,3 +1,4 @@
+import SEO from '../components/SEO'
 import events from '../data/events'
 import EventCard from '../components/EventCard'
 import SectionDivider from '../components/SectionDivider'
@@ -5,6 +6,11 @@ import SectionDivider from '../components/SectionDivider'
 export default function Events() {
   return (
     <div className="pt-20 animate-on-load">
+      <SEO
+        title="Events"
+        path="/events"
+        description="Chai Pe Charcha, Wheel of Doom, Philo Walk and more — explore all of Axiom's philosophical events at NSUT."
+      />
       {/* Page header */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <p className="label-mono mb-4">— What we do</p>

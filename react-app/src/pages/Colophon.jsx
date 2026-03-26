@@ -1,6 +1,14 @@
+import SEO from '../components/SEO'
+
 export default function Colophon() {
   return (
     <div className="bg-cream min-h-screen">
+      <SEO
+        title="Colophon"
+        path="/colophon"
+        description="How the Axiom website was built — typography, tools, colour palette, and deployment details."
+        noindex={true}
+      />
       <div className="w-[82%] max-w-3xl mx-auto py-24">
 
         {/* Header */}

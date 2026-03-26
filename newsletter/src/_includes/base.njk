@@ -6,6 +6,53 @@
   <meta name="description" content="{{ description or site.description }}" />
   <title>{{ title }} — Axiom Newsletter</title>
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="{{ ogType or 'website' }}" />
+  <meta property="og:site_name" content="Axiom — The Philosophy Society" />
+  <meta property="og:title" content="{{ title }} — Axiom Newsletter" />
+  <meta property="og:description" content="{{ description or excerpt or site.description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url | withPrefix }}" />
+  <meta property="og:image" content="{{ site.url }}/assets/logo.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Axiom — The Philosophy Society logo" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ title }} — Axiom Newsletter" />
+  <meta name="twitter:description" content="{{ description or excerpt or site.description }}" />
+  <meta name="twitter:image" content="{{ site.url }}/assets/logo.png" />
+
+  {% if ogType == 'article' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ title | dump | safe }},
+    "description": {{ (description or excerpt or site.description) | dump | safe }},
+    "author": {
+      "@type": "Person",
+      "name": {{ (author or "Axiom") | dump | safe }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axiom — The Philosophy Society",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/logo.png"
+      }
+    },
+    "datePublished": "{{ page.date | rfc3339Date }}",
+    "dateModified": "{{ page.date | rfc3339Date }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url | withPrefix }}"
+    },
+    "url": "{{ site.url }}{{ page.url | withPrefix }}"
+  }
+  </script>
+  {% endif %}
+
   <!-- Feed discovery -->
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="{{ site.url }}/newsletter/feed.xml" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom" href="{{ site.url }}/newsletter/atom.xml" />
