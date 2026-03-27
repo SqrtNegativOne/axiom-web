@@ -27,6 +27,7 @@ export default function AlumniCard({ name, batch, image, thought }) {
               src={image}
               alt={`Portrait of ${name}`}
               className="w-full h-full object-cover object-top"
+              loading="lazy"
               onError={() => setImgFailed(true)}
             />
           ) : (
