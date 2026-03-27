@@ -9,39 +9,39 @@
 // Open each link below, download the image, and save with the filename shown.
 //
 // Core:
-//   adarsh-jain.jpg  → https://drive.google.com/open?id=1B-8bVQk9pmqA8Hv-Tka1VU7uAleQZ78V
-//   aman-kumar.jpg   → https://drive.google.com/open?id=1JttEV3g5Y4w4IhxzrldnDJ728YveT8bX
+//   adarsh-jain.webp  → https://drive.google.com/open?id=1B-8bVQk9pmqA8Hv-Tka1VU7uAleQZ78V
+//   aman-kumar.webp   → https://drive.google.com/open?id=1JttEV3g5Y4w4IhxzrldnDJ728YveT8bX
 //
 // Execomm:
-//   arnav-gupta.jpg          → https://drive.google.com/open?id=1A5z7_TSyDC9bRHXjSoQvEknBFG3RElDL
-//   bhavishya-maheshwari.jpg → https://drive.google.com/open?id=1SXaeablDgA_MgYeZull0HVFZSzS6Avb5
-//   hansika.jpeg              → https://drive.google.com/open?id=1LxHJndWcK6rdysvUwh3Z8iXn-TwcmqUd
-//   iba-shibli.jpg           → https://drive.google.com/open?id=1bcyQr-tMhOVdWgO_xRbykYCyqKzTDr1A
-//   prableen-kaur.png        → https://drive.google.com/open?id=1XTVyGP9XoxAOod0XHWHrlUufUk13wJQI
-//   taneesha-bangia.jpg      → https://drive.google.com/open?id=1UhYCc3J6oBY4Lyvgjc1x2BZTKUDpMHTv
-//   utsav-dwivedi.jpg        → https://drive.google.com/open?id=1gy1_QbwdOmio-vgxuwbiLwHH68dYftqc
+//   arnav-gupta.webp          → https://drive.google.com/open?id=1A5z7_TSyDC9bRHXjSoQvEknBFG3RElDL
+//   bhavishya-maheshwari.webp → https://drive.google.com/open?id=1SXaeablDgA_MgYeZull0HVFZSzS6Avb5
+//   hansika.webp              → https://drive.google.com/open?id=1LxHJndWcK6rdysvUwh3Z8iXn-TwcmqUd
+//   iba-shibli.webp           → https://drive.google.com/open?id=1bcyQr-tMhOVdWgO_xRbykYCyqKzTDr1A
+//   prableen-kaur.webp        → https://drive.google.com/open?id=1XTVyGP9XoxAOod0XHWHrlUufUk13wJQI
+//   taneesha-bangia.webp      → https://drive.google.com/open?id=1UhYCc3J6oBY4Lyvgjc1x2BZTKUDpMHTv
+//   utsav-dwivedi.webp        → https://drive.google.com/open?id=1gy1_QbwdOmio-vgxuwbiLwHH68dYftqc
 //
 // Members:
-//   adit-gaur.jpeg            → https://drive.google.com/open?id=1Q_ijaHyRZ0xYHVQa5k8JeggJDsW_VW_P
-//   aditi-poonia.jpeg         → https://drive.google.com/open?id=1HKkaHa350mUjvH3qXNQfRernJ5mubUli
-//   adwita-suri.jpg          → https://drive.google.com/open?id=12Wid7DYNdlI8eLLCVKdx3g9nr82_ynP5
-//   anju.jpg                 → https://drive.google.com/open?id=1p5xE9JbKByE0OcSSWOAEMewi8ZkoEOB1
-//   ankit-kumar.jpg          → https://drive.google.com/open?id=1pa-cWRRJJBY4d_dPIu6aLDD4vI2wUxux
-//   ashish-joshi.jpg         → https://drive.google.com/open?id=10151xZ4mIw_BpULTiSCBq_LybAlnEEDE
-//   charu-vats.jpg           → https://drive.google.com/open?id=1jEH0FCdMjGCRjV3CdiUSRa9Fhr5aELvu
-//   dev-manchanda.png        → https://drive.google.com/open?id=1WQS-RP9eR0pbqRXgKCwNa-PIUgtXFZ2S
-//   dhruv-bansal.jpeg         → https://drive.google.com/open?id=1pFYTDTx4JdIyKJEG0IRcxiY3WWhvxTcg
-//   dushyant-rathore.jpg     → https://drive.google.com/open?id=170vJt4ZAKurG_m9_Q2XGGHrbuoBnsR-v
-//   himanshi.jpeg             → https://drive.google.com/open?id=1jQ16I8FOoIe7Nk9LYUSrrQ3n_-02GMnf
-//   joseph-aliyath.jpg       → https://drive.google.com/open?id=1U0GfEHIB5P7GU1CFOJ08-kMx9t9ofCFJ
-//   khushi-mittal.jpeg        → https://drive.google.com/open?id=1HS__f8v5b6J1AGxCCsEIl6xaXt_bR3Vv
-//   md-rashid-iqbal.jpg      → https://drive.google.com/open?id=1xPJMn85DEm9rnXId1bzOqtXu2sdla6z0
-//   navratan-choudhary.jpeg   → https://drive.google.com/open?id=17Oxnk1QslamtMO_C-aGDHkO1yvbDn2Ni
-//   prachetas-shukla.jpeg     → https://drive.google.com/open?id=1ftOtH0deOXThsEKYUlId7sRFGbK7dr3V
-//   prince-gangwar.jpg       → https://drive.google.com/open?id=1QEhSkIXnWTBpebR3D3fdc_4jAfFf79SE
-//   shivangi-amat.png        → https://drive.google.com/open?id=1W-MA-aD4M17am1uDEVp1BBgSISQFrEcG
-//   tushar-karn.png          → https://drive.google.com/open?id=1M0ooz98EXAIll5O8VNgdL3Zdlbh5Xnha
-//   vinayak-mittal.png       → https://drive.google.com/open?id=1i697ucVAgWVsoIgIYt01Sa9F8oW_mcRb
+//   adit-gaur.webp            → https://drive.google.com/open?id=1Q_ijaHyRZ0xYHVQa5k8JeggJDsW_VW_P
+//   aditi-poonia.webp         → https://drive.google.com/open?id=1HKkaHa350mUjvH3qXNQfRernJ5mubUli
+//   adwita-suri.webp          → https://drive.google.com/open?id=12Wid7DYNdlI8eLLCVKdx3g9nr82_ynP5
+//   anju.webp                 → https://drive.google.com/open?id=1p5xE9JbKByE0OcSSWOAEMewi8ZkoEOB1
+//   ankit-kumar.webp          → https://drive.google.com/open?id=1pa-cWRRJJBY4d_dPIu6aLDD4vI2wUxux
+//   ashish-joshi.webp         → https://drive.google.com/open?id=10151xZ4mIw_BpULTiSCBq_LybAlnEEDE
+//   charu-vats.webp           → https://drive.google.com/open?id=1jEH0FCdMjGCRjV3CdiUSRa9Fhr5aELvu
+//   dev-manchanda.webp        → https://drive.google.com/open?id=1WQS-RP9eR0pbqRXgKCwNa-PIUgtXFZ2S
+//   dhruv-bansal.webp         → https://drive.google.com/open?id=1pFYTDTx4JdIyKJEG0IRcxiY3WWhvxTcg
+//   dushyant-rathore.webp     → https://drive.google.com/open?id=170vJt4ZAKurG_m9_Q2XGGHrbuoBnsR-v
+//   himanshi.webp             → https://drive.google.com/open?id=1jQ16I8FOoIe7Nk9LYUSrrQ3n_-02GMnf
+//   joseph-aliyath.webp       → https://drive.google.com/open?id=1U0GfEHIB5P7GU1CFOJ08-kMx9t9ofCFJ
+//   khushi-mittal.webp        → https://drive.google.com/open?id=1HS__f8v5b6J1AGxCCsEIl6xaXt_bR3Vv
+//   md-rashid-iqbal.webp      → https://drive.google.com/open?id=1xPJMn85DEm9rnXId1bzOqtXu2sdla6z0
+//   navratan-choudhary.webp   → https://drive.google.com/open?id=17Oxnk1QslamtMO_C-aGDHkO1yvbDn2Ni
+//   prachetas-shukla.webp     → https://drive.google.com/open?id=1ftOtH0deOXThsEKYUlId7sRFGbK7dr3V
+//   prince-gangwar.webp       → https://drive.google.com/open?id=1QEhSkIXnWTBpebR3D3fdc_4jAfFf79SE
+//   shivangi-amat.webp        → https://drive.google.com/open?id=1W-MA-aD4M17am1uDEVp1BBgSISQFrEcG
+//   tushar-karn.webp          → https://drive.google.com/open?id=1M0ooz98EXAIll5O8VNgdL3Zdlbh5Xnha
+//   vinayak-mittal.webp       → https://drive.google.com/open?id=1i697ucVAgWVsoIgIYt01Sa9F8oW_mcRb
 
 // ── Core Team ──────────────────────────────────────────────────────────
 
@@ -51,7 +51,7 @@ export const core = [
     members: [
       {
         name: "Adarsh Jain",
-        image: "/data/portraits/adarsh-jain.jpg",
+        image: "/data/portraits/adarsh-jain.webp",
         quote: "Do not take life seriously. You will never get out of it alive.",
         socials: {
           linkedin: "https://www.linkedin.com/in/adarsh-jain-ba2801291/",
@@ -66,7 +66,7 @@ export const core = [
     members: [
       {
         name: "Aman Kumar",
-        image: "/data/portraits/aman-kumar.jpg",
+        image: "/data/portraits/aman-kumar.webp",
         quote: "Make The Logo Bigger",
         socials: {
           linkedin: "https://in.linkedin.com/in/aman-kumar-meena-754816288",
@@ -117,7 +117,7 @@ export const execomm = [
   // — has photo —
   {
     name: "Ark Malhotra",
-    image: "/data/portraits/ark-malhotra.jpg",
+    image: "/data/portraits/ark-malhotra.webp",
     quote: "All map and no territory made Jack a very dull boy.",
     socials: {
       linkedin: "https://www.linkedin.com/in/ark-malhotra/",
@@ -126,7 +126,7 @@ export const execomm = [
   },
   {
     name: "Arnav Gupta",
-    image: "/data/portraits/arnav-gupta.jpg",
+    image: "/data/portraits/arnav-gupta.webp",
     quote: "P\u00B2C\u00B2 \u2014 Principles before position, comprehension before conclusion",
     socials: {
       linkedin: "https://www.linkedin.com/in/arnav-gupta-65a575323",
@@ -135,7 +135,7 @@ export const execomm = [
   },
   {
     name: "Bhavishya Maheshwari",
-    image: "/data/portraits/bhavishya-maheshwari.jpg",
+    image: "/data/portraits/bhavishya-maheshwari.webp",
     quote: "The dildo of consequences rarely arrives lubed.",
     socials: {
       linkedin: "https://www.linkedin.com/in/bhavishyamaheshwari/",
@@ -144,7 +144,7 @@ export const execomm = [
   },
   {
     name: "Hansika",
-    image: "/data/portraits/hansika.jpeg",
+    image: "/data/portraits/hansika.webp",
     quote: "Everything you lose is a step you take",
     socials: {
       linkedin: "https://www.linkedin.com/in/hansika-c-bbb34339a/",
@@ -152,7 +152,7 @@ export const execomm = [
   },
   {
     name: "Iba Shibli",
-    image: "/data/portraits/iba-shibli.jpg",
+    image: "/data/portraits/iba-shibli.webp",
     quote: "Things happen, life goes on.",
     socials: {
       linkedin: "https://www.linkedin.com/in/iba-shibli-277a37323",
@@ -161,7 +161,7 @@ export const execomm = [
   },
   {
     name: "Prableen Kaur",
-    image: "/data/portraits/prableen-kaur.png",
+    image: "/data/portraits/prableen-kaur.webp",
     quote: "Aspire to Inspire",
     socials: {
       linkedin: "https://www.linkedin.com/in/linkdin-link-prableenkaur",
@@ -170,7 +170,7 @@ export const execomm = [
   },
   {
     name: "Taneesha Bangia",
-    image: "/data/portraits/taneesha-bangia.jpg",
+    image: "/data/portraits/taneesha-bangia.webp",
     quote: "Everything that is real was imagined first",
     socials: {
       linkedin: "https://www.linkedin.com/in/taneesha-bangia",
@@ -178,7 +178,7 @@ export const execomm = [
   },
   {
     name: "Utsav Dwivedi",
-    image: "/data/portraits/utsav-dwivedi.jpg",
+    image: "/data/portraits/utsav-dwivedi.webp",
     quote: "Sunrise parabellum",
     socials: {
       linkedin: "https://www.linkedin.com/in/utsav-dwivedi-980575323",
@@ -203,7 +203,7 @@ export const members = [
   // — has photo —
   {
     name: "Adit Gaur",
-    image: "/data/portraits/adit-gaur.jpeg",
+    image: "/data/portraits/adit-gaur.webp",
     quote: "To pray is to accept defeat",
     socials: {
       linkedin: "https://www.linkedin.com/in/aditgaur/",
@@ -212,7 +212,7 @@ export const members = [
   },
   {
     name: "Aditi Poonia",
-    image: "/data/portraits/aditi-poonia.jpeg",
+    image: "/data/portraits/aditi-poonia.webp",
     quote: "He who has a why to live can bear almost any how.",
     socials: {
       linkedin: "https://in.linkedin.com/in/aditi-poonia-55638b3a5",
@@ -221,7 +221,7 @@ export const members = [
   },
   {
     name: "Adwita Suri",
-    image: "/data/portraits/adwita-suri.jpg",
+    image: "/data/portraits/adwita-suri.webp",
     quote: "I exist. In thousand of agonies I exist.",
     socials: {
       instagram: "https://www.instagram.com/adwitasuri",
@@ -229,7 +229,7 @@ export const members = [
   },
   {
     name: "Anju",
-    image: "/data/portraits/anju.jpg",
+    image: "/data/portraits/anju.webp",
     quote: "Every season serves a purpose!",
     socials: {
       linkedin: "https://www.linkedin.com/in/anju-kumari-a12a0936b",
@@ -238,7 +238,7 @@ export const members = [
   },
   {
     name: "Ankit Kumar",
-    image: "/data/portraits/ankit-kumar.jpg",
+    image: "/data/portraits/ankit-kumar.webp",
     quote: "Climb mountain so you can see the world, not so the world can see you.",
     socials: {
       linkedin: "https://in.linkedin.com/in/ankit-kumar-42800a37b",
@@ -247,7 +247,7 @@ export const members = [
   },
   {
     name: "Ashish Joshi",
-    image: "/data/portraits/ashish-joshi.jpg",
+    image: "/data/portraits/ashish-joshi.webp",
     quote: "Life is pointless, so make sure to embarrass yourself in every possible way",
     socials: {
       linkedin: "https://www.linkedin.com/in/ashishjoshi540",
@@ -256,7 +256,7 @@ export const members = [
   },
   {
     name: "Charu Vats",
-    image: "/data/portraits/charu-vats.jpg",
+    image: "/data/portraits/charu-vats.webp",
     socials: {
       linkedin: "https://www.linkedin.com/in/charu-vats-a93586338",
       instagram: "https://www.instagram.com/designdiaries5",
@@ -264,7 +264,7 @@ export const members = [
   },
   {
     name: "Dev Manchanda",
-    image: "/data/portraits/dev-manchanda.png",
+    image: "/data/portraits/dev-manchanda.webp",
     quote: "I always get to where I\u2019m going by walking away from where I\u2019ve been. \u2014 Winnie the Pooh",
     socials: {
       linkedin: "https://www.linkedin.com/in/dev-manchanda-7a0867269/",
@@ -273,7 +273,7 @@ export const members = [
   },
   {
     name: "Dhruv Bansal",
-    image: "/data/portraits/dhruv-bansal.jpeg",
+    image: "/data/portraits/dhruv-bansal.webp",
     quote: "We only feel free because we lack the language to articulate our unfreedom",
     socials: {
       linkedin: "https://www.linkedin.com/in/dhruv-bansal-35270b302",
@@ -281,7 +281,7 @@ export const members = [
   },
   {
     name: "Dushyant Singh Rathore",
-    image: "/data/portraits/dushyant-rathore.jpg",
+    image: "/data/portraits/dushyant-rathore.webp",
     quote: "Loyalty is tested when betrayal is the most profitable option",
     socials: {
       linkedin: "https://www.linkedin.com/in/dushyant-singh-rathore-7bb319242",
@@ -290,7 +290,7 @@ export const members = [
   },
   {
     name: "Himanshi",
-    image: "/data/portraits/himanshi.jpeg",
+    image: "/data/portraits/himanshi.webp",
     quote: "Whatever will be, will be",
     socials: {
       linkedin: "https://www.linkedin.com/in/himanshi-b2b478359",
@@ -299,7 +299,7 @@ export const members = [
   },
   {
     name: "Joseph Jisso Aliyath",
-    image: "/data/portraits/joseph-aliyath.jpg",
+    image: "/data/portraits/joseph-aliyath.webp",
     quote: "Hallelujah",
     socials: {
       linkedin: "https://www.linkedin.com/in/josephjissoa",
@@ -308,7 +308,7 @@ export const members = [
   },
   {
     name: "Khushi Mittal",
-    image: "/data/portraits/khushi-mittal.jpeg",
+    image: "/data/portraits/khushi-mittal.webp",
     quote: "A smile is a curve that sets everything straight.",
     socials: {
       instagram: "https://www.instagram.com/khushi_mittal01",
@@ -316,7 +316,7 @@ export const members = [
   },
   {
     name: "Md Rashid Iqbal",
-    image: "/data/portraits/md-rashid-iqbal.jpg",
+    image: "/data/portraits/md-rashid-iqbal.webp",
     quote: "One is never afraid of the unknown; one is afraid of the known coming to an end",
     socials: {
       linkedin: "https://www.linkedin.com/in/md-rashid-iqbal01",
@@ -325,7 +325,7 @@ export const members = [
   },
   {
     name: "Navratan Choudhary",
-    image: "/data/portraits/navratan-choudhary.jpeg",
+    image: "/data/portraits/navratan-choudhary.webp",
     quote: "It is better to die on your feet than to live on your knees.",
     socials: {
       linkedin: "https://www.linkedin.com/in/navratan-choudhary-aa81bb325",
@@ -334,7 +334,7 @@ export const members = [
   },
   {
     name: "Prachetas Shukla",
-    image: "/data/portraits/prachetas-shukla.jpeg",
+    image: "/data/portraits/prachetas-shukla.webp",
     quote: "Curiosity is Discipline disguised as Wonder",
     socials: {
       linkedin: "https://www.linkedin.com/in/prachetasshukla/",
@@ -342,7 +342,7 @@ export const members = [
   },
   {
     name: "Prince Gangwar",
-    image: "/data/portraits/prince-gangwar.jpg",
+    image: "/data/portraits/prince-gangwar.webp",
     quote: "The truth is rarely pure and never simple.",
     socials: {
       instagram: "https://www.instagram.com/ern1l/",
@@ -350,7 +350,7 @@ export const members = [
   },
   {
     name: "Shivangi Amat",
-    image: "/data/portraits/shivangi-amat.png",
+    image: "/data/portraits/shivangi-amat.webp",
     quote: "Life is short. Smile while you still have teeth.",
     socials: {
       linkedin: "https://www.linkedin.com/in/shivangi-amat-431112369/",
@@ -359,7 +359,7 @@ export const members = [
   },
   {
     name: "Tushar Kumar Karn",
-    image: "/data/portraits/tushar-karn.png",
+    image: "/data/portraits/tushar-karn.webp",
     quote: "If you can be anything in this world, be kind.",
     socials: {
       linkedin: "https://www.linkedin.com/in/tushar-kumar-karn-9a5356378",
@@ -368,7 +368,7 @@ export const members = [
   },
   {
     name: "Vinayak Mittal",
-    image: "/data/portraits/vinayak-mittal.png",
+    image: "/data/portraits/vinayak-mittal.webp",
     quote: "The universe is under no obligation to make sense to you. \u2014 Neil deGrasse Tyson",
     socials: {
       linkedin: "https://www.linkedin.com/in/vinayak-mittal-2846b4312/",
