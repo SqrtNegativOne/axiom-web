@@ -35,6 +35,15 @@ export default defineConfig({
     // Output to repo root /dist so Vercel finds it at its default location
     outDir: '../dist',
     emptyOutDir: true,
+    rollupOptions: {
+      onwarn(warning, defaultHandler) {
+        // Suppress "unresolved" warnings for /data/ paths — that directory is
+        // a symlink served at runtime and intentionally outside the project tree.
+        if (warning.code === 'UNRESOLVED_IMPORT' && warning.message?.includes('/data/')) return
+        if (warning.message?.includes('/data/fonts/')) return
+        defaultHandler(warning)
+      },
+    },
   },
   server: {
     // Allow serving files from the root data/ folder during dev
