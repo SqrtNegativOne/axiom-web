@@ -41,7 +41,7 @@ export default function NavBar() {
         {/* Logo / wordmark */}
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            src="/assets/logo.svg"
+            src="/data/logo.svg"
             alt="Axiom"
             className="h-8 w-auto"
             onError={(e) => { e.target.style.display = 'none' }}

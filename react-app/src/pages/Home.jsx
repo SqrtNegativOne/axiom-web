@@ -118,7 +118,7 @@ export default function Home() {
             name: 'Axiom — The Philosophy Society',
             alternateName: 'Axiom NSUT',
             url: 'https://axiomnsut.in',
-            logo: 'https://axiomnsut.in/assets/logo.png',
+            logo: 'https://axiomnsut.in/data/logo.png',
             description:
               'Axiom is the philosophy society at NSUT, established in 2017. We foster intellectual curiosity, critical thinking, and philosophical inquiry among students.',
             foundingDate: '2017',

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import AboutUs from './pages/AboutUs'
+import About from './pages/About'
 import Events from './pages/Events'
 import EventsByYear from './pages/EventsByYear'
 import Colophon from './pages/Colophon'
@@ -26,7 +26,7 @@ export default function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutUs />} />
+            <Route path="/about" element={<About />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:year" element={<EventsByYear />} />
             <Route path="/colophon" element={<Colophon />} />
