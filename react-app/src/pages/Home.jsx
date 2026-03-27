@@ -176,7 +176,7 @@ export default function Home() {
               style={{ width: 'clamp(340px, 54vw, 580px)', height: 'clamp(340px, 54vw, 580px)' }}
             >
               <img
-                src="https://icarusmarketing.nl/wp-content/uploads/2024/10/4-1024x1024.png"
+                src="/assets/icarus.png"
                 alt="Fall of Icarus"
                 className="w-full h-full object-contain"
               />
