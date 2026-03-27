@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 const galleryImages = [
   '/assets/gallery/gal1.jpg',
@@ -15,16 +15,23 @@ export default function GalleryCarousel() {
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
   const intervalRef = useRef(null)
+  // Track which slides have been shown so we only fetch their images on first display
+  const [loaded, setLoaded] = useState(() => new Set([0]))
 
-  const prev = () => setCurrent((i) => (i - 1 + galleryImages.length) % galleryImages.length)
-  const next = () => setCurrent((i) => (i + 1) % galleryImages.length)
+  const show = useCallback((idx) => {
+    setCurrent(idx)
+    setLoaded((prev) => new Set(prev).add(idx))
+  }, [])
+
+  const prev = () => show((current - 1 + galleryImages.length) % galleryImages.length)
+  const next = () => show((current + 1) % galleryImages.length)
 
   useEffect(() => {
     if (!paused) {
       intervalRef.current = setInterval(next, 4000)
     }
     return () => clearInterval(intervalRef.current)
-  }, [paused, current])
+  }, [paused, current, show])
 
   return (
     <div
@@ -39,12 +46,14 @@ export default function GalleryCarousel() {
           className="absolute inset-0 transition-opacity duration-700"
           style={{ opacity: idx === current ? 1 : 0 }}
         >
-          <img
-            src={src}
-            alt={`Gallery image ${idx + 1}`}
-            className="w-full h-full object-cover"
-            onError={(e) => { e.target.parentElement.style.display = 'none' }}
-          />
+          {loaded.has(idx) && (
+            <img
+              src={src}
+              alt={`Gallery image ${idx + 1}`}
+              className="w-full h-full object-cover"
+              onError={(e) => { e.target.parentElement.style.display = 'none' }}
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
         </div>
       ))}
@@ -70,7 +79,7 @@ export default function GalleryCarousel() {
         {galleryImages.map((_, idx) => (
           <button
             key={idx}
-            onClick={() => setCurrent(idx)}
+            onClick={() => show(idx)}
             className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
               idx === current ? 'bg-gold w-4' : 'bg-cream/40'
             }`}
