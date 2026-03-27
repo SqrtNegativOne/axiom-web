@@ -99,7 +99,7 @@ function SocialIcons({ name, socials }) {
   )
 }
 
-export default function TeamCard({ name, image, quote, socials, compact = false }) {
+export default function TeamPortraitCard({ name, image, quote, socials, compact = false }) {
   const [imgFailed, setImgFailed] = useState(false)
   const { ref: nameRef, displayName } = useSingleLineName(name)
 

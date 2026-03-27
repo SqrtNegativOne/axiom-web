@@ -15,7 +15,7 @@ function DefaultAvatar({ className = '' }) {
   )
 }
 
-export default function AlumniCard({ name, batch, image, thought }) {
+export default function AlumniQuoteCard({ name, batch, image, thought }) {
   const [imgFailed, setImgFailed] = useState(false)
 
   return (
