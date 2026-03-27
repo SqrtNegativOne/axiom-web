@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import EventCarousel from './EventCarousel'
 import imageManifest from '../data/images-manifest.json'
 
@@ -12,8 +13,21 @@ export default function EventCard({ title, date, location, description, imageFol
   // Zero-padded event number for editorial styling
   const num = String((index ?? 0) + 1).padStart(2, '0')
 
+  // Defer carousel rendering until the card is near the viewport
+  const cardRef = useRef(null)
+  const [carouselVisible, setCarouselVisible] = useState(false)
+  useEffect(() => {
+    if (validImages.length === 0) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setCarouselVisible(true); observer.disconnect() } },
+      { rootMargin: '200px' }
+    )
+    if (cardRef.current) observer.observe(cardRef.current)
+    return () => observer.disconnect()
+  }, [validImages.length])
+
   return (
-    <article className="group relative grid grid-cols-1 md:grid-cols-[4rem_1fr] gap-0 md:gap-8 pb-16 mb-16 border-b border-gold/20 last:border-none last:mb-0">
+    <article ref={cardRef} className="group relative grid grid-cols-1 md:grid-cols-[4rem_1fr] gap-0 md:gap-8 pb-16 mb-16 border-b border-gold/20 last:border-none last:mb-0">
 
       {/* ── Sidebar: event number ──────────────────────────────────────── */}
       <div className="hidden md:flex flex-col items-end pt-1">
@@ -49,8 +63,8 @@ export default function EventCard({ title, date, location, description, imageFol
           {description}
         </p>
 
-        {/* 3D Carousel */}
-        {validImages.length > 0 && (
+        {/* 3D Carousel — rendered only once the card enters the viewport */}
+        {carouselVisible && (
           <EventCarousel images={validImages} eventTitle={title} />
         )}
       </div>
