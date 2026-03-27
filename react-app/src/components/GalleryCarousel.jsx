@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 const galleryImages = [
-  '/assets/gallery/gal1.jpg',
-  '/assets/gallery/gal2.jpg',
-  '/assets/gallery/gal3.jpg',
-  '/assets/gallery/gal4.jpg',
-  '/assets/gallery/gal5.jpg',
-  '/assets/gallery/1742112133133.jpg',
-  '/assets/gallery/1742113242276.jpg',
-  '/assets/gallery/1742113242495.jpg',
+  '/assets/gallery/gal1.webp',
+  '/assets/gallery/gal2.webp',
+  '/assets/gallery/gal3.webp',
+  '/assets/gallery/gal4.webp',
+  '/assets/gallery/gal5.webp',
+  '/assets/gallery/1742112133133.webp',
+  '/assets/gallery/1742113242276.webp',
+  '/assets/gallery/1742113242495.webp',
 ]
 
 export default function GalleryCarousel() {
