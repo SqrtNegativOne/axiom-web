@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import teamLegacy from '../data/team-2024'
-import TeamCard from '../components/TeamCard'
+import TeamPortraitCard from '../components/TeamPortraitCard'
 import SectionDivider from '../components/SectionDivider'
 
 export default function Alumni() {
@@ -51,7 +51,7 @@ export default function Alumni() {
               }`}
             >
               {group.members.map((member) => (
-                <TeamCard key={member.name} {...member} />
+                <TeamPortraitCard key={member.name} {...member} />
               ))}
             </div>
           </div>

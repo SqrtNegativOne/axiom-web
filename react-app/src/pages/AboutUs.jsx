@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { core, execomm, members } from '../data/team'
 import alumniLegacy from '../data/alumni-legacy'
-import TeamCard from '../components/TeamCard'
-import AlumniCard from '../components/AlumniCard'
+import TeamPortraitCard from '../components/TeamPortraitCard'
+import AlumniQuoteCard from '../components/AlumniQuoteCard'
 import GalleryCarousel from '../components/GalleryCarousel'
 import SectionDivider from '../components/SectionDivider'
 import PullQuote from '../components/PullQuote'
@@ -115,7 +115,7 @@ export default function AboutUs() {
             <div className="flex flex-wrap justify-center gap-10">
               {group.members.map((member) => (
                 <div key={member.name} className="w-40">
-                  <TeamCard {...member} />
+                  <TeamPortraitCard {...member} />
                 </div>
               ))}
             </div>
@@ -134,7 +134,7 @@ export default function AboutUs() {
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
           {execomm.map((member) => (
-            <TeamCard key={member.name} {...member} />
+            <TeamPortraitCard key={member.name} {...member} />
           ))}
         </div>
       </section>
@@ -151,7 +151,7 @@ export default function AboutUs() {
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-6">
           {members.map((member) => (
             <div key={member.name} className="w-[120px]">
-              <TeamCard {...member} compact />
+              <TeamPortraitCard {...member} compact />
             </div>
           ))}
         </div>
@@ -168,7 +168,7 @@ export default function AboutUs() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {alumniLegacy.map((person) => (
-            <AlumniCard key={person.name} {...person} />
+            <AlumniQuoteCard key={person.name} {...person} />
           ))}
         </div>
         <div className="mt-8 text-center">
