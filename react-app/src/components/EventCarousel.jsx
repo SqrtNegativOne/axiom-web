@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
+import { EffectCoverflow, Pagination, Navigation, Virtual } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
@@ -30,11 +30,12 @@ export default function EventCarousel({ images, eventTitle }) {
           dynamicBullets: true,
         }}
         navigation={true}
-        modules={[EffectCoverflow, Pagination, Navigation]}
+        virtual={{ addSlidesBefore: 1, addSlidesAfter: 1 }}
+        modules={[EffectCoverflow, Pagination, Navigation, Virtual]}
         className="event-swiper"
       >
         {validImages.map((src, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide key={idx} virtualIndex={idx}>
             <a
               href={src}
               target="_blank"
@@ -46,6 +47,7 @@ export default function EventCarousel({ images, eventTitle }) {
                 src={src}
                 alt={`${eventTitle} — photo ${idx + 1}`}
                 className="w-full h-full object-cover"
+                loading="lazy"
                 onError={(e) => { e.target.parentElement.style.display = 'none' }}
               />
             </a>
