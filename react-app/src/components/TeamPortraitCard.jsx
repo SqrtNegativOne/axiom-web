@@ -1,4 +1,5 @@
 import { useState, useRef, useLayoutEffect } from 'react'
+import DefaultAvatar from './ui/DefaultAvatar'
 
 // Measures the name element after render and shortens it if it wraps to a second line.
 // Strategy: drop the last word until it fits; if it's one word and still too long, truncate with '..'.
@@ -42,22 +43,6 @@ function useSingleLineName(name) {
   }, [name])
 
   return { ref, displayName }
-}
-
-// Default person silhouette — used when no photo is available
-function DefaultAvatar({ className = '' }) {
-  return (
-    <div className={`flex items-center justify-center bg-green ${className}`}>
-      <svg viewBox="0 0 80 80" fill="none" className="w-3/5 h-3/5">
-        <circle cx="40" cy="28" r="12" fill="#F8F4EC" opacity="0.35" />
-        <path
-          d="M16 72c0-13.255 10.745-24 24-24s24 10.745 24 24"
-          fill="#F8F4EC"
-          opacity="0.35"
-        />
-      </svg>
-    </div>
-  )
 }
 
 function SocialIcons({ name, socials }) {
