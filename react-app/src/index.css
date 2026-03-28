@@ -34,20 +34,7 @@
 
 /* Component layer */
 @layer components {
-  /* ── Decorative rules ────────────────────────────────────────────── */
-  .gold-rule {
-    border: none;
-    border-top: 0.5px solid var(--color-gold);
-  }
-
   /* ── Typography ──────────────────────────────────────────────────── */
-  .pull-quote {
-    @apply border-l-4 border-terracotta pl-6 my-8 italic text-green;
-    font-family: var(--font-heading);
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    font-weight: 300;
-  }
-
   .section-heading {
     @apply font-heading text-green font-light tracking-wide;
     font-size: clamp(2rem, 4vw, 3rem);
@@ -58,22 +45,6 @@
     @apply font-mono text-gold tracking-widest uppercase;
     font-size: 0.65rem;
     letter-spacing: 0.25em;
-  }
-
-  /* ── Buttons ─────────────────────────────────────────────────────── */
-  .btn-primary {
-    @apply inline-block bg-terracotta text-cream px-6 py-3 font-body font-medium tracking-wide transition-all duration-200;
-    @apply hover:bg-green hover:text-cream;
-  }
-
-  .btn-outline {
-    @apply inline-block border border-green text-green px-6 py-3 font-body font-medium tracking-wide transition-all duration-200;
-    @apply hover:bg-green hover:text-cream;
-  }
-
-  .btn-ghost {
-    @apply inline-block border border-cream/30 text-cream/80 px-6 py-3 font-body font-medium tracking-wide transition-all duration-200;
-    @apply hover:border-cream/60 hover:text-cream;
   }
 
   /* ── Spotlight Card ──────────────────────────────────────────────── */
@@ -143,18 +114,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Stagger helpers */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-
-/* Thin scrollbar for image strips */
-.scrollbar-thin::-webkit-scrollbar        { height: 3px; }
-.scrollbar-thin::-webkit-scrollbar-track  { background: transparent; }
-.scrollbar-thin::-webkit-scrollbar-thumb  { background: rgba(201,164,76,0.4); border-radius: 2px; }
-
 /* ── Event Carousel (Swiper 3D Coverflow) ───────────────────────────── */
 .event-carousel-wrapper {
   width: 100%;
@@ -163,7 +122,7 @@
 
 .event-swiper {
   width: 100%;
-  padding: 3rem 0 4rem;
+  padding: 3rem 0 2.5rem;
 }
 
 .event-swiper .swiper-slide {

@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 
 const SITE_NAME = 'Axiom — The Philosophy Society'
 const SITE_URL = 'https://axiomnsut.in'
-const DEFAULT_IMAGE = `${SITE_URL}/data/logo.png`
+const DEFAULT_IMAGE = `${SITE_URL}/assets/logo.png`
 const DEFAULT_DESCRIPTION =
   'Axiom is the philosophy society at NSUT — fostering intellectual curiosity, critical thinking, and philosophical inquiry since 2017.'
 
