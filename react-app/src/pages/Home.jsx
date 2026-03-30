@@ -112,24 +112,38 @@ export default function Home() {
       />
       <Helmet>
         <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'Axiom — The Philosophy Society',
-            alternateName: 'Axiom NSUT',
-            url: 'https://axiomnsut.in',
-            logo: 'https://axiomnsut.in/data/logo.png',
-            description:
-              'Axiom is the philosophy society at NSUT, established in 2017. We foster intellectual curiosity, critical thinking, and philosophical inquiry among students.',
-            foundingDate: '2017',
-            memberOf: {
-              '@type': 'EducationalOrganization',
-              name: 'Netaji Subhas University of Technology',
-              alternateName: 'NSUT',
-              url: 'https://www.nsut.ac.in',
+          {JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              '@id': 'https://axiomnsut.in/#organization',
+              name: 'Axiom — The Philosophy Society',
+              alternateName: 'Axiom NSUT',
+              url: 'https://axiomnsut.in',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://axiomnsut.in/assets/logo.png',
+              },
+              description:
+                'Axiom is the philosophy society at NSUT, established in 2017. We foster intellectual curiosity, critical thinking, and philosophical inquiry among students.',
+              foundingDate: '2017',
+              memberOf: {
+                '@type': 'EducationalOrganization',
+                name: 'Netaji Subhas University of Technology',
+                alternateName: 'NSUT',
+                url: 'https://www.nsut.ac.in',
+              },
+              sameAs: ['https://www.instagram.com/axiomnsut/'],
             },
-            sameAs: ['https://www.instagram.com/axiomnsut/'],
-          })}
+            {
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              '@id': 'https://axiomnsut.in/#website',
+              url: 'https://axiomnsut.in',
+              name: 'Axiom — The Philosophy Society',
+              publisher: { '@id': 'https://axiomnsut.in/#organization' },
+            },
+          ])}
         </script>
       </Helmet>
 
