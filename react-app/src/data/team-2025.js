@@ -104,7 +104,6 @@ export const core = [
     role: "Joint Secretary",
     members: [
       { name: "Shreyash" },
-      { name: "Shubhangi" },
       { name: "Ujjwal" },
     ],
   },
