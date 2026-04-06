@@ -85,6 +85,12 @@ const ROUTES = [
     title: `Dialectic — Philosophy Games — ${SITE_NAME}`,
     description: 'Match a philosophical thesis to its historical antithesis, then identify the synthesis that resolved the contradiction.',
   },
+  {
+    outDir: 'games/sorites',
+    path: '/games/sorites',
+    title: `Sorites — Philosophy Games — ${SITE_NAME}`,
+    description: 'Where does red end? Classify 34 colour patches and discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness.',
+  },
 ]
 
 function buildMetaBlock(route) {
