@@ -35,6 +35,14 @@ const games = [
     desc: 'A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction — tracing the actual movement of Western thought.',
     hint: '2 stages · 2 attempts each',
   },
+  {
+    num: '05',
+    path: '/games/sorites',
+    eyebrow: 'Experiment',
+    title: 'Sorites',
+    desc: 'Where does red end? Classify 34 colour patches and discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness and borderline cases.',
+    hint: '34 patches · reveals your contradictions',
+  },
 ]
 
 export default function Games() {
