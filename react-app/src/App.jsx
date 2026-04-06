@@ -9,6 +9,11 @@ import EventsByYear from './pages/EventsByYear'
 import Colophon from './pages/Colophon'
 import Alumni from './pages/Alumni'
 import Leadership2023 from './pages/Leadership2023'
+import Games from './pages/Games'
+import GameHermeneutic from './pages/GameHermeneutic'
+import GameEpoche from './pages/GameEpoche'
+import GameFallacy from './pages/GameFallacy'
+import GameDialectic from './pages/GameDialectic'
 import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
@@ -32,6 +37,11 @@ export default function App() {
             <Route path="/colophon" element={<Colophon />} />
             <Route path="/about/2024" element={<Alumni />} />
             <Route path="/about/2023" element={<Leadership2023 />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/games/hermeneutic" element={<GameHermeneutic />} />
+            <Route path="/games/epoche" element={<GameEpoche />} />
+            <Route path="/games/fallacy" element={<GameFallacy />} />
+            <Route path="/games/dialectic" element={<GameDialectic />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

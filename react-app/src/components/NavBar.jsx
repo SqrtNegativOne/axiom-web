@@ -5,6 +5,7 @@ const navLinks = [
   { label: 'Home', to: '/', internal: true },
   { label: 'About', to: '/about', internal: true },
   { label: 'Events', to: '/events', internal: true },
+  { label: 'Games', to: '/games', internal: true },
   { label: 'Newsletter', to: '/newsletter/', internal: false },
 ]
 
