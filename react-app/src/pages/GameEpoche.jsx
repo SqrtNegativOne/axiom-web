@@ -114,6 +114,7 @@ function GameBoard({ puzzle, onNewGame }) {
   const [results, setResults] = useState(null)
   const [attempts, setAttempts] = useState(0)
   const [status, setStatus] = useState('playing') // 'playing' | 'win' | 'lose'
+  const [firstAllWrong, setFirstAllWrong] = useState(false)
 
   const allSelected = axes.every((a) => sel[a] !== null)
 
@@ -127,6 +128,7 @@ function GameBoard({ puzzle, onNewGame }) {
     const res = Object.fromEntries(axes.map((a) => [a, sel[a] === puzzle.axes[a]]))
     const allCorrect = axes.every((a) => res[a])
     const newAttempts = attempts + 1
+    if (attempts === 0 && axes.every((a) => !res[a])) setFirstAllWrong(true)
     setResults(res)
     setAttempts(newAttempts)
     if (allCorrect) {
@@ -228,7 +230,7 @@ function GameBoard({ puzzle, onNewGame }) {
         <div className="bg-terracotta/8 border border-terracotta/20 rounded-lg px-5 py-3 mb-4">
           <p className="font-body text-sm text-terracotta/90">
             {wrongAxes.length === 1
-              ? `One axis is wrong — check ${wrongAxes[0]}.`
+              ? `One axis is wrong — reconsider and try again.`
               : `${wrongAxes.length} axes are wrong — reconsider and try again.`}{' '}
             <span className="text-ink/40">({3 - attempts} {3 - attempts === 1 ? 'attempt' : 'attempts'} left)</span>
           </p>
@@ -253,6 +255,32 @@ function GameBoard({ puzzle, onNewGame }) {
             Correct — all four axes
           </p>
           <p className="font-body text-sm text-ink/65 leading-relaxed">{puzzle.note}</p>
+        </div>
+      )}
+
+      {/* Unexamined Assumption easter egg */}
+      {status === 'win' && firstAllWrong && (
+        <div className="mt-4 border border-gold/40 rounded-lg overflow-hidden">
+          <div className="bg-gold/10 px-5 py-3 border-b border-gold/25">
+            <p className="font-mono text-xs tracking-widest uppercase text-gold">
+              Easter Egg · Unexamined Assumption
+            </p>
+          </div>
+          <div className="px-5 py-4">
+            <p className="font-body text-sm text-ink/80 leading-relaxed mb-3">
+              Your first attempt was wrong on all four axes — every classification the inverse of the truth.
+              You bracketed your assumptions, reconsidered, and found your way through.
+            </p>
+            <blockquote className="border-l-4 border-terracotta pl-4 mb-3">
+              <p className="font-heading font-light text-ink text-base italic leading-relaxed">
+                "We put out of action the general positing which belongs to the essence of the natural attitude;
+                we parenthesize everything which that positing encompasses."
+              </p>
+            </blockquote>
+            <p className="font-mono text-xs tracking-widest uppercase text-gold/70">
+              Edmund Husserl · Ideas I (1913)
+            </p>
+          </div>
         </div>
       )}
 

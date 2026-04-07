@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { FALLACY, FALLACY_OPTS } from '../data/puzzles'
 
+const MAX_GUESSES = 4
+
 function rand(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
@@ -55,14 +57,14 @@ function GameBoard({ puzzle, onNewGame }) {
     const newGuesses = [...guesses, { name: f.name, result, idx: i }]
     setGuesses(newGuesses)
     if (result === 'ok') setStatus('win')
-    else if (newGuesses.length >= 4) setStatus('lose')
+    else if (newGuesses.length >= MAX_GUESSES) setStatus('lose')
   }
 
   function getGuess(i) {
     return guesses.find((g) => g.idx === i)
   }
 
-  const attemptsLeft = 4 - guesses.length
+  const attemptsLeft = MAX_GUESSES - guesses.length
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -108,18 +110,29 @@ function GameBoard({ puzzle, onNewGame }) {
           }
 
           return (
-            <button
-              key={opt.name}
-              onClick={() => handlePick(i)}
-              disabled={isDisabled}
-              className={className}
-              style={r && style.style ? style.style : undefined}
-            >
-              <span className="block font-medium">{opt.name}</span>
-              <span className="block text-[10px] mt-0.5 opacity-60">
-                {opt.family} · {opt.cls}
+            <div key={opt.name} className="relative">
+              <button
+                onClick={() => handlePick(i)}
+                disabled={isDisabled}
+                className={className + ' w-full pr-7'}
+                style={r && style.style ? style.style : undefined}
+              >
+                <span className="block font-medium">{opt.name}</span>
+                <span className="block text-[10px] mt-0.5 opacity-60">
+                  {opt.family} · {opt.cls}
+                </span>
+              </button>
+              {/* Definition tooltip trigger */}
+              <span className="group/tip absolute right-2 top-1/2 -translate-y-1/2">
+                <span className="w-4 h-4 rounded-full bg-ink/15 flex items-center justify-center font-mono text-[9px] text-ink/50 cursor-default select-none">
+                  ?
+                </span>
+                {/* Tooltip */}
+                <div className="pointer-events-none invisible group-hover/tip:visible absolute z-20 bottom-full right-0 mb-1.5 w-64 px-3 py-2 rounded-md bg-ink text-cream font-body text-[11px] leading-snug shadow-lg">
+                  {opt.definition}
+                </div>
               </span>
-            </button>
+            </div>
           )
         })}
       </div>
@@ -203,9 +216,9 @@ export default function GameFallacy() {
         </h1>
         <div className="h-px w-12 bg-gold/40 mb-5" />
         <p className="font-body text-sm text-ink/60 leading-relaxed">
-          An argument is presented. Identify its logical fallacy from twelve options. If your guess
-          is wrong, you learn whether it shares the same class or family as the correct answer —
-          narrowing your next attempt. Four guesses.
+          An argument is presented. Identify its logical fallacy from {FALLACY_OPTS.length} options. If your
+          guess is wrong, you learn whether it shares the same class or family as the correct answer —
+          narrowing your next attempt. You have {MAX_GUESSES} guesses.
         </p>
       </section>
 

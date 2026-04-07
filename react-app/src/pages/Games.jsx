@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import SectionDivider from '../components/SectionDivider'
+import { FALLACY_OPTS } from '../data/puzzles'
 
 const externalExperiments = [
   {
@@ -33,6 +34,18 @@ const externalExperiments = [
     domain: 'ncase.me',
     desc: 'An interactive game-theory tutorial by Nicky Case on the Prisoner\'s Dilemma, and how cooperation can emerge from it.',
   },
+  {
+    title: 'Milton',
+    url: 'https://milton-23eac.web.app/',
+    domain: 'milton-23eac.web.app',
+    desc: 'A philosophical dialogue game exploring questions of mind, identity, and consciousness through conversation.',
+  },
+  {
+    title: 'Milton (mirror)',
+    url: 'https://mindany2.fr/milton/?lang=enu',
+    domain: 'mindany2.fr',
+    desc: 'Alternate host for the Milton experience — use if the primary link is unavailable.',
+  },
 ]
 
 const externalGames = [
@@ -41,6 +54,18 @@ const externalGames = [
     url: 'https://store.steampowered.com',
     domain: 'Steam (free)',
     desc: 'Ace Attorney-style debate mechanics. You debate Euthyphro, Protagoras, Hobbes, Mill, and Kant using pure elenchus: request clarification, challenge relevance, demand backing.',
+  },
+  {
+    title: 'The Talos Principle',
+    url: 'https://store.steampowered.com/app/257510/The_Talos_Principle/',
+    domain: 'Steam',
+    desc: 'A first-person puzzle game by Croteam in which an android navigates a world saturated with philosophical texts — Anaxagoras, Milton, Goethe — and must decide whether it is conscious, free, and worthy of existence.',
+  },
+  {
+    title: 'The Talos Principle 2',
+    url: 'https://store.steampowered.com/app/835960/The_Talos_Principle_2/',
+    domain: 'Steam',
+    desc: 'The sequel deepens the inquiry into AI consciousness, political philosophy, and the ethics of civilisation. Features branching arguments with in-world characters representing distinct philosophical positions.',
   },
 ]
 
@@ -67,7 +92,7 @@ const games = [
     eyebrow: 'Identification',
     title: 'Fallacy',
     desc: "Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class, narrowing the field.",
-    hint: '12 options · 4 guesses · colour-coded hints',
+    hint: `${FALLACY_OPTS.length} options · 4 guesses · colour-coded hints`,
   },
   {
     num: '04',

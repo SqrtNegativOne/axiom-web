@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { core, execomm, members } from '../data/team-2025'
@@ -24,6 +25,36 @@ const pillars = [
 ]
 
 export default function About() {
+  const [cpcClicked, setCpcClicked] = useState(false)
+
+  // Easter egg (2026): if any rendered text contains "Sunrise parabellum", wrap it
+  // in a link to the Disco Elysium fitgirl page. No data-file changes needed.
+  useEffect(() => {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
+    const toWrap = []
+    let node
+    while ((node = walker.nextNode())) {
+      if (node.textContent.includes('Sunrise parabellum')) toWrap.push(node)
+    }
+    toWrap.forEach((textNode) => {
+      const parts = textNode.textContent.split('Sunrise parabellum')
+      const frag = document.createDocumentFragment()
+      parts.forEach((part, i) => {
+        frag.appendChild(document.createTextNode(part))
+        if (i < parts.length - 1) {
+          const a = document.createElement('a')
+          a.href = 'https://fitgirl-repacks.site/disco-elysium/'
+          a.target = '_blank'
+          a.rel = 'noopener noreferrer'
+          a.textContent = 'Sunrise parabellum'
+          a.style.cssText = 'color:inherit;text-decoration:underline;text-underline-offset:3px'
+          frag.appendChild(a)
+        }
+      })
+      textNode.parentNode.replaceChild(frag, textNode)
+    })
+  }, [])
+
   return (
     <div className="pt-20 animate-on-load">
       <SEO
@@ -87,7 +118,14 @@ export default function About() {
             </PullQuote>
             <p className="font-body text-ink/70 leading-relaxed mt-4"
                style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}>
-              Our signature event, Chai Pe Charcha (CPC), remains the beating heart of Axiom.
+              Our signature event,{' '}
+              <span
+                onClick={() => setCpcClicked(true)}
+                style={{ cursor: cpcClicked ? 'default' : 'pointer' }}
+              >
+                {cpcClicked ? 'Charas Par Charcha' : 'Chai Pe Charcha'}
+              </span>{' '}
+              (CPC), remains the beating heart of Axiom.
               Every week, without fail, students gather over hot cups of chai to debate, discuss,
               and occasionally disagree — loudly, joyfully, philosophically.
             </p>

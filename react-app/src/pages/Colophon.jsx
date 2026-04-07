@@ -20,7 +20,7 @@ export default function Colophon() {
           <div className="border-t border-gold/30" />
         </div>
 
-        <div className="space-y-14 font-body text-ink/80 leading-relaxed">
+        <div className="space-y-14 font-body text-ink/80 dark:text-ink/80 leading-relaxed">
 
           {/* Typography */}
           <section>
@@ -57,6 +57,7 @@ export default function Colophon() {
                 { index: '04', tool: 'Eleventy', tag: 'Content', desc: 'Static site generator powering the newsletter layer.' },
                 { index: '05', tool: 'markdown-it', tag: 'Content', desc: 'Markdown renderer with footnote plugin for newsletter posts.' },
                 { index: '06', tool: 'Vercel', tag: 'Deploy', desc: 'Edge hosting with automatic deploys from the main branch.' },
+                { index: '07', tool: 'GoatCounter', tag: 'Analytics', desc: 'Open-source, cookieless, privacy-respecting page view tracking.' },
               ].map(({ index, tool, tag, desc }) => (
                 <div key={tool} className="border-b border-r border-gold/20 p-5 flex flex-col gap-2">
                   <div className="flex items-center justify-between">
@@ -102,7 +103,7 @@ export default function Colophon() {
             <p className="label-mono mb-4">Hosting &amp; deployment</p>
             <p className="text-sm text-ink/70 mb-5">
               Deployed on <strong className="text-ink font-medium">Vercel</strong> from the{' '}
-              <code className="font-mono text-xs bg-cream-dark px-1.5 py-0.5 rounded">main</code> branch.
+              <code className="font-mono text-xs bg-cream-dark dark:bg-cream-dark px-1.5 py-0.5 rounded">main</code> branch.
               The site ships as a single static directory merging two independent build systems —
               React/Vite for the main site and Eleventy for the newsletter — via a Node.js postbuild script.
             </p>
@@ -110,7 +111,7 @@ export default function Colophon() {
               href="https://github.com/SqrtNegativOne/axiom-web"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 font-mono text-xs text-green border border-gold/30 px-4 py-2.5 hover:bg-cream-dark hover:border-gold/60 transition-colors duration-200"
+              className="inline-flex items-center gap-2.5 font-mono text-xs text-green border border-gold/30 px-4 py-2.5 hover:bg-cream-dark dark:hover:bg-cream-dark hover:border-gold/60 transition-colors duration-200"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 opacity-70">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
