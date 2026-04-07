@@ -67,6 +67,12 @@ const externalGames = [
     domain: 'Steam',
     desc: 'The sequel deepens the inquiry into AI consciousness, political philosophy, and the ethics of civilisation. Features branching arguments with in-world characters representing distinct philosophical positions.',
   },
+  {
+    title: 'Disco Elysium',
+    url: 'https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/',
+    domain: 'Steam',
+    desc: 'A detective RPG in which your fractured psyche — 24 competing skill-voices — debates every action. Engages directly with Marxism, existentialism, Taoism, and the phenomenology of failure. Widely considered the most philosophically dense game ever made.',
+  },
 ]
 
 const games = [
