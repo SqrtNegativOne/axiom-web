@@ -13,6 +13,8 @@ const navLinks = [
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [logoClicks, setLogoClicks] = useState(0)
+  const [logoSpinning, setLogoSpinning] = useState(false)
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -41,11 +43,27 @@ export default function NavBar() {
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo / wordmark */}
-        <Link to="/" className="flex items-center gap-3 group">
+        {logoSpinning && (
+          <style>{`@keyframes axiom-logo-spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }`}</style>
+        )}
+        <Link
+          to="/"
+          className="flex items-center gap-3 group"
+          onClick={() => {
+            const next = logoClicks + 1
+            setLogoClicks(next)
+            if (next >= 2) {
+              setLogoSpinning(true)
+              setLogoClicks(0)
+              setTimeout(() => setLogoSpinning(false), 600)
+            }
+          }}
+        >
           <img
             src="/data/logo.svg"
             alt="Axiom"
             className="h-8 w-auto"
+            style={logoSpinning ? { animation: 'axiom-logo-spin 0.6s ease-out' } : {}}
             onError={(e) => { e.target.style.display = 'none' }}
           />
           <span className="font-heading text-2xl font-light tracking-[0.15em] text-green group-hover:text-terracotta transition-colors duration-200">

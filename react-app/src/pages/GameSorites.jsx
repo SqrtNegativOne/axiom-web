@@ -241,6 +241,66 @@ function SoritesBoard({ onNewGame }) {
     const favPatch = lastFavIdx >= 0 ? sorted[lastFavIdx] : null
     const notFavPatch = firstNotFavIdx >= 0 ? sorted[firstNotFavIdx] : null
 
+    // ── Heap Escaper easter egg ────────────────────────────────────────────────
+    if (favCount === N || favCount === 0) {
+      const escapedRGB = favCount === N ? favColour.rgb : leastColour.rgb
+      const monoCSS = `rgb(${escapedRGB.join(',')})`
+      return (
+        <div style={{ fontFamily: MONO, padding: '0 0 80px' }}>
+          <div style={{ display: 'flex', width: '100%', height: 22, marginBottom: 56 }}>
+            {patches.map((p) => (
+              <div key={p.id} style={{ flex: 1, background: monoCSS }} />
+            ))}
+          </div>
+          <div style={{ maxWidth: 560, margin: '0 auto', textAlign: 'center' }}>
+            <p style={{ fontSize: 9, letterSpacing: '0.3em', color: monoCSS, textTransform: 'uppercase', margin: '0 0 20px' }}>
+              Easter Egg · Heap Escaper
+            </p>
+            <h2 style={{ fontSize: 52, fontWeight: 700, letterSpacing: '0.06em', color: monoCSS, margin: '0 0 8px', lineHeight: 1 }}>
+              PARADOX
+            </h2>
+            <h2 style={{ fontSize: 52, fontWeight: 700, letterSpacing: '0.06em', color: INK, margin: '0 0 40px', lineHeight: 1 }}>
+              ESCAPED
+            </h2>
+            <p style={{ fontSize: 12, color: '#666', lineHeight: 1.85, margin: '0 0 36px', maxWidth: 440, marginLeft: 'auto', marginRight: 'auto' }}>
+              {favCount === N
+                ? `You called all ${N} patches ${favName} — absorbing ${leastColour.name} into your favourite colour. The sorites paradox cannot arise if the predicate swallows the entire spectrum.`
+                : `You called nothing ${favName} — not even the pure ${favName} at position 1. The paradox dissolves when the predicate has no extension at all.`}
+            </p>
+            <div style={{ borderLeft: '3px solid', borderColor: monoCSS, paddingLeft: 20, textAlign: 'left', margin: '0 auto 48px', maxWidth: 440 }}>
+              <p style={{ fontSize: 14, fontStyle: 'italic', color: INK, lineHeight: 1.8, margin: '0 0 8px' }}>
+                "Everything is vague to a degree you do not realise till you have tried to make it precise."
+              </p>
+              <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#999', textTransform: 'uppercase', margin: 0 }}>
+                Bertrand Russell
+              </p>
+            </div>
+            <button
+              onClick={onNewGame}
+              style={{
+                padding: '12px 28px',
+                border: `1px solid`,
+                borderColor: monoCSS,
+                background: 'transparent',
+                fontFamily: MONO,
+                fontSize: 11,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                color: monoCSS,
+                transition: 'all .15s',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = monoCSS; e.currentTarget.style.color = BG }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = monoCSS }}
+            >
+              Try again
+            </button>
+          </div>
+        </div>
+      )
+    }
+    // ──────────────────────────────────────────────────────────────────────────
+
     function Swatch({ t, size = 16 }) {
       return (
         <span
@@ -278,31 +338,6 @@ function SoritesBoard({ onNewGame }) {
             <span style={{ fontSize: 10, color: '#999' }}>▲ {favName} ({favCount})</span>
             <span style={{ fontSize: 10, color: '#bbb' }}>▲ not {favName} ({N - favCount})</span>
           </div>
-
-          {/* Edge case: everything is favColour */}
-          {favCount === N && (
-            <div style={{ background: INK, color: BG, padding: '22px 28px', marginBottom: 32 }}>
-              <p style={{ margin: 0, fontSize: 13, lineHeight: 1.85 }}>
-                You called all {N} patches {favName}, including the{' '}
-                <Swatch t={1} /> {leastColour.name} end of the spectrum.
-                <br /><br />
-                You escaped the paradox — but you must now classify{' '}
-                {leastColour.name} as {favName}.
-              </p>
-            </div>
-          )}
-
-          {/* Edge case: nothing is favColour */}
-          {favCount === 0 && (
-            <div style={{ background: INK, color: BG, padding: '22px 28px', marginBottom: 32 }}>
-              <p style={{ margin: 0, fontSize: 13, lineHeight: 1.85 }}>
-                You called nothing {favName}, including the pure{' '}
-                <Swatch t={0} /> {favName} at the start.
-                <br /><br />
-                You escaped the paradox by eliminating the concept of {favName} altogether.
-              </p>
-            </div>
-          )}
 
           {/* Inversion */}
           {hasInversion && notFavPatch && favPatch && (
@@ -397,23 +432,36 @@ function SoritesBoard({ onNewGame }) {
           {[
             [
               'Epistemicism',
+              'https://en.wikipedia.org/wiki/Epistemicism',
               `A sharp boundary exists; we simply cannot know where it is. Vagueness is epistemic, not metaphysical. Your line is correct — you just drew it somewhere arbitrary. (Williamson 1994)`,
             ],
             [
               'Fuzzy logic',
+              'https://en.wikipedia.org/wiki/Fuzzy_logic',
               `'${favName}' admits of degrees: the borderline patch is 0.5 ${favName}. No contradiction arises at a non-classical truth value. The binary yes/no forced by this game is the culprit, not the predicate.`,
             ],
             [
               'Reject tolerance',
+              'https://en.wikipedia.org/wiki/Sorites_paradox#Responses',
               `Premise 2 is false. Imperceptible differences can be decisive — they accumulate. '${favName}' has a sharp extension even if individual differences are sub-threshold.`,
             ],
             [
               'Supervaluationism',
+              'https://en.wikipedia.org/wiki/Supervaluationism',
               `Statements about borderline cases are neither true nor false. 'Patch 17 is ${favName}' has no truth value, so the inductive step fails to go through. Classical logic still holds for clear cases.`,
             ],
-          ].map(([name, desc]) => (
+          ].map(([name, url, desc]) => (
             <div key={name} style={{ borderLeft: '2px solid #ddd', paddingLeft: 18, marginBottom: 22 }}>
-              <strong style={{ fontSize: 13, color: INK, display: 'block', marginBottom: 5 }}>{name}</strong>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: 13, color: INK, display: 'block', marginBottom: 5, textDecoration: 'none', fontWeight: 600 }}
+                onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline' }}
+                onMouseLeave={(e) => { e.currentTarget.style.textDecoration = 'none' }}
+              >
+                {name} ↗
+              </a>
               <p style={{ fontSize: 12, color: '#666', margin: 0, lineHeight: 1.8 }}>{desc}</p>
             </div>
           ))}
