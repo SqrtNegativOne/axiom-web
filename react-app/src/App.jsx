@@ -15,6 +15,7 @@ import GameEpoche from './pages/GameEpoche'
 import GameFallacy from './pages/GameFallacy'
 import GameDialectic from './pages/GameDialectic'
 import GameSorites from './pages/GameSorites'
+import GameRepugnant from './pages/GameRepugnant'
 import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/games/fallacy" element={<GameFallacy />} />
             <Route path="/games/dialectic" element={<GameDialectic />} />
             <Route path="/games/sorites" element={<GameSorites />} />
+            <Route path="/games/repugnant" element={<GameRepugnant />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

@@ -14,6 +14,100 @@ const AXIS_OPTIONS = {
   'Descriptive / Normative': ['Descriptive', 'Normative'],
 }
 
+const TERMS = [
+  {
+    axis: 'Analytic / Synthetic',
+    terms: [
+      {
+        name: 'Analytic',
+        def: 'A statement whose truth follows from the meanings of its terms alone. The predicate adds nothing beyond what is already contained in the subject. "All bachelors are unmarried" — true by definition, no experience needed.',
+      },
+      {
+        name: 'Synthetic',
+        def: 'A statement that adds information beyond what is contained in the subject\'s meaning. Truth cannot be determined by concept analysis alone; it requires appeal to experience or further reasoning. "The cat is on the mat" is synthetic.',
+      },
+    ],
+  },
+  {
+    axis: 'A priori / A posteriori',
+    terms: [
+      {
+        name: 'A priori',
+        def: 'Knowledge or justification that is independent of sensory experience. Mathematical truths ("2 + 2 = 4") and logical tautologies are canonical examples — knowable through reason alone.',
+      },
+      {
+        name: 'A posteriori',
+        def: 'Knowledge derived from and dependent on sensory experience. Empirical claims about the contingent world — "Water boils at 100°C at sea level" — must be verified by observation.',
+      },
+    ],
+  },
+  {
+    axis: 'Necessary / Contingent',
+    terms: [
+      {
+        name: 'Necessary',
+        def: 'A proposition that could not possibly have been otherwise — true in every possible world. "2 + 2 = 4" and "All triangles have three sides" are paradigm cases. Denial leads to contradiction.',
+      },
+      {
+        name: 'Contingent',
+        def: 'A proposition that is true but could have been false — true in some possible worlds, false in others. "Napoleon lost at Waterloo" is contingent: history could have gone differently.',
+      },
+    ],
+  },
+  {
+    axis: 'Descriptive / Normative',
+    terms: [
+      {
+        name: 'Descriptive',
+        def: 'A claim that states how things are, were, or will be. It is in principle empirically verifiable or falsifiable. "Most people prefer pleasure to pain" is a descriptive claim about behaviour.',
+      },
+      {
+        name: 'Normative',
+        def: 'A claim that states how things ought to be, what is good, right, or valuable. It cannot be straightforwardly confirmed or denied by empirical means. "One ought to keep one\'s promises" is normative.',
+      },
+    ],
+  },
+]
+
+function TermsGlossary() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="mt-6 border border-gold/20 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-gold/5 transition-colors duration-150"
+        aria-expanded={open}
+      >
+        <span className="font-mono text-xs tracking-widest uppercase text-gold/70">
+          Definitions — the four axes explained
+        </span>
+        <span className="font-mono text-xs text-gold/50 ml-4 select-none">
+          {open ? '▲' : '▼'}
+        </span>
+      </button>
+
+      {open && (
+        <div className="border-t border-gold/15 px-5 py-5 space-y-6">
+          {TERMS.map(({ axis, terms }) => (
+            <div key={axis}>
+              <p className="font-mono text-xs text-gold tracking-widest uppercase mb-3">{axis}</p>
+              <div className="space-y-3">
+                {terms.map(({ name, def }) => (
+                  <div key={name} className="flex gap-3">
+                    <span className="font-mono text-xs text-terracotta/80 pt-0.5 shrink-0 w-24">{name}</span>
+                    <p className="font-body text-xs text-ink/60 leading-relaxed">{def}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 function GameBoard({ puzzle, onNewGame }) {
   const axes = Object.keys(puzzle.axes)
   const [sel, setSel] = useState(() => Object.fromEntries(axes.map((a) => [a, null])))
@@ -234,6 +328,8 @@ export default function GameEpoche() {
           A philosophical proposition is placed before you. Suspend your assumptions — as Husserl
           instructed — and classify it across four axes. You have three attempts.
         </p>
+
+        <TermsGlossary />
       </section>
 
       {/* Game area */}

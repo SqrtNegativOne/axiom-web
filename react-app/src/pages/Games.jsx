@@ -2,13 +2,55 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import SectionDivider from '../components/SectionDivider'
 
+const externalExperiments = [
+  {
+    title: 'Philosophy Experiments',
+    url: 'https://philosophyexperiments.com',
+    domain: 'philosophyexperiments.com',
+    desc: '26 browser-based experiments by Jeremy Stangroom: Battleground God (contradiction detection), Morality Play (reveals your ethical framework), Staying Alive (Parfit\'s personal identity), Whose Body Is It Anyway? (Thomson\'s violinist), and Talking with God (Euthyphro dilemma).',
+  },
+  {
+    title: 'MIT Moral Machine',
+    url: 'https://moralmachine.mit.edu',
+    domain: 'moralmachine.mit.edu',
+    desc: 'Trolley-problem variants across 13 scenarios. Reveals how your moral judgements compare globally, and lets you design your own cases.',
+  },
+  {
+    title: 'Absurd Trolley Problems',
+    url: 'https://neal.fun/absurd-trolley-problems',
+    domain: 'neal.fun',
+    desc: '28 escalating trolley variants with crowd-sourced results per dilemma.',
+  },
+  {
+    title: 'Castle, Forest, Island, Sea',
+    url: 'https://open.edu/openlearn',
+    domain: 'open.edu/openlearn',
+    desc: 'A choose-your-own-adventure from the Open University that builds a philosophical profile and maps your positions onto historical philosophers.',
+  },
+  {
+    title: 'The Evolution of Trust',
+    url: 'https://ncase.me/trust',
+    domain: 'ncase.me',
+    desc: 'An interactive game-theory tutorial by Nicky Case on the Prisoner\'s Dilemma, and how cooperation can emerge from it.',
+  },
+]
+
+const externalGames = [
+  {
+    title: 'Socrates Jones: Pro Philosopher',
+    url: 'https://store.steampowered.com',
+    domain: 'Steam (free)',
+    desc: 'Ace Attorney-style debate mechanics. You debate Euthyphro, Protagoras, Hobbes, Mill, and Kant using pure elenchus: request clarification, challenge relevance, demand backing.',
+  },
+]
+
 const games = [
   {
     num: '01',
     path: '/games/hermeneutic',
     eyebrow: 'Word Puzzle',
     title: 'Hermeneutic',
-    desc: 'Guess the philosophical term from progressively revealing clues. Each wrong guess unveils another layer of context — from etymology to Heidegger.',
+    desc: 'Guess the philosophical term from progressively revealing clues. Each wrong guess unveils another layer of context, from etymology to Heidegger.',
     hint: 'Up to 5 clues · 6 guesses',
   },
   {
@@ -24,7 +66,7 @@ const games = [
     path: '/games/fallacy',
     eyebrow: 'Identification',
     title: 'Fallacy',
-    desc: "Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class — narrowing the field.",
+    desc: "Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class, narrowing the field.",
     hint: '12 options · 4 guesses · colour-coded hints',
   },
   {
@@ -32,7 +74,7 @@ const games = [
     path: '/games/dialectic',
     eyebrow: 'Synthesis',
     title: 'Dialectic',
-    desc: 'A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction — tracing the actual movement of Western thought.',
+    desc: 'A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction, tracing the actual movement of Western thought.',
     hint: '2 stages · 2 attempts each',
   },
   {
@@ -40,8 +82,16 @@ const games = [
     path: '/games/sorites',
     eyebrow: 'Experiment',
     title: 'Sorites',
-    desc: 'Where does red end? Classify 34 colour patches and discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness and borderline cases.',
-    hint: '34 patches · reveals your contradictions',
+    desc: 'Pick your favourite and least favourite colour. Classify 34 patches across the gradient between them and discover the Sorites paradox hiding in your own judgements.',
+    hint: '34 patches · personalised gradient · reveals your contradictions',
+  },
+  {
+    num: '06',
+    path: '/games/repugnant',
+    eyebrow: 'Population Ethics',
+    title: 'Repugnant Conclusion',
+    desc: 'Make a series of world-comparisons, each individually reasonable. Follow your own logic through 9 steps and discover whether you endorse the conclusion Parfit called the most important problem in ethics.',
+    hint: '9 steps · Parfit 1984 · no right answer',
   },
 ]
 
@@ -63,9 +113,9 @@ export default function Games() {
           className="font-body text-ink/70 leading-relaxed max-w-2xl mx-auto"
           style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}
         >
-          Four games drawn from the practice of philosophy itself — hermeneutics,
-          phenomenological suspension, informal logic, and dialectical method. Each
-          puzzle is a small exercise in the kind of thinking we do at Axiom.
+          Six games drawn from the practice of philosophy itself: hermeneutics,
+          phenomenological suspension, informal logic, dialectical method, the
+          Sorites paradox, and population ethics. Each puzzle is a small exercise in the kind of thinking we do at Axiom.
         </p>
       </section>
 
@@ -114,10 +164,80 @@ export default function Games() {
 
       <SectionDivider className="px-6 max-w-6xl mx-auto" />
 
+      {/* External resources */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+          <p className="label-mono mb-4">Around the Web</p>
+          <h2
+            className="font-heading font-light text-green mb-3"
+            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}
+          >
+            External Experiments &amp; Games
+          </h2>
+          <div className="h-px w-16 bg-gold/50 mx-auto" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {/* Experiments column */}
+          <div className="lg:col-span-2">
+            <p className="label-mono text-gold mb-5">Interactive Experiments</p>
+            <div className="space-y-0 divide-y divide-gold/12">
+              {externalExperiments.map(({ title, url, domain, desc }) => (
+                <div key={url} className="py-5 group">
+                  <div className="flex items-start justify-between gap-4 mb-1.5">
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150"
+                      style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+                    >
+                      {title}
+                    </a>
+                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1 shrink-0">
+                      {domain} ↗
+                    </span>
+                  </div>
+                  <p className="font-body text-sm text-ink/55 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Games column */}
+          <div>
+            <p className="label-mono text-gold mb-5">External Games</p>
+            <div className="space-y-0 divide-y divide-gold/12">
+              {externalGames.map(({ title, url, domain, desc }) => (
+                <div key={url} className="py-5 group">
+                  <div className="flex items-start justify-between gap-4 mb-1.5">
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150"
+                      style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+                    >
+                      {title}
+                    </a>
+                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1 shrink-0">
+                      {domain} ↗
+                    </span>
+                  </div>
+                  <p className="font-body text-sm text-ink/55 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider className="px-6 max-w-6xl mx-auto" />
+
       {/* Footer note */}
       <section className="max-w-4xl mx-auto px-6 py-12 text-center">
         <p className="font-body text-sm text-ink/50 leading-relaxed">
-          Puzzles are drawn from canonical texts in Western philosophy — Plato, Aristotle,
+          Puzzles are drawn from canonical texts in Western philosophy: Plato, Aristotle,
           Kant, Hegel, and their interpreters. New puzzles are added as the year progresses.
         </p>
       </section>
