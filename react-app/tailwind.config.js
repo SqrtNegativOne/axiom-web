@@ -1,18 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        cream: '#F8F4EC',
-        'cream-dark': '#EDE9DF',
+        // CSS variable references — keeps opacity modifiers (text-ink/70, bg-gold/20) working
+        // while allowing dark mode to override via .dark { --color-X-rgb: ... }
+        cream: 'rgb(var(--color-cream-rgb) / <alpha-value>)',
+        'cream-dark': 'rgb(var(--color-cream-dark-rgb) / <alpha-value>)',
         green: {
-          DEFAULT: '#2C4A3E',
+          DEFAULT: 'rgb(var(--color-green-rgb) / <alpha-value>)',
           dark: '#1E3329',
         },
-        terracotta: '#C4704F',
-        gold: '#C9A44C',
-        ink: '#1A1A18',
+        terracotta: 'rgb(var(--color-terracotta-rgb) / <alpha-value>)',
+        gold: 'rgb(var(--color-gold-rgb) / <alpha-value>)',
+        ink: 'rgb(var(--color-ink-rgb) / <alpha-value>)',
       },
       fontFamily: {
         heading: ['Cormorant Garamond', 'Georgia', 'serif'],

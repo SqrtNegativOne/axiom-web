@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { label: 'Home', to: '/', internal: true },
@@ -35,7 +36,7 @@ export default function NavBar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         hidden
           ? 'opacity-0 -translate-y-full pointer-events-none'
-          : 'opacity-100 translate-y-0 bg-cream/95 backdrop-blur-sm shadow-sm'
+          : 'opacity-100 translate-y-0 bg-cream/95 dark:bg-[#0E1A14]/95 backdrop-blur-sm shadow-sm'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -79,6 +80,10 @@ export default function NavBar() {
           )}
         </ul>
 
+        {/* Desktop: theme toggle + hamburger */}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+
         {/* Mobile hamburger */}
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
@@ -89,6 +94,7 @@ export default function NavBar() {
           <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
           <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -97,7 +103,7 @@ export default function NavBar() {
           menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-cream border-t border-gold/30 px-6 py-4">
+        <div className="bg-cream dark:bg-[#0E1A14] border-t border-gold/30 px-6 py-4">
           <ul className="flex flex-col gap-4">
             {navLinks.map(({ label, to, internal }) =>
               internal ? (
