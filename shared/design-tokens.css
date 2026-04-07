@@ -45,11 +45,17 @@
 :root {
   /* Colors */
   --color-cream: #F8F4EC;
+  --color-cream-rgb: 248 244 236;
   --color-cream-dark: #EDE9DF;
+  --color-cream-dark-rgb: 237 233 223;
   --color-green: #2C4A3E;
+  --color-green-rgb: 44 74 62;
   --color-terracotta: #C4704F;
+  --color-terracotta-rgb: 196 112 79;
   --color-gold: #C9A44C;
+  --color-gold-rgb: 201 164 76;
   --color-ink: #1A1A18;
+  --color-ink-rgb: 26 26 24;
 
   /* Typography */
   --font-heading: 'Cormorant Garamond', Georgia, serif;
@@ -66,4 +72,14 @@
   /* Decorative */
   --rule-color: var(--color-gold);
   --rule-width: 0.5px;
+}
+
+/* Dark mode: override the tokens that need to change */
+.dark {
+  --color-cream-dark: #142219;
+  --color-cream-dark-rgb: 20 34 25;
+  --color-green: #9DBFB5;
+  --color-green-rgb: 157 191 181;
+  --color-ink: #DDD8CD;
+  --color-ink-rgb: 221 216 205;
 }

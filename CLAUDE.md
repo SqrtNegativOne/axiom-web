@@ -62,14 +62,24 @@ The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a
 
 ### Palette
 
-| Name | Hex | Usage |
-|------|-----|-------|
-| `cream` | `#F8F4EC` | Page background |
-| `cream-dark` | `#EDE9DF` | Card backgrounds |
-| `green` | `#2C4A3E` | Primary text, nav, headings |
-| `terracotta` | `#C4704F` | CTAs, pull-quote borders, hover accents |
-| `gold` | `#C9A44C` | Decorative rules, dates, dividers |
-| `ink` | `#1A1A18` | Body text |
+| Name | Light hex | Dark hex | Usage |
+|------|-----------|----------|-------|
+| `cream` | `#F8F4EC` | (fixed) | Footer/hero text, decorative elements — NOT remapped in dark mode |
+| `cream-dark` | `#EDE9DF` | `#142219` | Card/elevated backgrounds |
+| `green` | `#2C4A3E` | `#9DBFB5` | Primary text, nav, headings |
+| `terracotta` | `#C4704F` | (fixed) | CTAs, pull-quote borders, hover accents |
+| `gold` | `#C9A44C` | (fixed) | Decorative rules, dates, dividers |
+| `ink` | `#1A1A18` | `#DDD8CD` | Body text |
+
+### Dark mode
+
+Dark mode is implemented via:
+- `darkMode: 'class'` in `tailwind.config.js` — toggle by adding `dark` class to `<html>`
+- `ThemeToggle.jsx` component in NavBar — persists to `localStorage` as `axiom-theme`
+- Anti-flash inline script in `react-app/index.html` applies dark class before React mounts
+- Tailwind colors defined as `rgb(var(--color-X-rgb) / <alpha-value>)` — preserves all opacity modifiers (`text-ink/70` etc.) while CSS variable overrides in `.dark {}` handle the actual color swap
+- Page backgrounds using `cream` (which is NOT remapped) need explicit `dark:bg-[#0E1A14]` classes
+- Footer uses `dark:bg-[#0C1610]` since the green → sage remap would break it
 
 ### Typography
 

@@ -114,16 +114,16 @@ export default function TeamPortraitCard({ name, image, quote, socials, compact 
             className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20"
             aria-hidden="true"
           >
-            <div className="bg-cream border border-gold/40 rounded-2xl px-3.5 py-2.5 shadow-md">
+            <div className="bg-cream dark:bg-[#142219] border border-gold/40 rounded-2xl px-3.5 py-2.5 shadow-md">
               <p className="font-body text-xs text-ink/70 italic leading-relaxed text-center">
                 &ldquo;{quote}&rdquo;
               </p>
             </div>
             {/* Thought bubble tail dots */}
             <div className="flex justify-center items-end gap-1 mt-1">
-              <div className="w-2 h-2 rounded-full bg-cream border border-gold/40" />
-              <div className="w-1.5 h-1.5 rounded-full bg-cream border border-gold/40" />
-              <div className="w-1 h-1 rounded-full bg-cream border border-gold/40" />
+              <div className="w-2 h-2 rounded-full bg-cream dark:bg-[#142219] border border-gold/40" />
+              <div className="w-1.5 h-1.5 rounded-full bg-cream dark:bg-[#142219] border border-gold/40" />
+              <div className="w-1 h-1 rounded-full bg-cream dark:bg-[#142219] border border-gold/40" />
             </div>
           </div>
         )}

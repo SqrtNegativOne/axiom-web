@@ -3,7 +3,7 @@ import SEO from '../components/SEO'
 
 export default function NotFound() {
   return (
-    <div className="bg-cream min-h-screen flex flex-col items-center justify-center px-6 text-center">
+    <div className="bg-cream dark:bg-[#0E1A14] min-h-screen flex flex-col items-center justify-center px-6 text-center">
       <SEO title="Page Not Found" path="/" noindex={true} />
       <p className="label-mono mb-6">404</p>
       <h1

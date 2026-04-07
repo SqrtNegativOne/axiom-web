@@ -19,6 +19,15 @@
     <meta name="twitter:description" content="Axiom is the philosophy society at NSUT — fostering intellectual curiosity, critical thinking, and philosophical inquiry since 2017." />
     <meta name="twitter:image" content="https://axiomnsut.in/assets/logo.png" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <!-- Anti-flash: apply dark class before any CSS/React renders -->
+    <script>
+      (function () {
+        var stored = localStorage.getItem('axiom-theme');
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

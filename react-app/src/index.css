@@ -17,7 +17,7 @@
   }
 
   body {
-    @apply bg-cream text-ink font-body;
+    @apply bg-cream dark:bg-[#0E1A14] text-ink font-body;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -25,6 +25,11 @@
   ::selection {
     background-color: #1A1A18;
     color: #F8F4EC;
+  }
+
+  .dark ::selection {
+    background-color: #DDD8CD;
+    color: #0E1A14;
   }
 
   h1, h2, h3, h4, h5, h6 {

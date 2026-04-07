@@ -2,7 +2,7 @@ import SEO from '../components/SEO'
 
 export default function Colophon() {
   return (
-    <div className="bg-cream min-h-screen">
+    <div className="bg-cream dark:bg-[#0E1A14] min-h-screen">
       <SEO
         title="Colophon"
         path="/colophon"
