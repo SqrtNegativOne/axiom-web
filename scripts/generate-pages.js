@@ -55,6 +55,42 @@ const ROUTES = [
     title: `Colophon — ${SITE_NAME}`,
     description: 'How the Axiom website was built — typography, tools, colour palette, and deployment details.',
   },
+  {
+    outDir: 'games',
+    path: '/games',
+    title: `Philosophy Games — ${SITE_NAME}`,
+    description: 'Four interactive philosophy games — guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought.',
+  },
+  {
+    outDir: 'games/hermeneutic',
+    path: '/games/hermeneutic',
+    title: `Hermeneutic — Philosophy Games — ${SITE_NAME}`,
+    description: 'Guess the philosophical term from progressively revealing clues. Each wrong answer unveils another layer of context.',
+  },
+  {
+    outDir: 'games/epoche',
+    path: '/games/epoche',
+    title: `Époche — Philosophy Games — ${SITE_NAME}`,
+    description: 'Classify a philosophical proposition across four axes: analytic/synthetic, a priori/a posteriori, necessary/contingent, descriptive/normative.',
+  },
+  {
+    outDir: 'games/fallacy',
+    path: '/games/fallacy',
+    title: `Fallacy — Philosophy Games — ${SITE_NAME}`,
+    description: 'Identify the logical fallacy in a philosophical argument. Hints reveal whether your guess shares the right family or class.',
+  },
+  {
+    outDir: 'games/dialectic',
+    path: '/games/dialectic',
+    title: `Dialectic — Philosophy Games — ${SITE_NAME}`,
+    description: 'Match a philosophical thesis to its historical antithesis, then identify the synthesis that resolved the contradiction.',
+  },
+  {
+    outDir: 'games/sorites',
+    path: '/games/sorites',
+    title: `Sorites — Philosophy Games — ${SITE_NAME}`,
+    description: 'Where does red end? Classify 34 colour patches and discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness.',
+  },
 ]
 
 function buildMetaBlock(route) {
