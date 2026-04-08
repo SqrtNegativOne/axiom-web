@@ -23,12 +23,6 @@ const externalExperiments = [
     desc: '28 escalating trolley variants with crowd-sourced results per dilemma.',
   },
   {
-    title: 'Castle, Forest, Island, Sea',
-    url: 'https://open.edu/openlearn',
-    domain: 'open.edu/openlearn',
-    desc: 'A choose-your-own-adventure from the Open University that builds a philosophical profile and maps your positions onto historical philosophers.',
-  },
-  {
     title: 'The Evolution of Trust',
     url: 'https://ncase.me/trust',
     domain: 'ncase.me',
@@ -51,7 +45,7 @@ const externalExperiments = [
 const externalGames = [
   {
     title: 'Socrates Jones: Pro Philosopher',
-    url: 'https://store.steampowered.com',
+    url: 'https://store.steampowered.com/app/2120060/Socrates_Jones_Pro_Philosopher/',
     domain: 'Steam (free)',
     desc: 'Ace Attorney-style debate mechanics. You debate Euthyphro, Protagoras, Hobbes, Mill, and Kant using pure elenchus: request clarification, challenge relevance, demand backing.',
   },
@@ -268,8 +262,7 @@ export default function Games() {
       {/* Footer note */}
       <section className="max-w-4xl mx-auto px-6 py-12 text-center">
         <p className="font-body text-sm text-ink/50 leading-relaxed">
-          Puzzles are drawn from canonical texts in Western philosophy: Plato, Aristotle,
-          Kant, Hegel, and their interpreters. New puzzles are added as the year progresses.
+          New puzzles are added as the year progresses.
         </p>
       </section>
     </div>
