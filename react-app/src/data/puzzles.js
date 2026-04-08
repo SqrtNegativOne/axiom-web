@@ -1,4 +1,87 @@
-export const HERMENEUTIC = [
+export const HERMENEUTIC_EASY = [
+  {
+    answer: 'consciousness',
+    clues: [
+      'Descartes placed <b>████</b> at the centre of his philosophy: the one thing that could not be doubted was that there was a thinking thing having experiences.',
+      'Locke grounded personal identity in continuity of <b>████</b>: you are the same person over time because memory links your present experiences to your past ones.',
+      'Phenomenologists such as Husserl and Merleau-Ponty argued that <b>████</b> is never a bare inner theatre but always intentional — directed toward objects in a shared world.',
+      'The "hard problem" of <b>████</b>, named by David Chalmers, asks why and how physical processes in the brain give rise to subjective, felt experience — the "what it is like" to be something.',
+      'Dennett\'s "multiple drafts" model holds that there is no single Cartesian theatre where <b>████</b> happens; many parallel processes compete, and our sense of a unified self is a useful narrative fiction.',
+    ],
+  },
+  {
+    answer: 'belief',
+    clues: [
+      'Plato held that <b>████</b> alone is insufficient for knowledge: one can have a true <b>████</b> by luck without understanding why it is true.',
+      'The classical analysis of knowledge defines it as justified true <b>████</b> — a formulation that dominated epistemology until Gettier produced decisive counterexamples in 1963.',
+      'Hume argued that our most basic <b>████</b>s — that the future will resemble the past, that objects persist unobserved — cannot be grounded in reason and rest instead on habit and custom.',
+      'William James, in "The Will to Believe," argued that in genuine dilemmas that are live, momentous, and forced, we are entitled to adopt a <b>████</b> on the basis of our passional nature when evidence runs out.',
+      'Contemporary epistemology distinguishes the content of a <b>████</b> from its strength or degree; rationalists argue that agents ought to apportion their confidence to the evidence — a position called evidentialism.',
+    ],
+  },
+  {
+    answer: 'being',
+    clues: [
+      'Parmenides argued that only <b>████</b> is: non-<b>████</b> is literally unthinkable, since to think of nothing is already to think of something.',
+      'Aristotle made the study of <b>████</b> qua <b>████</b> the subject of "first philosophy," asking what it means for anything at all to exist prior to any investigation of particular kinds of things.',
+      'Aquinas distinguished between essence (what a thing is) and existence (that it is), arguing that in God alone are these identical — all creatures have <b>████</b> only by participation in the divine.',
+      'Heidegger accused Western philosophy of "forgetting the question of <b>████</b>": since Plato, thinkers have spoken about beings but lost sight of <b>████</b> itself as a question requiring investigation.',
+      'Sartre reversed the traditional priority: existence precedes essence — human <b>████</b> is not determined in advance, and we are condemned to create ourselves through our choices.',
+    ],
+  },
+  {
+    answer: 'freedom',
+    clues: [
+      'Kant distinguished empirical <b>████</b> — acting without external compulsion — from transcendental <b>████</b>, the will\'s capacity to initiate a causal series independently of natural determination.',
+      'Locke grounded political <b>████</b> in natural rights: persons own themselves and the fruits of their labour, and no government may legitimately take these without consent.',
+      'Sartre held that human beings are "condemned to be free" — we cannot escape <b>████</b> even by denying it, since choosing not to choose is itself a choice for which we are fully responsible.',
+      'Isaiah Berlin distinguished negative <b>████</b> (absence of external constraint) from positive <b>████</b> (genuine self-direction); critics of liberalism argue that the former can coexist with profound unfreedom in practice.',
+      'The problem of <b>████</b> and determinism asks whether genuine moral responsibility is possible if every decision is the inevitable product of prior causes operating according to natural law.',
+    ],
+  },
+  {
+    answer: 'truth',
+    clues: [
+      'Aristotle gave the oldest formulation: to say of what is that it is, and of what is not that it is not, is to speak <b>████</b> — the seed of the correspondence theory.',
+      'Coherence theorists argue that <b>████</b> is a property of propositions that mutually support one another in a system, with no privileged bedrock of uninterpreted facts.',
+      'Pragmatists like James and Dewey defined <b>████</b> functionally: a belief is true if acting on it reliably succeeds and satisfies in the long run of experience.',
+      'Nietzsche questioned the value of <b>████</b> itself, asking why we prefer it to useful fictions and suggesting that the will to <b>████</b> might be a disguised ascetic ideal hostile to life.',
+      'Tarski\'s semantic definition holds that "<i>S</i>" is <b>████</b> if and only if <i>S</i> — grounding <b>████</b> in satisfaction conditions and separating meta-language from object-language.',
+    ],
+  },
+  {
+    answer: 'justice',
+    clues: [
+      'Plato defined <b>████</b> in the soul as each part — reason, spirit, appetite — performing its proper function, and in the city as each class fulfilling its role without encroaching on others.',
+      'Aristotle distinguished distributive <b>████</b> (allocating goods proportionally to merit) from corrective <b>████</b> (restoring equality when wrongful transactions disturb it).',
+      'Rawls argued that principles of <b>████</b> should be chosen behind a "veil of ignorance," where no one knows their social position — yielding equal liberties and inequalities arranged to benefit the worst-off.',
+      'Nozick countered that <b>████</b> is historical and not patterned: any distribution is just if it arose from just acquisitions and voluntary transfers, regardless of the resulting inequality.',
+      'Feminist philosophers argued that traditional theories of <b>████</b> excluded care, dependency, and relationality as moral categories — making invisible the conditions that sustain any society.',
+    ],
+  },
+  {
+    answer: 'virtue',
+    clues: [
+      'Aristotle defined <b>████</b> as a stable disposition to feel and act in the right way, at the right time, toward the right people — a mean between excess and deficiency cultivated through practice.',
+      'The Stoics held that <b>████</b> alone is genuinely good and sufficient for happiness: health, wealth, and reputation are "indifferent" and neither benefit nor harm the soul.',
+      'Kant rejected <b>████</b> ethics as insufficient: no character trait is unconditionally good, he argued; only a good will — acting from duty — has unconditional moral worth.',
+      'MacIntyre\'s "After Virtue" argued that modern moral philosophy is incoherent because it inherited the vocabulary of <b>████</b> while discarding the teleological framework (human nature and its proper end) that made it intelligible.',
+      'Contemporary <b>████</b> ethics shifts attention from "what should I do?" to "what kind of person should I be?" — emphasising character development, practical wisdom, and the role of moral exemplars in shaping a good life.',
+    ],
+  },
+  {
+    answer: 'reason',
+    clues: [
+      'Plato divided the soul into <b>████</b>, spirit, and appetite; <b>████</b> alone can grasp the eternal Forms and should govern the other parts, both in the individual and in the just city.',
+      'Kant argued that <b>████</b> operates in two modes: theoretical <b>████</b> determines what we can know; practical <b>████</b> determines how we ought to act — and morality rests on the latter.',
+      'Hume famously declared that "<b>████</b> is and ought only to be the slave of the passions": it can identify means to ends but cannot by itself determine what ends are worth pursuing.',
+      'The Enlightenment elevated <b>████</b> as the universal faculty that would free humanity from superstition and authority — Kant\'s motto was "Dare to use your own <b>████</b>."',
+      'Adorno and Horkheimer argued in "Dialectic of Enlightenment" that instrumental <b>████</b> — the drive to calculate, control, and dominate — had turned against humanity itself, finding its terminus in the administered society.',
+    ],
+  },
+]
+
+export const HERMENEUTIC_HARD = [
   {
     answer: 'logos',
     clues: [
