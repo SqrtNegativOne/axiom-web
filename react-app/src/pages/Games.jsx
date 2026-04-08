@@ -118,6 +118,14 @@ const games = [
     desc: 'Make a series of world-comparisons, each individually reasonable. Follow your own logic through 9 steps and discover whether you endorse the conclusion Parfit called the most important problem in ethics.',
     hint: '9 steps · Parfit 1984 · no right answer',
   },
+  {
+    num: '07',
+    path: '/games/philosophle',
+    eyebrow: 'Word Puzzle',
+    title: 'Philosophle',
+    desc: 'Guess the hidden philosophical term — a concept, thinker, or Greek root between 3 and 7 letters. Colour-coded feedback narrows each attempt. Three-letter words grant an extra guess.',
+    hint: '3–7 letters · 6 guesses (7 for 3-letter words)',
+  },
 ]
 
 export default function Games() {
@@ -138,9 +146,10 @@ export default function Games() {
           className="font-body text-ink/70 leading-relaxed max-w-2xl mx-auto"
           style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}
         >
-          Six games drawn from the practice of philosophy itself: hermeneutics,
+          Seven games drawn from the practice of philosophy itself: hermeneutics,
           phenomenological suspension, informal logic, dialectical method, the
-          Sorites paradox, and population ethics. Each puzzle is a small exercise in the kind of thinking we do at Axiom.
+          Sorites paradox, population ethics, and Philosophle — a word game
+          built from philosophical concepts. Each puzzle is a small exercise in the kind of thinking we do at Axiom.
         </p>
       </section>
 
