@@ -4,56 +4,58 @@ import { useState, useEffect } from "react";
 // Structure: { a: {n, w, label}, b: {n, w, label}, prompt, aReason, bReason }
 // n = relative population units, w = welfare (0–100)
 
-function World({ n, w, label, selected, onSelect, disabled }) {
+function World({ n, w, label, selected, pending, onSelect, disabled }) {
   const barCount = Math.min(n, 20);
   const barWidth = Math.max(3, Math.floor(160 / barCount));
-  const barH = Math.round(w * 1.2);
+  const barH = Math.round((w / 100) * 76);
 
   return (
     <div
       onClick={disabled ? undefined : onSelect}
       style={{
         flex: 1,
-        background: selected ? "#0d2b1e" : "#0a0f0d",
-        border: `1.5px solid ${selected ? "#00e87a" : "#1a2e1f"}`,
+        background: selected ? "#0d2b1e" : pending ? "#0a1a0e" : "#0a0f0d",
+        border: `1.5px solid ${selected ? "#00e87a" : pending ? "#c9a44c" : "#1a2e1f"}`,
         padding: "20px 18px",
         cursor: disabled ? "default" : "pointer",
         transition: "all .18s",
         position: "relative",
       }}
     >
-      <p style={{ margin: "0 0 6px", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: selected ? "#00e87a" : "#3a5c3f", fontFamily: "'Space Mono', monospace" }}>
+      <p style={{ margin: "0 0 6px", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: selected ? "#00e87a" : pending ? "#c9a44c" : "#6aaa74", fontFamily: "'Space Mono', monospace" }}>
         {label}
       </p>
-      <div style={{ fontSize: 11, color: selected ? "#7effa8" : "#4a7a50", fontFamily: "'Space Mono', monospace", marginBottom: 14, lineHeight: 1.7 }}>
+      <div style={{ fontSize: 11, color: selected ? "#7effa8" : pending ? "#c9d49c" : "#7aaa80", fontFamily: "'Space Mono', monospace", marginBottom: 14, lineHeight: 1.7 }}>
         <span>{n <= 32 ? "×" + n : "×" + n} people</span>
         <br />
         <span>welfare: {w % 1 === 0 ? w : w.toFixed(1)}</span>
         <br />
-        <span style={{ color: selected ? "#3eff8a" : "#2a5c30" }}>total: {(n * w % 1 === 0 ? n * w : (n * w).toFixed(0))}</span>
+        <span style={{ color: selected ? "#3eff8a" : pending ? "#b89c3c" : "#5aaa64" }}>total: {(n * w % 1 === 0 ? n * w : (n * w).toFixed(0))}</span>
       </div>
 
       {/* Bar chart */}
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 2, height: 80, marginBottom: 8 }}>
+      <div style={{ display: "flex", alignItems: "flex-end", gap: 2, height: 80, marginBottom: 8, overflow: "hidden" }}>
         {Array.from({ length: barCount }).map((_, i) => (
           <div key={i} style={{
             width: barWidth,
             height: Math.max(2, barH),
-            background: selected ? "#00e87a" : "#1d4a24",
+            background: selected ? "#00e87a" : pending ? "#c9a44c" : "#2d6a34",
             transition: "height .3s",
             flexShrink: 0,
           }} />
         ))}
         {n > 20 && (
-          <span style={{ fontSize: 9, color: "#2a5c30", alignSelf: "center", marginLeft: 4, fontFamily: "'Space Mono', monospace" }}>
+          <span style={{ fontSize: 9, color: "#5aaa64", alignSelf: "center", marginLeft: 4, fontFamily: "'Space Mono', monospace" }}>
             +{n - 20} more
           </span>
         )}
       </div>
-      <div style={{ height: 1, background: selected ? "#00e87a" : "#1a2e1f" }} />
+      <div style={{ height: 1, background: selected ? "#00e87a" : pending ? "#c9a44c" : "#1a2e1f" }} />
 
-      {selected && (
-        <div style={{ position: "absolute", top: 10, right: 12, fontSize: 14, color: "#00e87a" }}>✓</div>
+      {(selected || pending) && (
+        <div style={{ position: "absolute", top: 10, right: 12, fontSize: 14, color: selected ? "#00e87a" : "#c9a44c" }}>
+          {selected ? "✓" : "◉"}
+        </div>
       )}
     </div>
   );
@@ -158,6 +160,7 @@ export default function GameRepugnant() {
 
   const [step, setStep] = useState(0);
   const [choices, setChoices] = useState([]); // true = chose B (better/equal), false = chose A
+  const [pendingChoice, setPendingChoice] = useState(null);
   const [selected, setSelected] = useState(null);
   const [phase, setPhase] = useState("intro"); // intro | game | conclusion
 
@@ -166,6 +169,7 @@ export default function GameRepugnant() {
   function choose(chooseB) {
     setChoices(c => [...c, chooseB]);
     setSelected(chooseB);
+    setPendingChoice(null);
   }
 
   function advance() {
@@ -174,6 +178,7 @@ export default function GameRepugnant() {
     } else {
       setStep(s => s + 1);
       setSelected(null);
+      setPendingChoice(null);
     }
   }
 
@@ -228,13 +233,13 @@ export default function GameRepugnant() {
           ))}
         </div>
 
-        <p style={{ fontSize: 10, letterSpacing: "0.2em", color: "#2a5c30", textTransform: "uppercase", margin: "0 0 8px", fontFamily: MONO }}>
+        <p style={{ fontSize: 10, letterSpacing: "0.2em", color: "#5a8c64", textTransform: "uppercase", margin: "0 0 8px", fontFamily: MONO }}>
           Step {step + 1} of {STEPS.length}
         </p>
         <h2 style={{ fontSize: 22, fontWeight: 600, color: "#c8e6d0", margin: "0 0 8px" }}>
           {current.aLabel} vs {current.bLabel}
         </h2>
-        <p style={{ fontSize: 13, color: "#5a8c64", lineHeight: 1.85, margin: "0 0 28px" }}>
+        <p style={{ fontSize: 13, color: "#8aaa94", lineHeight: 1.85, margin: "0 0 28px" }}>
           {current.prompt}
         </p>
 
@@ -245,7 +250,8 @@ export default function GameRepugnant() {
             w={current.a.w}
             label={current.aLabel}
             selected={selected === false}
-            onSelect={() => choose(false)}
+            pending={selected === null && pendingChoice === false}
+            onSelect={() => { if (selected === null) setPendingChoice(false); }}
             disabled={selected !== null}
           />
           <World
@@ -253,15 +259,24 @@ export default function GameRepugnant() {
             w={current.b.w}
             label={current.bLabel}
             selected={selected === true}
-            onSelect={() => choose(true)}
+            pending={selected === null && pendingChoice === true}
+            onSelect={() => { if (selected === null) setPendingChoice(true); }}
             disabled={selected !== null}
           />
         </div>
 
-        {selected === null && (
-          <p style={{ fontSize: 11, color: "#2a5c30", fontFamily: MONO, textAlign: "center" }}>
-            Click a world to select it.
+        {selected === null && pendingChoice === null && (
+          <p style={{ fontSize: 11, color: "#5a8c64", fontFamily: MONO, textAlign: "center" }}>
+            Click a world to select it, then submit.
           </p>
+        )}
+
+        {selected === null && pendingChoice !== null && (
+          <div style={{ textAlign: "center", marginBottom: 20 }}>
+            <button className="next-rp" onClick={() => choose(pendingChoice)}>
+              Submit choice →
+            </button>
+          </div>
         )}
 
         {selected !== null && (
@@ -283,10 +298,10 @@ export default function GameRepugnant() {
         {/* Chain so far */}
         {choices.length > 0 && (
           <div style={{ marginTop: 32, padding: "14px 18px", background: "#060e08", border: "1px solid #0d1f10" }}>
-            <p style={{ margin: "0 0 8px", fontSize: 10, color: "#2a4c2f", fontFamily: MONO, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            <p style={{ margin: "0 0 8px", fontSize: 10, color: "#5a8c64", fontFamily: MONO, letterSpacing: "0.14em", textTransform: "uppercase" }}>
               Your chain so far
             </p>
-            <p style={{ margin: 0, fontSize: 11, color: "#3a6a44", fontFamily: MONO, lineHeight: 2 }}>
+            <p style={{ margin: 0, fontSize: 11, color: "#6aaa74", fontFamily: MONO, lineHeight: 2 }}>
               {STEPS.slice(0, choices.length).map((s, i) => (
                 <span key={i} style={{ color: choices[i] ? "#4a9a5a" : "#7a3a3a" }}>
                   {choices[i] ? `${s.bLabel} ≥ ${s.aLabel}` : `${s.aLabel} > ${s.bLabel}`}

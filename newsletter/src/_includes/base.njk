@@ -60,6 +60,18 @@
   <!-- Shared design tokens -->
   <link rel="stylesheet" href="/newsletter/css/design-tokens.css" />
 
+  <!-- Anti-flash: apply dark class before first paint, syncing with React app -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('axiom-theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else if (t === 'light') {
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -370,6 +382,57 @@
     @media (max-width: 640px) {
       .nav-links { gap: 1rem; }
       .nav-links a { font-size: 0.65rem; }
+    }
+
+    /* ── Dark mode ──────────────────────────────────────────────────────── */
+    /* Applied via .dark class (set by anti-flash script from localStorage)  */
+    /* and via prefers-color-scheme as a JS-disabled fallback.               */
+
+    /* 1. CSS variable overrides for .dark class */
+    .dark {
+      --color-cream-dark: #142219;
+      --color-cream-dark-rgb: 20 34 25;
+      --color-green: #9DBFB5;
+      --color-green-rgb: 157 191 181;
+      --color-ink: #DDD8CD;
+      --color-ink-rgb: 221 216 205;
+    }
+
+    .dark body { background-color: #0E1A14; }
+    .dark .nav { background: rgba(14, 26, 20, 0.95); }
+    .dark .page-header p { color: rgb(var(--color-ink-rgb) / 0.6); }
+    .dark .post-author { color: rgb(var(--color-ink-rgb) / 0.5); }
+    .dark .post-excerpt { color: rgb(var(--color-ink-rgb) / 0.65); }
+    .dark .article-body p { color: rgb(var(--color-ink-rgb) / 0.8); }
+    .dark .article-body ol,
+    .dark .article-body ul { color: rgb(var(--color-ink-rgb) / 0.8); }
+    .dark .article-body figcaption { color: rgb(var(--color-ink-rgb) / 0.45); }
+    .dark .article-meta { color: rgb(var(--color-ink-rgb) / 0.5); }
+    .dark .footnotes { color: rgb(var(--color-ink-rgb) / 0.55); }
+    .dark .back-link { color: rgb(var(--color-ink-rgb) / 0.5); }
+
+    /* 2. prefers-color-scheme fallback (for when JS is disabled) */
+    @media (prefers-color-scheme: dark) {
+      html:not(.light) {
+        --color-cream-dark: #142219;
+        --color-cream-dark-rgb: 20 34 25;
+        --color-green: #9DBFB5;
+        --color-green-rgb: 157 191 181;
+        --color-ink: #DDD8CD;
+        --color-ink-rgb: 221 216 205;
+      }
+      html:not(.light) body { background-color: #0E1A14; }
+      html:not(.light) .nav { background: rgba(14, 26, 20, 0.95); }
+      html:not(.light) .page-header p { color: rgb(var(--color-ink-rgb) / 0.6); }
+      html:not(.light) .post-author { color: rgb(var(--color-ink-rgb) / 0.5); }
+      html:not(.light) .post-excerpt { color: rgb(var(--color-ink-rgb) / 0.65); }
+      html:not(.light) .article-body p { color: rgb(var(--color-ink-rgb) / 0.8); }
+      html:not(.light) .article-body ol,
+      html:not(.light) .article-body ul { color: rgb(var(--color-ink-rgb) / 0.8); }
+      html:not(.light) .article-body figcaption { color: rgb(var(--color-ink-rgb) / 0.45); }
+      html:not(.light) .article-meta { color: rgb(var(--color-ink-rgb) / 0.5); }
+      html:not(.light) .footnotes { color: rgb(var(--color-ink-rgb) / 0.55); }
+      html:not(.light) .back-link { color: rgb(var(--color-ink-rgb) / 0.5); }
     }
   </style>
 </head>
