@@ -146,7 +146,7 @@ export default function Games() {
           className="font-body text-ink/70 leading-relaxed max-w-2xl mx-auto"
           style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}
         >
-          Six games drawn from the practice of philosophy itself: hermeneutics,
+          Seven games drawn from the practice of philosophy itself: hermeneutics,
           phenomenological suspension, informal logic, dialectical method, the
           Sorites paradox, population ethics, and Philosophle — a word game
           built from philosophical concepts. Each puzzle is a small exercise in the kind of thinking we do at Axiom.

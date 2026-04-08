@@ -325,7 +325,7 @@ function GameBoard({ answer, onNewGame }) {
             {answer}
           </p>
           <p className="font-body text-sm text-ink/65 leading-relaxed">
-            The word was <span className="font-semibold text-ink">{answer}</span>.
+            Better luck with the next one.
           </p>
         </div>
       )}
