@@ -91,6 +91,12 @@ const ROUTES = [
     title: `Sorites — Philosophy Games — ${SITE_NAME}`,
     description: 'Where does red end? Classify 34 colour patches and discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness.',
   },
+  {
+    outDir: 'games/philosophle',
+    path: '/games/philosophle',
+    title: `Philosophle — Philosophy Games — ${SITE_NAME}`,
+    description: 'A Wordle-style game using philosophical terms — concepts, thinkers, and Greek roots from 3 to 7 letters.',
+  },
 ]
 
 function buildMetaBlock(route) {
