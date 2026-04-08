@@ -56,8 +56,8 @@ function GameBoard({ puzzle, onNewGame }) {
               key={i}
               className={`rounded-lg border px-4 py-3 font-body text-sm leading-relaxed italic transition-all duration-300 ${
                 isLive
-                  ? 'border-gold/30 bg-cream text-ink/80'
-                  : 'border-cream-dark bg-cream/40 text-ink/25'
+                  ? 'border-gold/30 bg-cream dark:bg-cream-dark text-ink/80'
+                  : 'border-cream-dark bg-cream/40 dark:bg-cream-dark/30 text-ink/25'
               }`}
             >
               <span
@@ -105,7 +105,7 @@ function GameBoard({ puzzle, onNewGame }) {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKey}
             placeholder="Enter your guess…"
-            className="flex-1 px-4 py-2.5 rounded-lg border border-gold/30 bg-cream focus:outline-none focus:border-gold font-body text-sm text-ink placeholder-ink/30 transition-colors duration-150"
+            className="flex-1 px-4 py-2.5 rounded-lg border border-gold/30 bg-cream dark:bg-cream-dark focus:outline-none focus:border-gold font-body text-sm text-ink placeholder-ink/30 transition-colors duration-150"
           />
           <button
             onClick={handleGuess}
@@ -161,7 +161,7 @@ function GameBoard({ puzzle, onNewGame }) {
       {status !== 'playing' && (
         <button
           onClick={onNewGame}
-          className="mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150"
+          className="mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream dark:bg-cream-dark font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150"
         >
           New puzzle
         </button>

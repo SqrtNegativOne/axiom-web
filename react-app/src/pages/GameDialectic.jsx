@@ -16,7 +16,7 @@ function shuffle(arr) {
   return b
 }
 
-function OptionButton({ text, result, onClick, disabled }) {
+function OptionButton({ text, result, pending, onClick, disabled }) {
   let className =
     'w-full text-left px-4 py-3 rounded-lg border font-body text-sm leading-relaxed transition-all duration-150 '
 
@@ -26,6 +26,8 @@ function OptionButton({ text, result, onClick, disabled }) {
     className += 'bg-terracotta/8 border-terracotta/20 text-terracotta/70 cursor-default'
   } else if (result === 'reveal') {
     className += 'bg-green/8 border-green/25 text-ink/60 cursor-default italic'
+  } else if (pending) {
+    className += 'border-gold/60 bg-cream-dark text-ink cursor-pointer ring-1 ring-gold/30'
   } else if (disabled) {
     className += 'border-gold/15 text-ink/30 cursor-default'
   } else {
@@ -33,7 +35,7 @@ function OptionButton({ text, result, onClick, disabled }) {
   }
 
   return (
-    <button onClick={onClick} disabled={disabled || !!result} className={className}>
+    <button onClick={onClick} disabled={disabled} className={className}>
       {result === 'correct' && (
         <span className="font-mono text-xs text-green tracking-widest uppercase block mb-1">
           Correct ✓
@@ -64,9 +66,18 @@ function GameBoard({ puzzle, onNewGame }) {
   const [sAttempts, setSAttempts] = useState(0)
   const [sResult, setSResult] = useState(null)
   const [status, setStatus] = useState('playing')
+  const [pendingA, setPendingA] = useState(null) // idx | null
+  const [pendingS, setPendingS] = useState(null) // idx | null
 
   function pickAntithesis(idx) {
-    if (stage !== 1 || aResult?.correct) return
+    if (stage !== 1 || aResult?.correct || aResult?.revealIdx !== undefined) return
+    setPendingA(idx)
+  }
+
+  function submitAntithesis() {
+    const idx = pendingA
+    if (idx === null) return
+    setPendingA(null)
     const correct = antitheses[idx].correct
     const newAttempts = aAttempts + 1
     setAAttempts(newAttempts)
@@ -84,7 +95,14 @@ function GameBoard({ puzzle, onNewGame }) {
   }
 
   function pickSynthesis(idx) {
-    if (stage !== 2) return
+    if (stage !== 2 || status !== 'playing') return
+    setPendingS(idx)
+  }
+
+  function submitSynthesis() {
+    const idx = pendingS
+    if (idx === null) return
+    setPendingS(null)
     const correct = syntheses[idx].correct
     const newAttempts = sAttempts + 1
     setSAttempts(newAttempts)
@@ -152,8 +170,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Stage 1: Antithesis */}
       <div className="mb-6">
-        <p className="font-mono text-xs tracking-widest uppercase mb-3"
-           style={{ color: stage >= 1 ? '#1A1A18' : '#aaa' }}>
+        <p className={`font-mono text-xs tracking-widest uppercase mb-3 ${stage >= 1 ? 'text-ink' : 'text-ink/40'}`}>
           <span className="text-gold/70 mr-2">01</span>
           {stage === 1 ? 'Select the antithesis' : 'Antithesis'}
         </p>
@@ -163,8 +180,9 @@ function GameBoard({ puzzle, onNewGame }) {
               key={i}
               text={a.text}
               result={getAntithesisResult(i)}
+              pending={pendingA === i && !aResult?.correct && aResult?.revealIdx === undefined}
               onClick={() => pickAntithesis(i)}
-              disabled={stage !== 1 || (aResult && !aResult.correct && aResult.idx !== i && !aResult.revealIdx)}
+              disabled={stage !== 1 || aResult?.correct || aResult?.revealIdx !== undefined}
             />
           ))}
         </div>
@@ -173,12 +191,20 @@ function GameBoard({ puzzle, onNewGame }) {
             Not quite — one more attempt.
           </p>
         )}
+        {stage === 1 && pendingA !== null && (
+          <button
+            onClick={submitAntithesis}
+            className="mt-3 px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150"
+          >
+            Submit
+          </button>
+        )}
       </div>
 
       {/* Stage 2: Synthesis (shown only when antithesis is done) */}
       {stage === 2 && (
         <div className="mb-6">
-          <p className="font-mono text-xs tracking-widest uppercase mb-3">
+          <p className="font-mono text-xs tracking-widest uppercase mb-3 text-ink">
             <span className="text-gold/70 mr-2">02</span>
             {status === 'playing' ? 'Select the synthesis' : 'Synthesis'}
           </p>
@@ -188,6 +214,7 @@ function GameBoard({ puzzle, onNewGame }) {
                 key={i}
                 text={s.text}
                 result={getSynthesisResult(i)}
+                pending={pendingS === i && status === 'playing'}
                 onClick={() => pickSynthesis(i)}
                 disabled={status !== 'playing'}
               />
@@ -197,6 +224,14 @@ function GameBoard({ puzzle, onNewGame }) {
             <p className="font-body text-xs text-terracotta/80 mt-2">
               Not quite — one more attempt.
             </p>
+          )}
+          {status === 'playing' && pendingS !== null && (
+            <button
+              onClick={submitSynthesis}
+              className="mt-3 px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150"
+            >
+              Submit
+            </button>
           )}
         </div>
       )}
