@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { HERMENEUTIC } from '../data/puzzles'
+import { HERMENEUTIC_EASY, HERMENEUTIC_HARD } from '../data/puzzles'
 
 function rand(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
@@ -151,8 +151,8 @@ function GameBoard({ puzzle, onNewGame }) {
             {puzzle.answer}
           </p>
           <p className="font-body text-sm text-ink/65 leading-relaxed">
-            The answer was <span className="font-semibold text-ink">{puzzle.answer}</span>. All five
-            clues trace this concept through its key appearances in Western philosophy.
+            The answer was <span className="font-semibold text-ink">{puzzle.answer}</span>. All clues
+            trace this concept through its key appearances in Western philosophy.
           </p>
         </div>
       )}
@@ -171,12 +171,21 @@ function GameBoard({ puzzle, onNewGame }) {
 }
 
 export default function GameHermeneutic() {
+  const [difficulty, setDifficulty] = useState('easy')
   const [gameKey, setGameKey] = useState(0)
-  const [puzzle] = useState(() => rand(HERMENEUTIC))
-  const [currentPuzzle, setCurrentPuzzle] = useState(puzzle)
+  const [currentPuzzle, setCurrentPuzzle] = useState(() => rand(HERMENEUTIC_EASY))
 
   function handleNewGame() {
-    setCurrentPuzzle(rand(HERMENEUTIC))
+    const pool = difficulty === 'easy' ? HERMENEUTIC_EASY : HERMENEUTIC_HARD
+    setCurrentPuzzle(rand(pool))
+    setGameKey((k) => k + 1)
+  }
+
+  function handleDifficulty(next) {
+    if (next === difficulty) return
+    setDifficulty(next)
+    const pool = next === 'easy' ? HERMENEUTIC_EASY : HERMENEUTIC_HARD
+    setCurrentPuzzle(rand(pool))
     setGameKey((k) => k + 1)
   }
 
@@ -213,6 +222,30 @@ export default function GameHermeneutic() {
           A philosophical term has been redacted as <b className="font-semibold text-ink/70">████</b>. Guess it from the
           clues below — each wrong answer reveals the next. You have six guesses.
         </p>
+
+        {/* Difficulty toggle */}
+        <div className="flex gap-2 mt-6">
+          <button
+            onClick={() => handleDifficulty('easy')}
+            className={`font-mono text-xs tracking-widest uppercase px-4 py-2 rounded-full border transition-colors duration-150 ${
+              difficulty === 'easy'
+                ? 'bg-green text-cream border-transparent'
+                : 'border-gold/30 text-ink/50 hover:border-gold/60 hover:text-ink/70'
+            }`}
+          >
+            Easy
+          </button>
+          <button
+            onClick={() => handleDifficulty('hard')}
+            className={`font-mono text-xs tracking-widest uppercase px-4 py-2 rounded-full border transition-colors duration-150 ${
+              difficulty === 'hard'
+                ? 'bg-green text-cream border-transparent'
+                : 'border-gold/30 text-ink/50 hover:border-gold/60 hover:text-ink/70'
+            }`}
+          >
+            Hard
+          </button>
+        </div>
       </section>
 
       {/* Game area */}
