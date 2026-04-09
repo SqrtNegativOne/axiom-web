@@ -411,13 +411,6 @@ export default function GamePhilosophle() {
           </span>
         </div>
 
-        <p className="label-mono mb-3 text-gold">Word Puzzle · 07</p>
-        <h1
-          className="font-heading font-light text-green mb-4"
-          style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
-        >
-          Philosophle
-        </h1>
         <div className="h-px w-12 bg-gold/40" />
       </section>
 
