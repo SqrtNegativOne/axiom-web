@@ -68,13 +68,13 @@ function Cell({ letter, state, active, cellSize }) {
   let text = 'text-ink'
 
   if (state === 'correct') {
-    bg = 'bg-[#2C4A3E]'
-    border = 'border-[#2C4A3E]'
+    bg = 'bg-red-500'
+    border = 'border-red-500'
     text = 'text-cream'
   } else if (state === 'present') {
-    bg = 'bg-[#C9A44C]'
-    border = 'border-[#C9A44C]'
-    text = 'text-cream'
+    bg = 'bg-yellow-400'
+    border = 'border-yellow-400'
+    text = 'text-ink'
   } else if (state === 'absent') {
     bg = 'bg-ink/15 dark:bg-ink/20'
     border = 'border-transparent'
@@ -147,8 +147,8 @@ const KB_ROWS = [
 function Keyboard({ keyState, onKey }) {
   function getStyle(key) {
     const s = keyState[key]
-    if (s === 'correct') return 'bg-[#2C4A3E] text-cream border-transparent'
-    if (s === 'present') return 'bg-[#C9A44C] text-cream border-transparent'
+    if (s === 'correct') return 'bg-red-500 text-cream border-transparent'
+    if (s === 'present') return 'bg-yellow-400 text-ink border-transparent'
     if (s === 'absent') return 'bg-ink/15 dark:bg-ink/20 text-ink/40 border-transparent'
     return 'bg-cream-dark dark:bg-[#1A2A20] text-ink border-gold/20 hover:border-gold/40'
   }
@@ -376,8 +376,8 @@ export default function GamePhilosophle() {
         <div className="h-px w-12 bg-gold/40 mb-5" />
         <p className="font-body text-sm text-ink/60 leading-relaxed">
           Guess the hidden philosophical term — a concept, thinker, or Greek root
-          between 3 and 7 letters. Green means the letter is in the right place;
-          gold means it appears somewhere else in the word. Three-letter words
+          between 3 and 7 letters. Red means the letter is in the right place;
+          yellow means it appears somewhere else in the word. Three-letter words
           get an extra guess.
         </p>
       </section>
@@ -386,14 +386,14 @@ export default function GamePhilosophle() {
       <section className="max-w-2xl mx-auto px-6 pb-4">
         <div className="flex items-center gap-6 flex-wrap">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded bg-[#2C4A3E] flex items-center justify-center">
+            <div className="w-7 h-7 rounded bg-red-500 flex items-center justify-center">
               <span className="font-mono text-xs font-bold text-cream">A</span>
             </div>
             <span className="font-mono text-xs text-ink/50 tracking-wide">Correct position</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded bg-[#C9A44C] flex items-center justify-center">
-              <span className="font-mono text-xs font-bold text-cream">A</span>
+            <div className="w-7 h-7 rounded bg-yellow-400 flex items-center justify-center">
+              <span className="font-mono text-xs font-bold text-ink">A</span>
             </div>
             <span className="font-mono text-xs text-ink/50 tracking-wide">Wrong position</span>
           </div>
