@@ -42,7 +42,7 @@ export const FALLACY = [
     family: 'Informal',
     cls: 'Relevance',
     explanation:
-      "Calling out hypocrisy feels like a legitimate move — and sometimes it's worth noting. But whether the advice is good depends on the advice, not on whether the person giving it follows it. A doctor who smokes can still correctly advise you not to. Tu quoque deflects the argument onto the person without ever engaging whether the claim itself is true.",
+      "Whether the advice is good depends on the advice, not on whether the person giving it follows it. A doctor who smokes can still correctly advise you not to. Tu quoque deflects the argument onto the person without ever engaging whether the claim itself is true.",
   },
   {
     argument:
@@ -87,7 +87,7 @@ export const FALLACY = [
     family: 'Informal',
     cls: 'Presumption',
     explanation:
-      "Temporal sequence is not causation — but it feels exactly like it when you're the one who opened up and got hurt. His withdrawal could reflect his own stress, something unrelated happening in his life, or simple coincidence. The post hoc fallacy is especially painful in personal contexts because the alternative — that vulnerability didn't cause the outcome — offers no comfort and is harder to see from the inside.",
+      "Temporal sequence is not causation, but it feels exactly like it when you're the one who opened up and got hurt. His withdrawal could reflect his own stress, something unrelated happening in his life, or simple coincidence. The post hoc fallacy is especially painful in personal contexts because the alternative — that vulnerability didn't cause the outcome — offers no comfort and is harder to see from the inside.",
   },
   {
     argument:
