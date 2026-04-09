@@ -337,6 +337,7 @@ function GameBoard({ entry, onNewGame }) {
 export default function GamePhilosophle() {
   const [gameKey, setGameKey] = useState(0)
   const [entry, setEntry] = useState(() => pickWord())
+  const [showIntro, setShowIntro] = useState(true)
 
   function handleNewGame() {
     setEntry(pickWord())
@@ -350,6 +351,50 @@ export default function GamePhilosophle() {
         path="/games/philosophle"
         description="A Wordle-style game using philosophical terms — concepts, thinkers, and Greek roots from 3 to 7 letters."
       />
+
+      {showIntro && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-6 bg-ink/55 backdrop-blur-sm">
+          <div className="w-full max-w-xl rounded-xl border border-gold/25 bg-cream dark:bg-cream-dark shadow-xl p-6 md:p-7">
+            <h2 className="font-heading font-light text-2xl text-green mb-2">How to play</h2>
+            <p className="font-body text-sm text-ink/70 leading-relaxed mb-5">
+              Guess the hidden philosophical term — a concept, thinker, or Greek root
+              between 3 and 7 letters. Green means the letter is in the right place;
+              yellow means it appears somewhere else in the word. Three-letter words
+              get an extra guess.
+            </p>
+
+            <div className="flex items-center gap-4 md:gap-6 flex-wrap mb-6">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded bg-[#6AAA64] flex items-center justify-center">
+                  <span className="font-mono text-xs font-bold text-cream">A</span>
+                </div>
+                <span className="font-mono text-xs text-ink/55 tracking-wide">Correct position</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded bg-[#C9B458] flex items-center justify-center">
+                  <span className="font-mono text-xs font-bold text-cream">A</span>
+                </div>
+                <span className="font-mono text-xs text-ink/55 tracking-wide">Wrong position</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded bg-ink/15 flex items-center justify-center">
+                  <span className="font-mono text-xs font-bold text-ink/50">A</span>
+                </div>
+                <span className="font-mono text-xs text-ink/55 tracking-wide">Not in word</span>
+              </div>
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                onClick={() => setShowIntro(false)}
+                className="px-4 py-2 rounded-lg border border-gold/45 bg-cream-dark/30 dark:bg-ink/10 font-mono text-xs tracking-wider uppercase text-ink/80 hover:border-gold hover:text-ink transition-colors duration-150"
+              >
+                Start game
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Header */}
       <section className="max-w-2xl mx-auto px-6 py-10">
@@ -373,37 +418,7 @@ export default function GamePhilosophle() {
         >
           Philosophle
         </h1>
-        <div className="h-px w-12 bg-gold/40 mb-5" />
-        <p className="font-body text-sm text-ink/60 leading-relaxed">
-          Guess the hidden philosophical term — a concept, thinker, or Greek root
-          between 3 and 7 letters. Green means the letter is in the right place;
-          yellow means it appears somewhere else in the word. Three-letter words
-          get an extra guess.
-        </p>
-      </section>
-
-      {/* Legend */}
-      <section className="max-w-2xl mx-auto px-6 pb-4">
-        <div className="flex items-center gap-6 flex-wrap">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded bg-[#6AAA64] flex items-center justify-center">
-              <span className="font-mono text-xs font-bold text-cream">A</span>
-            </div>
-            <span className="font-mono text-xs text-ink/50 tracking-wide">Correct position</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded bg-[#C9B458] flex items-center justify-center">
-              <span className="font-mono text-xs font-bold text-cream">A</span>
-            </div>
-            <span className="font-mono text-xs text-ink/50 tracking-wide">Wrong position</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded bg-ink/15 flex items-center justify-center">
-              <span className="font-mono text-xs font-bold text-ink/50">A</span>
-            </div>
-            <span className="font-mono text-xs text-ink/50 tracking-wide">Not in word</span>
-          </div>
-        </div>
+        <div className="h-px w-12 bg-gold/40" />
       </section>
 
       {/* Game area */}
