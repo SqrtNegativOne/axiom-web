@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { ALL_WORDS } from '../data/philosophle'
+import { PHILOSOPHLE } from '../data/philosophle'
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function rand(arr) {
@@ -9,7 +9,7 @@ function rand(arr) {
 }
 
 function pickWord() {
-  return rand(ALL_WORDS)
+  return rand(PHILOSOPHLE)
 }
 
 function maxGuesses(wordLen) {
@@ -179,7 +179,8 @@ function Keyboard({ keyState, onKey }) {
 }
 
 // ─── GameBoard ────────────────────────────────────────────────────────────────
-function GameBoard({ answer, onNewGame }) {
+function GameBoard({ entry, onNewGame }) {
+  const answer = entry.word
   const wordLen = answer.length
   const totalGuesses = maxGuesses(wordLen)
 
@@ -247,15 +248,21 @@ function GameBoard({ answer, onNewGame }) {
 
       {/* Status messages */}
       {status === 'playing' && (
-        <p className="font-mono text-xs text-ink/35 mt-4 tracking-wide">
-          {attemptsLeft} {attemptsLeft === 1 ? 'guess' : 'guesses'} remaining ·{' '}
-          {wordLen} letters
-          {wordLen === 3 && ' · +1 extra guess'}
-        </p>
+        <>
+          <p className="font-mono text-xs text-ink/35 mt-4 tracking-wide">
+            {attemptsLeft} {attemptsLeft === 1 ? 'guess' : 'guesses'} remaining ·{' '}
+            {wordLen} letters
+            {wordLen === 3 && ' · +1 extra guess'}
+          </p>
+          <p className="mt-2 max-w-xl text-center font-body text-sm text-ink/65 leading-relaxed">
+            <span className="font-mono text-xs uppercase tracking-widest text-gold/80 mr-2">Hint</span>
+            {entry.hint}
+          </p>
+        </>
       )}
 
       {status === 'win' && (
-        <div className="mt-5 w-full max-w-sm bg-green/10 border border-green/30 rounded-lg px-5 py-4 text-center">
+        <div className="mt-5 w-full max-w-xl bg-green/10 border border-green/30 rounded-lg px-5 py-4 text-center">
           <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-1">
             Correct
           </p>
@@ -265,11 +272,25 @@ function GameBoard({ answer, onNewGame }) {
           <p className="font-body text-sm text-ink/65 leading-relaxed">
             Solved in {rows.length} {rows.length === 1 ? 'guess' : 'guesses'}.
           </p>
+          <p className="font-body text-sm text-ink/70 leading-relaxed mt-3">
+            {entry.definition}
+          </p>
+          <p className="mt-3 font-mono text-xs tracking-wide">
+            <a className="text-green hover:underline mr-3" href={entry.links.sep} target="_blank" rel="noreferrer">
+              SEP
+            </a>
+            <a className="text-green hover:underline mr-3" href={entry.links.wikipedia} target="_blank" rel="noreferrer">
+              Wikipedia
+            </a>
+            <a className="text-green hover:underline" href={entry.links.other} target="_blank" rel="noreferrer">
+              More
+            </a>
+          </p>
         </div>
       )}
 
       {status === 'lose' && (
-        <div className="mt-5 w-full max-w-sm bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 text-center">
+        <div className="mt-5 w-full max-w-xl bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 text-center">
           <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1">
             Not quite
           </p>
@@ -278,6 +299,20 @@ function GameBoard({ answer, onNewGame }) {
           </p>
           <p className="font-body text-sm text-ink/65 leading-relaxed">
             Better luck with the next one.
+          </p>
+          <p className="font-body text-sm text-ink/70 leading-relaxed mt-3">
+            {entry.definition}
+          </p>
+          <p className="mt-3 font-mono text-xs tracking-wide">
+            <a className="text-terracotta hover:underline mr-3" href={entry.links.sep} target="_blank" rel="noreferrer">
+              SEP
+            </a>
+            <a className="text-terracotta hover:underline mr-3" href={entry.links.wikipedia} target="_blank" rel="noreferrer">
+              Wikipedia
+            </a>
+            <a className="text-terracotta hover:underline" href={entry.links.other} target="_blank" rel="noreferrer">
+              More
+            </a>
           </p>
         </div>
       )}
@@ -301,10 +336,10 @@ function GameBoard({ answer, onNewGame }) {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function GamePhilosophle() {
   const [gameKey, setGameKey] = useState(0)
-  const [answer, setAnswer] = useState(() => pickWord())
+  const [entry, setEntry] = useState(() => pickWord())
 
   function handleNewGame() {
-    setAnswer(pickWord())
+    setEntry(pickWord())
     setGameKey((k) => k + 1)
   }
 
@@ -373,7 +408,7 @@ export default function GamePhilosophle() {
 
       {/* Game area */}
       <section className="max-w-2xl mx-auto px-6 py-8 pb-20">
-        <GameBoard key={gameKey} answer={answer} onNewGame={handleNewGame} />
+        <GameBoard key={gameKey} entry={entry} onNewGame={handleNewGame} />
       </section>
     </div>
   )
