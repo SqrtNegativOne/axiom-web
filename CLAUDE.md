@@ -126,7 +126,7 @@ public/assets/
 │   ├── scribble-and-scramble/
 │   ├── trustfall/
 │   └── wheel-of-doom/
-└── gallery/        — carousel images (gal1.jpg–gal5.jpg + 3 numbered)
+└── gallery/        — carousel images
 ```
 
 Reference in code: `<img src="/assets/team/nikita.jpeg" />` or as a string in data files.
@@ -139,9 +139,9 @@ Edit these to update site content — no component changes needed:
 
 | File | Content |
 |------|---------|
-| `react-app/src/data/team.js` | 10 members in 7 role groups |
-| `react-app/src/data/events.js` | 7 events, newest-first order |
-| `react-app/src/data/alumni.js` | 9 alumni with batch year + testimonial |
+| `react-app/src/data/team.js` | Members grouped by role |
+| `react-app/src/data/events.js` | Events, newest-first order |
+| `react-app/src/data/alumni.js` | Alumni with batch year + testimonial |
 
 ### Team entry shape
 
@@ -165,6 +165,48 @@ Edit these to update site content — no component changes needed:
   images: ["/assets/events/folder/img.jpg", ...]
 }
 ```
+
+## Games
+
+Route: `/games` (index) and `/games/<slug>` (individual games).
+
+### Pages
+
+| File | Route | Game |
+|------|-------|------|
+| `react-app/src/pages/Games.jsx` | `/games` | Index — cards linking to each game + external resources |
+| `react-app/src/pages/GameHermeneutic.jsx` | `/games/hermeneutic` | Guess a philosophical term from progressively revealing clues |
+| `react-app/src/pages/GameEpoche.jsx` | `/games/epoche` | Classify a proposition across four philosophical axes |
+| `react-app/src/pages/GameFallacy.jsx` | `/games/fallacy` | Identify the logical fallacy in an argument; colour-coded family/class hints |
+| `react-app/src/pages/GameDialectic.jsx` | `/games/dialectic` | Identify antithesis then synthesis for a given thesis |
+| `react-app/src/pages/GameSorites.jsx` | `/games/sorites` | Colour-patch classification that reveals the Sorites paradox |
+| `react-app/src/pages/GameRepugnant.jsx` | `/games/repugnant` | Step-by-step population ethics thought experiment (Parfit) |
+| `react-app/src/pages/GamePhilosophle.jsx` | `/games/philosophle` | Wordle-style game with philosophy/philosopher words across multiple word lengths |
+
+### Puzzle data
+
+Each game has its own data file in `react-app/src/data/`. Edit the relevant file to add or change puzzles — no game component changes needed:
+
+| File | Game |
+|------|------|
+| `hermeneutic.js` | `HERMENEUTIC_EASY`, `HERMENEUTIC_HARD` — clue sets for the word-guessing game |
+| `epoche.js` | `EPOCHE` — propositions with correct axis classifications |
+| `fallacy.js` | `FALLACY` — argument scenarios; `FALLACY_OPTS` — the full list of fallacy options |
+| `dialectic.js` | `DIALECTIC` — thesis/antithesis/synthesis triples |
+| `philosophle.js` | `WORDS_3` through `WORDS_7`, `ALL_WORDS` — word lists grouped by length |
+
+Sorites and Repugnant Conclusion have no external data file — their content is self-contained in their component files.
+
+### Games index structure
+
+`Games.jsx` contains three local data arrays:
+- `games[]` — internal Axiom games (drives the index cards; add new games here)
+- `externalExperiments[]` — browser-based external experiments (philosophyexperiments.com, MIT Moral Machine, etc.)
+- `externalGames[]` — external games with philosophical themes (Steam titles, etc.)
+
+### Design system exception
+
+Individual game pages (`/games/*`) are **exempt from Axiom's design system**. Each game may use its own visual aesthetic — do not force the cream/green/terracotta palette, Cormorant/DM Sans typography, or layout conventions onto game pages. The index page (`Games.jsx`) does follow the main design system. Treat each game as a standalone visual artifact.
 
 ## Newsletter Posts
 
@@ -277,7 +319,7 @@ Vercel reads `vercel.json` at the repo root:
 
 `"framework": null` is required — without it Vercel auto-detects Vite and overrides `outputDirectory` with its own preset.
 
-**Critical Vercel setting**: The project's **Root Directory** must be empty (repo root), not `react-app`. If Root Directory is set to `react-app`, only 135 packages install (one workspace) instead of ~280, and the newsletter build never runs. This setting lives on the Vercel project server-side and can be cleared via the dashboard or via the REST API:
+**Critical Vercel setting**: The project's **Root Directory** must be empty (repo root), not `react-app`. If Root Directory is set to `react-app`, only one workspace's packages install instead of the full set, and the newsletter build never runs. This setting lives on the Vercel project server-side and can be cleared via the dashboard or via the REST API:
 
 ```bash
 # One-time fix if the dashboard setting is wrong:

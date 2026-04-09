@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { HERMENEUTIC_EASY, HERMENEUTIC_HARD } from '../data/puzzles'
+import { HERMENEUTIC_EASY, HERMENEUTIC_HARD } from '../data/hermeneutic'
 
 function rand(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
