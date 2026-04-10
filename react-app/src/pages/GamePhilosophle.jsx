@@ -1,7 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { PHILOSOPHLE } from '../data/philosophle'
+import { PHILOSOPHLE, ALL_WORDS } from '../data/philosophle'
+
+// All game answer words are always valid guesses (covers philosophical terms,
+// Greek roots, and proper names that standard dictionaries won't recognise).
+const VALID_GAME_WORDS = new Set(ALL_WORDS)
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function rand(arr) {
@@ -184,18 +188,44 @@ function GameBoard({ entry, onNewGame }) {
   const wordLen = answer.length
   const totalGuesses = maxGuesses(wordLen)
 
-  const [rows, setRows] = useState([])      // [{letters, result}]
+  const [rows, setRows] = useState([])       // [{letters, result}]
   const [current, setCurrent] = useState('') // current typed letters
   const [status, setStatus] = useState('playing') // 'playing' | 'win' | 'lose'
   const [shake, setShake] = useState(false)
+  const [validating, setValidating] = useState(false)
+  const [badWord, setBadWord] = useState(false)
 
   const keyState = buildKeyState(rows)
 
-  const submitGuess = useCallback(() => {
+  const submitGuess = useCallback(async () => {
     if (current.length !== wordLen) {
       setShake(true)
       setTimeout(() => setShake(false), 600)
       return
+    }
+
+    // Game answer words are always valid; everything else gets a dictionary check.
+    if (!VALID_GAME_WORDS.has(current)) {
+      setValidating(true)
+      let valid = false
+      try {
+        const res = await fetch(
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${current.toLowerCase()}`,
+          { signal: AbortSignal.timeout(5000) },
+        )
+        valid = res.ok
+      } catch {
+        // Network error or timeout — be permissive rather than blocking the player.
+        valid = true
+      }
+      setValidating(false)
+
+      if (!valid) {
+        setShake(true)
+        setBadWord(true)
+        setTimeout(() => { setShake(false); setBadWord(false) }, 1400)
+        return
+      }
     }
 
     const result = evaluate(current, answer)
@@ -211,7 +241,7 @@ function GameBoard({ entry, onNewGame }) {
   }, [current, wordLen, answer, rows, totalGuesses])
 
   const handleKey = useCallback((key) => {
-    if (status !== 'playing') return
+    if (status !== 'playing' || validating) return
 
     if (key === '⌫' || key === 'Backspace') {
       setCurrent((c) => c.slice(0, -1))
@@ -220,7 +250,7 @@ function GameBoard({ entry, onNewGame }) {
     } else if (/^[A-Z]$/i.test(key) && current.length < wordLen) {
       setCurrent((c) => (c + key).toUpperCase())
     }
-  }, [status, current, wordLen, submitGuess])
+  }, [status, current, wordLen, submitGuess, validating])
 
   // Physical keyboard support
   useEffect(() => {
@@ -246,8 +276,20 @@ function GameBoard({ entry, onNewGame }) {
         />
       </div>
 
+      {/* Validation feedback */}
+      {validating && (
+        <p className="font-mono text-xs tracking-widest text-ink/35 mt-3 animate-pulse">
+          checking…
+        </p>
+      )}
+      {badWord && (
+        <p className="font-mono text-xs tracking-widest text-terracotta/80 mt-3">
+          not in word list
+        </p>
+      )}
+
       {/* Status messages */}
-      {status === 'playing' && (
+      {status === 'playing' && !validating && !badWord && (
         <>
           <p className="font-mono text-xs text-ink/35 mt-4 tracking-wide">
             {attemptsLeft} {attemptsLeft === 1 ? 'guess' : 'guesses'} remaining ·{' '}
