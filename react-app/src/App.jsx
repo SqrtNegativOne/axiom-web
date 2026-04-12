@@ -17,6 +17,7 @@ import GameDialectic from './pages/GameDialectic'
 import GameSorites from './pages/GameSorites'
 import GameRepugnant from './pages/GameRepugnant'
 import GamePhilosophle from './pages/GamePhilosophle'
+import GameButterflyJob from './pages/GameButterflyJob'
 import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
@@ -48,6 +49,7 @@ export default function App() {
             <Route path="/games/sorites" element={<GameSorites />} />
             <Route path="/games/repugnant" element={<GameRepugnant />} />
             <Route path="/games/philosophle" element={<GamePhilosophle />} />
+            <Route path="/games/butterfly-job" element={<GameButterflyJob />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

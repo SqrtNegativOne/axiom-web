@@ -119,6 +119,13 @@ const games = [
     desc: 'Guess the hidden philosophical term — a concept, thinker, or Greek root between 3 and 7 letters. Colour-coded feedback narrows each attempt. Three-letter words grant an extra guess.',
     hint: '3-7 letters · 6 guesses',
   },
+  {
+    path: '/games/butterfly-job',
+    eyebrow: 'Counterfactual History',
+    title: 'The Butterfly Job',
+    desc: 'Step into seven minor roles across the twentieth century and make one decision in each moment. Watch how tiny choices preserve or derail recorded history.',
+    hint: '7 decisions · divergence scoring · final timeline report',
+  },
 ]
 
 export default function Games() {
