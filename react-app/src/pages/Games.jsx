@@ -71,7 +71,6 @@ const externalGames = [
 
 const games = [
   {
-    num: '01',
     path: '/games/hermeneutic',
     eyebrow: 'Word Puzzle',
     title: 'Hermeneutic',
@@ -79,7 +78,6 @@ const games = [
     hint: 'Up to 5 clues · 6 guesses',
   },
   {
-    num: '02',
     path: '/games/epoche',
     eyebrow: 'Classification',
     title: 'Époche',
@@ -87,7 +85,6 @@ const games = [
     hint: '4 axes · 3 attempts',
   },
   {
-    num: '03',
     path: '/games/fallacy',
     eyebrow: 'Identification',
     title: 'Fallacy',
@@ -95,7 +92,6 @@ const games = [
     hint: `${FALLACY_OPTS.length} options · 4 guesses · colour-coded hints`,
   },
   {
-    num: '04',
     path: '/games/dialectic',
     eyebrow: 'Synthesis',
     title: 'Dialectic',
@@ -103,7 +99,6 @@ const games = [
     hint: '2 stages · 2 attempts each',
   },
   {
-    num: '05',
     path: '/games/sorites',
     eyebrow: 'Experiment',
     title: 'Sorites',
@@ -111,20 +106,18 @@ const games = [
     hint: '34 patches · personalised gradient · reveals your contradictions',
   },
   {
-    num: '06',
     path: '/games/repugnant',
     eyebrow: 'Population Ethics',
-    title: 'Repugnant Conclusion',
+    title: 'The Repugnant Conclusion',
     desc: 'Make a series of world-comparisons, each individually reasonable. Follow your own logic through 9 steps and discover whether you endorse the conclusion Parfit called the most important problem in ethics.',
     hint: '9 steps · Parfit 1984 · no right answer',
   },
   {
-    num: '07',
     path: '/games/philosophle',
     eyebrow: 'Word Puzzle',
     title: 'Philosophle',
     desc: 'Guess the hidden philosophical term — a concept, thinker, or Greek root between 3 and 7 letters. Colour-coded feedback narrows each attempt. Three-letter words grant an extra guess.',
-    hint: '3–7 letters · 6 guesses (7 for 3-letter words)',
+    hint: '3-7 letters · 6 guesses',
   },
 ]
 
@@ -134,7 +127,7 @@ export default function Games() {
       <SEO
         title="Philosophy Games"
         path="/games"
-        description="Four interactive philosophy games — guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought."
+        description="Interactive philosophy games: guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought."
       />
 
       {/* Header */}
@@ -142,23 +135,12 @@ export default function Games() {
         <p className="label-mono mb-4">Play & Think</p>
         <h1 className="section-heading mb-6">Philosophy Games</h1>
         <div className="h-px w-16 bg-gold/50 mx-auto mb-8" />
-        <p
-          className="font-body text-ink/70 leading-relaxed max-w-2xl mx-auto"
-          style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}
-        >
-          Seven games drawn from the practice of philosophy itself: hermeneutics,
-          phenomenological suspension, informal logic, dialectical method, the
-          Sorites paradox, population ethics, and Philosophle — a word game
-          built from philosophical concepts. Each puzzle is a small exercise in the kind of thinking we do at Axiom.
-        </p>
       </section>
-
-      <SectionDivider className="px-6 max-w-6xl mx-auto" />
 
       {/* Game cards */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {games.map(({ num, path, eyebrow, title, desc, hint }) => (
+          {games.map(({ path, eyebrow, title, desc, hint }) => (
             <Link
               key={path}
               to={path}
@@ -170,9 +152,6 @@ export default function Games() {
               <div className="pl-4">
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <p className="label-mono text-gold">{eyebrow}</p>
-                  <span className="font-mono text-3xl font-light text-gold/30 leading-none select-none">
-                    {num}
-                  </span>
                 </div>
 
                 <h2 className="font-heading font-light text-green mb-3 group-hover:text-terracotta transition-colors duration-200"
