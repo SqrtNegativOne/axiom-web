@@ -64,7 +64,7 @@ export default function About() {
       />
       {/* Page header */}
       <section className="max-w-4xl mx-auto px-6 py-16 text-center">
-        <p className="label-mono mb-4">Who We Are</p>
+        <p className="label-mono mb-3">Who We Are</p>
         <h1 className="section-heading mb-6">About Axiom</h1>
         <div className="h-px w-16 bg-gold/50 mx-auto mb-8" />
         <p className="font-body text-ink/70 leading-relaxed max-w-2xl mx-auto"
@@ -94,7 +94,7 @@ export default function About() {
 
       {/* Origin story */}
       <section className="max-w-4xl mx-auto px-6 py-16">
-        <p className="label-mono mb-6">Our Story</p>
+        <p className="label-mono mb-3">Our Story</p>
         <h2 className="font-heading text-green font-light text-3xl mb-8">How it began</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
@@ -137,7 +137,7 @@ export default function About() {
 
       {/* ── Core Team ────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <p className="label-mono mb-4 text-center">The People</p>
+        <p className="label-mono mb-3 text-center">The People</p>
         <h2 className="section-heading text-center mb-3">Core Team</h2>
         <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
           The leadership that steers Axiom — thinkers, organisers, and dedicated stewards of philosophical culture at NSUT.
@@ -165,7 +165,7 @@ export default function About() {
 
       {/* ── Executive Committee ──────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <p className="label-mono mb-4 text-center">The Engine Room</p>
+        <p className="label-mono mb-3 text-center">The Engine Room</p>
         <h2 className="section-heading text-center mb-3">Executive Committee</h2>
         <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
           The people who make things happen — planning events, building community, and keeping the philosophical spirit alive.
@@ -181,7 +181,7 @@ export default function About() {
 
       {/* ── Members ──────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <p className="label-mono mb-4 text-center">The Community</p>
+        <p className="label-mono mb-3 text-center">The Community</p>
         <h2 className="section-heading text-center mb-3">Members</h2>
         <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
           The heart and soul of Axiom — every voice matters.
@@ -199,7 +199,7 @@ export default function About() {
 
       {/* Alumni */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <p className="label-mono mb-4 text-center">Those Who Came Before</p>
+        <p className="label-mono mb-3 text-center">Those Who Came Before</p>
         <h2 className="section-heading text-center mb-3">Alumni</h2>
         <p className="font-body text-ink/60 text-center mb-12 max-w-xl mx-auto">
           In their own words — what Axiom meant to the people who built it.
@@ -224,7 +224,6 @@ export default function About() {
       {/* Gallery */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6 mb-8">
-          <p className="label-mono mb-4 text-center">Moments</p>
           <h2 className="section-heading text-center mb-4">Gallery</h2>
         </div>
         <GalleryCarousel />

@@ -138,10 +138,10 @@ export default function Games() {
       />
 
       {/* Header */}
-      <section className="max-w-4xl mx-auto px-6 py-16 text-center">
-        <p className="label-mono mb-4">Play & Think</p>
-        <h1 className="section-heading mb-6">Philosophy Games</h1>
-        <div className="h-px w-16 bg-gold/50 mx-auto mb-8" />
+      <section className="max-w-4xl mx-auto px-6 py-6 text-center">
+        <p className="label-mono mb-3">Play & Think</p>
+        <h1 className="section-heading mb-3">Philosophy Games</h1>
+        <div className="h-px w-16 bg-gold/50 mx-auto mb-3" />
       </section>
 
       {/* Game cards */}

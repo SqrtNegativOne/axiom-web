@@ -44,7 +44,7 @@ export default function EventCard({ title, date, location, description, imageFol
       {/* ── Main content ────────────────────────────────────────────────── */}
       <div className="min-w-0">
         {/* Metadata */}
-        <div className="flex flex-wrap gap-4 mb-3 items-center">
+        <div className="flex flex-wrap gap-4 mb-2 items-center">
           <span className="font-mono text-gold text-xs tracking-widest">{date}</span>
           <span className="font-mono text-ink/40 text-xs tracking-wider">·</span>
           <span className="font-mono text-ink/50 text-xs tracking-wider">{location}</span>
