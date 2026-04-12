@@ -2,10 +2,21 @@ import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { PHILOSOPHLE, ALL_WORDS } from '../data/philosophle'
+import { loadBloomFilter } from '../utils/bloomFilter'
 
 // All game answer words are always valid guesses (covers philosophical terms,
 // Greek roots, and proper names that standard dictionaries won't recognise).
 const VALID_GAME_WORDS = new Set(ALL_WORDS)
+
+// Load the bloom filter once at module level — shared across game resets.
+// Falls back to null; submitGuess is permissive when the filter isn't ready.
+let bloomPromise = null
+function getBloom() {
+  if (!bloomPromise) {
+    bloomPromise = loadBloomFilter('/assets/words.bloom').catch(() => null)
+  }
+  return bloomPromise
+}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function rand(arr) {
@@ -192,35 +203,25 @@ function GameBoard({ entry, onNewGame }) {
   const [current, setCurrent] = useState('') // current typed letters
   const [status, setStatus] = useState('playing') // 'playing' | 'win' | 'lose'
   const [shake, setShake] = useState(false)
-  const [validating, setValidating] = useState(false)
   const [badWord, setBadWord] = useState(false)
+  const [bloom, setBloom] = useState(null)
+
+  useEffect(() => { getBloom().then(setBloom) }, [])
 
   const keyState = buildKeyState(rows)
 
-  const submitGuess = useCallback(async () => {
+  const submitGuess = useCallback(() => {
     if (current.length !== wordLen) {
       setShake(true)
       setTimeout(() => setShake(false), 600)
       return
     }
 
-    // Game answer words are always valid; everything else gets a dictionary check.
+    // Game answer words are always valid. Everything else is checked against
+    // the local bloom filter — no network call needed. If the filter hasn't
+    // loaded yet we're permissive (let the guess through).
     if (!VALID_GAME_WORDS.has(current)) {
-      setValidating(true)
-      let valid = false
-      try {
-        const res = await fetch(
-          `https://api.dictionaryapi.dev/api/v2/entries/en/${current.toLowerCase()}`,
-          { signal: AbortSignal.timeout(5000) },
-        )
-        valid = res.ok
-      } catch {
-        // Network error or timeout — be permissive rather than blocking the player.
-        valid = true
-      }
-      setValidating(false)
-
-      if (!valid) {
+      if (bloom && !bloom.has(current)) {
         setShake(true)
         setBadWord(true)
         setTimeout(() => { setShake(false); setBadWord(false) }, 1400)
@@ -238,10 +239,10 @@ function GameBoard({ entry, onNewGame }) {
     } else if (newRows.length >= totalGuesses) {
       setStatus('lose')
     }
-  }, [current, wordLen, answer, rows, totalGuesses])
+  }, [current, wordLen, answer, rows, totalGuesses, bloom])
 
   const handleKey = useCallback((key) => {
-    if (status !== 'playing' || validating) return
+    if (status !== 'playing') return
 
     if (key === '⌫' || key === 'Backspace') {
       setCurrent((c) => c.slice(0, -1))
@@ -250,7 +251,7 @@ function GameBoard({ entry, onNewGame }) {
     } else if (/^[A-Z]$/i.test(key) && current.length < wordLen) {
       setCurrent((c) => (c + key).toUpperCase())
     }
-  }, [status, current, wordLen, submitGuess, validating])
+  }, [status, current, wordLen, submitGuess])
 
   // Physical keyboard support
   useEffect(() => {
@@ -277,11 +278,6 @@ function GameBoard({ entry, onNewGame }) {
       </div>
 
       {/* Validation feedback */}
-      {validating && (
-        <p className="font-mono text-xs tracking-widest text-ink/35 mt-3 animate-pulse">
-          checking…
-        </p>
-      )}
       {badWord && (
         <p className="font-mono text-xs tracking-widest text-terracotta/80 mt-3">
           not in word list
@@ -289,7 +285,7 @@ function GameBoard({ entry, onNewGame }) {
       )}
 
       {/* Status messages */}
-      {status === 'playing' && !validating && !badWord && (
+      {status === 'playing' && !badWord && (
         <>
           <p className="font-mono text-xs text-ink/35 mt-4 tracking-wide">
             {attemptsLeft} {attemptsLeft === 1 ? 'guess' : 'guesses'} remaining ·{' '}
