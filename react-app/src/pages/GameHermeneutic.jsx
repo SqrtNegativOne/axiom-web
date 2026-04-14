@@ -127,7 +127,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Win banner */}
       {status === 'win' && (
-        <div className="mt-6 bg-green/10 border border-green/30 rounded-lg px-5 py-4">
+        <div className="mt-6 bg-green/10 border border-green/30 rounded-lg px-5 py-4" role="status" aria-live="polite">
           <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-1">
             Correct
           </p>
@@ -143,7 +143,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Lose banner */}
       {status === 'lose' && (
-        <div className="mt-6 bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4">
+        <div className="mt-6 bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4" role="status" aria-live="polite">
           <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1">
             Not quite
           </p>

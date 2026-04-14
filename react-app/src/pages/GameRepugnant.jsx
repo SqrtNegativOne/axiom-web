@@ -329,7 +329,7 @@ export default function GameRepugnant() {
           <p style={{ fontSize: 10, letterSpacing: "0.22em", color: "#2a5c30", textTransform: "uppercase", margin: "0 0 10px", fontFamily: MONO }}>
             Conclusion
           </p>
-          <h2 style={{ fontSize: 34, fontWeight: 700, color: "#c8e6d0", margin: "0 0 32px", lineHeight: 1.2 }}>
+          <h2 style={{ fontSize: 34, fontWeight: 700, color: "#c8e6d0", margin: "0 0 32px", lineHeight: 1.2 }} role="status" aria-live="polite">
             {chainToZ ? "You have endorsed the Repugnant Conclusion." : "You resisted — but at a cost."}
           </h2>
 
