@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
-import { NAV_LINKS } from '../data/NAV_LINKS'
+import { NAV_LINKS } from '../data/navLinks'
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
