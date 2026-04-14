@@ -27,6 +27,12 @@ export default function GalleryCarousel() {
   const next = () => show((current + 1) % galleryImages.length)
 
   useEffect(() => {
+    const onVisibility = () => setPaused(document.hidden)
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => document.removeEventListener('visibilitychange', onVisibility)
+  }, [])
+
+  useEffect(() => {
     if (!paused) {
       intervalRef.current = setInterval(next, 4000)
     }

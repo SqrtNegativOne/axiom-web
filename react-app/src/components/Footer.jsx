@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { FOOTER_LINKS } from '../data/navLinks'
 
 export default function Footer() {
   return (
@@ -15,18 +16,10 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <nav aria-label="Footer navigation">
             <p className="font-body text-xs tracking-widest uppercase text-gold mb-4">Navigate</p>
             <ul className="flex flex-col gap-2">
-              {[
-                { label: 'Home', to: '/', internal: true },
-                { label: 'About', to: '/about', internal: true },
-                { label: 'Events', to: '/events', internal: true },
-                { label: 'Games', to: '/games', internal: true },
-                { label: 'Newsletter', to: '/newsletter/', internal: false },
-                { label: 'Branding', to: 'https://drive.google.com/drive/folders/1ghyc8NSUbn0NVhi1VjHnhtuaOrUcy2FQ', internal: false },
-                { label: 'Colophon', to: '/colophon', internal: true },
-              ].map(({ label, to, internal }) =>
+              {FOOTER_LINKS.map(({ label, to, internal }) =>
                 internal ? (
                   <li key={to}>
                     <Link
@@ -48,7 +41,7 @@ export default function Footer() {
                 )
               )}
             </ul>
-          </div>
+          </nav>
 
           {/* Social */}
           <div>

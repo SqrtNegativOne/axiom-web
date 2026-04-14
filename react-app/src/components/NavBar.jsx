@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
-
-const navLinks = [
-  { label: 'Home', to: '/', internal: true },
-  { label: 'About', to: '/about', internal: true },
-  { label: 'Events', to: '/events', internal: true },
-  { label: 'Games', to: '/games', internal: true },
-  { label: 'Newsletter', to: '/newsletter/', internal: false },
-]
+import { NAV_LINKS } from '../data/NAV_LINKS'
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -73,7 +66,7 @@ export default function NavBar() {
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map(({ label, to, internal }) =>
+          {NAV_LINKS.map(({ label, to, internal }) =>
             internal ? (
               <li key={to}>
                 <Link
@@ -107,6 +100,8 @@ export default function NavBar() {
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
           <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
@@ -117,13 +112,14 @@ export default function NavBar() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-menu"
         className={`md:hidden overflow-hidden transition-all duration-300 ${
           menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="bg-cream dark:bg-[#0E1A14] border-t border-gold/30 px-6 py-4">
           <ul className="flex flex-col gap-4">
-            {navLinks.map(({ label, to, internal }) =>
+            {NAV_LINKS.map(({ label, to, internal }) =>
               internal ? (
                 <li key={to}>
                   <Link
