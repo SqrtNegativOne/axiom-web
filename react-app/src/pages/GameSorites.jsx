@@ -315,7 +315,7 @@ function SoritesBoard({ onNewGame }) {
           <p style={{ fontSize: 10, letterSpacing: '0.22em', color: '#999', textTransform: 'uppercase', margin: '0 0 10px' }}>
             Analysis
           </p>
-          <h2 style={{ fontSize: 28, fontWeight: 600, color: INK, margin: '0 0 40px', fontFamily: MONO }}>
+          <h2 style={{ fontSize: 28, fontWeight: 600, color: INK, margin: '0 0 40px', fontFamily: MONO }} role="status" aria-live="polite">
             Your classifications
           </h2>
 
