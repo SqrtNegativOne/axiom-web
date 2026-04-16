@@ -152,6 +152,61 @@ export const FALLACY = [
     explanation:
       "The argument form is: if P then Q; P is false; therefore Q is false. But the absence of one sufficient condition (exercise) doesn't eliminate the outcome (heart health improvement), because other routes exist — dietary changes, medication, stress reduction, weight management. The conditional tells you that exercise is one way to improve heart health, not the only way. Denying the antecedent treats a sufficient condition as a necessary one.",
   },
+  // Non-fallacy arguments — valid reasoning that may superficially resemble a fallacy
+  {
+    argument:
+      "Dr Aiko Tanaka has spent thirty years studying the epidemiology of respiratory disease and has authored over 150 peer-reviewed studies on the subject. When she states that long-term exposure to particulate matter at current urban levels significantly elevates the risk of chronic obstructive pulmonary disease, this is a well-grounded reason to take the claim seriously.",
+    answer: 'No fallacy',
+    family: 'Valid',
+    cls: 'Valid',
+    explanation:
+      "Appeal to authority is a fallacy when an expert's prestige is used to settle a question outside their domain, or when expertise substitutes for evidence. Here the expertise is directly relevant — thirty years of domain-specific research, not mere reputation. Citing what a specialist says within their specialty, backed by an extensive publication record, is legitimate reasoning. The claim would need to be rebutted by engaging the underlying research, not by dismissing the appeal to expertise.",
+  },
+  {
+    argument:
+      "If the server logs had been altered after the incident, the checksums stored on the offline backup would not match the current log files. We verified the checksums: they match exactly. Therefore the logs were not altered after the incident.",
+    answer: 'No fallacy',
+    family: 'Valid',
+    cls: 'Valid',
+    explanation:
+      "This is modus tollens — 'if P then Q; not-Q; therefore not-P' — a valid deductive argument form. It should not be confused with denying the antecedent ('if P then Q; not-P; therefore not-Q'), which is the formal fallacy. Here it is the consequent that is denied: the checksum mismatch (Q) did not occur, which validly licenses the conclusion that the antecedent — log alteration (P) — did not occur. The inference is structurally sound.",
+  },
+  {
+    argument:
+      "Five independent randomised controlled trials, each recruiting over 8,000 participants across multiple countries and demographic groups, all found that the intervention reduced the primary outcome by between 31% and 38%. A pre-registered meta-analysis pooling all five trials confirmed an overall reduction of 34%. This is strong evidence that the intervention is effective.",
+    answer: 'No fallacy',
+    family: 'Valid',
+    cls: 'Valid',
+    explanation:
+      "Hasty generalisation occurs when conclusions outstrip the evidence — small samples, unrepresentative populations, a single study. Here the evidence base is large, independent, geographically diverse, and confirmed by meta-analysis. Drawing a confident conclusion from this level of evidence is exactly what sound empirical reasoning looks like. The strength of the conclusion is proportional to the strength of the evidence — which is the epistemic ideal, not a generalisation error.",
+  },
+  {
+    argument:
+      "Following the introduction of mandatory front-of-pack nutritional labelling, purchases of high-sugar products in the pilot region declined by 18%. Eight demographically comparable regions without the policy showed no equivalent decline over the same period. After accounting for seasonal buying patterns and concurrent advertising campaigns, the association remained consistent. The evidence supports a causal role for the labelling policy.",
+    answer: 'No fallacy',
+    family: 'Valid',
+    cls: 'Valid',
+    explanation:
+      "Post hoc ergo propter hoc is a fallacy when temporal sequence alone is used to infer causation. This argument does not rest on sequence alone: it includes a comparison group of similar regions, controls for alternative explanations, and assesses whether the pattern is specific to the intervention. This is the structure of controlled causal inference — it goes beyond 'A happened, then B happened.' A causal conclusion is not fallacious simply because it involves temporal data; what matters is whether the inference is adequately controlled.",
+  },
+  {
+    argument:
+      "The only study supporting this drug's safety profile for long-term use was funded entirely by the manufacturer, has not been independently replicated in the six years since publication, and was conducted on a sample that excluded patients with liver conditions — the very population most at risk. On these grounds, we have strong reason to seek independent replication before approving it for general use.",
+    answer: 'No fallacy',
+    family: 'Valid',
+    cls: 'Valid',
+    explanation:
+      "The genetic fallacy dismisses a claim solely because of its source, treating origin as a substitute for evaluating content. This argument does not do that. It identifies specific methodological concerns — conflict of interest, absence of independent replication, and a sample that excludes high-risk patients — as grounds for requiring further evidence before approval. This is epistemically legitimate: the financial interest, combined with the absence of independent verification and a narrow sample, constitutes genuine methodological concern, not a mere guilty-by-association dismissal.",
+  },
+  {
+    argument:
+      "The will was executed either before or after the testator was declared legally incapacitated — there is no third temporal possibility. The court records confirm that the declaration of incapacity predates the will's execution by three weeks. Therefore the will was executed after the testator was declared legally incapacitated.",
+    answer: 'No fallacy',
+    family: 'Valid',
+    cls: 'Valid',
+    explanation:
+      "False dilemma is a fallacy when stated alternatives are presented as exhaustive when they are not. Here the disjunction — before or after a single event — is genuinely exhaustive: there is no temporal middle ground. This is a valid disjunctive syllogism: 'either P or Q; not-P; therefore Q.' A binary disjunction that is actually exhaustive is not a false dilemma — it is a valid logical form. The argument's strength rests entirely on whether the alternatives truly cover all possibilities, and in this case they do.",
+  },
   // Multi-fallacy arguments — more than one error at work; the dominant fallacy is the answer
   {
     argument:
@@ -209,4 +264,5 @@ export const FALLACY_OPTS = [
   { name: 'Equivocation', family: 'Informal', cls: 'Ambiguity', definition: 'Exploiting a word\'s multiple meanings to shift between senses mid-argument.' },
   { name: 'Affirming the consequent', family: 'Formal', cls: 'Formal', definition: 'Inferring the antecedent from the consequent: "If P then Q; Q; therefore P."' },
   { name: 'Denying the antecedent', family: 'Formal', cls: 'Formal', definition: 'Inferring the negation of the consequent from the negation of the antecedent: "If P then Q; not P; therefore not Q."' },
+  { name: 'No fallacy', family: 'Valid', cls: 'Valid', noLabel: true, definition: 'The argument is logically sound: its premises genuinely support its conclusion without exploiting bias, misrepresentation, or structural error.' },
 ]
