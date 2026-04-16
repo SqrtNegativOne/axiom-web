@@ -189,6 +189,7 @@ Pages are organized by section under `react-app/src/pages/`:
 | `react-app/src/pages/games/Repugnant.jsx` | `/games/repugnant` | Step-by-step population ethics thought experiment (Parfit) |
 | `react-app/src/pages/games/Philosophle.jsx` | `/games/philosophle` | Wordle-style game with philosophy/philosopher words across multiple word lengths |
 | `react-app/src/pages/games/ButterflyJob.jsx` | `/games/butterfly-job` | Butterfly Job game |
+| `react-app/public/games/fallacy-detective/fallacy-detective.html` | `/games/fallacy-detective/fallacy-detective.html` | Identify fallacies in real-world case file documents (standalone HTML game) |
 
 ### Puzzle data
 
@@ -204,10 +205,22 @@ Each game has its own data file in `react-app/src/data/`. Edit the relevant file
 
 Sorites and Repugnant Conclusion have no external data file — their content is self-contained in their component files.
 
+### Static HTML games
+
+Some games are standalone HTML/JS apps rather than React components. These live in `react-app/public/games/<name>/` (Vite serves `public/` verbatim) and are linked from the index using a plain `<a href>` instead of React Router's `<Link>`.
+
+In `Games.jsx`, game entries use `path` for React routes and `href` for static HTML games — the card renderer picks `<Link>` or `<a>` accordingly. Case files (`.md`) and scripts are fetched relative to the HTML file, so no extra routing config is needed.
+
+| Directory | URL | Game |
+|-----------|-----|------|
+| `react-app/public/games/fallacy-detective/` | `/games/fallacy-detective/fallacy-detective.html` | Fallacy Detective — 4 case files, 52 fallacies, CriticMarkup format |
+
+To add a case to Fallacy Detective: create `react-app/public/games/fallacy-detective/cases/your-case.md` and add its path to `CASE_FILES` in `data.js`. See `fallacy-detection/CLAUDE.md` for the case file format.
+
 ### Games index structure
 
 `Games.jsx` contains three local data arrays:
-- `games[]` — internal Axiom games (drives the index cards; add new games here)
+- `games[]` — internal Axiom games (drives the index cards; add new games here; use `path` for React routes, `href` for static HTML games)
 - `externalExperiments[]` — browser-based external experiments (philosophyexperiments.com, MIT Moral Machine, etc.)
 - `externalGames[]` — external games with philosophical themes (Steam titles, etc.)
 
