@@ -170,18 +170,25 @@ Edit these to update site content — no component changes needed:
 
 Route: `/games` (index) and `/games/<slug>` (individual games).
 
+Pages are organized by section under `react-app/src/pages/`:
+- `pages/games/` — all game pages
+- `pages/about/` — `About.jsx`, `Alumni.jsx`, `Leadership2023.jsx`
+- `pages/events/` — `Events.jsx`, `EventsByYear.jsx`
+- `pages/` root — `Home.jsx`, `Colophon.jsx`, `NotFound.jsx`
+
 ### Pages
 
 | File | Route | Game |
 |------|-------|------|
-| `react-app/src/pages/Games.jsx` | `/games` | Index — cards linking to each game + external resources |
-| `react-app/src/pages/GameHermeneutic.jsx` | `/games/hermeneutic` | Guess a philosophical term from progressively revealing clues |
-| `react-app/src/pages/GameEpoche.jsx` | `/games/epoche` | Classify a proposition across four philosophical axes |
-| `react-app/src/pages/GameFallacy.jsx` | `/games/fallacy` | Identify the logical fallacy in an argument; colour-coded family/class hints |
-| `react-app/src/pages/GameDialectic.jsx` | `/games/dialectic` | Identify antithesis then synthesis for a given thesis |
-| `react-app/src/pages/GameSorites.jsx` | `/games/sorites` | Colour-patch classification that reveals the Sorites paradox |
-| `react-app/src/pages/GameRepugnant.jsx` | `/games/repugnant` | Step-by-step population ethics thought experiment (Parfit) |
-| `react-app/src/pages/GamePhilosophle.jsx` | `/games/philosophle` | Wordle-style game with philosophy/philosopher words across multiple word lengths |
+| `react-app/src/pages/games/Games.jsx` | `/games` | Index — cards linking to each game + external resources |
+| `react-app/src/pages/games/Hermeneutic.jsx` | `/games/hermeneutic` | Guess a philosophical term from progressively revealing clues |
+| `react-app/src/pages/games/Epoche.jsx` | `/games/epoche` | Classify a proposition across four philosophical axes |
+| `react-app/src/pages/games/Fallacy.jsx` | `/games/fallacy` | Identify the logical fallacy in an argument; colour-coded family/class hints |
+| `react-app/src/pages/games/Dialectic.jsx` | `/games/dialectic` | Identify antithesis then synthesis for a given thesis |
+| `react-app/src/pages/games/Sorites.jsx` | `/games/sorites` | Colour-patch classification that reveals the Sorites paradox |
+| `react-app/src/pages/games/Repugnant.jsx` | `/games/repugnant` | Step-by-step population ethics thought experiment (Parfit) |
+| `react-app/src/pages/games/Philosophle.jsx` | `/games/philosophle` | Wordle-style game with philosophy/philosopher words across multiple word lengths |
+| `react-app/src/pages/games/ButterflyJob.jsx` | `/games/butterfly-job` | Butterfly Job game |
 
 ### Puzzle data
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
-import SectionDivider from '../components/SectionDivider'
-import { FALLACY_OPTS } from '../data/fallacy'
+import SEO from '../../components/SEO'
+import SectionDivider from '../../components/SectionDivider'
+import { FALLACY_OPTS } from '../../data/fallacy'
 
 const externalExperiments = [
   {
@@ -132,6 +132,13 @@ const games = [
     desc: 'Step into seven minor roles across the twentieth century and make one decision in each moment. Watch how tiny choices preserve or derail recorded history.',
     hint: '7 decisions · divergence scoring · final timeline report',
   },
+  {
+    href: '/games/fallacy-detective/fallacy-detective.html',
+    eyebrow: 'Investigation',
+    title: 'Fallacy Detective',
+    desc: 'You receive a series of case files — real-world documents laced with hidden logical fallacies. Click suspected sentences, name the fallacy from 52 options, and close the case.',
+    hint: '4 cases · 52 fallacies · open investigation',
+  },
 ]
 
 export default function Games() {
@@ -153,38 +160,46 @@ export default function Games() {
       {/* Game cards */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {games.map(({ path, eyebrow, title, desc, hint }) => (
-            <Link
-              key={path}
-              to={path}
-              className="group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 transition-all duration-300"
-            >
-              {/* Terracotta left-border on hover */}
-              <div className="absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" />
+          {games.map(({ path, href, eyebrow, title, desc, hint }) => {
+            const cardClass = "group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 transition-all duration-300"
+            const cardInner = (
+              <>
+                {/* Terracotta left-border on hover */}
+                <div className="absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" />
 
-              <div className="pl-4">
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <p className="label-mono text-gold">{eyebrow}</p>
+                <div className="pl-4">
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <p className="label-mono text-gold">{eyebrow}</p>
+                  </div>
+
+                  <h2 className="font-heading font-light text-green mb-3 group-hover:text-terracotta transition-colors duration-200"
+                      style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}>
+                    {title}
+                  </h2>
+
+                  <p className="font-body text-sm text-ink/65 leading-relaxed mb-6">
+                    {desc}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs text-gold/70 tracking-wide">{hint}</span>
+                    <span className="font-body text-xs text-terracotta/0 group-hover:text-terracotta transition-colors duration-200 tracking-wide">
+                      Play →
+                    </span>
+                  </div>
                 </div>
-
-                <h2 className="font-heading font-light text-green mb-3 group-hover:text-terracotta transition-colors duration-200"
-                    style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}>
-                  {title}
-                </h2>
-
-                <p className="font-body text-sm text-ink/65 leading-relaxed mb-6">
-                  {desc}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-gold/70 tracking-wide">{hint}</span>
-                  <span className="font-body text-xs text-terracotta/0 group-hover:text-terracotta transition-colors duration-200 tracking-wide">
-                    Play →
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
+              </>
+            )
+            return href ? (
+              <a key={href} href={href} className={cardClass}>
+                {cardInner}
+              </a>
+            ) : (
+              <Link key={path} to={path} className={cardClass}>
+                {cardInner}
+              </Link>
+            )
+          })}
         </div>
       </section>
 

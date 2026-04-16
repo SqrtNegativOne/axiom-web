@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
+import SEO from '../../components/SEO'
 
 const N = 34
 const patches = Array.from({ length: N }, (_, i) => ({ id: i, t: i / (N - 1) }))

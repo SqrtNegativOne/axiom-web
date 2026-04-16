@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
-import { FALLACY, FALLACY_OPTS } from '../data/fallacy'
+import SEO from '../../components/SEO'
+import { FALLACY, FALLACY_OPTS } from '../../data/fallacy'
 
 const MAX_GUESSES = 4
 
