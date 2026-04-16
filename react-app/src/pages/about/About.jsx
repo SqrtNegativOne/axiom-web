@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
-import { core, execomm, members } from '../data/team-2025'
-import alumniQuotes from '../data/alumni-quotes'
-import TeamPortraitCard from '../components/TeamPortraitCard'
-import AlumniQuoteCard from '../components/AlumniQuoteCard'
-import GalleryCarousel from '../components/GalleryCarousel'
-import SectionDivider from '../components/SectionDivider'
-import PullQuote from '../components/PullQuote'
+import SEO from '../../components/SEO'
+import { core, execomm, members } from '../../data/team-2025'
+import alumniQuotes from '../../data/alumni-quotes'
+import TeamPortraitCard from '../../components/TeamPortraitCard'
+import AlumniQuoteCard from '../../components/AlumniQuoteCard'
+import GalleryCarousel from '../../components/GalleryCarousel'
+import SectionDivider from '../../components/SectionDivider'
+import PullQuote from '../../components/PullQuote'
 
 const pillars = [
   {

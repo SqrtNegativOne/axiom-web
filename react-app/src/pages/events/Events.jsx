@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
-import eventsData from '../data/events.json'
-import EventCard from '../components/EventCard'
-import SectionDivider from '../components/SectionDivider'
+import SEO from '../../components/SEO'
+import eventsData from '../../data/events.json'
+import EventCard from '../../components/EventCard'
+import SectionDivider from '../../components/SectionDivider'
 
 export default function Events() {
   // Show 2025, 2026, and ongoing events on main page

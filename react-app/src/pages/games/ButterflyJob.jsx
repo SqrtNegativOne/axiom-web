@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import SEO from '../components/SEO'
+import SEO from '../../components/SEO'
 
 const SCENARIOS = [
   {

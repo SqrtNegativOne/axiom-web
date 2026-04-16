@@ -1,8 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
-import SEO from '../components/SEO'
-import EventCard from '../components/EventCard'
-import SectionDivider from '../components/SectionDivider'
-import eventsData from '../data/events.json'
+import SEO from '../../components/SEO'
+import EventCard from '../../components/EventCard'
+import SectionDivider from '../../components/SectionDivider'
+import eventsData from '../../data/events.json'
 
 export default function EventsByYear() {
   const { year } = useParams()

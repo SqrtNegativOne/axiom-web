@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
-import teamLegacy from '../data/team-2024'
-import TeamPortraitCard from '../components/TeamPortraitCard'
-import SectionDivider from '../components/SectionDivider'
+import SEO from '../../components/SEO'
+import teamLegacy from '../../data/team-2024'
+import TeamPortraitCard from '../../components/TeamPortraitCard'
+import SectionDivider from '../../components/SectionDivider'
 
 export default function Alumni() {
   return (

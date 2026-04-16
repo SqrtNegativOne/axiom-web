@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
-import { EPOCHE } from '../data/epoche'
+import SEO from '../../components/SEO'
+import { EPOCHE } from '../../data/epoche'
 
 function rand(arr) {
   return arr[Math.floor(Math.random() * arr.length)]

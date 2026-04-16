@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
-import { PHILOSOPHLE, ALL_WORDS } from '../data/philosophle'
-import { loadBloomFilter } from '../utils/bloomFilter'
+import SEO from '../../components/SEO'
+import { PHILOSOPHLE, ALL_WORDS } from '../../data/philosophle'
+import { loadBloomFilter } from '../../utils/bloomFilter'
 
 // All game answer words are always valid guesses (covers philosophical terms,
 // Greek roots, and proper names that standard dictionaries won't recognise).
