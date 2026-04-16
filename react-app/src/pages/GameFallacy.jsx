@@ -118,9 +118,11 @@ function GameBoard({ puzzle, onNewGame }) {
                 style={r && style.style ? style.style : undefined}
               >
                 <span className="block font-medium">{opt.name}</span>
-                <span className="block text-[10px] mt-0.5 opacity-60">
-                  {opt.family} · {opt.cls}
-                </span>
+                {!opt.noLabel && (
+                  <span className="block text-[10px] mt-0.5 opacity-60">
+                    {opt.family} · {opt.cls}
+                  </span>
+                )}
               </button>
               {/* Definition tooltip trigger */}
               <span className="group/tip absolute right-2 top-1/2 -translate-y-1/2">
@@ -216,9 +218,9 @@ export default function GameFallacy() {
         </h1>
         <div className="h-px w-12 bg-gold/40 mb-5" />
         <p className="font-body text-sm text-ink/60 leading-relaxed">
-          An argument is presented. Identify its logical fallacy from {FALLACY_OPTS.length} options. If your
-          guess is wrong, you learn whether it shares the same class or family as the correct answer —
-          narrowing your next attempt. You have {MAX_GUESSES} guesses.
+          An argument is presented. Identify its logical fallacy from {FALLACY_OPTS.length} options — or
+          determine that no fallacy is present. If your guess is wrong, you learn whether it shares the same
+          class or family as the correct answer — narrowing your next attempt. You have {MAX_GUESSES} guesses.
         </p>
       </section>
 
