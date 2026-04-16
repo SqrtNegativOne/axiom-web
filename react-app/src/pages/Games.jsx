@@ -40,6 +40,12 @@ const externalExperiments = [
     domain: 'mindany2.fr',
     desc: 'Alternate host for the Milton experience — use if the primary link is unavailable.',
   },
+  {
+    title: 'History of Philosophy',
+    url: 'https://www.denizcemonduygu.com/philo/browse/',
+    domain: 'denizcemonduygu.com',
+    desc: 'An interactive visual map of Western philosophy by Deniz Cem Önduygu — browse 200+ philosophers across 25 centuries, explore influence connections, and click any thinker to see who they shaped and who shaped them.',
+  },
 ]
 
 const externalGames = [
