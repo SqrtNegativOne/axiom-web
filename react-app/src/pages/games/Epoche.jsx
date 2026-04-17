@@ -169,7 +169,7 @@ function GameBoard({ puzzle, onNewGame }) {
                 {axis}
                 {hasResult && (
                   <span
-                    className={`ml-2 ${axisCorrect ? 'text-green' : 'text-terracotta'}`}
+                    className={`ml-2 animate-pop-in ${axisCorrect ? 'text-green' : 'text-terracotta'}`}
                   >
                     {axisCorrect ? '✓' : '✗'}
                   </span>
@@ -227,7 +227,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Feedback after wrong attempt (still playing) */}
       {results && status === 'playing' && (
-        <div className="bg-terracotta/8 border border-terracotta/20 rounded-lg px-5 py-3 mb-4">
+        <div className="bg-terracotta/8 border border-terracotta/20 rounded-lg px-5 py-3 mb-4 animate-slide-up">
           <p className="font-body text-sm text-terracotta/90">
             {wrongAxes.length === 1
               ? `One axis is wrong — reconsider and try again.`
@@ -250,7 +250,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Win banner */}
       {status === 'win' && (
-        <div className="bg-green/10 border border-green/30 rounded-lg px-5 py-4">
+        <div className="bg-green/10 border border-green/30 rounded-lg px-5 py-4 animate-pop-in">
           <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-2">
             Correct — all four axes
           </p>
@@ -260,7 +260,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Unexamined Assumption easter egg */}
       {status === 'win' && firstAllWrong && (
-        <div className="mt-4 border border-gold/40 rounded-lg overflow-hidden">
+        <div className="mt-4 border border-gold/40 rounded-lg overflow-hidden animate-slide-up">
           <div className="bg-gold/10 px-5 py-3 border-b border-gold/25">
             <p className="font-mono text-xs tracking-widest uppercase text-gold">
               Easter Egg · Unexamined Assumption
@@ -286,7 +286,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Lose banner */}
       {status === 'lose' && (
-        <div className="bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4">
+        <div className="bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 animate-pop-in">
           <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-2">
             Three attempts used
           </p>
