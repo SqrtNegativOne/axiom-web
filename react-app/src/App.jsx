@@ -19,6 +19,7 @@ import GameSorites from './pages/games/Sorites'
 import GameRepugnant from './pages/games/Repugnant'
 import GamePhilosophle from './pages/games/Philosophle'
 import GameButterflyJob from './pages/games/ButterflyJob'
+import GameFallacyDetective from './pages/games/FallacyDetective'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -50,6 +51,7 @@ export default function App() {
             <Route path="/games/repugnant" element={<GameRepugnant />} />
             <Route path="/games/philosophle" element={<GamePhilosophle />} />
             <Route path="/games/butterfly-job" element={<GameButterflyJob />} />
+            <Route path="/games/fallacy-detective" element={<GameFallacyDetective />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
