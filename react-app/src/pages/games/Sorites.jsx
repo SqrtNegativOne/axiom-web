@@ -206,7 +206,7 @@ function SoritesBoard({ onNewGame }) {
             </span>
           </div>
 
-          <div style={{ width: '100%', aspectRatio: '4/3', background: toRGB(p.t), marginBottom: 44 }} />
+          <div style={{ width: '100%', aspectRatio: '4/3', background: toRGB(p.t), marginBottom: 44, transition: 'background 0.35s ease' }} />
 
           <p style={{ fontSize: 22, textAlign: 'center', color: INK, margin: '0 0 32px', fontWeight: 500 }}>
             Is this{' '}

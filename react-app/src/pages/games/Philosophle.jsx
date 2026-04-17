@@ -300,7 +300,7 @@ function GameBoard({ entry, onNewGame }) {
       )}
 
       {status === 'win' && (
-        <div className="mt-5 w-full max-w-xl bg-green/10 border border-green/30 rounded-lg px-5 py-4 text-center">
+        <div className="mt-5 w-full max-w-xl bg-green/10 border border-green/30 rounded-lg px-5 py-4 text-center animate-pop-in">
           <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-1">
             Correct
           </p>
@@ -328,7 +328,7 @@ function GameBoard({ entry, onNewGame }) {
       )}
 
       {status === 'lose' && (
-        <div className="mt-5 w-full max-w-xl bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 text-center">
+        <div className="mt-5 w-full max-w-xl bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 text-center animate-pop-in">
           <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1">
             Not quite
           </p>
@@ -392,7 +392,7 @@ export default function GamePhilosophle() {
 
       {showIntro && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-6 bg-ink/55 backdrop-blur-sm">
-          <div className="w-full max-w-xl rounded-xl border border-gold/25 bg-cream dark:bg-cream-dark shadow-xl p-6 md:p-7">
+          <div className="w-full max-w-xl rounded-xl border border-gold/25 bg-cream dark:bg-cream-dark shadow-xl p-6 md:p-7 animate-pop-in">
             <h2 className="font-heading font-light text-2xl text-green mb-2">How to play</h2>
             <p className="font-body text-sm text-ink/70 leading-relaxed mb-5">
               Guess the hidden philosophical term — a concept, thinker, or Greek root

@@ -102,7 +102,7 @@ function GameBoard({ puzzle, onNewGame }) {
             'px-3 py-2.5 rounded-lg border font-body text-xs text-left leading-snug cursor-pointer transition-all duration-150 '
 
           if (r) {
-            className += style.btn
+            className += style.btn + ' animate-pop-in'
           } else if (isDisabled) {
             className += 'border-gold/15 text-ink/25 cursor-default'
           } else {
@@ -148,7 +148,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Win banner */}
       {status === 'win' && (
-        <div className="bg-green/10 border border-green/30 rounded-lg px-5 py-4">
+        <div className="bg-green/10 border border-green/30 rounded-lg px-5 py-4 animate-pop-in">
           <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-1">Identified</p>
           <p className="font-heading text-xl font-light text-green mb-2">{puzzle.answer}</p>
           <p className="font-body text-sm text-ink/65 leading-relaxed">{puzzle.explanation}</p>
@@ -157,7 +157,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Lose banner */}
       {status === 'lose' && (
-        <div className="bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4">
+        <div className="bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 animate-pop-in">
           <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1">
             Four guesses used
           </p>

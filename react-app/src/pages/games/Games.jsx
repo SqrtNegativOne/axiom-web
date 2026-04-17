@@ -160,9 +160,8 @@ export default function Games() {
       {/* Game cards */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {games.map(({ path, href, eyebrow, title, desc, hint }, i) => {
-            const cardClass = "group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 hover:scale-[1.015] hover:-translate-y-0.5 transition-all duration-300 animate-fade-up"
-            const cardStyle = { animationDelay: `${i * 65}ms` }
+          {games.map(({ path, href, eyebrow, title, desc, hint }) => {
+            const cardClass = "group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 transition-all duration-300"
             const cardInner = (
               <>
                 {/* Terracotta left-border on hover */}
@@ -192,11 +191,11 @@ export default function Games() {
               </>
             )
             return href ? (
-              <a key={href} href={href} className={cardClass} style={cardStyle}>
+              <a key={href} href={href} className={cardClass}>
                 {cardInner}
               </a>
             ) : (
-              <Link key={path} to={path} className={cardClass} style={cardStyle}>
+              <Link key={path} to={path} className={cardClass}>
                 {cardInner}
               </Link>
             )
@@ -224,8 +223,8 @@ export default function Games() {
           <div className="lg:col-span-2">
             <p className="label-mono text-gold mb-5">Interactive Experiments</p>
             <div className="space-y-0 divide-y divide-gold/12">
-              {externalExperiments.map(({ title, url, domain, desc }, i) => (
-                <div key={url} className="py-5 group animate-fade-up" style={{ animationDelay: `${i * 55}ms` }}>
+              {externalExperiments.map(({ title, url, domain, desc }) => (
+                <div key={url} className="py-5 group">
                   <div className="flex items-start justify-between gap-4 mb-1.5">
                     <a
                       href={url}
@@ -236,7 +235,7 @@ export default function Games() {
                     >
                       {title}
                     </a>
-                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1 shrink-0 group-hover:text-gold transition-colors duration-150">
+                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1 shrink-0">
                       {domain} ↗
                     </span>
                   </div>
@@ -250,8 +249,8 @@ export default function Games() {
           <div>
             <p className="label-mono text-gold mb-5">External Games</p>
             <div className="space-y-0 divide-y divide-gold/12">
-              {externalGames.map(({ title, url, domain, desc }, i) => (
-                <div key={url} className="py-5 group animate-fade-up" style={{ animationDelay: `${i * 55}ms` }}>
+              {externalGames.map(({ title, url, domain, desc }) => (
+                <div key={url} className="py-5 group">
                   <div className="flex items-start justify-between gap-4 mb-1.5">
                     <a
                       href={url}
@@ -262,7 +261,7 @@ export default function Games() {
                     >
                       {title}
                     </a>
-                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1 shrink-0 group-hover:text-gold transition-colors duration-150">
+                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1 shrink-0">
                       {domain} ↗
                     </span>
                   </div>

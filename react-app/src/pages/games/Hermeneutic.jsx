@@ -51,6 +51,7 @@ function GameBoard({ puzzle, onNewGame }) {
       <div className="mb-6 space-y-2">
         {puzzle.clues.map((clue, i) => {
           const isLive = i < shown
+          const isNewest = isLive && i === shown - 1
           return (
             <div
               key={i}
@@ -58,7 +59,7 @@ function GameBoard({ puzzle, onNewGame }) {
                 isLive
                   ? 'border-gold/30 bg-cream dark:bg-cream-dark text-ink/80'
                   : 'border-cream-dark bg-cream/40 dark:bg-cream-dark/30 text-ink/25'
-              }`}
+              } ${isNewest ? 'animate-slide-up' : ''}`}
             >
               <span
                 dangerouslySetInnerHTML={{ __html: clue }}
@@ -81,7 +82,8 @@ function GameBoard({ puzzle, onNewGame }) {
               return (
                 <span
                   key={i}
-                  className={`font-mono text-xs px-3 py-1 rounded-full border ${
+                  style={{ animationDelay: `${i * 30}ms` }}
+                  className={`animate-pop-in font-mono text-xs px-3 py-1 rounded-full border ${
                     isCorrect
                       ? 'bg-green text-cream border-transparent'
                       : 'bg-terracotta/10 text-terracotta border-terracotta/20'
@@ -127,7 +129,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Win banner */}
       {status === 'win' && (
-        <div className="mt-6 bg-green/10 border border-green/30 rounded-lg px-5 py-4" role="status" aria-live="polite">
+        <div className="mt-6 bg-green/10 border border-green/30 rounded-lg px-5 py-4 animate-pop-in" role="status" aria-live="polite">
           <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-1">
             Correct
           </p>
@@ -143,7 +145,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Lose banner */}
       {status === 'lose' && (
-        <div className="mt-6 bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4" role="status" aria-live="polite">
+        <div className="mt-6 bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 animate-pop-in" role="status" aria-live="polite">
           <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1">
             Not quite
           </p>

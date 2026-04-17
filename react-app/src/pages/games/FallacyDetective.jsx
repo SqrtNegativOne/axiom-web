@@ -47,6 +47,9 @@ const css = `
   .fd-scrollbar::-webkit-scrollbar-thumb:hover { background:rgba(196,154,40,.5); }
 
   @keyframes fdFadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fdPopIn  { from{opacity:0;transform:scale(.94) translateY(10px)} to{opacity:1;transform:scale(1) translateY(0)} }
+  .fd-results-panel { animation: fdPopIn .32s cubic-bezier(0.34,1.3,0.64,1) both; }
+  .fd-progress-item { animation: fdFadeUp .3s ease both; }
   .fd-fade-1 { animation: fdFadeUp .55s .0s ease both; }
   .fd-fade-2 { animation: fdFadeUp .55s .1s ease both; }
   .fd-fade-3 { animation: fdFadeUp .55s .2s ease both; }
@@ -438,7 +441,7 @@ export default function FallacyDetective() {
                         if (!done) return null
                         const fname = FALLACIES.find(x => x.id === f.fid)?.name || f.fid
                         return (
-                          <li key={i} style={{ display:'flex', alignItems:'center', gap:'.45rem', fontFamily:"var(--ff-mono)", fontSize:'.67rem', color:'#7fcf9f', padding:'.25rem 0', borderBottom:'1px solid rgba(196,154,40,.07)' }}>
+                          <li key={i} className="fd-progress-item" style={{ display:'flex', alignItems:'center', gap:'.45rem', fontFamily:"var(--ff-mono)", fontSize:'.67rem', color:'#7fcf9f', padding:'.25rem 0', borderBottom:'1px solid rgba(196,154,40,.07)' }}>
                             <span style={{ width:7, height:7, borderRadius:'50%', background:'#7fcf9f', border:'1px solid #7fcf9f', flexShrink:0, display:'inline-block' }} />
                             {fname}
                           </li>
@@ -483,7 +486,7 @@ export default function FallacyDetective() {
         {/* ═══ RESULTS OVERLAY ════════════════════════════════════════════════ */}
         {phase === 'results' && (
           <div style={{ position:'fixed', inset:0, background:'rgba(23,20,15,.9)', zIndex:200, display:'flex', alignItems:'center', justifyContent:'center', padding:'1.5rem', backdropFilter:'blur(5px)' }}>
-            <div className="fd-scrollbar" style={{ background:'var(--panel2)', border:'1px solid var(--border)', maxWidth:600, width:'100%', maxHeight:'85vh', overflowY:'auto', padding:'2rem', position:'relative' }}>
+            <div className="fd-scrollbar fd-results-panel" style={{ background:'var(--panel2)', border:'1px solid var(--border)', maxWidth:600, width:'100%', maxHeight:'85vh', overflowY:'auto', padding:'2rem', position:'relative' }}>
               <div style={{ position:'absolute', top:'1.2rem', right:'1.2rem', fontFamily:"var(--ff-mono)", fontSize:'.58rem', letterSpacing:'.28em', color:'#b83232', border:'1px solid #b83232', padding:'.2rem .55rem', opacity:.65 }}>Case Closed</div>
               <h2 style={{ fontFamily:"var(--ff-head)", fontSize:'1.7rem', fontWeight:700, color:'var(--paper)', marginBottom:'.25rem' }}>{R.title}</h2>
               <div style={{ fontFamily:"var(--ff-mono)", fontSize:'.82rem', color:'#c49a28', marginBottom:'1.75rem', letterSpacing:'.08em' }}>

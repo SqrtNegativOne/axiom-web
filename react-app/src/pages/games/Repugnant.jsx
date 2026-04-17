@@ -221,6 +221,8 @@ export default function GameRepugnant() {
       <style>{`
         .next-rp { background:${GREEN}; color:#040a06; border:none; padding:12px 32px; font-family:${MONO}; font-size:12px; font-weight:700; letter-spacing:0.12em; cursor:pointer; transition:opacity .15s; }
         .next-rp:hover { opacity:0.85; }
+        @keyframes rpFadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+        .rp-reveal { animation: rpFadeUp 0.3s ease both; }
       `}</style>
       <div style={{ maxWidth: 600, margin: "0 auto" }}>
         {/* Progress */}
@@ -280,7 +282,7 @@ export default function GameRepugnant() {
         )}
 
         {selected !== null && (
-          <div style={{ marginBottom: 24 }}>
+          <div className="rp-reveal" style={{ marginBottom: 24 }}>
             <div style={{ background: "#0a1f0e", border: "1px solid #1a3c1f", padding: "16px 20px", marginBottom: 16 }}>
               <p style={{ margin: "0 0 8px", fontSize: 10, color: "#3a7a44", fontFamily: MONO, letterSpacing: "0.14em", textTransform: "uppercase" }}>
                 Reasoning for {selected ? current.bLabel : current.aLabel}

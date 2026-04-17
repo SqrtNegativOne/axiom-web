@@ -408,6 +408,15 @@ const styles = `
 .dbar-label { font-family: var(--ff-sans); font-size: 11px; color: var(--text3); display: flex; justify-content: space-between; margin-bottom: 6px; }
 .dbar-track { height: 3px; background: var(--border2); border-radius: 2px; overflow: hidden; }
 .dbar-fill { height: 100%; border-radius: 2px; width: 0%; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes bfFadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+.con-box { animation: bfFadeUp 0.35s ease both; }
+.chain-step:nth-child(1) { animation: bfFadeUp 0.28s 0.05s ease both; }
+.chain-step:nth-child(2) { animation: bfFadeUp 0.28s 0.13s ease both; }
+.chain-step:nth-child(3) { animation: bfFadeUp 0.28s 0.21s ease both; }
+.chain-step:nth-child(4) { animation: bfFadeUp 0.28s 0.29s ease both; }
+.chain-step:nth-child(5) { animation: bfFadeUp 0.28s 0.37s ease both; }
+.chain-step:nth-child(6) { animation: bfFadeUp 0.28s 0.45s ease both; }
+.chain-step:nth-child(7) { animation: bfFadeUp 0.28s 0.53s ease both; }
 .next-btn { width: 100%; background: transparent; border: 1px solid var(--border2); border-radius: var(--r); padding: 11px; font-family: var(--ff-serif); font-size: 14px; font-style: italic; color: var(--text3); cursor: pointer; transition: border-color 0.15s, color 0.15s, background 0.15s; }
 .next-btn:hover { border-color: var(--gold-dim); color: var(--text2); background: var(--surface2); }
 .end-page { padding: 2.5rem 0; }

@@ -187,7 +187,7 @@ function GameBoard({ puzzle, onNewGame }) {
           ))}
         </div>
         {aResult && !aResult.correct && stage === 1 && (
-          <p className="font-body text-xs text-terracotta/80 mt-2">
+          <p className="font-body text-xs text-terracotta/80 mt-2 animate-slide-up">
             Not quite — one more attempt.
           </p>
         )}
@@ -203,7 +203,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Stage 2: Synthesis (shown only when antithesis is done) */}
       {stage === 2 && (
-        <div className="mb-6">
+        <div className="mb-6 animate-slide-up">
           <p className="font-mono text-xs tracking-widest uppercase mb-3 text-ink">
             <span className="text-gold/70 mr-2">02</span>
             {status === 'playing' ? 'Select the synthesis' : 'Synthesis'}
@@ -221,7 +221,7 @@ function GameBoard({ puzzle, onNewGame }) {
             ))}
           </div>
           {sResult && !sResult.correct && status === 'playing' && (
-            <p className="font-body text-xs text-terracotta/80 mt-2">
+            <p className="font-body text-xs text-terracotta/80 mt-2 animate-slide-up">
               Not quite — one more attempt.
             </p>
           )}
@@ -238,7 +238,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Win banner */}
       {status === 'win' && (
-        <div className="bg-green/10 border border-green/30 rounded-lg px-5 py-4" role="status" aria-live="polite">
+        <div className="bg-green/10 border border-green/30 rounded-lg px-5 py-4 animate-pop-in" role="status" aria-live="polite">
           <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-1">
             Complete
           </p>
@@ -251,7 +251,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
       {/* Lose banner */}
       {status === 'lose' && (
-        <div className="bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4" role="status" aria-live="polite">
+        <div className="bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 animate-pop-in" role="status" aria-live="polite">
           <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1">
             Attempts exhausted
           </p>
