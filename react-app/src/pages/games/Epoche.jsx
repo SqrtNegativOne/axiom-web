@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../../components/SEO'
 import { EPOCHE } from '../../data/epoche'
@@ -69,39 +69,34 @@ const TERMS = [
   },
 ]
 
-function TermsGlossary() {
-  const [open, setOpen] = useState(false)
+const TERM_DEFS = Object.fromEntries(
+  TERMS.flatMap(({ terms }) => terms.map(({ name, def }) => [name, def]))
+)
+
+function Tooltip({ children, text }) {
+  const [visible, setVisible] = useState(false)
+  const timerRef = useRef(null)
+
+  function show() {
+    clearTimeout(timerRef.current)
+    setVisible(true)
+  }
+  function hide() {
+    timerRef.current = setTimeout(() => setVisible(false), 80)
+  }
 
   return (
-    <div className="mt-6 border border-gold/20 rounded-lg overflow-hidden">
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between px-5 py-3 text-left hover:bg-gold/5 transition-colors duration-150"
-        aria-expanded={open}
-      >
-        <span className="font-mono text-xs tracking-widest uppercase text-gold/70">
-          Definitions — the four axes explained
-        </span>
-        <span className="font-mono text-xs text-gold/50 ml-4 select-none">
-          {open ? '▲' : '▼'}
-        </span>
-      </button>
-
-      {open && (
-        <div className="border-t border-gold/15 px-5 py-5 space-y-6">
-          {TERMS.map(({ axis, terms }) => (
-            <div key={axis}>
-              <p className="font-mono text-xs text-gold tracking-widest uppercase mb-3">{axis}</p>
-              <div className="space-y-3">
-                {terms.map(({ name, def }) => (
-                  <div key={name} className="flex gap-3">
-                    <span className="font-mono text-xs text-terracotta/80 pt-0.5 shrink-0 w-24">{name}</span>
-                    <p className="font-body text-xs text-ink/60 leading-relaxed">{def}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+    <div className="relative" onMouseEnter={show} onMouseLeave={hide}>
+      {children}
+      {visible && (
+        <div
+          className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-60 z-50"
+          style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.25))' }}
+        >
+          <div className="bg-[#1A1A18] text-[#F8F4EC]/80 text-xs font-body leading-relaxed rounded-lg px-3 py-2.5">
+            {text}
+          </div>
+          <div className="mx-auto w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#1A1A18]" />
         </div>
       )}
     </div>
@@ -209,14 +204,15 @@ function GameBoard({ puzzle, onNewGame }) {
                   }
 
                   return (
-                    <button
-                      key={opt}
-                      onClick={() => handleSelect(axis, opt)}
-                      disabled={status !== 'playing'}
-                      className={btnClass}
-                    >
-                      {opt}
-                    </button>
+                    <Tooltip key={opt} text={TERM_DEFS[opt]}>
+                      <button
+                        onClick={() => handleSelect(axis, opt)}
+                        disabled={status !== 'playing'}
+                        className={btnClass}
+                      >
+                        {opt}
+                      </button>
+                    </Tooltip>
                   )
                 })}
               </div>
@@ -354,10 +350,9 @@ export default function GameEpoche() {
         <div className="h-px w-12 bg-gold/40 mb-5" />
         <p className="font-body text-sm text-ink/60 leading-relaxed">
           A philosophical proposition is placed before you. Suspend your assumptions — as Husserl
-          instructed — and classify it across four axes. You have three attempts.
+          instructed — and classify it across four axes. You have three attempts.{' '}
+          <span className="text-ink/40">Hover any option to see its definition.</span>
         </p>
-
-        <TermsGlossary />
       </section>
 
       {/* Game area */}
