@@ -65,8 +65,8 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map(({ label, to, internal }) =>
+        <ul className="hidden md:flex items-center gap-8 ml-auto">
+          {NAV_LINKS.filter(({ to }) => to !== '/').map(({ label, to, internal }) =>
             internal ? (
               <li key={to}>
                 <Link
@@ -89,15 +89,12 @@ export default function NavBar() {
               </li>
             )
           )}
+          <li><ThemeToggle /></li>
         </ul>
-
-        {/* Desktop: theme toggle + hamburger */}
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2 ml-auto"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
@@ -107,7 +104,6 @@ export default function NavBar() {
           <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
           <span className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
-        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -119,7 +115,7 @@ export default function NavBar() {
       >
         <div className="bg-cream dark:bg-[#0E1A14] border-t border-gold/30 px-6 py-4">
           <ul className="flex flex-col gap-4">
-            {NAV_LINKS.map(({ label, to, internal }) =>
+            {NAV_LINKS.filter(({ to }) => to !== '/').map(({ label, to, internal }) =>
               internal ? (
                 <li key={to}>
                   <Link
@@ -139,6 +135,7 @@ export default function NavBar() {
                 </li>
               )
             )}
+            <li><ThemeToggle /></li>
           </ul>
         </div>
       </div>
