@@ -30,21 +30,23 @@ const externalExperiments = [
   },
   {
     title: 'Milton',
-    url: 'https://milton-23eac.web.app/',
-    domain: 'milton-23eac.web.app',
+    links: [
+      { url: 'https://milton-23eac.web.app/', domain: 'milton-23eac.web.app' },
+      { url: 'https://mindany2.fr/milton/?lang=enu', domain: 'mindany2.fr (mirror)' },
+    ],
     desc: 'A philosophical dialogue game exploring questions of mind, identity, and consciousness through conversation.',
-  },
-  {
-    title: 'Milton (mirror)',
-    url: 'https://mindany2.fr/milton/?lang=enu',
-    domain: 'mindany2.fr',
-    desc: 'Alternate host for the Milton experience — use if the primary link is unavailable.',
   },
   {
     title: 'History of Philosophy',
     url: 'https://www.denizcemonduygu.com/philo/browse/',
     domain: 'denizcemonduygu.com',
     desc: 'An interactive visual map of Western philosophy by Deniz Cem Önduygu — browse 200+ philosophers across 25 centuries, explore influence connections, and click any thinker to see who they shaped and who shaped them.',
+  },
+  {
+    title: 'Closer to Truth: Interactive',
+    url: 'https://loc.closertotruth.com/interactive',
+    domain: 'loc.closertotruth.com',
+    desc: 'A 4-map interactive from Robert Lawrence Kuhn\'s Library of Consciousness — scatter-plot and force-directed graphs visualising theories of consciousness by category, scholarly interest, complexity, and connections across five dimensions: metaphysical assumptions, locus of consciousness, methods of study, confidence, and implications for AI consciousness, free will, and meaning.',
   },
 ]
 
@@ -223,25 +225,47 @@ export default function Games() {
           <div className="lg:col-span-2">
             <p className="label-mono text-gold mb-5">Interactive Experiments</p>
             <div className="space-y-0 divide-y divide-gold/12">
-              {externalExperiments.map(({ title, url, domain, desc }) => (
-                <div key={url} className="py-5 group">
-                  <div className="flex items-start justify-between gap-4 mb-1.5">
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150"
-                      style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
-                    >
-                      {title}
-                    </a>
-                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1 shrink-0">
-                      {domain} ↗
-                    </span>
+              {externalExperiments.map(({ title, url, domain, links, desc }) => {
+                const linkList = links ?? [{ url, domain }]
+                return (
+                  <div key={linkList[0].url} className="py-5 group">
+                    <div className="flex items-start justify-between gap-4 mb-1.5">
+                      {linkList.length === 1 ? (
+                        <a
+                          href={linkList[0].url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150"
+                          style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+                        >
+                          {title}
+                        </a>
+                      ) : (
+                        <span
+                          className="font-heading font-light text-green"
+                          style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+                        >
+                          {title}
+                        </span>
+                      )}
+                      <div className="flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1 shrink-0">
+                        {linkList.map(({ url: lu, domain: ld }) => (
+                          <a
+                            key={lu}
+                            href={lu}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-mono text-xs text-gold/50 hover:text-gold whitespace-nowrap transition-colors duration-150"
+                          >
+                            {ld} ↗
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    <p className="font-body text-sm text-ink/55 leading-relaxed">{desc}</p>
                   </div>
-                  <p className="font-body text-sm text-ink/55 leading-relaxed">{desc}</p>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 
