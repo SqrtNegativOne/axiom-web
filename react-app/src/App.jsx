@@ -20,6 +20,10 @@ import GameRepugnant from './pages/games/Repugnant'
 import GamePhilosophle from './pages/games/Philosophle'
 import GameButterflyJob from './pages/games/ButterflyJob'
 import GameFallacyDetective from './pages/games/FallacyDetective'
+import GamePhilosopherMatch from './pages/games/PhilosopherMatch'
+import GameConceptMap from './pages/games/ConceptMap'
+import GameArgumentReconstruction from './pages/games/ArgumentReconstruction'
+import GameParadigmShift from './pages/games/ParadigmShift'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -52,6 +56,10 @@ export default function App() {
             <Route path="/games/philosophle" element={<GamePhilosophle />} />
             <Route path="/games/butterfly-job" element={<GameButterflyJob />} />
             <Route path="/games/fallacy-detective" element={<GameFallacyDetective />} />
+            <Route path="/games/philosopher-match" element={<GamePhilosopherMatch />} />
+            <Route path="/games/concept-map" element={<GameConceptMap />} />
+            <Route path="/games/argument-reconstruction" element={<GameArgumentReconstruction />} />
+            <Route path="/games/paradigm-shift" element={<GameParadigmShift />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
