@@ -83,63 +83,54 @@ const games = [
     eyebrow: 'Word Puzzle',
     title: 'Hermeneutic',
     desc: 'Guess the philosophical term from progressively revealing clues. Each wrong guess unveils another layer of context, from etymology to Heidegger.',
-    hint: 'Up to 5 clues · 6 guesses',
   },
   {
     path: '/games/epoche',
     eyebrow: 'Classification',
     title: 'Époche',
     desc: 'A proposition is placed before you. Classify it across four philosophical axes: analytic or synthetic, a priori or a posteriori, necessary or contingent, descriptive or normative.',
-    hint: '4 axes · 3 attempts',
   },
   {
     path: '/games/fallacy',
     eyebrow: 'Identification',
     title: 'Fallacy',
     desc: "Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class, narrowing the field.",
-    hint: `${FALLACY_OPTS.length} options · 4 guesses · colour-coded hints`,
   },
   {
     path: '/games/dialectic',
     eyebrow: 'Synthesis',
     title: 'Dialectic',
     desc: 'A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction, tracing the actual movement of Western thought.',
-    hint: '2 stages · 2 attempts each',
   },
   {
     path: '/games/sorites',
     eyebrow: 'Experiment',
     title: 'Sorites',
     desc: 'Pick your favourite and least favourite colour. Classify 34 patches across the gradient between them and discover the Sorites paradox hiding in your own judgements.',
-    hint: '34 patches · personalised gradient · reveals your contradictions',
   },
   {
     path: '/games/repugnant',
     eyebrow: 'Population Ethics',
     title: 'The Repugnant Conclusion',
     desc: 'Make a series of world-comparisons, each individually reasonable. Follow your own logic through 9 steps and discover whether you endorse the conclusion Parfit called the most important problem in ethics.',
-    hint: '9 steps · Parfit 1984 · no right answer',
   },
   {
     path: '/games/philosophle',
     eyebrow: 'Word Puzzle',
     title: 'Philosophle',
     desc: 'Guess the hidden philosophical term — a concept, thinker, or Greek root between 3 and 7 letters. Colour-coded feedback narrows each attempt. Three-letter words grant an extra guess.',
-    hint: '3-7 letters · 6 guesses',
   },
   {
     path: '/games/butterfly-job',
     eyebrow: 'Counterfactual History',
     title: 'The Butterfly Job',
     desc: 'Step into seven minor roles across the twentieth century and make one decision in each moment. Watch how tiny choices preserve or derail recorded history.',
-    hint: '7 decisions · divergence scoring · final timeline report',
   },
   {
     path: '/games/fallacy-detective',
     eyebrow: 'Investigation',
     title: 'Fallacy Detective',
     desc: 'You receive a series of case files — real-world documents laced with hidden logical fallacies. Click suspected sentences, name the fallacy from 52 options, and close the case.',
-    hint: '4 cases · 52 fallacies · open investigation',
   },
 ]
 
@@ -162,7 +153,7 @@ export default function Games() {
       {/* Game cards */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {games.map(({ path, href, eyebrow, title, desc, hint }) => {
+          {games.map(({ path, href, eyebrow, title, desc }) => {
             const cardClass = "group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 transition-all duration-300"
             const cardInner = (
               <>
@@ -182,13 +173,6 @@ export default function Games() {
                   <p className="font-body text-sm text-ink/65 leading-relaxed mb-6">
                     {desc}
                   </p>
-
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs text-gold/70 tracking-wide">{hint}</span>
-                    <span className="font-body text-xs text-terracotta/0 group-hover:text-terracotta transition-colors duration-200 tracking-wide">
-                      Play →
-                    </span>
-                  </div>
                 </div>
               </>
             )
