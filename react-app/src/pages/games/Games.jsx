@@ -132,6 +132,34 @@ const games = [
     title: 'Fallacy Detective',
     desc: 'You receive a series of case files — real-world documents laced with hidden logical fallacies. Click suspected sentences, name the fallacy from 52 options, and close the case.',
   },
+  {
+    path: '/games/philosopher-match',
+    eyebrow: 'Attribution',
+    title: 'Philosopher Match',
+    desc: 'A philosophical quote is placed before you. Identify its author from four options. Wrong guesses reveal the century and tradition as hints, costing points.',
+    hint: '2 rounds · 5 quotes each · up to 3 pts per quote',
+  },
+  {
+    path: '/games/concept-map',
+    eyebrow: 'Navigation',
+    title: 'Concept Map',
+    desc: 'Bridge two philosophical concepts via the shortest chain of directly related ideas. Each step must be a genuine conceptual connection through a network of 50+ terms.',
+    hint: '3 puzzles · BFS optimal scoring · reveal path option',
+  },
+  {
+    path: '/games/argument-reconstruction',
+    eyebrow: 'Reconstruction',
+    title: 'Argument Reconstruction',
+    desc: "Drag a philosopher's premises into their correct logical order. Three classic arguments — Descartes, Hume, Kant — each with a hidden premise revealed on completion.",
+    hint: '3 arguments · drag to reorder · hidden premise reveal',
+  },
+  {
+    path: '/games/paradigm-shift',
+    eyebrow: 'Classification',
+    title: 'Paradigm Shift',
+    desc: "Classify historical episodes in science according to Kuhn's five phases: pre-science, normal science, anomaly, crisis, and revolution.",
+    hint: '8 cases · shuffled · Kuhn 1962',
+  },
 ]
 
 export default function Games() {
