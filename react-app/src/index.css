@@ -20,6 +20,7 @@
     @apply bg-cream dark:bg-[#0E1A14] text-ink font-body;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   ::selection {
