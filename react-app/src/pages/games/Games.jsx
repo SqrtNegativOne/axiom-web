@@ -247,20 +247,20 @@ export default function Games() {
                           href={linkList[0].url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150"
+                          className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
                           style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
                         >
                           {title}
                         </a>
                       ) : (
                         <span
-                          className="font-heading font-light text-green"
+                          className="font-heading font-light text-green min-w-0"
                           style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
                         >
                           {title}
                         </span>
                       )}
-                      <div className="flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1 shrink-0">
+                      <div className="flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1">
                         {linkList.map(({ url: lu, domain: ld }) => (
                           <a
                             key={lu}
@@ -292,12 +292,12 @@ export default function Games() {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150"
+                      className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
                       style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
                     >
                       {title}
                     </a>
-                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1 shrink-0">
+                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1">
                       {domain} ↗
                     </span>
                   </div>
