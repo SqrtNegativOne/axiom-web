@@ -10,4 +10,5 @@ export const FOOTER_LINKS = [
   ...NAV_LINKS,
   { label: 'Branding', to: 'https://drive.google.com/drive/folders/1ghyc8NSUbn0NVhi1VjHnhtuaOrUcy2FQ', internal: false },
   { label: 'Colophon', to: '/colophon', internal: true },
+  { label: 'Privacy Policy', to: '/privacy', internal: true },
 ]
