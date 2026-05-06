@@ -52,7 +52,6 @@ export default function PrivacyPolicy() {
                   ['What is collected', 'Page URL, referrer URL, browser name and version, approximate screen size, and country derived from IP address. IP addresses are never stored.'],
                   ['Cookies', 'None. GoatCounter sets no cookies and uses no local storage.'],
                   ['Personal data', 'No personally identifiable information is collected or stored.'],
-                  ['Data location', 'Analytics data is stored on GoatCounter\'s servers. See the GoatCounter privacy policy for details.'],
                   ['Opt-out', 'If you have JavaScript disabled or use a script-blocking browser extension, no analytics data is sent at all.'],
                 ].map(([label, text]) => (
                   <div key={label} className="flex gap-6 px-4 py-3">
@@ -60,6 +59,14 @@ export default function PrivacyPolicy() {
                     <span className="text-ink/70 dark:text-ink/70">{text}</span>
                   </div>
                 ))}
+                <div className="flex gap-6 px-4 py-3">
+                  <span className="font-mono text-xs text-gold uppercase tracking-widest w-32 shrink-0 pt-0.5">Data location</span>
+                  <span className="text-ink/70 dark:text-ink/70">
+                    Analytics data is stored on GoatCounter's servers. See the{' '}
+                    <a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener noreferrer" className="text-terracotta hover:underline">GoatCounter privacy policy</a>{' '}
+                    for details.
+                  </span>
+                </div>
               </div>
 
               <p className="text-xs text-ink/40">
