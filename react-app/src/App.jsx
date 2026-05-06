@@ -24,6 +24,7 @@ import GamePhilosopherMatch from './pages/games/PhilosopherMatch'
 import GameConceptMap from './pages/games/ConceptMap'
 import GameArgumentReconstruction from './pages/games/ArgumentReconstruction'
 import GameParadigmShift from './pages/games/ParadigmShift'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -60,6 +61,7 @@ export default function App() {
             <Route path="/games/concept-map" element={<GameConceptMap />} />
             <Route path="/games/argument-reconstruction" element={<GameArgumentReconstruction />} />
             <Route path="/games/paradigm-shift" element={<GameParadigmShift />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
