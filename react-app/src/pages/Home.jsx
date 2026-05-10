@@ -234,11 +234,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40" style={{ zIndex: 2 }}>
-          <div className="w-px h-8 bg-cream/50" />
-          <div className="w-1 h-1 rounded-full bg-cream/50" />
-        </div>
       </section>
 
       {/* ── MISSION ───────────────────────────────────────────────────────── */}
