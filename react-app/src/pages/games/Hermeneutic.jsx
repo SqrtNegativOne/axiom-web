@@ -194,7 +194,7 @@ export default function GameHermeneutic() {
   return (
     <div className="pt-20 animate-on-load">
       <SEO
-        title="Hermeneutic — Philosophy Games"
+        title="Hermeneutic —"
         path="/games/hermeneutic"
         description="Guess the philosophical term from progressively revealing clues. Each wrong answer unveils another layer of context."
       />
@@ -213,17 +213,6 @@ export default function GameHermeneutic() {
             Hermeneutic
           </span>
         </div>
-
-        <p className="label-mono mb-3 text-gold">Word Puzzle · 01</p>
-        <h1 className="font-heading font-light text-green mb-4"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>
-          Hermeneutic
-        </h1>
-        <div className="h-px w-12 bg-gold/40 mb-5" />
-        <p className="font-body text-sm text-ink/60 leading-relaxed">
-          A philosophical term has been redacted as <b className="font-semibold text-ink/70">████</b>. Guess it from the
-          clues below — each wrong answer reveals the next. You have six guesses.
-        </p>
 
         {/* Difficulty toggle */}
         <div className="flex gap-2 mt-6">

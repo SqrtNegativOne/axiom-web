@@ -75,7 +75,7 @@ const ctaCards = [
   {
     num: '02',
     title: 'Events',
-    description: "From Chai Pe Charcha to Wheel of Doom — explore what we've been up to.",
+    description: "From Chai Pe Charcha to Wheel of Doom: explore what we've been up to.",
     link: '/events',
     internal: true,
   },
@@ -182,9 +182,9 @@ export default function Home() {
         {/* Content */}
         <div className="relative flex flex-col items-center" style={{ zIndex: 2 }}>
 
-          {/* Image + AXIOM overlay — both centred in frame */}
+          {/* Image + AXIOM overlay centred in frame */}
           <div className="relative">
-            {/* The image — transparent PNG so no wrapper background, no overflow-hidden */}
+            {/* transparent PNG, no overflow-hidden */}
             <div
               className="relative"
               style={{ width: 'clamp(340px, 54vw, 580px)', height: 'clamp(340px, 54vw, 580px)' }}
@@ -198,7 +198,6 @@ export default function Home() {
               {/* Text overlay — centred in frame, column layout */}
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-0">
 
-                {/* EST. 2017 — directly above AXIOM, no gap */}
                 <div style={{ marginBottom: '0.15em' }}>
                   <span className="font-mono text-cream" style={{
                     fontSize: '0.5rem',
@@ -211,12 +210,10 @@ export default function Home() {
                   </span>
                 </div>
 
-                {/* AXIOM */}
                 <h1 className="axiom-wordmark">
                   <span className="axiom-wordmark-text">AXIOM</span>
                 </h1>
 
-                {/* "the philosophy society" — directly below AXIOM */}
                 <p
                   className="font-heading italic font-light text-cream/70 tracking-[0.12em]"
                   style={{ fontSize: 'clamp(0.85rem, 1.8vw, 1.15rem)', marginTop: '0.1em' }}
@@ -228,7 +225,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Typewriter prompt */}
           <div className="h-7 mt-2">
             <TypewriterPrompt />
           </div>
@@ -236,29 +232,27 @@ export default function Home() {
 
       </section>
 
-      {/* ── MISSION ───────────────────────────────────────────────────────── */}
       <section className="w-[90%] max-w-3xl mx-auto py-14">
-        <p className="label-mono mb-6">— Purpose</p>
+        <p className="label-mono mb-2">— Purpose</p>
         <PullQuote attribution="Socrates">
           The unexamined life is not worth living.
         </PullQuote>
         <p className="font-body text-ink/70 leading-relaxed mt-8" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)' }}>
           Axiom was born from a simple conviction: that philosophy is not merely an academic
           discipline but a way of inhabiting the world with greater depth and honesty. We create
-          spaces — both formal and informal — where students from all departments can grapple with
+          spaces where students from all departments can grapple with
           fundamental questions about knowledge, morality, consciousness, and society.
         </p>
         <p className="font-body text-ink/70 leading-relaxed mt-4" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)' }}>
           Whether it's a spirited Chai Pe Charcha on free will, a walking seminar around campus,
-          or a curated newsletter essay — Axiom is where curiosity finds a home.
+          or a curated newsletter essay; <i>Axiom is where curiosity finds a home.</i>
         </p>
       </section>
 
       <SectionDivider className="w-[90%] max-w-5xl mx-auto" />
 
-      {/* ── CTA CARDS ─────────────────────────────────────────────────────── */}
       <section className="w-[90%] max-w-6xl mx-auto py-14">
-        <p className="label-mono mb-3">— Explore</p>
+        <p className="label-mono mb-2">— Explore</p>
         <h2 className="section-heading mb-12">Where would you like to go?</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
