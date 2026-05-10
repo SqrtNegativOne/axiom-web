@@ -20,11 +20,11 @@ const TERMS = [
     terms: [
       {
         name: 'Analytic',
-        def: 'A statement whose truth follows from the meanings of its terms alone. The predicate adds nothing beyond what is already contained in the subject. "All bachelors are unmarried" — true by definition, no experience needed.',
+        def: 'Truth follows from the meanings of its terms alone; predicate adds nothing beyond what is already contained in the subject.',
       },
       {
         name: 'Synthetic',
-        def: 'A statement that adds information beyond what is contained in the subject\'s meaning. Truth cannot be determined by concept analysis alone; it requires appeal to experience or further reasoning. "The cat is on the mat" is synthetic.',
+        def: 'Adds information beyond what is contained in the subject\'s meaning. Truth cannot be determined by concept analysis alone; it requires appeal to experience or further reasoning.',
       },
     ],
   },
@@ -33,11 +33,11 @@ const TERMS = [
     terms: [
       {
         name: 'A priori',
-        def: 'Knowledge or justification that is independent of sensory experience. Mathematical truths ("2 + 2 = 4") and logical tautologies are canonical examples — knowable through reason alone.',
+        def: 'Knowledge or justification independent of sensory experience.',
       },
       {
         name: 'A posteriori',
-        def: 'Knowledge derived from and dependent on sensory experience. Empirical claims about the contingent world — "Water boils at 100°C at sea level" — must be verified by observation.',
+        def: 'Knowledge derived from and dependent on sensory experience. Empirical claims about the contingent world.',
       },
     ],
   },
@@ -46,7 +46,7 @@ const TERMS = [
     terms: [
       {
         name: 'Necessary',
-        def: 'A proposition that could not possibly have been otherwise — true in every possible world. "2 + 2 = 4" and "All triangles have three sides" are paradigm cases. Denial leads to contradiction.',
+        def: 'True in every possible world. Denial leads to contradiction.',
       },
       {
         name: 'Contingent',
@@ -59,11 +59,11 @@ const TERMS = [
     terms: [
       {
         name: 'Descriptive',
-        def: 'A claim that states how things are, were, or will be. It is in principle empirically verifiable or falsifiable. "Most people prefer pleasure to pain" is a descriptive claim about behaviour.',
+        def: 'States how things are, were, or will be. Falsifiable.',
       },
       {
         name: 'Normative',
-        def: 'A claim that states how things ought to be, what is good, right, or valuable. It cannot be straightforwardly confirmed or denied by empirical means. "One ought to keep one\'s promises" is normative.',
+        def: 'States how things ought to be, what is good, right, or valuable.',
       },
     ],
   },
@@ -138,7 +138,7 @@ function GameBoard({ puzzle, onNewGame }) {
   return (
     <div className="max-w-2xl mx-auto">
       {/* Statement */}
-      <div className="border border-gold/30 bg-cream rounded-lg px-5 py-4 mb-6">
+      <div className="border border-gold/30 rounded-lg px-5 py-4 mb-6">
         <p className="font-mono text-xs text-gold tracking-widest uppercase mb-2">Proposition</p>
         <p className="font-heading font-light text-ink text-xl leading-snug">{puzzle.statement}</p>
       </div>
@@ -322,7 +322,7 @@ export default function GameEpoche() {
   return (
     <div className="pt-20 animate-on-load">
       <SEO
-        title="Époche — Philosophy Games"
+        title="Époche —"
         path="/games/epoche"
         description="Classify a philosophical proposition across four axes: analytic/synthetic, a priori/a posteriori, necessary/contingent, descriptive/normative."
       />
@@ -340,19 +340,6 @@ export default function GameEpoche() {
           <span className="font-mono text-xs tracking-widest uppercase text-ink/40">Époche</span>
         </div>
 
-        <p className="label-mono mb-3 text-gold">Classification · 02</p>
-        <h1
-          className="font-heading font-light text-green mb-4"
-          style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
-        >
-          Époche
-        </h1>
-        <div className="h-px w-12 bg-gold/40 mb-5" />
-        <p className="font-body text-sm text-ink/60 leading-relaxed">
-          A philosophical proposition is placed before you. Suspend your assumptions — as Husserl
-          instructed — and classify it across four axes. You have three attempts.{' '}
-          <span className="text-ink/40">Hover any option to see its definition.</span>
-        </p>
       </section>
 
       {/* Game area */}

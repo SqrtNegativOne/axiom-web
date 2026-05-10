@@ -69,7 +69,7 @@ function GameBoard({ puzzle, onNewGame }) {
   return (
     <div className="max-w-2xl mx-auto">
       {/* Argument */}
-      <div className="border border-gold/30 bg-cream rounded-lg px-5 py-4 mb-5">
+      <div className="border border-gold/30 rounded-lg px-5 py-4 mb-5">
         <p className="font-mono text-xs text-gold tracking-widest uppercase mb-2">Argument</p>
         <p className="font-body text-sm text-ink/80 leading-relaxed italic">
           &ldquo;{puzzle.argument}&rdquo;
@@ -133,6 +133,10 @@ function GameBoard({ puzzle, onNewGame }) {
                 <div className="pointer-events-none invisible group-hover/tip:visible absolute z-20 bottom-full right-0 mb-1.5 w-64 px-3 py-2 rounded-md bg-ink text-cream font-body text-[11px] leading-snug shadow-lg">
                   {opt.definition}
                 </div>
+                {/* Tooltip with dark mode contrast fix */}
+                <div className="pointer-events-none invisible group-hover/tip:visible absolute z-20 bottom-full right-0 mb-1.5 w-64 px-3 py-2 rounded-md bg-ink text-cream font-body text-[11px] leading-snug shadow-lg dark:bg-[#1A1A18] dark:text-cream">
+                  {opt.definition}
+                </div>
               </span>
             </div>
           )
@@ -191,7 +195,7 @@ export default function GameFallacy() {
   return (
     <div className="pt-20 animate-on-load">
       <SEO
-        title="Fallacy — Philosophy Games"
+        title="Fallacy —"
         path="/games/fallacy"
         description="Identify the logical fallacy in a philosophical argument. Hints reveal whether your guess shares the right family or class."
       />
@@ -209,19 +213,6 @@ export default function GameFallacy() {
           <span className="font-mono text-xs tracking-widest uppercase text-ink/40">Fallacy</span>
         </div>
 
-        <p className="label-mono mb-3 text-gold">Identification · 03</p>
-        <h1
-          className="font-heading font-light text-green mb-4"
-          style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
-        >
-          Fallacy
-        </h1>
-        <div className="h-px w-12 bg-gold/40 mb-5" />
-        <p className="font-body text-sm text-ink/60 leading-relaxed">
-          An argument is presented. Identify its logical fallacy from {FALLACY_OPTS.length} options — or
-          determine that no fallacy is present. If your guess is wrong, you learn whether it shares the same
-          class or family as the correct answer — narrowing your next attempt. You have {MAX_GUESSES} guesses.
-        </p>
       </section>
 
       {/* Game area */}
