@@ -11,13 +11,13 @@ const PHASES = [
 const CASES = [
   {
     paradigm: "Ptolemaic Astronomy",
-    statement: "Astronomers introduce epicycles upon epicycles to make planetary motion fit the Earth-centred model. The system still works — mostly.",
+    statement: "Astronomers introduce epicycles upon epicycles to make planetary motion fit the Earth-centred model. The system still works... mostly.",
     correct: "anomaly",
     explanation: "This is a textbook anomaly: the paradigm absorbs discrepancies through ad hoc adjustments rather than abandoning its core assumption.",
   },
   {
     paradigm: "Newtonian Mechanics",
-    statement: "A young physicist measures the perihelion precession of Mercury. It diverges from Newton's prediction by 43 arcseconds per century. The community notes the discrepancy but moves on.",
+    statement: "A young physicist measures the perihelion precession of Mercury, noticing divergence from Newton's prediction by 43 arcseconds per century. The community notes the discrepancy but moves on.",
     correct: "anomaly",
     explanation: "Known since 1859 and unresolved for sixty years, this was a persistent anomaly that eventually contributed to the crisis preceding relativity.",
   },
@@ -35,19 +35,19 @@ const CASES = [
   },
   {
     paradigm: "Classical Physics",
-    statement: "Einstein publishes the special theory of relativity. The community initially dismisses it, then debates it fiercely, then — over two decades — adopts it.",
+    statement: "Einstein publishes the special theory of relativity. Initially dismissed, then debated fiercely, and finally, over two decades, adopted.",
     correct: "revolution",
     explanation: "A revolution: a new paradigm replaces the old not by refutation alone, but through a gestalt shift in the community's fundamental commitments.",
   },
   {
     paradigm: "Spontaneous Generation",
-    statement: "Multiple naturalists conduct experiments on whether living things can arise from non-living matter. Results conflict. No methodology is agreed upon.",
+    statement: "Multiple naturalists conduct experiments on whether living things can arise from non-living matter, with inconsistent methodology and conflicting results.",
     correct: "pre",
     explanation: "Pre-science: competing frameworks, no settled method, no exemplary achievement to guide puzzle-solving. The field is not yet a science in Kuhn's sense.",
   },
   {
     paradigm: "Newtonian Mechanics",
-    statement: "An engineer uses Newtonian equations to calculate the trajectory of a cannonball. The method is standard, the problem is routine.",
+    statement: "A 17th century engineer uses Newtonian mechanics to calculate the trajectory of a cannonball.",
     correct: "normal",
     explanation: "Normal science in its purest form: applying the paradigm's tools to solve a puzzle it was designed for.",
   },
