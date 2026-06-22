@@ -226,21 +226,36 @@ export default function Home() {
 
       </section>
 
-      <section className="w-[90%] max-w-3xl mx-auto py-14">
-        <p className="label-mono mb-2">— Purpose</p>
-        <PullQuote attribution="Socrates">
-          The unexamined life is not worth living.
-        </PullQuote>
-        <p className="font-body text-ink/70 leading-relaxed mt-8" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)' }}>
-          Axiom was born from a simple conviction: that philosophy is not merely an academic
-          discipline but a way of inhabiting the world with greater depth and honesty. We create
-          spaces where students from all departments can grapple with
-          fundamental questions about knowledge, morality, consciousness, and society.
-        </p>
-        <p className="font-body text-ink/70 leading-relaxed mt-4" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)' }}>
-          Whether it's a spirited Chai Pe Charcha on free will, a walking seminar around campus,
-          or a curated newsletter essay; <i>Axiom is where curiosity finds a home.</i>
-        </p>
+      <section className="w-[90%] max-w-5xl mx-auto py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Left Column: Text */}
+          <div>
+            <p className="label-mono mb-2">— Purpose</p>
+            <PullQuote attribution="Socrates">
+              The unexamined life is not worth living.
+            </PullQuote>
+            <p className="font-body text-ink/70 leading-relaxed mt-8" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)' }}>
+              Axiom was born from a simple conviction: that philosophy is not merely an academic
+              discipline but a way of inhabiting the world with greater depth and honesty. We create
+              spaces where students from all departments can grapple with
+              fundamental questions about knowledge, morality, consciousness, and society.
+            </p>
+            <p className="font-body text-ink/70 leading-relaxed mt-4" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)' }}>
+              Whether it's a spirited Chai Pe Charcha on free will, a walking seminar around campus,
+              or a curated newsletter essay; <i>Axiom is where curiosity finds a home.</i>
+            </p>
+          </div>
+          
+          {/* Right Column: Image */}
+          <div className="flex justify-center md:justify-end mt-8 md:mt-0">
+            <img 
+              src="/assets/the-thinker.png" 
+              alt="The Thinker" 
+              className="w-full max-w-sm md:max-w-md object-contain"
+              style={{ willChange: 'transform', transform: 'translateZ(0)' }}
+            />
+          </div>
+        </div>
       </section>
 
       <SectionDivider className="w-[90%] max-w-5xl mx-auto" />
