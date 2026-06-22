@@ -31,7 +31,7 @@ export default function NavBar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         hidden
           ? 'opacity-0 -translate-y-full pointer-events-none'
-          : 'opacity-100 translate-y-0 bg-cream/95 dark:bg-[#0E1A14]/95 backdrop-blur-sm shadow-sm'
+          : 'opacity-100 translate-y-0 bg-cream/95 dark:bg-[#0E1A14]/95 shadow-sm'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
