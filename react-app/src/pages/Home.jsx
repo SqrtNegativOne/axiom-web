@@ -150,7 +150,7 @@ export default function Home() {
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
         className="relative flex flex-col items-center justify-center text-center px-6 overflow-hidden"
-        style={{ minHeight: '100svh' }}
+        style={{ minHeight: '100vh' }}
       >
         {/* Reactbits WebGL dither background */}
         <div className="absolute inset-0" style={{ zIndex: 0 }}>
@@ -170,29 +170,21 @@ export default function Home() {
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-overlay pointer-events-none" style={{ zIndex: 1 }} />
 
-        {/* Vignette */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            zIndex: 1,
-            background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, rgba(10,22,17,0.9) 100%)',
-          }}
-        />
-
         {/* Content */}
         <div className="relative flex flex-col items-center" style={{ zIndex: 2 }}>
 
           {/* Image + AXIOM overlay centred in frame */}
-          <div className="relative">
+          <div className="relative" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
             {/* transparent PNG, no overflow-hidden */}
             <div
               className="relative"
-              style={{ width: 'clamp(340px, 54vw, 580px)', height: 'clamp(340px, 54vw, 580px)' }}
+              style={{ width: 'clamp(340px, 54vw, 580px)', height: 'clamp(340px, 54vw, 580px)', willChange: 'transform', transform: 'translateZ(0)' }}
             >
               <img
                 src="/assets/icarus.png"
                 alt="Fall of Icarus"
                 className="w-full h-full object-contain"
+                style={{ willChange: 'transform', transform: 'translateZ(0)' }}
               />
 
               {/* Text overlay — centred in frame, column layout */}
@@ -205,6 +197,8 @@ export default function Home() {
                     backgroundColor: 'rgba(26,26,24,0.72)',
                     padding: '0.35em 0.8em',
                     display: 'inline-block',
+                    willChange: 'transform',
+                    transform: 'translateZ(0)'
                   }}>
                     EST. 2017
                   </span>
@@ -216,7 +210,7 @@ export default function Home() {
 
                 <p
                   className="font-heading italic font-light text-cream/70 tracking-[0.12em]"
-                  style={{ fontSize: 'clamp(0.85rem, 1.8vw, 1.15rem)', marginTop: '0.1em' }}
+                  style={{ fontSize: 'clamp(0.85rem, 1.8vw, 1.15rem)', marginTop: '0.1em', willChange: 'transform', transform: 'translateZ(0)' }}
                 >
                   the philosophy society
                 </p>
