@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { FALLACIES, parseCaseMarkdown } from '../../data/fallacyDetective'
 
 import therapyRaw from '../../data/cases/therapy.md?raw'
