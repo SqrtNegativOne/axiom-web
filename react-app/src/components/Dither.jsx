@@ -11,7 +11,7 @@ const vertexShaderSource = `
 `
 
 const fragmentShaderSource = `
-  precision mediump float;
+  precision highp float;
   varying vec2 v_uv;
   uniform float u_time;
   uniform vec2 u_resolution;
