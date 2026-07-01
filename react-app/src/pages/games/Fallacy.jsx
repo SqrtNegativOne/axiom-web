@@ -129,10 +129,6 @@ function GameBoard({ puzzle, onNewGame }) {
                 <span className="w-4 h-4 rounded-full bg-ink/15 flex items-center justify-center font-mono text-[9px] text-ink/50 cursor-default select-none">
                   ?
                 </span>
-                {/* Tooltip */}
-                <div className="pointer-events-none invisible group-hover/tip:visible absolute z-20 bottom-full right-0 mb-1.5 w-64 px-3 py-2 rounded-md bg-ink text-cream font-body text-[11px] leading-snug shadow-lg">
-                  {opt.definition}
-                </div>
                 {/* Tooltip with dark mode contrast fix */}
                 <div className="pointer-events-none invisible group-hover/tip:visible absolute z-20 bottom-full right-0 mb-1.5 w-64 px-3 py-2 rounded-md bg-ink text-cream font-body text-[11px] leading-snug shadow-lg dark:bg-[#1A1A18] dark:text-cream">
                   {opt.definition}
