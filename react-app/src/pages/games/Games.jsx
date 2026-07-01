@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import SEO from '../../components/SEO'
 import SectionDivider from '../../components/SectionDivider'
-import { FALLACY_OPTS } from '../../data/fallacy'
 
 const externalExperiments = [
   {
