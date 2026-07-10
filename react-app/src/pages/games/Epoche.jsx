@@ -103,6 +103,36 @@ function Tooltip({ children, text }) {
   )
 }
 
+function getButtonClass(status, hasResult, isSelected, axisCorrect, isCorrectAnswer) {
+  let btnClass = 'px-4 py-1.5 rounded-full border font-body text-xs cursor-pointer transition-all duration-150 '
+
+  if (status === 'playing' && !hasResult) {
+    btnClass += isSelected
+      ? 'bg-green text-cream border-transparent'
+      : 'border-gold/30 text-ink/60 hover:border-gold/60 hover:text-ink'
+  } else if (status === 'playing' && hasResult) {
+    // After submission but not yet done — show partial feedback
+    if (isSelected && !axisCorrect) {
+      btnClass += 'bg-terracotta/15 text-terracotta border-terracotta/25'
+    } else if (isSelected && axisCorrect) {
+      btnClass += 'bg-green text-cream border-transparent'
+    } else {
+      btnClass += 'border-gold/20 text-ink/35 cursor-default'
+    }
+  } else {
+    // Done (win or lose): reveal correct
+    if (isCorrectAnswer) {
+      btnClass += 'bg-green text-cream border-transparent'
+    } else if (isSelected && !isCorrectAnswer) {
+      btnClass += 'bg-terracotta/15 text-terracotta border-terracotta/25'
+    } else {
+      btnClass += 'border-gold/20 text-ink/30 cursor-default'
+    }
+  }
+
+  return btnClass
+}
+
 function GameBoard({ puzzle, onNewGame }) {
   const axes = Object.keys(puzzle.axes)
   const [sel, setSel] = useState(() => Object.fromEntries(axes.map((a) => [a, null])))
@@ -176,32 +206,7 @@ function GameBoard({ puzzle, onNewGame }) {
                 {opts.map((opt) => {
                   const isSelected = chosen === opt
                   const isCorrectAnswer = opt === correct
-                  let btnClass =
-                    'px-4 py-1.5 rounded-full border font-body text-xs cursor-pointer transition-all duration-150 '
-
-                  if (status === 'playing' && !hasResult) {
-                    btnClass += isSelected
-                      ? 'bg-green text-cream border-transparent'
-                      : 'border-gold/30 text-ink/60 hover:border-gold/60 hover:text-ink'
-                  } else if (status === 'playing' && hasResult) {
-                    // After submission but not yet done — show partial feedback
-                    if (isSelected && !axisCorrect) {
-                      btnClass += 'bg-terracotta/15 text-terracotta border-terracotta/25'
-                    } else if (isSelected && axisCorrect) {
-                      btnClass += 'bg-green text-cream border-transparent'
-                    } else {
-                      btnClass += 'border-gold/20 text-ink/35 cursor-default'
-                    }
-                  } else {
-                    // Done (win or lose): reveal correct
-                    if (isCorrectAnswer) {
-                      btnClass += 'bg-green text-cream border-transparent'
-                    } else if (isSelected && !isCorrectAnswer) {
-                      btnClass += 'bg-terracotta/15 text-terracotta border-terracotta/25'
-                    } else {
-                      btnClass += 'border-gold/20 text-ink/30 cursor-default'
-                    }
-                  }
+                  const btnClass = getButtonClass(status, hasResult, isSelected, axisCorrect, isCorrectAnswer)
 
                   return (
                     <Tooltip key={opt} text={TERM_DEFS[opt]}>
