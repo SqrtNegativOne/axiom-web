@@ -12,7 +12,7 @@ import PullQuote from '../../components/PullQuote'
 const pillars = [
   {
     label: 'Mission',
-    text: 'To cultivate a culture of philosophical inquiry at NSUT — creating regular, accessible spaces for rigorous yet welcoming dialogue on the deepest questions of human existence.',
+    text: 'To cultivate a culture of philosophical inquiry at NSUT. Regular, accessible spaces for rigorous yet welcoming dialogue on the deepest questions of human existence.',
   },
   {
     label: 'Vision',
