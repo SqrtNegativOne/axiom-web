@@ -20,21 +20,21 @@ The postbuild step copies `newsletter/dist/` into `dist/newsletter/` so the enti
 Run from the repo root:
 
 ```bash
-npm install            # Install all workspace dependencies
-npm run dev            # React :5173 + Eleventy :8081 in parallel
-npm run build          # Full production build (both systems + postbuild)
-npm run preview        # Serve dist/ at :4173
+bun install            # Install all workspace dependencies
+bun run dev            # React :5173 + Eleventy :8081 in parallel
+bun run build          # Full production build (both systems + postbuild)
+bun run preview        # Serve dist/ at :4173
 ```
 
 Installing packages for the React app specifically:
 ```bash
-npm install <pkg> --workspace=react-app --legacy-peer-deps
+bun install <pkg> --workspace=react-app --legacy-peer-deps
 ```
 Always use `--legacy-peer-deps` when installing into the react-app workspace to avoid peer dep resolution failures.
 
 Installing packages for the newsletter specifically:
 ```bash
-npm install <pkg> --workspace=axiom-newsletter
+bun install <pkg> --workspace=axiom-newsletter
 ```
 
 ## Tech Stack
