@@ -7,16 +7,20 @@
     "newsletter"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev --workspace=react-app\" \"npm run dev --workspace=newsletter\"",
+    "dev": "concurrently \"cd react-app && npm run dev\" \"cd newsletter && npm run dev\"",
     "build:bloom": "node scripts/build-bloom.js",
     "prebuild": "node scripts/build-bloom.js",
-    "build": "npm run build --workspace=react-app && npm run build --workspace=newsletter",
+    "build": "cd react-app && npm run build && cd ../newsletter && npm run build",
     "postbuild": "node scripts/generate-image-manifest.js && node scripts/postbuild.js && node scripts/generate-pages.js",
-    "preview": "npm run preview --workspace=react-app"
+    "preview": "npm run preview --workspace=react-app",
+    "lint": "oxlint --ignore-path=.gitignore"
   },
   "devDependencies": {
     "an-array-of-english-words": "^2.0.0",
     "concurrently": "^8.2.2",
     "wordlist-english": "^1.2.1"
+  },
+  "dependencies": {
+    "oxlint": "^1.76.0"
   }
 }

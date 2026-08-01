@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const distDir = join(__dirname, '..', 'dist')
+const serverDistDir = join(__dirname, '..', 'react-app', 'dist-server')
 
 const SITE_URL = 'https://axiomnsut.in'
 const SITE_NAME = 'Axiom — The Philosophy Society'
@@ -129,9 +130,16 @@ const stripped = template
   .replace(/<title>[^<]*<\/title>/, '')
   .replace(/<meta name="description"[^>]*>/, '')
 
+// Import the SSR bundle
+const { render } = await import(new URL('file://' + join(serverDistDir, 'entry-server.js')))
+
 for (const route of ROUTES) {
   const metaBlock = buildMetaBlock(route)
-  const html = stripped.replace('</head>', `${metaBlock}\n  </head>`)
+  let html = stripped.replace('</head>', `${metaBlock}\n  </head>`)
+  
+  // Render the React app to string for this route
+  const appHtml = render(route.path)
+  html = html.replace('<!--app-html-->', appHtml)
 
   const outPath = route.outDir
     ? join(distDir, route.outDir, 'index.html')
