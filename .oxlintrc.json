@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc", "vitest", "jsx-a11y", "promise", "react-perf", "unicorn", "import"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+  "rules": {
+    "eqeqeq": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "max-depth": ["warn", 4],
+    "max-params": "off",
+    "max-lines-per-function": "off",
+    "max-classes-per-file": ["warn", 1],
+    "complexity": "off",
+    "max-lines": "off",
+    "jsx_a11y/no-autofocus": "off",
+    "react/rules-of-hooks": "error",
+    "react/no-unstable-nested-components": "error",
+    "react/exhaustive-deps": "warn",
+    "react/jsx-max-depth": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": "off",
+    "vitest/no-focused-tests": "error",
+    "no-await-in-loop": "error",
+    "no-useless-call": "error",
+    "oxc/no-accumulating-spread": "error",
+    "oxc/no-map-spread": "error",
+    "react/jsx-no-constructed-context-values": "error",
+    "react/no-array-index-key": "off",
+    "react/no-object-type-as-default-prop": "error",
+    "unicorn/prefer-array-find": "error",
+    "unicorn/prefer-array-flat-map": "error",
+    "unicorn/prefer-set-has": "error",
+    "typescript/no-explicit-any": "warn",
+    "no-magic-numbers": "off",
+    "max-nested-callbacks": ["warn", 4],
+    "unicorn/prefer-ternary": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.tsx", "*.jsx"],
+      "rules": {
+        "max-lines-per-function": "off"
+      }
+    },
+    {
+      "files": ["*.test.ts", "*.test.tsx", "*.test.js", "*.test.jsx"],
+      "rules": {
+        "max-lines": "off",
+        "max-lines-per-function": "off",
+        "max-nested-callbacks": "off"
+      }
+    }
+  ]
+}

@@ -107,90 +107,92 @@ const fragmentShaderSource = `
 `
 
 export default function Dither({ waveSpeed = 0.05 } = {}) {
-  const canvasRef = useRef(null)
-  const rafRef = useRef(null)
-  const startRef = useRef(null)
+    const canvasRef = useRef(null)
+    const rafRef = useRef(null)
+    const startRef = useRef(null)
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
-    if (!gl) return // Fallback gracefully if WebGL is disabled
+    useEffect(() => {
+        const canvas = canvasRef.current
+        if (!canvas) return
+        const gl =
+            canvas.getContext('webgl') ||
+            canvas.getContext('experimental-webgl')
+        if (!gl) return // Fallback gracefully if WebGL is disabled
 
-    const W = 240
-    const H = 135
-    canvas.width = W
-    canvas.height = H
-    gl.viewport(0, 0, W, H)
+        const W = 240
+        const H = 135
+        canvas.width = W
+        canvas.height = H
+        gl.viewport(0, 0, W, H)
 
-    function compileShader(type, source) {
-      const shader = gl.createShader(type)
-      gl.shaderSource(shader, source)
-      gl.compileShader(shader)
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error(gl.getShaderInfoLog(shader))
-        gl.deleteShader(shader)
-        return null
-      }
-      return shader
-    }
+        function compileShader(type, source) {
+            const shader = gl.createShader(type)
+            gl.shaderSource(shader, source)
+            gl.compileShader(shader)
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error(gl.getShaderInfoLog(shader))
+                gl.deleteShader(shader)
+                return null
+            }
+            return shader
+        }
 
-    const vs = compileShader(gl.VERTEX_SHADER, vertexShaderSource)
-    const fs = compileShader(gl.FRAGMENT_SHADER, fragmentShaderSource)
-    const program = gl.createProgram()
-    gl.attachShader(program, vs)
-    gl.attachShader(program, fs)
-    gl.linkProgram(program)
-    gl.useProgram(program)
+        const vs = compileShader(gl.VERTEX_SHADER, vertexShaderSource)
+        const fs = compileShader(gl.FRAGMENT_SHADER, fragmentShaderSource)
+        const program = gl.createProgram()
+        gl.attachShader(program, vs)
+        gl.attachShader(program, fs)
+        gl.linkProgram(program)
+        gl.useProgram(program)
 
-    // Full screen quad
-    const verts = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1])
-    const buf = gl.createBuffer()
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf)
-    gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW)
-    
-    const aPos = gl.getAttribLocation(program, 'a_position')
-    gl.enableVertexAttribArray(aPos)
-    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0)
+        // Full screen quad
+        const verts = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1])
+        const buf = gl.createBuffer()
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf)
+        gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW)
 
-    const uTime = gl.getUniformLocation(program, 'u_time')
-    const uRes = gl.getUniformLocation(program, 'u_resolution')
-    gl.uniform2f(uRes, W, H)
+        const aPos = gl.getAttribLocation(program, 'a_position')
+        gl.enableVertexAttribArray(aPos)
+        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0)
 
-    function render(ts) {
-      if (!startRef.current) startRef.current = ts
-      // JS passed: ((ts - startRef.current) / 1000) * waveSpeed * 11
-      const t = ((ts - startRef.current) / 1000.0) * waveSpeed * 11.0
-      
-      gl.uniform1f(uTime, t)
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
-      
-      rafRef.current = requestAnimationFrame(render)
-    }
+        const uTime = gl.getUniformLocation(program, 'u_time')
+        const uRes = gl.getUniformLocation(program, 'u_resolution')
+        gl.uniform2f(uRes, W, H)
 
-    rafRef.current = requestAnimationFrame(render)
-    
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
-      gl.deleteProgram(program)
-      gl.deleteShader(vs)
-      gl.deleteShader(fs)
-      gl.deleteBuffer(buf)
-    }
-  }, [waveSpeed])
+        function render(ts) {
+            if (!startRef.current) startRef.current = ts
+            // JS passed: ((ts - startRef.current) / 1000) * waveSpeed * 11
+            const t = ((ts - startRef.current) / 1000.0) * waveSpeed * 11.0
 
-  return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      style={{
-        position: 'absolute',
-        inset: 0,
-        width: '100%',
-        height: '100%',
-        imageRendering: 'pixelated',
-        display: 'block',
-      }}
-    />
-  )
+            gl.uniform1f(uTime, t)
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+
+            rafRef.current = requestAnimationFrame(render)
+        }
+
+        rafRef.current = requestAnimationFrame(render)
+
+        return () => {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current)
+            gl.deleteProgram(program)
+            gl.deleteShader(vs)
+            gl.deleteShader(fs)
+            gl.deleteBuffer(buf)
+        }
+    }, [waveSpeed])
+
+    return (
+        <canvas
+            ref={canvasRef}
+            aria-hidden="true"
+            style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                imageRendering: 'pixelated',
+                display: 'block',
+            }}
+        />
+    )
 }

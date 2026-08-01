@@ -7,11 +7,11 @@ import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ReactLenis root>
-      <HelmetProvider>
-        <App />
-      </HelmetProvider>
-    </ReactLenis>
-  </StrictMode>,
+    <StrictMode>
+        <ReactLenis root>
+            <HelmetProvider>
+                <App />
+            </HelmetProvider>
+        </ReactLenis>
+    </StrictMode>,
 )

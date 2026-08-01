@@ -3,319 +3,362 @@ import SEO from '../../components/SEO'
 import SectionDivider from '../../components/SectionDivider'
 
 const externalExperiments = [
-  {
-    title: 'Philosophy Experiments',
-    url: 'https://philosophyexperiments.com',
-    domain: 'philosophyexperiments.com',
-    desc: '26 browser-based experiments by Jeremy Stangroom: Battleground God (contradiction detection), Morality Play (reveals your ethical framework), Staying Alive (Parfit\'s personal identity), Whose Body Is It Anyway? (Thomson\'s violinist), and Talking with God (Euthyphro dilemma).',
-  },
-  {
-    title: 'MIT Moral Machine',
-    url: 'https://moralmachine.mit.edu',
-    domain: 'moralmachine.mit.edu',
-    desc: 'Trolley-problem variants across 13 scenarios. Reveals how your moral judgements compare globally, and lets you design your own cases.',
-  },
-  {
-    title: 'Absurd Trolley Problems',
-    url: 'https://neal.fun/absurd-trolley-problems',
-    domain: 'neal.fun',
-    desc: '28 escalating trolley variants with crowd-sourced results per dilemma.',
-  },
-  {
-    title: 'The Evolution of Trust',
-    url: 'https://ncase.me/trust',
-    domain: 'ncase.me',
-    desc: 'An interactive game-theory tutorial by Nicky Case on the Prisoner\'s Dilemma, and how cooperation can emerge from it.',
-  },
-  {
-    title: 'Milton',
-    links: [
-      { url: 'https://milton-23eac.web.app/', domain: 'milton-23eac.web.app' },
-      { url: 'https://mindany2.fr/milton/?lang=enu', domain: 'mindany2.fr (mirror)' },
-    ],
-    desc: 'A philosophical dialogue game exploring questions of mind, identity, and consciousness through conversation.',
-  },
-  {
-    title: 'History of Philosophy',
-    url: 'https://www.denizcemonduygu.com/philo/browse/',
-    domain: 'denizcemonduygu.com',
-    desc: 'An interactive visual map of Western philosophy by Deniz Cem Önduygu — browse 200+ philosophers across 25 centuries, explore influence connections, and click any thinker to see who they shaped and who shaped them.',
-  },
-  {
-    title: 'Closer to Truth: Interactive',
-    url: 'https://loc.closertotruth.com/interactive',
-    domain: 'loc.closertotruth.com',
-    desc: 'A 4-map interactive from Robert Lawrence Kuhn\'s Library of Consciousness — scatter-plot and force-directed graphs visualising theories of consciousness by category, scholarly interest, complexity, and connections across five dimensions: metaphysical assumptions, locus of consciousness, methods of study, confidence, and implications for AI consciousness, free will, and meaning.',
-  },
+    {
+        title: 'Philosophy Experiments',
+        url: 'https://philosophyexperiments.com',
+        domain: 'philosophyexperiments.com',
+        desc: "26 browser-based experiments by Jeremy Stangroom: Battleground God (contradiction detection), Morality Play (reveals your ethical framework), Staying Alive (Parfit's personal identity), Whose Body Is It Anyway? (Thomson's violinist), and Talking with God (Euthyphro dilemma).",
+    },
+    {
+        title: 'MIT Moral Machine',
+        url: 'https://moralmachine.mit.edu',
+        domain: 'moralmachine.mit.edu',
+        desc: 'Trolley-problem variants across 13 scenarios. Reveals how your moral judgements compare globally, and lets you design your own cases.',
+    },
+    {
+        title: 'Absurd Trolley Problems',
+        url: 'https://neal.fun/absurd-trolley-problems',
+        domain: 'neal.fun',
+        desc: '28 escalating trolley variants with crowd-sourced results per dilemma.',
+    },
+    {
+        title: 'The Evolution of Trust',
+        url: 'https://ncase.me/trust',
+        domain: 'ncase.me',
+        desc: "An interactive game-theory tutorial by Nicky Case on the Prisoner's Dilemma, and how cooperation can emerge from it.",
+    },
+    {
+        title: 'Milton',
+        links: [
+            {
+                url: 'https://milton-23eac.web.app/',
+                domain: 'milton-23eac.web.app',
+            },
+            {
+                url: 'https://mindany2.fr/milton/?lang=enu',
+                domain: 'mindany2.fr (mirror)',
+            },
+        ],
+        desc: 'A philosophical dialogue game exploring questions of mind, identity, and consciousness through conversation.',
+    },
+    {
+        title: 'History of Philosophy',
+        url: 'https://www.denizcemonduygu.com/philo/browse/',
+        domain: 'denizcemonduygu.com',
+        desc: 'An interactive visual map of Western philosophy by Deniz Cem Önduygu — browse 200+ philosophers across 25 centuries, explore influence connections, and click any thinker to see who they shaped and who shaped them.',
+    },
+    {
+        title: 'Closer to Truth: Interactive',
+        url: 'https://loc.closertotruth.com/interactive',
+        domain: 'loc.closertotruth.com',
+        desc: "A 4-map interactive from Robert Lawrence Kuhn's Library of Consciousness — scatter-plot and force-directed graphs visualising theories of consciousness by category, scholarly interest, complexity, and connections across five dimensions: metaphysical assumptions, locus of consciousness, methods of study, confidence, and implications for AI consciousness, free will, and meaning.",
+    },
 ]
 
 const externalGames = [
-  {
-    title: 'Socrates Jones: Pro Philosopher',
-    url: 'https://store.steampowered.com/app/2120060/Socrates_Jones_Pro_Philosopher/',
-    domain: 'Steam (free)',
-    desc: 'Ace Attorney-style debate mechanics. You debate Euthyphro, Protagoras, Hobbes, Mill, and Kant using pure elenchus: request clarification, challenge relevance, demand backing.',
-  },
-  {
-    title: 'The Talos Principle',
-    url: 'https://store.steampowered.com/app/257510/The_Talos_Principle/',
-    domain: 'Steam',
-    desc: 'A first-person puzzle game by Croteam in which an android navigates a world saturated with philosophical texts — Anaxagoras, Milton, Goethe — and must decide whether it is conscious, free, and worthy of existence.',
-  },
-  {
-    title: 'The Talos Principle 2',
-    url: 'https://store.steampowered.com/app/835960/The_Talos_Principle_2/',
-    domain: 'Steam',
-    desc: 'The sequel deepens the inquiry into AI consciousness, political philosophy, and the ethics of civilisation. Features branching arguments with in-world characters representing distinct philosophical positions.',
-  },
-  {
-    title: 'Disco Elysium',
-    url: 'https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/',
-    domain: 'Steam',
-    desc: 'A detective RPG in which your fractured psyche — 24 competing skill-voices — debates every action. Engages directly with Marxism, existentialism, Taoism, and the phenomenology of failure. Widely considered the most philosophically dense game ever made.',
-  },
+    {
+        title: 'Socrates Jones: Pro Philosopher',
+        url: 'https://store.steampowered.com/app/2120060/Socrates_Jones_Pro_Philosopher/',
+        domain: 'Steam (free)',
+        desc: 'Ace Attorney-style debate mechanics. You debate Euthyphro, Protagoras, Hobbes, Mill, and Kant using pure elenchus: request clarification, challenge relevance, demand backing.',
+    },
+    {
+        title: 'The Talos Principle',
+        url: 'https://store.steampowered.com/app/257510/The_Talos_Principle/',
+        domain: 'Steam',
+        desc: 'A first-person puzzle game by Croteam in which an android navigates a world saturated with philosophical texts — Anaxagoras, Milton, Goethe — and must decide whether it is conscious, free, and worthy of existence.',
+    },
+    {
+        title: 'The Talos Principle 2',
+        url: 'https://store.steampowered.com/app/835960/The_Talos_Principle_2/',
+        domain: 'Steam',
+        desc: 'The sequel deepens the inquiry into AI consciousness, political philosophy, and the ethics of civilisation. Features branching arguments with in-world characters representing distinct philosophical positions.',
+    },
+    {
+        title: 'Disco Elysium',
+        url: 'https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/',
+        domain: 'Steam',
+        desc: 'A detective RPG in which your fractured psyche — 24 competing skill-voices — debates every action. Engages directly with Marxism, existentialism, Taoism, and the phenomenology of failure. Widely considered the most philosophically dense game ever made.',
+    },
 ]
 
 const games = [
-  {
-    path: '/games/hermeneutic',
-    eyebrow: 'Word Puzzle',
-    title: 'Hermeneutic',
-    desc: 'Guess the philosophical term from progressively revealing clues. Each wrong guess unveils another layer of context, from etymology to Heidegger.',
-  },
-  {
-    path: '/games/epoche',
-    eyebrow: 'Classification',
-    title: 'Époche',
-    desc: 'A proposition is placed before you. Classify it across four philosophical axes: analytic or synthetic, a priori or a posteriori, necessary or contingent, descriptive or normative.',
-  },
-  {
-    path: '/games/fallacy',
-    eyebrow: 'Identification',
-    title: 'Fallacy',
-    desc: "Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class, narrowing the field.",
-  },
-  {
-    path: '/games/dialectic',
-    eyebrow: 'Synthesis',
-    title: 'Dialectic',
-    desc: 'A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction, tracing the actual movement of Western thought.',
-  },
-  {
-    path: '/games/sorites',
-    eyebrow: 'Experiment',
-    title: 'Sorites',
-    desc: 'Pick your favourite and least favourite colour. Classify 34 patches across the gradient between them and discover the Sorites paradox hiding in your own judgements.',
-  },
-  {
-    path: '/games/repugnant',
-    eyebrow: 'Population Ethics',
-    title: 'The Repugnant Conclusion',
-    desc: 'Make a series of world-comparisons, each individually reasonable. Follow your own logic through 9 steps and discover whether you endorse the conclusion Parfit called the most important problem in ethics.',
-  },
-  {
-    path: '/games/philosophle',
-    eyebrow: 'Word Puzzle',
-    title: 'Philosophle',
-    desc: 'Guess the hidden philosophical term — a concept, thinker, or Greek root between 3 and 7 letters. Colour-coded feedback narrows each attempt. Three-letter words grant an extra guess.',
-  },
-  {
-    path: '/games/butterfly-job',
-    eyebrow: 'Counterfactual History',
-    title: 'The Butterfly Job',
-    desc: 'Step into seven minor roles across the twentieth century and make one decision in each moment. Watch how tiny choices preserve or derail recorded history.',
-  },
-  {
-    path: '/games/fallacy-detective',
-    eyebrow: 'Investigation',
-    title: 'Fallacy Detective',
-    desc: 'You receive a series of case files — real-world documents laced with hidden logical fallacies. Click suspected sentences, name the fallacy from 52 options, and close the case.',
-  },
-  {
-    path: '/games/philosopher-match',
-    eyebrow: 'Attribution',
-    title: 'Philosopher Match',
-    desc: 'A philosophical quote is placed before you. Identify its author from four options. Wrong guesses reveal the century and tradition as hints, costing points.',
-    hint: '2 rounds · 5 quotes each · up to 3 pts per quote',
-  },
-  {
-    path: '/games/concept-map',
-    eyebrow: 'Navigation',
-    title: 'Concept Map',
-    desc: 'Bridge two philosophical concepts via the shortest chain of directly related ideas. Each step must be a genuine conceptual connection through a network of 50+ terms.',
-    hint: '3 puzzles · BFS optimal scoring · reveal path option',
-  },
-  {
-    path: '/games/argument-reconstruction',
-    eyebrow: 'Reconstruction',
-    title: 'Argument Reconstruction',
-    desc: "Drag a philosopher's premises into their correct logical order. Three classic arguments — Descartes, Hume, Kant — each with a hidden premise revealed on completion.",
-    hint: '3 arguments · drag to reorder · hidden premise reveal',
-  },
-  {
-    path: '/games/paradigm-shift',
-    eyebrow: 'Classification',
-    title: 'Paradigm Shift',
-    desc: "Classify historical episodes in science according to Kuhn's five phases: pre-science, normal science, anomaly, crisis, and revolution.",
-    hint: '8 cases · shuffled · Kuhn 1962',
-  },
+    {
+        path: '/games/hermeneutic',
+        eyebrow: 'Word Puzzle',
+        title: 'Hermeneutic',
+        desc: 'Guess the philosophical term from progressively revealing clues. Each wrong guess unveils another layer of context, from etymology to Heidegger.',
+    },
+    {
+        path: '/games/epoche',
+        eyebrow: 'Classification',
+        title: 'Époche',
+        desc: 'A proposition is placed before you. Classify it across four philosophical axes: analytic or synthetic, a priori or a posteriori, necessary or contingent, descriptive or normative.',
+    },
+    {
+        path: '/games/fallacy',
+        eyebrow: 'Identification',
+        title: 'Fallacy',
+        desc: "Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class, narrowing the field.",
+    },
+    {
+        path: '/games/dialectic',
+        eyebrow: 'Synthesis',
+        title: 'Dialectic',
+        desc: 'A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction, tracing the actual movement of Western thought.',
+    },
+    {
+        path: '/games/sorites',
+        eyebrow: 'Experiment',
+        title: 'Sorites',
+        desc: 'Pick your favourite and least favourite colour. Classify 34 patches across the gradient between them and discover the Sorites paradox hiding in your own judgements.',
+    },
+    {
+        path: '/games/repugnant',
+        eyebrow: 'Population Ethics',
+        title: 'The Repugnant Conclusion',
+        desc: 'Make a series of world-comparisons, each individually reasonable. Follow your own logic through 9 steps and discover whether you endorse the conclusion Parfit called the most important problem in ethics.',
+    },
+    {
+        path: '/games/philosophle',
+        eyebrow: 'Word Puzzle',
+        title: 'Philosophle',
+        desc: 'Guess the hidden philosophical term — a concept, thinker, or Greek root between 3 and 7 letters. Colour-coded feedback narrows each attempt. Three-letter words grant an extra guess.',
+    },
+    {
+        path: '/games/butterfly-job',
+        eyebrow: 'Counterfactual History',
+        title: 'The Butterfly Job',
+        desc: 'Step into seven minor roles across the twentieth century and make one decision in each moment. Watch how tiny choices preserve or derail recorded history.',
+    },
+    {
+        path: '/games/fallacy-detective',
+        eyebrow: 'Investigation',
+        title: 'Fallacy Detective',
+        desc: 'You receive a series of case files — real-world documents laced with hidden logical fallacies. Click suspected sentences, name the fallacy from 52 options, and close the case.',
+    },
+    {
+        path: '/games/philosopher-match',
+        eyebrow: 'Attribution',
+        title: 'Philosopher Match',
+        desc: 'A philosophical quote is placed before you. Identify its author from four options. Wrong guesses reveal the century and tradition as hints, costing points.',
+        hint: '2 rounds · 5 quotes each · up to 3 pts per quote',
+    },
+    {
+        path: '/games/concept-map',
+        eyebrow: 'Navigation',
+        title: 'Concept Map',
+        desc: 'Bridge two philosophical concepts via the shortest chain of directly related ideas. Each step must be a genuine conceptual connection through a network of 50+ terms.',
+        hint: '3 puzzles · BFS optimal scoring · reveal path option',
+    },
+    {
+        path: '/games/argument-reconstruction',
+        eyebrow: 'Reconstruction',
+        title: 'Argument Reconstruction',
+        desc: "Drag a philosopher's premises into their correct logical order. Three classic arguments — Descartes, Hume, Kant — each with a hidden premise revealed on completion.",
+        hint: '3 arguments · drag to reorder · hidden premise reveal',
+    },
+    {
+        path: '/games/paradigm-shift',
+        eyebrow: 'Classification',
+        title: 'Paradigm Shift',
+        desc: "Classify historical episodes in science according to Kuhn's five phases: pre-science, normal science, anomaly, crisis, and revolution.",
+        hint: '8 cases · shuffled · Kuhn 1962',
+    },
 ]
 
 export default function Games() {
-  return (
-    <div className="pt-20 animate-on-load">
-      <SEO
-        title="Philosophy Games"
-        path="/games"
-        description="Interactive philosophy games: guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought."
-      />
+    return (
+        <div className="pt-20 animate-on-load">
+            <SEO
+                title="Philosophy Games"
+                path="/games"
+                description="Interactive philosophy games: guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought."
+            />
 
-      {/* Header */}
-      <section className="max-w-4xl mx-auto px-6 py-6 text-center">
-        <p className="label-mono mb-3">Play & Think</p>
-        <h1 className="section-heading mb-3">Philosophy Games</h1>
-        <div className="h-px w-16 bg-gold/50 mx-auto mb-3" />
-      </section>
+            {/* Header */}
+            <section className="max-w-4xl mx-auto px-6 py-6 text-center">
+                <p className="label-mono mb-3">Play & Think</p>
+                <h1 className="section-heading mb-3">Philosophy Games</h1>
+                <div className="h-px w-16 bg-gold/50 mx-auto mb-3" />
+            </section>
 
-      {/* Game cards */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {games.map(({ path, href, eyebrow, title, desc }) => {
-            const cardClass = "group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 transition-all duration-300"
-            const cardInner = (
-              <>
-                {/* Terracotta left-border on hover */}
-                <div className="absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" />
+            {/* Game cards */}
+            <section className="max-w-6xl mx-auto px-6 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {games.map(({ path, href, eyebrow, title, desc }) => {
+                        const cardClass =
+                            'group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 transition-all duration-300'
+                        const cardInner = (
+                            <>
+                                {/* Terracotta left-border on hover */}
+                                <div className="absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" />
 
-                <div className="pl-4">
-                  <div className="flex items-start justify-between gap-4 mb-4">
-                    <p className="label-mono text-gold">{eyebrow}</p>
-                  </div>
+                                <div className="pl-4">
+                                    <div className="flex items-start justify-between gap-4 mb-4">
+                                        <p className="label-mono text-gold">
+                                            {eyebrow}
+                                        </p>
+                                    </div>
 
-                  <h2 className="font-heading font-light text-green mb-3 group-hover:text-terracotta transition-colors duration-200"
-                      style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}>
-                    {title}
-                  </h2>
+                                    <h2
+                                        className="font-heading font-light text-green mb-3 group-hover:text-terracotta transition-colors duration-200"
+                                        style={{
+                                            fontSize:
+                                                'clamp(1.5rem, 2.5vw, 2rem)',
+                                        }}
+                                    >
+                                        {title}
+                                    </h2>
 
-                  <p className="font-body text-sm text-ink/65 leading-relaxed mb-6">
-                    {desc}
-                  </p>
+                                    <p className="font-body text-sm text-ink/65 leading-relaxed mb-6">
+                                        {desc}
+                                    </p>
+                                </div>
+                            </>
+                        )
+                        return href ? (
+                            <a key={href} href={href} className={cardClass}>
+                                {cardInner}
+                            </a>
+                        ) : (
+                            <Link key={path} to={path} className={cardClass}>
+                                {cardInner}
+                            </Link>
+                        )
+                    })}
                 </div>
-              </>
-            )
-            return href ? (
-              <a key={href} href={href} className={cardClass}>
-                {cardInner}
-              </a>
-            ) : (
-              <Link key={path} to={path} className={cardClass}>
-                {cardInner}
-              </Link>
-            )
-          })}
-        </div>
-      </section>
+            </section>
 
-      <SectionDivider className="px-6 max-w-6xl mx-auto" />
+            <SectionDivider className="px-6 max-w-6xl mx-auto" />
 
-      {/* External resources */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <p className="label-mono mb-4">Around the Web</p>
-          <h2
-            className="font-heading font-light text-green mb-3"
-            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}
-          >
-            External Experiments &amp; Games
-          </h2>
-          <div className="h-px w-16 bg-gold/50 mx-auto" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Experiments column */}
-          <div className="lg:col-span-2">
-            <p className="label-mono text-gold mb-5">Interactive Experiments</p>
-            <div className="space-y-0 divide-y divide-gold/12">
-              {externalExperiments.map(({ title, url, domain, links, desc }) => {
-                const linkList = links ?? [{ url, domain }]
-                return (
-                  <div key={linkList[0].url} className="py-5 group">
-                    <div className="flex items-start justify-between gap-4 mb-1.5">
-                      {linkList.length === 1 ? (
-                        <a
-                          href={linkList[0].url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
-                          style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
-                        >
-                          {title}
-                        </a>
-                      ) : (
-                        <span
-                          className="font-heading font-light text-green min-w-0"
-                          style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
-                        >
-                          {title}
-                        </span>
-                      )}
-                      <div className="flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1">
-                        {linkList.map(({ url: lu, domain: ld }) => (
-                          <a
-                            key={lu}
-                            href={lu}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-mono text-xs text-gold/50 hover:text-gold whitespace-nowrap transition-colors duration-150"
-                          >
-                            {ld} ↗
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                    <p className="font-body text-sm text-ink/55 leading-relaxed">{desc}</p>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-
-          {/* Games column */}
-          <div>
-            <p className="label-mono text-gold mb-5">External Games</p>
-            <div className="space-y-0 divide-y divide-gold/12">
-              {externalGames.map(({ title, url, domain, desc }) => (
-                <div key={url} className="py-5 group">
-                  <div className="flex items-start justify-between gap-4 mb-1.5">
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
-                      style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+            {/* External resources */}
+            <section className="max-w-6xl mx-auto px-6 py-16">
+                <div className="text-center mb-12">
+                    <p className="label-mono mb-4">Around the Web</p>
+                    <h2
+                        className="font-heading font-light text-green mb-3"
+                        style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}
                     >
-                      {title}
-                    </a>
-                    <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1">
-                      {domain} ↗
-                    </span>
-                  </div>
-                  <p className="font-body text-sm text-ink/55 leading-relaxed">{desc}</p>
+                        External Experiments &amp; Games
+                    </h2>
+                    <div className="h-px w-16 bg-gold/50 mx-auto" />
                 </div>
-              ))}
-            </div>
-          </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                    {/* Experiments column */}
+                    <div className="lg:col-span-2">
+                        <p className="label-mono text-gold mb-5">
+                            Interactive Experiments
+                        </p>
+                        <div className="space-y-0 divide-y divide-gold/12">
+                            {externalExperiments.map(
+                                ({ title, url, domain, links, desc }) => {
+                                    const linkList = links ?? [{ url, domain }]
+                                    return (
+                                        <div
+                                            key={linkList[0].url}
+                                            className="py-5 group"
+                                        >
+                                            <div className="flex items-start justify-between gap-4 mb-1.5">
+                                                {linkList.length === 1 ? (
+                                                    <a
+                                                        href={linkList[0].url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
+                                                        style={{
+                                                            fontSize:
+                                                                'clamp(1rem, 1.5vw, 1.15rem)',
+                                                        }}
+                                                    >
+                                                        {title}
+                                                    </a>
+                                                ) : (
+                                                    <span
+                                                        className="font-heading font-light text-green min-w-0"
+                                                        style={{
+                                                            fontSize:
+                                                                'clamp(1rem, 1.5vw, 1.15rem)',
+                                                        }}
+                                                    >
+                                                        {title}
+                                                    </span>
+                                                )}
+                                                <div className="flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1">
+                                                    {linkList.map(
+                                                        ({
+                                                            url: lu,
+                                                            domain: ld,
+                                                        }) => (
+                                                            <a
+                                                                key={lu}
+                                                                href={lu}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="font-mono text-xs text-gold/50 hover:text-gold whitespace-nowrap transition-colors duration-150"
+                                                            >
+                                                                {ld} ↗
+                                                            </a>
+                                                        ),
+                                                    )}
+                                                </div>
+                                            </div>
+                                            <p className="font-body text-sm text-ink/55 leading-relaxed">
+                                                {desc}
+                                            </p>
+                                        </div>
+                                    )
+                                },
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Games column */}
+                    <div>
+                        <p className="label-mono text-gold mb-5">
+                            External Games
+                        </p>
+                        <div className="space-y-0 divide-y divide-gold/12">
+                            {externalGames.map(
+                                ({ title, url, domain, desc }) => (
+                                    <div key={url} className="py-5 group">
+                                        <div className="flex items-start justify-between gap-4 mb-1.5">
+                                            <a
+                                                href={url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
+                                                style={{
+                                                    fontSize:
+                                                        'clamp(1rem, 1.5vw, 1.15rem)',
+                                                }}
+                                            >
+                                                {title}
+                                            </a>
+                                            <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1">
+                                                {domain} ↗
+                                            </span>
+                                        </div>
+                                        <p className="font-body text-sm text-ink/55 leading-relaxed">
+                                            {desc}
+                                        </p>
+                                    </div>
+                                ),
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <SectionDivider className="px-6 max-w-6xl mx-auto" />
+
+            {/* Footer note */}
+            <section className="max-w-4xl mx-auto px-6 py-12 text-center">
+                <p className="font-body text-sm text-ink/50 leading-relaxed">
+                    New puzzles are added as the year progresses.
+                </p>
+            </section>
         </div>
-      </section>
-
-      <SectionDivider className="px-6 max-w-6xl mx-auto" />
-
-      {/* Footer note */}
-      <section className="max-w-4xl mx-auto px-6 py-12 text-center">
-        <p className="font-body text-sm text-ink/50 leading-relaxed">
-          New puzzles are added as the year progresses.
-        </p>
-      </section>
-    </div>
-  )
+    )
 }
