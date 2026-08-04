@@ -1,50 +1,3 @@
-// Current team data for Axiom — Philosophy Society, NSUT
-// Three tiers: Core, Executive Committee (Execomm), Members
-//
-// People who submitted the Google Form have: image, quote, socials
-// People who didn't submit have only their name (shown with default avatar)
-//
-// IMAGE DOWNLOAD GUIDE — save each file to data/portraits/ (repo root)
-// The Google Drive images need to be downloaded manually (Drive requires auth).
-// Open each link below, download the image, and save with the filename shown.
-//
-// Core:
-//   adarsh-jain.webp  → https://drive.google.com/open?id=1B-8bVQk9pmqA8Hv-Tka1VU7uAleQZ78V
-//   aman-kumar.webp   → https://drive.google.com/open?id=1JttEV3g5Y4w4IhxzrldnDJ728YveT8bX
-//
-// Execomm:
-//   arnav-gupta.webp          → https://drive.google.com/open?id=1A5z7_TSyDC9bRHXjSoQvEknBFG3RElDL
-//   bhavishya-maheshwari.webp → https://drive.google.com/open?id=1SXaeablDgA_MgYeZull0HVFZSzS6Avb5
-//   hansika.webp              → https://drive.google.com/open?id=1LxHJndWcK6rdysvUwh3Z8iXn-TwcmqUd
-//   iba-shibli.webp           → https://drive.google.com/open?id=1bcyQr-tMhOVdWgO_xRbykYCyqKzTDr1A
-//   prableen-kaur.webp        → https://drive.google.com/open?id=1XTVyGP9XoxAOod0XHWHrlUufUk13wJQI
-//   taneesha-bangia.webp      → https://drive.google.com/open?id=1UhYCc3J6oBY4Lyvgjc1x2BZTKUDpMHTv
-//   utsav-dwivedi.webp        → https://drive.google.com/open?id=1gy1_QbwdOmio-vgxuwbiLwHH68dYftqc
-//
-// Members:
-//   adit-gaur.webp            → https://drive.google.com/open?id=1Q_ijaHyRZ0xYHVQa5k8JeggJDsW_VW_P
-//   aditi-poonia.webp         → https://drive.google.com/open?id=1HKkaHa350mUjvH3qXNQfRernJ5mubUli
-//   adwita-suri.webp          → https://drive.google.com/open?id=12Wid7DYNdlI8eLLCVKdx3g9nr82_ynP5
-//   anju.webp                 → https://drive.google.com/open?id=1p5xE9JbKByE0OcSSWOAEMewi8ZkoEOB1
-//   ankit-kumar.webp          → https://drive.google.com/open?id=1pa-cWRRJJBY4d_dPIu6aLDD4vI2wUxux
-//   ashish-joshi.webp         → https://drive.google.com/open?id=10151xZ4mIw_BpULTiSCBq_LybAlnEEDE
-//   charu-vats.webp           → https://drive.google.com/open?id=1jEH0FCdMjGCRjV3CdiUSRa9Fhr5aELvu
-//   dev-manchanda.webp        → https://drive.google.com/open?id=1WQS-RP9eR0pbqRXgKCwNa-PIUgtXFZ2S
-//   dhruv-bansal.webp         → https://drive.google.com/open?id=1pFYTDTx4JdIyKJEG0IRcxiY3WWhvxTcg
-//   dushyant-rathore.webp     → https://drive.google.com/open?id=170vJt4ZAKurG_m9_Q2XGGHrbuoBnsR-v
-//   himanshi.webp             → https://drive.google.com/open?id=1jQ16I8FOoIe7Nk9LYUSrrQ3n_-02GMnf
-//   joseph-aliyath.webp       → https://drive.google.com/open?id=1U0GfEHIB5P7GU1CFOJ08-kMx9t9ofCFJ
-//   khushi-mittal.webp        → https://drive.google.com/open?id=1HS__f8v5b6J1AGxCCsEIl6xaXt_bR3Vv
-//   md-rashid-iqbal.webp      → https://drive.google.com/open?id=1xPJMn85DEm9rnXId1bzOqtXu2sdla6z0
-//   navratan-choudhary.webp   → https://drive.google.com/open?id=17Oxnk1QslamtMO_C-aGDHkO1yvbDn2Ni
-//   prachetas-shukla.webp     → https://drive.google.com/open?id=1ftOtH0deOXThsEKYUlId7sRFGbK7dr3V
-//   prince-gangwar.webp       → https://drive.google.com/open?id=1QEhSkIXnWTBpebR3D3fdc_4jAfFf79SE
-//   shivangi-amat.webp        → https://drive.google.com/open?id=1W-MA-aD4M17am1uDEVp1BBgSISQFrEcG
-//   tushar-karn.webp          → https://drive.google.com/open?id=1M0ooz98EXAIll5O8VNgdL3Zdlbh5Xnha
-//   vinayak-mittal.webp       → https://drive.google.com/open?id=1i697ucVAgWVsoIgIYt01Sa9F8oW_mcRb
-
-// ── Core Team ──────────────────────────────────────────────────────────
-
 export const core = [
     {
         role: 'President',
@@ -117,7 +70,7 @@ export const core = [
     {
         role: 'General Secretary',
         members: [
-            { name: 'Eerut' },
+            { name: 'Erut' },
             {
                 name: 'Utsav Dwivedi',
                 image: '/data/portraits/utsav-dwivedi.jpg',
@@ -166,7 +119,7 @@ export const core = [
     },
     {
         role: 'Social Media and Design Head',
-        members: [{ name: 'Eerut' }, { name: 'Devika' }],
+        members: [{ name: 'Erut' }, { name: 'Devika' }],
     },
     {
         role: 'Podcast Head',
@@ -236,7 +189,7 @@ export const core = [
                     instagram: 'https://www.instagram.com/utsavdwivedi5',
                 },
             },
-            { name: 'Eerut' },
+            { name: 'Erut' },
         ],
     },
 ]
