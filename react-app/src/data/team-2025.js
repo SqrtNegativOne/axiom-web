@@ -194,9 +194,6 @@ export const core = [
     },
 ]
 
-// ── Members ────────────────────────────────────────────────────────────
-// Order: 1) has photo (alphabetical)  2) name only (alphabetical)
-
 export const members = [
     // — has photo —
     {
