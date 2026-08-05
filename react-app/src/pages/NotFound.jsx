@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 
 export default function NotFound() {
@@ -18,12 +17,12 @@ export default function NotFound() {
             >
                 — Sincerely, A Solipsist.
             </p>
-            <Link
-                to="/"
+            <a
+                href="/"
                 className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
             >
                 ← return to the phenomenal world
-            </Link>
+            </a>
         </div>
     )
 }

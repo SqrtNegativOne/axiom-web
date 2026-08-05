@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import SEO from '../../components/SEO'
 
 export default function Leadership2023() {
@@ -23,12 +22,12 @@ export default function Leadership2023() {
             </section>
 
             <section className="max-w-4xl mx-auto px-6 py-8 text-center">
-                <Link
-                    to="/team/2024"
+                <a
+                    href="/team/2024"
                     className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
                 >
                     &larr; Team 2024
-                </Link>
+                </a>
             </section>
         </div>
     )

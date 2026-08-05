@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import SEO from '../components/SEO'
 import Hero from '../components/Hero'
@@ -177,12 +176,12 @@ export default function Home() {
                                     {description}
                                 </p>
                                 {internal ? (
-                                    <Link
-                                        to={link}
+                                    <a
+                                        href={link}
                                         className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
                                     >
                                         explore →
-                                    </Link>
+                                    </a>
                                 ) : (
                                     <a
                                         href={link}

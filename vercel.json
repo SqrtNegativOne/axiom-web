@@ -3,9 +3,10 @@
   "installCommand": "npm install",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     { "source": "/newsletter/(.*)", "destination": "/newsletter/$1" },
-    { "source": "/data/(.*)", "destination": "/data/$1" },
-    { "source": "/((?!newsletter/|data/).*)", "destination": "/index.html" }
+    { "source": "/data/(.*)", "destination": "/data/$1" }
   ]
 }

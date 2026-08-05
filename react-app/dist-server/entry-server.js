@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useLayoutEffect, useCallback, useMemo, Str
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server.mjs";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useLocation, Link, useParams, Routes, Route } from "react-router-dom";
+import { useLocation, useParams, Routes, Route } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation, Virtual } from "swiper/modules";
 function ThemeToggle() {
@@ -112,9 +112,9 @@ function NavBar() {
         /* @__PURE__ */ jsxs("nav", { className: "max-w-6xl mx-auto px-6 py-4 flex items-center justify-between", children: [
           logoSpinning && /* @__PURE__ */ jsx("style", { children: `@keyframes axiom-logo-spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }` }),
           /* @__PURE__ */ jsxs(
-            Link,
+            "a",
             {
-              to: "/",
+              href: "/",
               className: "flex items-center gap-3 group",
               onClick: () => {
                 const next = logoClicks + 1;
@@ -131,7 +131,7 @@ function NavBar() {
                   {
                     src: "/data/logo.svg",
                     alt: "Axiom",
-                    className: "h-8 w-auto",
+                    className: "h-8 w-auto dark:invert",
                     style: logoSpinning ? { animation: "axiom-logo-spin 0.6s ease-out" } : {},
                     onError: (e) => {
                       e.target.style.display = "none";
@@ -145,9 +145,9 @@ function NavBar() {
           /* @__PURE__ */ jsxs("ul", { className: "hidden md:flex items-center gap-8 ml-auto", children: [
             NAV_LINKS.filter(({ to }) => to !== "/").map(
               ({ label, to, internal }) => internal ? /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-                Link,
+                "a",
                 {
-                  to,
+                  href: to,
                   className: `font-body text-sm tracking-wider uppercase transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 ${pathname === to ? "text-terracotta after:scale-x-100" : "text-green hover:text-green"}`,
                   children: label
                 }
@@ -201,9 +201,9 @@ function NavBar() {
             children: /* @__PURE__ */ jsx("div", { className: "bg-cream dark:bg-[#0E1A14] border-t border-gold/30 px-6 py-4", children: /* @__PURE__ */ jsxs("ul", { className: "flex flex-col gap-4", children: [
               NAV_LINKS.filter(({ to }) => to !== "/").map(
                 ({ label, to, internal }) => internal ? /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-                  Link,
+                  "a",
                   {
-                    to,
+                    href: to,
                     className: `font-body text-sm tracking-wider uppercase ${pathname === to ? "text-terracotta" : "text-green"}`,
                     children: label
                   }
@@ -285,9 +285,9 @@ function Footer() {
         /* @__PURE__ */ jsx("p", { className: NAV_LABEL_STYLE, children: "Navigate" }),
         /* @__PURE__ */ jsx("ul", { className: "flex flex-col gap-2", children: FOOTER_LINKS.map(
           ({ label, to, internal }) => internal ? /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            Link,
+            "a",
             {
-              to,
+              href: to,
               className: NAV_LINK_STYLE,
               children: label
             }
@@ -941,9 +941,9 @@ function Home() {
               /* @__PURE__ */ jsx("h3", { className: "font-heading text-xl text-green mb-3", children: title }),
               /* @__PURE__ */ jsx("p", { className: "font-body text-base text-ink/60 leading-relaxed mb-8", children: description }),
               internal ? /* @__PURE__ */ jsx(
-                Link,
+                "a",
                 {
-                  to: link,
+                  href: link,
                   className: "font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider",
                   children: "explore →"
                 }
@@ -1297,9 +1297,9 @@ function NotFound() {
       }
     ),
     /* @__PURE__ */ jsx(
-      Link,
+      "a",
       {
-        to: "/",
+        href: "/",
         className: "font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider",
         children: "← return to the phenomenal world"
       }
@@ -1374,7 +1374,7 @@ const core$1 = [
   {
     role: "General Secretary",
     members: [
-      { name: "Eerut" },
+      { name: "Erut" },
       {
         name: "Utsav Dwivedi",
         image: "/data/portraits/utsav-dwivedi.jpg",
@@ -1421,7 +1421,7 @@ const core$1 = [
   },
   {
     role: "Social Media and Design Head",
-    members: [{ name: "Eerut" }, { name: "Devika" }]
+    members: [{ name: "Erut" }, { name: "Devika" }]
   },
   {
     role: "Podcast Head",
@@ -1486,7 +1486,7 @@ const core$1 = [
           instagram: "https://www.instagram.com/utsavdwivedi5"
         }
       },
-      { name: "Eerut" }
+      { name: "Erut" }
     ]
   }
 ];
@@ -2196,9 +2196,9 @@ function Team() {
       /* @__PURE__ */ jsx("p", { className: "font-body text-ink/60 text-center mb-12 max-w-xl mx-auto", children: "In their own words — what Axiom meant to the people who built it." }),
       /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: alumniQuotes.map((person) => /* @__PURE__ */ jsx(AlumniQuoteCard, { ...person }, person.name)) }),
       /* @__PURE__ */ jsx("div", { className: "mt-8 text-center", children: /* @__PURE__ */ jsx(
-        Link,
+        "a",
         {
-          to: "/team/2025-legacy",
+          href: "/team/2025-legacy",
           className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
           children: "See previous leadership →"
         }
@@ -2345,17 +2345,17 @@ function Alumni() {
     ] }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-8 flex justify-center gap-8", children: [
       /* @__PURE__ */ jsx(
-        Link,
+        "a",
         {
-          to: "/team/2025-legacy",
+          href: "/team/2025-legacy",
           className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
           children: "← Team 2025"
         }
       ),
       /* @__PURE__ */ jsx(
-        Link,
+        "a",
         {
-          to: "/team/2023",
+          href: "/team/2023",
           className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
           children: "Team 2023 →"
         }
@@ -2746,17 +2746,17 @@ function Alumni2025() {
     ] }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-8 flex justify-center gap-8", children: [
       /* @__PURE__ */ jsx(
-        Link,
+        "a",
         {
-          to: "/team",
+          href: "/team",
           className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
           children: "← Back to current team"
         }
       ),
       /* @__PURE__ */ jsx(
-        Link,
+        "a",
         {
-          to: "/team/2024",
+          href: "/team/2024",
           className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
           children: "Team 2024 →"
         }
@@ -2783,9 +2783,9 @@ function Leadership2023() {
       /* @__PURE__ */ jsx("p", { className: "font-mono text-gold/70 tracking-widest text-sm", children: "NO DATA AVAILABLE" })
     ] }),
     /* @__PURE__ */ jsx("section", { className: "max-w-4xl mx-auto px-6 py-8 text-center", children: /* @__PURE__ */ jsx(
-      Link,
+      "a",
       {
-        to: "/team/2024",
+        href: "/team/2024",
         className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
         children: "← Team 2024"
       }
@@ -2964,9 +2964,9 @@ function Events() {
       /* @__PURE__ */ jsxs("div", { className: "mt-8 flex flex-wrap gap-3", children: [
         /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-[0.2em] uppercase text-gold/70", children: "Past Events:" }),
         yearLinks.map(({ year, label }) => /* @__PURE__ */ jsx(
-          Link,
+          "a",
           {
-            to: `/events/${year}`,
+            href: `/events/${year}`,
             className: "font-mono text-xs tracking-[0.15em] uppercase text-green hover:text-terracotta transition-colors border border-green/20 hover:border-terracotta/40 px-4 py-2 rounded",
             children: label
           },
@@ -2996,9 +2996,9 @@ function EventsByYear() {
     ),
     /* @__PURE__ */ jsxs("section", { className: "max-w-5xl mx-auto px-6 py-16", children: [
       /* @__PURE__ */ jsx(
-        Link,
+        "a",
         {
-          to: "/events",
+          href: "/events",
           className: "label-mono mb-4 inline-block hover:text-terracotta transition-colors",
           children: "← Back to Events"
         }
@@ -3217,7 +3217,7 @@ function Games() {
           /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/65 leading-relaxed mb-6", children: desc })
         ] })
       ] });
-      return href ? /* @__PURE__ */ jsx("a", { href, className: cardClass, children: cardInner }, href) : /* @__PURE__ */ jsx(Link, { to: path, className: cardClass, children: cardInner }, path);
+      return href ? /* @__PURE__ */ jsx("a", { href, className: cardClass, children: cardInner }, href) : /* @__PURE__ */ jsx("a", { href: path, className: cardClass, children: cardInner }, path);
     }) }) }),
     /* @__PURE__ */ jsx(SectionDivider, { className: "px-6 max-w-6xl mx-auto" }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-6xl mx-auto px-6 py-16", children: [
@@ -3678,9 +3678,9 @@ function GameHermeneutic() {
     /* @__PURE__ */ jsxs("section", { className: "max-w-2xl mx-auto px-6 py-10", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
         /* @__PURE__ */ jsx(
-          Link,
+          "a",
           {
-            to: "/games",
+            href: "/games",
             className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
             children: "← Games"
           }
@@ -4093,9 +4093,9 @@ function GameEpoche() {
     ),
     /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 py-10", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
       /* @__PURE__ */ jsx(
-        Link,
+        "a",
         {
-          to: "/games",
+          href: "/games",
           className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
           children: "← Games"
         }
@@ -4580,9 +4580,9 @@ function GameFallacy() {
     ),
     /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 py-10", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
       /* @__PURE__ */ jsx(
-        Link,
+        "a",
         {
-          to: "/games",
+          href: "/games",
           className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
           children: "← Games"
         }
@@ -5124,9 +5124,9 @@ function GameDialectic() {
     /* @__PURE__ */ jsxs("section", { className: "max-w-2xl mx-auto px-6 py-10", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
         /* @__PURE__ */ jsx(
-          Link,
+          "a",
           {
-            to: "/games",
+            href: "/games",
             className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
             children: "← Games"
           }
@@ -6368,9 +6368,9 @@ function GameSorites() {
     /* @__PURE__ */ jsxs("section", { className: "max-w-2xl mx-auto px-6 py-10", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
         /* @__PURE__ */ jsx(
-          Link,
+          "a",
           {
-            to: "/games",
+            href: "/games",
             className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
             children: "← Games"
           }
@@ -9137,9 +9137,9 @@ function GamePhilosophle() {
     /* @__PURE__ */ jsxs("section", { className: "max-w-2xl mx-auto px-6 py-10", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
         /* @__PURE__ */ jsx(
-          Link,
+          "a",
           {
-            to: "/games",
+            href: "/games",
             className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
             children: "← Games"
           }

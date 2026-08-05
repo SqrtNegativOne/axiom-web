@@ -27,9 +27,9 @@ const ROUTES = [
     description: DEFAULT_DESCRIPTION,
   },
   {
-    outDir: 'about',
-    path: '/about',
-    title: `About Us — ${SITE_NAME}`,
+    outDir: 'team',
+    path: '/team',
+    title: `Team — ${SITE_NAME}`,
     description: "Meet the Axiom team — our mission, vision, and the people behind NSUT's philosophy society, established in 2017.",
   },
   {
@@ -39,14 +39,20 @@ const ROUTES = [
     description: "Chai Pe Charcha, Wheel of Doom, Philo Walk and more — explore all of Axiom's philosophical events at NSUT.",
   },
   {
-    outDir: 'about/2024',
-    path: '/about/2024',
+    outDir: 'team/2025-legacy',
+    path: '/team/2025-legacy',
+    title: `2025 Legacy — ${SITE_NAME}`,
+    description: 'The 2025 executive committee and members of Axiom, the philosophy society at NSUT.',
+  },
+  {
+    outDir: 'team/2024',
+    path: '/team/2024',
     title: `Previous Leadership — 2024 — ${SITE_NAME}`,
     description: 'The 2024 executive committee and members of Axiom, the philosophy society at NSUT.',
   },
   {
-    outDir: 'about/2023',
-    path: '/about/2023',
+    outDir: 'team/2023',
+    path: '/team/2023',
     title: `Previous Leadership — 2023 — ${SITE_NAME}`,
     description: 'The 2023 executive committee and members of Axiom, the philosophy society at NSUT.',
   },
@@ -98,6 +104,78 @@ const ROUTES = [
     title: `Philosophle — Philosophy Games — ${SITE_NAME}`,
     description: 'A Wordle-style game using philosophical terms — concepts, thinkers, and Greek roots from 3 to 7 letters.',
   },
+  {
+    outDir: 'games/butterfly-job',
+    path: '/games/butterfly-job',
+    title: `Butterfly Job — Philosophy Games — ${SITE_NAME}`,
+    description: 'Butterfly Job Game.',
+  },
+  {
+    outDir: 'games/fallacy-detective',
+    path: '/games/fallacy-detective',
+    title: `Fallacy Detective — Philosophy Games — ${SITE_NAME}`,
+    description: 'Fallacy Detective Game.',
+  },
+  {
+    outDir: 'games/philosopher-match',
+    path: '/games/philosopher-match',
+    title: `Philosopher Match — Philosophy Games — ${SITE_NAME}`,
+    description: 'Philosopher Match Game.',
+  },
+  {
+    outDir: 'games/concept-map',
+    path: '/games/concept-map',
+    title: `Concept Map — Philosophy Games — ${SITE_NAME}`,
+    description: 'Concept Map Game.',
+  },
+  {
+    outDir: 'games/argument-reconstruction',
+    path: '/games/argument-reconstruction',
+    title: `Argument Reconstruction — Philosophy Games — ${SITE_NAME}`,
+    description: 'Argument Reconstruction Game.',
+  },
+  {
+    outDir: 'games/paradigm-shift',
+    path: '/games/paradigm-shift',
+    title: `Paradigm Shift — Philosophy Games — ${SITE_NAME}`,
+    description: 'Paradigm Shift Game.',
+  },
+  {
+    outDir: 'events/2026',
+    path: '/events/2026',
+    title: `Events 2026 — ${SITE_NAME}`,
+    description: 'Events from 2026.',
+  },
+  {
+    outDir: 'events/2025',
+    path: '/events/2025',
+    title: `Events 2025 — ${SITE_NAME}`,
+    description: 'Events from 2025.',
+  },
+  {
+    outDir: 'events/2024',
+    path: '/events/2024',
+    title: `Events 2024 — ${SITE_NAME}`,
+    description: 'Events from 2024.',
+  },
+  {
+    outDir: 'events/2023',
+    path: '/events/2023',
+    title: `Events 2023 — ${SITE_NAME}`,
+    description: 'Events from 2023.',
+  },
+  {
+    outDir: 'privacy',
+    path: '/privacy',
+    title: `Privacy Policy — ${SITE_NAME}`,
+    description: 'Privacy Policy.',
+  },
+  {
+    outDir: '404',
+    path: '/404',
+    title: `Not Found — ${SITE_NAME}`,
+    description: 'Page not found.',
+  }
 ]
 
 function buildMetaBlock(route) {
