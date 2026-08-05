@@ -55,7 +55,7 @@ export default function NavBar() {
                     <img
                         src="/data/logo.svg"
                         alt="Axiom"
-                        className="h-8 w-auto"
+                        className="h-8 w-auto dark:invert"
                         style={
                             logoSpinning
                                 ? { animation: 'axiom-logo-spin 0.6s ease-out' }
