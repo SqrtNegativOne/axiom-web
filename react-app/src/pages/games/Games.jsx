@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import SEO from '../../components/SEO'
 import SectionDivider from '../../components/SectionDivider'
 
@@ -222,9 +221,9 @@ export default function Games() {
                                 {cardInner}
                             </a>
                         ) : (
-                            <Link key={path} to={path} className={cardClass}>
+                            <a key={path} href={path} className={cardClass}>
                                 {cardInner}
-                            </Link>
+                            </a>
                         )
                     })}
                 </div>

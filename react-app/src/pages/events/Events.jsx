@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import SEO from '../../components/SEO'
 import eventsData from '../../data/events.json'
 import EventCard from '../../components/EventCard'
@@ -41,13 +40,13 @@ export default function Events() {
                         Past Events:
                     </span>
                     {yearLinks.map(({ year, label }) => (
-                        <Link
+                        <a
                             key={year}
-                            to={`/events/${year}`}
+                            href={`/events/${year}`}
                             className="font-mono text-xs tracking-[0.15em] uppercase text-green hover:text-terracotta transition-colors border border-green/20 hover:border-terracotta/40 px-4 py-2 rounded"
                         >
                             {label}
-                        </Link>
+                        </a>
                     ))}
                 </div>
             </section>

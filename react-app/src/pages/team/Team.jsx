@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import SEO from '../../components/SEO'
 import { core, members } from '../../data/team-2025'
 import alumniQuotes from '../../data/alumni-quotes'
@@ -239,12 +238,12 @@ export default function Team() {
                     ))}
                 </div>
                 <div className="mt-8 text-center">
-                    <Link
-                        to="/team/2025-legacy"
+                    <a
+                        href="/team/2025-legacy"
                         className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
                     >
                         See previous leadership &rarr;
-                    </Link>
+                    </a>
                 </div>
             </section>
 

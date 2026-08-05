@@ -65,7 +65,6 @@ const SOCIAL_LINKS = [
     },
 ]
 
-import { Link } from 'react-router-dom'
 import { FOOTER_LINKS } from '../data/navLinks'
 
 // Footer style classes
@@ -111,12 +110,12 @@ export default function Footer() {
                             {FOOTER_LINKS.map(({ label, to, internal }) =>
                                 internal ? (
                                     <li key={to}>
-                                        <Link
-                                            to={to}
+                                        <a
+                                            href={to}
                                             className={NAV_LINK_STYLE}
                                         >
                                             {label}
-                                        </Link>
+                                        </a>
                                     </li>
                                 ) : (
                                     <li key={to}>

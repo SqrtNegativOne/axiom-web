@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, } from 'react-router-dom'
 import SEO from '../../components/SEO'
 import EventCard from '../../components/EventCard'
 import SectionDivider from '../../components/SectionDivider'
@@ -27,12 +27,12 @@ export default function EventsByYear() {
 
             {/* Page header */}
             <section className="max-w-5xl mx-auto px-6 py-16">
-                <Link
-                    to="/events"
+                <a
+                    href="/events"
                     className="label-mono mb-4 inline-block hover:text-terracotta transition-colors"
                 >
                     ← Back to Events
-                </Link>
+                </a>
                 <h1 className="section-heading mb-4">Events {year}</h1>
                 <div className="h-px w-16 bg-gold/50 mb-8" />
                 <p

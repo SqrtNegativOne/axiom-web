@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import { NAV_LINKS } from '../data/navLinks'
 
@@ -39,8 +39,8 @@ export default function NavBar() {
                 {logoSpinning && (
                     <style>{`@keyframes axiom-logo-spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }`}</style>
                 )}
-                <Link
-                    to="/"
+                <a
+                    href="/"
                     className="flex items-center gap-3 group"
                     onClick={() => {
                         const next = logoClicks + 1
@@ -68,7 +68,7 @@ export default function NavBar() {
                     <span className="font-heading text-2xl font-light tracking-[0.15em] text-green group-hover:text-terracotta transition-colors duration-200">
                         AXIOM
                     </span>
-                </Link>
+                </a>
 
                 {/* Desktop nav */}
                 <ul className="hidden md:flex items-center gap-8 ml-auto">
@@ -76,8 +76,8 @@ export default function NavBar() {
                         ({ label, to, internal }) =>
                             internal ? (
                                 <li key={to}>
-                                    <Link
-                                        to={to}
+                                    <a
+                                        href={to}
                                         className={`font-body text-sm tracking-wider uppercase transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 ${
                                             pathname === to
                                                 ? 'text-terracotta after:scale-x-100'
@@ -85,7 +85,7 @@ export default function NavBar() {
                                         }`}
                                     >
                                         {label}
-                                    </Link>
+                                    </a>
                                 </li>
                             ) : (
                                 <li key={to}>
@@ -136,8 +136,8 @@ export default function NavBar() {
                             ({ label, to, internal }) =>
                                 internal ? (
                                     <li key={to}>
-                                        <Link
-                                            to={to}
+                                        <a
+                                            href={to}
                                             className={`font-body text-sm tracking-wider uppercase ${
                                                 pathname === to
                                                     ? 'text-terracotta'
@@ -145,7 +145,7 @@ export default function NavBar() {
                                             }`}
                                         >
                                             {label}
-                                        </Link>
+                                        </a>
                                     </li>
                                 ) : (
                                     <li key={to}>

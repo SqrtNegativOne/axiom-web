@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import SEO from '../../components/SEO'
 import teamLegacy from '../../data/team-2025-legacy'
 import TeamPortraitCard from '../../components/TeamPortraitCard'
@@ -52,18 +51,18 @@ export default function Alumni2025() {
 
             {/* Navigation links */}
             <section className="max-w-4xl mx-auto px-6 py-8 flex justify-center gap-8">
-                <Link
-                    to="/team"
+                <a
+                    href="/team"
                     className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
                 >
                     &larr; Back to current team
-                </Link>
-                <Link
-                    to="/team/2024"
+                </a>
+                <a
+                    href="/team/2024"
                     className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
                 >
                     Team 2024 &rarr;
-                </Link>
+                </a>
             </section>
         </div>
     )

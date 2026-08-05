@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import SEO from '../../components/SEO'
 
 const N = 34
@@ -1072,12 +1071,12 @@ export default function GameSorites() {
             {/* Header */}
             <section className="max-w-2xl mx-auto px-6 py-10">
                 <div className="flex items-center gap-3 mb-6">
-                    <Link
-                        to="/games"
+                    <a
+                        href="/games"
                         className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
                     >
                         ← Games
-                    </Link>
+                    </a>
                     <span className="text-gold/30">/</span>
                     <span className="font-mono text-xs tracking-widest uppercase text-ink/40">
                         Sorites
