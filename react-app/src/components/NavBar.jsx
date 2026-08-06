@@ -78,10 +78,10 @@ export default function NavBar() {
                                 <li key={to}>
                                     <a
                                         href={to}
-                                        className={`font-body text-sm tracking-wider uppercase transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 ${
+                                        className={`font-body text-sm tracking-wider uppercase transition-colors duration-200 ${
                                             pathname === to
-                                                ? 'text-terracotta after:scale-x-100'
-                                                : 'text-green hover:text-green'
+                                                ? 'text-terracotta'
+                                                : 'text-green hover:text-green relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100'
                                         }`}
                                     >
                                         {label}
