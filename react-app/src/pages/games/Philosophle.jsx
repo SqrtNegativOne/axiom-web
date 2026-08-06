@@ -435,7 +435,7 @@ export default function GamePhilosophle() {
     return (
         <div className="pt-20 animate-on-load">
             <SEO
-                title="Philosophle — Philosophy Games"
+                title="Philosophle"
                 path="/games/philosophle"
                 description="A Wordle-style game using philosophical terms — concepts, thinkers, and Greek roots from 3 to 7 letters."
             />

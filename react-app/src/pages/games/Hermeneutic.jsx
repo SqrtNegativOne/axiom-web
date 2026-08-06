@@ -211,7 +211,7 @@ export default function GameHermeneutic() {
     return (
         <div className="pt-20 animate-on-load">
             <SEO
-                title="Hermeneutic —"
+                title="Hermeneutic"
                 path="/games/hermeneutic"
                 description="Guess the philosophical term from progressively revealing clues. Each wrong answer unveils another layer of context."
             />

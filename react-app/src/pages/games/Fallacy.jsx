@@ -216,7 +216,7 @@ export default function GameFallacy() {
     return (
         <div className="pt-20 animate-on-load">
             <SEO
-                title="Fallacy —"
+                title="Fallacy"
                 path="/games/fallacy"
                 description="Identify the logical fallacy in a philosophical argument. Hints reveal whether your guess shares the right family or class."
             />

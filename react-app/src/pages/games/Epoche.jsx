@@ -358,7 +358,7 @@ export default function GameEpoche() {
     return (
         <div className="pt-20 animate-on-load">
             <SEO
-                title="Époche —"
+                title="Époche"
                 path="/games/epoche"
                 description="Classify a philosophical proposition across four axes: analytic/synthetic, a priori/a posteriori, necessary/contingent, descriptive/normative."
             />

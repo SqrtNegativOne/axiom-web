@@ -1086,7 +1086,7 @@ export default function GameSorites() {
             `}</style>
             <div className="sorites-wrapper">
                 <SEO
-                    title="Sorites — Philosophy Games"
+                    title="Sorites"
                     path="/games/sorites"
                     description="Pick two colours, then classify 34 patches between them. Discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness."
                 />
