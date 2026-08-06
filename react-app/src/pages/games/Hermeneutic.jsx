@@ -49,8 +49,8 @@ function GameBoard({ puzzle, onNewGame }) {
             {/* Clues */}
             <div className="mb-6 space-y-2">
                 {puzzle.clues.map((clue, i) => {
-                    const isLive = i < shown
-                    const isNewest = isLive && i === shown - 1
+                    const isLive = i < shown || status !== 'playing'
+                    const isNewest = i < shown && i === shown - 1
                     return (
                         <div
                             key={i}

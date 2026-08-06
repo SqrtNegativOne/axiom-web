@@ -32,8 +32,8 @@ function shuffle(arr) {
     return a
 }
 
-const BG = '#F8F4EC'
-const INK = '#1A1A18'
+const BG = 'var(--sor-bg, #F8F4EC)'
+const INK = 'var(--sor-ink, #1A1A18)'
 const MONO = "'IBM Plex Mono', 'Courier New', monospace"
 
 function Swatch({ color, size = 16 }) {
@@ -67,7 +67,7 @@ function SoritesBoard({ onNewGame }) {
     const [ans, setAns] = useState({})
 
     function toRGB(t) {
-        if (!favColour || !leastColour) return '#ccc'
+        if (!favColour || !leastColour) return 'var(--sor-subtle, #ccc)'
         return lerpRGB(favColour.rgb, leastColour.rgb, t)
     }
 
@@ -128,7 +128,7 @@ function SoritesBoard({ onNewGame }) {
                         style={{
                             fontSize: 10,
                             letterSpacing: '0.22em',
-                            color: '#999',
+                            color: 'var(--sor-muted, #999)',
                             textTransform: 'uppercase',
                             margin: '0 0 14px',
                         }}
@@ -153,7 +153,7 @@ function SoritesBoard({ onNewGame }) {
                     <p
                         style={{
                             fontSize: 12,
-                            color: '#888',
+                            color: 'var(--sor-muted, #888)',
                             lineHeight: 1.8,
                             margin: '0 0 36px',
                         }}
@@ -183,7 +183,7 @@ function SoritesBoard({ onNewGame }) {
                             <span
                                 style={{
                                     fontSize: 10,
-                                    color: '#aaa',
+                                    color: 'var(--sor-muted, #aaa)',
                                     letterSpacing: '0.1em',
                                     textTransform: 'uppercase',
                                 }}
@@ -255,7 +255,7 @@ function SoritesBoard({ onNewGame }) {
                         style={{
                             fontSize: 10,
                             letterSpacing: '0.22em',
-                            color: '#999',
+                            color: 'var(--sor-muted, #999)',
                             textTransform: 'uppercase',
                             margin: '0 0 14px',
                         }}
@@ -279,7 +279,7 @@ function SoritesBoard({ onNewGame }) {
                     <p
                         style={{
                             fontSize: 13,
-                            color: '#555',
+                            color: 'var(--sor-muted-dark, #555)',
                             lineHeight: 1.85,
                             margin: '0 0 12px',
                         }}
@@ -312,7 +312,7 @@ function SoritesBoard({ onNewGame }) {
                     <p
                         style={{
                             fontSize: 12,
-                            color: '#888',
+                            color: 'var(--sor-muted, #888)',
                             lineHeight: 1.8,
                             margin: '0 0 44px',
                         }}
@@ -366,7 +366,7 @@ function SoritesBoard({ onNewGame }) {
                             style={{
                                 flex: 1,
                                 height: 1,
-                                background: '#ddd',
+                                background: 'var(--sor-border, #ddd)',
                                 position: 'relative',
                             }}
                         >
@@ -385,7 +385,7 @@ function SoritesBoard({ onNewGame }) {
                         <span
                             style={{
                                 fontSize: 10,
-                                color: '#aaa',
+                                color: 'var(--sor-muted, #aaa)',
                                 whiteSpace: 'nowrap',
                             }}
                         >
@@ -438,7 +438,7 @@ function SoritesBoard({ onNewGame }) {
                         <p
                             style={{
                                 fontSize: 10,
-                                color: '#ccc',
+                                color: 'var(--sor-subtle, #ccc)',
                                 textAlign: 'center',
                                 marginTop: 20,
                                 letterSpacing: '0.1em',
@@ -538,7 +538,7 @@ function SoritesBoard({ onNewGame }) {
                         <p
                             style={{
                                 fontSize: 12,
-                                color: '#666',
+                                color: 'var(--sor-muted-dark, #666)',
                                 lineHeight: 1.85,
                                 margin: '0 0 36px',
                                 maxWidth: 440,
@@ -576,7 +576,7 @@ function SoritesBoard({ onNewGame }) {
                                 style={{
                                     fontSize: 10,
                                     letterSpacing: '0.15em',
-                                    color: '#999',
+                                    color: 'var(--sor-muted, #999)',
                                     textTransform: 'uppercase',
                                     margin: 0,
                                 }}
@@ -625,7 +625,7 @@ function SoritesBoard({ onNewGame }) {
                         style={{
                             fontSize: 10,
                             letterSpacing: '0.22em',
-                            color: '#999',
+                            color: 'var(--sor-muted, #999)',
                             textTransform: 'uppercase',
                             margin: '0 0 10px',
                         }}
@@ -673,8 +673,8 @@ function SoritesBoard({ onNewGame }) {
                                             ans[p.id] === true
                                                 ? INK
                                                 : ans[p.id] === false
-                                                  ? '#e0ddd6'
-                                                  : '#ccc',
+                                                  ? 'var(--sor-border-light, #e0ddd6)'
+                                                  : 'var(--sor-subtle, #ccc)',
                                     }}
                                 />
                             </div>
@@ -687,10 +687,10 @@ function SoritesBoard({ onNewGame }) {
                             marginBottom: 48,
                         }}
                     >
-                        <span style={{ fontSize: 10, color: '#999' }}>
+                        <span style={{ fontSize: 10, color: 'var(--sor-muted, #999)' }}>
                             ▲ {favName} ({favCount})
                         </span>
-                        <span style={{ fontSize: 10, color: '#bbb' }}>
+                        <span style={{ fontSize: 10, color: 'var(--sor-subtle-dark, #bbb)' }}>
                             ▲ not {favName} ({N - favCount})
                         </span>
                     </div>
@@ -793,7 +793,7 @@ function SoritesBoard({ onNewGame }) {
                                     />
                                     <span style={{ fontSize: 12 }}>
                                         position {firstNotFavIdx + 1}/{N} →{' '}
-                                        <strong style={{ color: '#888' }}>
+                                        <strong style={{ color: 'var(--sor-muted, #888)' }}>
                                             NOT {favName.toUpperCase()}
                                         </strong>
                                     </span>
@@ -802,7 +802,7 @@ function SoritesBoard({ onNewGame }) {
                                     style={{
                                         margin: 0,
                                         fontSize: 12,
-                                        color: '#aaa',
+                                        color: 'var(--sor-muted, #aaa)',
                                     }}
                                 >
                                     Gap: {firstNotFavIdx - lastFavIdx} step
@@ -823,7 +823,7 @@ function SoritesBoard({ onNewGame }) {
                                     fontSize: 11,
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.18em',
-                                    color: '#999',
+                                    color: 'var(--sor-muted, #999)',
                                     margin: '0 0 14px',
                                     fontFamily: MONO,
                                 }}
@@ -833,7 +833,7 @@ function SoritesBoard({ onNewGame }) {
                             <p
                                 style={{
                                     fontSize: 12,
-                                    color: '#666',
+                                    color: 'var(--sor-muted-dark, #666)',
                                     lineHeight: 1.9,
                                     margin: '0 0 20px',
                                 }}
@@ -897,7 +897,7 @@ function SoritesBoard({ onNewGame }) {
                                                     color:
                                                         ans[p.id] === false
                                                             ? '#b50000'
-                                                            : '#ccc',
+                                                            : 'var(--sor-subtle, #ccc)',
                                                     marginTop: 2,
                                                 }}
                                             >
@@ -950,7 +950,7 @@ function SoritesBoard({ onNewGame }) {
                             fontSize: 11,
                             textTransform: 'uppercase',
                             letterSpacing: '0.18em',
-                            color: '#999',
+                            color: 'var(--sor-muted, #999)',
                             margin: '0 0 20px',
                             fontFamily: MONO,
                         }}
@@ -1013,7 +1013,7 @@ function SoritesBoard({ onNewGame }) {
                             <p
                                 style={{
                                     fontSize: 12,
-                                    color: '#666',
+                                    color: 'var(--sor-muted-dark, #666)',
                                     margin: 0,
                                     lineHeight: 1.8,
                                 }}
@@ -1035,7 +1035,7 @@ function SoritesBoard({ onNewGame }) {
                             letterSpacing: '0.14em',
                             textTransform: 'uppercase',
                             cursor: 'pointer',
-                            color: '#666',
+                            color: 'var(--sor-muted-dark, #666)',
                             transition: 'all .15s',
                         }}
                         onMouseEnter={(e) => {
@@ -1043,8 +1043,8 @@ function SoritesBoard({ onNewGame }) {
                             e.currentTarget.style.color = INK
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = '#ccc'
-                            e.currentTarget.style.color = '#666'
+                            e.currentTarget.style.borderColor = 'var(--sor-subtle, #ccc)'
+                            e.currentTarget.style.color = 'var(--sor-muted-dark, #666)'
                         }}
                     >
                         Try again
@@ -1061,52 +1061,76 @@ export default function GameSorites() {
     const [gameKey, setGameKey] = useState(0)
 
     return (
-        <div className="pt-20 animate-on-load">
-            <SEO
-                title="Sorites — Philosophy Games"
-                path="/games/sorites"
-                description="Pick two colours, then classify 34 patches between them. Discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness."
-            />
-
-            {/* Header */}
-            <section className="max-w-2xl mx-auto px-6 py-10">
-                <div className="flex items-center gap-3 mb-6">
-                    <a
-                        href="/games"
-                        className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
-                    >
-                        ← Games
-                    </a>
-                    <span className="text-gold/30">/</span>
-                    <span className="font-mono text-xs tracking-widest uppercase text-ink/40">
-                        Sorites
-                    </span>
-                </div>
-
-                <p className="label-mono mb-3 text-gold">Experiment · 05</p>
-                <h1
-                    className="font-heading font-light text-green mb-4"
-                    style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
-                >
-                    Sorites
-                </h1>
-                <div className="h-px w-12 bg-gold/40 mb-5" />
-                <p className="font-body text-sm text-ink/60 leading-relaxed">
-                    The Sorites paradox asks: if removing one grain from a heap
-                    still leaves a heap, how can a heap ever become a non-heap?
-                    This experiment runs the same logic through your own colour
-                    preferences — and exposes the contradiction in your own
-                    judgements about vagueness and borderline cases.
-                </p>
-            </section>
-
-            {/* Game area */}
-            <section className="max-w-2xl mx-auto px-6 pb-20">
-                <SoritesBoard
-                    key={gameKey}
-                    onNewGame={() => setGameKey((k) => k + 1)}
+        <div className="pt-20 animate-on-load dark:bg-[#0E1A14] min-h-screen">
+            <style>{`
+                .sorites-wrapper {
+                    --sor-bg: #F8F4EC;
+                    --sor-ink: #1A1A18;
+                    --sor-muted: #888888;
+                    --sor-muted-dark: #555555;
+                    --sor-subtle: #cccccc;
+                    --sor-subtle-dark: #bbbbbb;
+                    --sor-border: #dddddd;
+                    --sor-border-light: #e0ddd6;
+                }
+                .dark .sorites-wrapper {
+                    --sor-bg: #0E1A14;
+                    --sor-ink: #DDD8CD;
+                    --sor-muted: #999999;
+                    --sor-muted-dark: #aaaaaa;
+                    --sor-subtle: #444444;
+                    --sor-subtle-dark: #555555;
+                    --sor-border: #333333;
+                    --sor-border-light: #222222;
+                }
+            `}</style>
+            <div className="sorites-wrapper">
+                <SEO
+                    title="Sorites — Philosophy Games"
+                    path="/games/sorites"
+                    description="Pick two colours, then classify 34 patches between them. Discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness."
                 />
-            </section>
+
+                {/* Header */}
+                <section className="max-w-2xl mx-auto px-6 py-10">
+                    <div className="flex items-center gap-3 mb-6">
+                        <a
+                            href="/games"
+                            className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
+                        >
+                            ← Games
+                        </a>
+                        <span className="text-gold/30">/</span>
+                        <span className="font-mono text-xs tracking-widest uppercase text-ink/40">
+                            Sorites
+                        </span>
+                    </div>
+
+                    <p className="label-mono mb-3 text-gold">Experiment · 05</p>
+                    <h1
+                        className="font-heading font-light text-green mb-4"
+                        style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
+                    >
+                        Sorites
+                    </h1>
+                    <div className="h-px w-12 bg-gold/40 mb-5" />
+                    <p className="font-body text-sm text-ink/60 leading-relaxed">
+                        The Sorites paradox asks: if removing one grain from a heap
+                        still leaves a heap, how can a heap ever become a non-heap?
+                        This experiment runs the same logic through your own colour
+                        preferences — and exposes the contradiction in your own
+                        judgements about vagueness and borderline cases.
+                    </p>
+                </section>
+
+                {/* Game area */}
+                <section className="max-w-2xl mx-auto px-6 pb-20">
+                    <SoritesBoard
+                        key={gameKey}
+                        onNewGame={() => setGameKey((k) => k + 1)}
+                    />
+                </section>
+            </div>
         </div>
     )
 }

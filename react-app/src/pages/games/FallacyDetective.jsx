@@ -86,9 +86,16 @@ export default function FallacyDetective() {
 
     const [phase, setPhase] = useState('intro') // intro | game | results | final
     const [curRound, setCurRound] = useState(0)
+    const [scores, setScores] = useState(() => {
+        try {
+            const stored = localStorage.getItem('fallacy-detective-scores')
+            return stored ? JSON.parse(stored) : {}
+        } catch {
+            return {}
+        }
+    })
     const [selectedSents, setSelectedSents] = useState(new Set())
     const [foundFallacies, setFoundFallacies] = useState(new Set())
-    const [totalFound, setTotalFound] = useState(0)
     const [selectedFallacyId, setSelectedFallacyId] = useState('')
     const [searchQuery, setSearchQuery] = useState('')
     const [showDropdown, setShowDropdown] = useState(false)
@@ -247,7 +254,6 @@ export default function FallacyDetective() {
             setFoundFallacies((prev) => new Set([...prev, target.idx]))
             setFoundSentSet((prev) => new Set([...prev, ...target.sis]))
             setFoundBadges((prev) => ({ ...prev, [target.sis[0]]: fname }))
-            setTotalFound((n) => n + 1)
             setSelectedSents(new Set())
             setFeedback({ type: 'ok', msg: `✓  ${fname} — ${target.expl}` })
             clearFallacy()
@@ -256,21 +262,24 @@ export default function FallacyDetective() {
 
     // ── Finish round ──────────────────────────────────────────────────────────
     function finishRound() {
+        const R_curr = rounds.current[curRound]
+        const count = foundFallacies.size
+        const total = R_curr.fallacies.length
+        const pct = total ? Math.round((count / total) * 100) : 0
+
+        setScores((prev) => {
+            const next = { ...prev, [curRound]: { found: count, total, pct } }
+            try {
+                localStorage.setItem('fallacy-detective-scores', JSON.stringify(next))
+            } catch (e) {}
+            return next
+        })
+
         setPhase('results')
         setCtrlOpen(false)
     }
 
-    function nextRound() {
-        if (curRound >= rounds.current.length - 1) {
-            setPhase('final')
-        } else {
-            startRound(curRound + 1)
-            setPhase('game')
-        }
-    }
-
     function restartGame() {
-        setTotalFound(0)
         startRound(0)
         setPhase('intro')
     }
@@ -280,11 +289,13 @@ export default function FallacyDetective() {
     const allFound = foundCount === R.fallacies.length
     const canSubmit = selectedSents.size > 0 && !!selectedFallacyId
     const selCount = selectedSents.size
+    
+    const overallFound = Object.values(scores).reduce((sum, s) => sum + s.found, 0)
     const totalFallacies = rounds.current.reduce(
         (s, r) => s + r.fallacies.length,
         0,
     )
-    const finalPct = Math.round((totalFound / totalFallacies) * 100)
+    const finalPct = Math.round((overallFound / totalFallacies) * 100)
 
     const roundPct = R.fallacies.length
         ? Math.round((foundCount / R.fallacies.length) * 100)
@@ -378,87 +389,105 @@ export default function FallacyDetective() {
                                 marginBottom: '2.5rem',
                             }}
                         >
-                            You'll receive a series of{' '}
-                            <strong style={{ color: '#f0e8d8' }}>
-                                case files
-                            </strong>{' '}
-                            — real-world documents laced with hidden logical
-                            fallacies. The number of fallacies in each document
-                            is unknown. Your job: find them, name them, close
-                            the case.
+                            Select a <strong style={{ color: '#f0e8d8' }}>case file</strong> below. They are real-world documents laced with hidden logical fallacies. Your job: find them, name them, close the case.
                         </p>
+
                         <div
                             className="fd-fade-4"
                             style={{
                                 display: 'grid',
-                                gridTemplateColumns: '1fr 1fr',
-                                gap: '.5rem 1.2rem',
-                                maxWidth: 460,
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                                gap: '1rem',
+                                maxWidth: 800,
+                                width: '100%',
                                 marginBottom: '2.5rem',
                                 textAlign: 'left',
                             }}
                         >
-                            {[
-                                [
-                                    '01',
-                                    'Click a sentence you suspect contains a fallacy',
-                                ],
-                                [
-                                    '02',
-                                    'Search for and select the fallacy type',
-                                ],
-                                ['03', 'Submit — get immediate feedback'],
-                                [
-                                    '04',
-                                    'Close the case when ready — you may miss some',
-                                ],
-                            ].map(([n, t]) => (
-                                <div
-                                    key={n}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'flex-start',
-                                        gap: '.5rem',
-                                        fontFamily: 'var(--ff-mono)',
-                                        fontSize: '.68rem',
-                                        lineHeight: 1.55,
-                                        color: 'rgba(240,232,216,.52)',
-                                    }}
-                                >
-                                    <span
+                            {rounds.current.map((r, i) => {
+                                const score = scores[i]
+                                return (
+                                    <div
+                                        key={i}
+                                        onClick={() => {
+                                            startRound(i)
+                                            setPhase('game')
+                                        }}
                                         style={{
-                                            color: '#c49a28',
-                                            fontWeight: 700,
-                                            flexShrink: 0,
+                                            background: 'var(--panel)',
+                                            border: '1px solid var(--border)',
+                                            padding: '1.2rem',
+                                            cursor: 'pointer',
+                                            transition: 'border-color 0.2s, background 0.2s',
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.borderColor = 'rgba(196,154,40,0.5)'
+                                            e.currentTarget.style.background = 'var(--panel2)'
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.borderColor = 'var(--border)'
+                                            e.currentTarget.style.background = 'var(--panel)'
                                         }}
                                     >
-                                        {n}
-                                    </span>
-                                    {t}
-                                </div>
-                            ))}
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '.5rem' }}>
+                                            <div style={{
+                                                fontFamily: 'var(--ff-mono)',
+                                                fontSize: '.62rem',
+                                                letterSpacing: '.15em',
+                                                textTransform: 'uppercase',
+                                                color: score ? (score.pct === 100 ? '#7fcf9f' : '#c49a28') : '#b83232',
+                                            }}>
+                                                {r.label}
+                                            </div>
+                                            {score && (
+                                                <div style={{
+                                                    fontFamily: 'var(--ff-mono)',
+                                                    fontSize: '.65rem',
+                                                    color: score.pct === 100 ? '#7fcf9f' : 'rgba(240,232,216,.6)',
+                                                    background: 'rgba(0,0,0,0.2)',
+                                                    padding: '.2rem .5rem',
+                                                    borderRadius: '2px',
+                                                }}>
+                                                    {score.pct}% ({score.found}/{score.total})
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div style={{ fontFamily: 'var(--ff-head)', fontSize: '1.2rem', color: 'var(--paper)', marginBottom: '.4rem', fontWeight: 700 }}>
+                                            {r.title}
+                                        </div>
+                                        <div style={{ fontSize: '.85rem', color: 'rgba(240,232,216,.5)', lineHeight: 1.4, fontStyle: 'italic', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                                            {r.context}
+                                        </div>
+                                    </div>
+                                )
+                            })}
                         </div>
-                        <button
-                            className="fd-clip fd-fade-5"
-                            onClick={() => {
-                                startRound(0)
-                                setPhase('game')
-                            }}
+                        
+                        <div
+                            className="fd-fade-5"
                             style={{
-                                fontFamily: 'var(--ff-mono)',
-                                fontSize: '.78rem',
-                                letterSpacing: '.18em',
-                                textTransform: 'uppercase',
-                                color: '#17140f',
-                                background: '#c49a28',
-                                border: 'none',
-                                padding: '.85rem 2.5rem',
-                                cursor: 'pointer',
-                                fontWeight: 700,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '1rem'
                             }}
                         >
-                            Open First Case File →
-                        </button>
+                            <button
+                                onClick={() => setPhase('final')}
+                                style={{
+                                    fontFamily: 'var(--ff-mono)',
+                                    fontSize: '.65rem',
+                                    letterSpacing: '.12em',
+                                    textTransform: 'uppercase',
+                                    color: 'rgba(240,232,216,.4)',
+                                    background: 'transparent',
+                                    border: '1px solid rgba(240,232,216,.15)',
+                                    padding: '.6rem 1rem',
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                View Final Assessment →
+                            </button>
+                        </div>
                     </div>
                 )}
 
@@ -513,7 +542,7 @@ export default function FallacyDetective() {
                                     letterSpacing: '.08em',
                                 }}
                             >
-                                Found: {totalFound}
+                                Found: {foundFallacies.size} / {R.fallacies.length}
                             </span>
                         </div>
 
@@ -1193,7 +1222,7 @@ export default function FallacyDetective() {
                                 }}
                             >
                                 <button
-                                    onClick={nextRound}
+                                    onClick={() => setPhase('intro')}
                                     className="fd-clip"
                                     style={{
                                         flex: 1,
@@ -1209,9 +1238,7 @@ export default function FallacyDetective() {
                                         fontWeight: 700,
                                     }}
                                 >
-                                    {curRound >= rounds.current.length - 1
-                                        ? 'View Final Results →'
-                                        : 'Next Case →'}
+                                    Return to Case Files →
                                 </button>
                             </div>
                         </div>
@@ -1302,7 +1329,7 @@ export default function FallacyDetective() {
                                     marginTop: '.35rem',
                                 }}
                             >
-                                {totalFound} of {totalFallacies} fallacies
+                                {overallFound} of {totalFallacies} fallacies
                                 identified
                             </div>
                             <div
@@ -1336,7 +1363,7 @@ export default function FallacyDetective() {
                                     : '"The fallacies outwitted you today. Try again."'}
                         </p>
                         <button
-                            onClick={restartGame}
+                            onClick={() => setPhase('intro')}
                             className="fd-clip"
                             style={{
                                 fontFamily: 'var(--ff-mono)',
@@ -1351,7 +1378,7 @@ export default function FallacyDetective() {
                                 fontWeight: 700,
                             }}
                         >
-                            Reopen All Cases
+                            Return to Case Files
                         </button>
                     </div>
                 )}

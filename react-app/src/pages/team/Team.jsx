@@ -8,21 +8,6 @@ import GalleryCarousel from '../../components/GalleryCarousel'
 import SectionDivider from '../../components/SectionDivider'
 import PullQuote from '../../components/PullQuote'
 
-const pillars = [
-    {
-        label: 'Mission',
-        text: 'To cultivate a culture of philosophical inquiry at NSUT. Regular, accessible spaces for rigorous yet welcoming dialogue on the deepest questions of human existence.',
-    },
-    {
-        label: 'Vision',
-        text: 'A university where critical thinking and philosophical reflection are part of everyday student life, preparing graduates who are not just skilled, but genuinely wise.',
-    },
-    {
-        label: 'Philosophy',
-        text: 'We believe every question deserves to be asked and every perspective deserves to be heard. We hold our certainties lightly and our curiosity firmly.',
-    },
-]
-
 export default function Team() {
     const [cpcClicked, setCpcClicked] = useState(false)
 
@@ -85,28 +70,6 @@ export default function Team() {
 
             <SectionDivider className="px-6 max-w-6xl mx-auto" />
 
-            {/* Mission / Vision / Philosophy */}
-            <section className="max-w-6xl mx-auto px-6 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {pillars.map(({ label, text }) => (
-                        <div
-                            key={label}
-                            className="bg-cream-dark p-8 relative overflow-hidden group"
-                        >
-                            <div className="absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" />
-                            <p className="label-mono mb-4 pl-4 text-gold">
-                                {label}
-                            </p>
-                            <p className="font-body text-sm text-ink/70 leading-relaxed pl-4">
-                                {text}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <SectionDivider className="px-6 max-w-6xl mx-auto" />
-
             {/* Origin story */}
             <section className="max-w-4xl mx-auto px-6 py-16">
                 <p className="label-mono mb-3">Our Story</p>
@@ -121,11 +84,11 @@ export default function Team() {
                                 fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)',
                             }}
                         >
-                            Axiom began with a small group of students who found
-                            themselves unsatisfied with purely technical
-                            conversations. They wanted to ask bigger questions —
-                            about ethics in technology, the nature of
-                            consciousness, what it means to live a good life.
+                            Like all great societies, Axiom had its genesis in a question.
+                            No one remembers what this question was, but it sparked a
+                            prarie fire that consumed our intellectual ennui,
+                            leaving only the legacy of curiosity in its wake.
+                            Something far greater than the true answer to the original question could have given us.
                         </p>
                         <p
                             className="font-body text-ink/70 leading-relaxed"
@@ -133,6 +96,7 @@ export default function Team() {
                                 fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)',
                             }}
                         >
+
                             What started as informal chai sessions in the NSUT
                             canteen gradually evolved into structured events,
                             philosophical walks, annual festivals, and
@@ -175,13 +139,10 @@ export default function Team() {
 
             <SectionDivider className="px-6 max-w-6xl mx-auto" />
 
-            {/* ── Core Team ────────────────────────────────────────────── */}
             <section className="max-w-6xl mx-auto px-6 py-16">
-                <p className="label-mono mb-3 text-center">The People</p>
-                <h2 className="section-heading text-center mb-3">Core Team</h2>
+                <h2 className="section-heading text-center mb-3">The Core</h2>
                 <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
-                    The leadership that steers Axiom — thinkers, organisers, and
-                    dedicated stewards of philosophical culture at NSUT.
+                    Dedicated stewards sworn to steer Axiom.
                 </p>
 
                 {core.map((group) => (
@@ -204,12 +165,10 @@ export default function Team() {
 
             <SectionDivider className="px-6 max-w-6xl mx-auto" />
 
-            {/* ── Members ──────────────────────────────────────────────── */}
             <section className="max-w-6xl mx-auto px-6 py-16">
-                <p className="label-mono mb-3 text-center">The Community</p>
                 <h2 className="section-heading text-center mb-3">Members</h2>
                 <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
-                    The heart and soul of Axiom — every voice matters.
+                    The reasoned foot-soldiers of Axiom.
                 </p>
                 <div className="flex flex-wrap justify-center gap-x-4 gap-y-6">
                     {members.map((member) => (
@@ -222,10 +181,9 @@ export default function Team() {
 
             <SectionDivider className="px-6 max-w-6xl mx-auto" />
 
-            {/* Alumni */}
             <section className="max-w-6xl mx-auto px-6 py-16">
                 <p className="label-mono mb-3 text-center">
-                    Those Who Came Before
+                    Emigrants of Omelas
                 </p>
                 <h2 className="section-heading text-center mb-3">Alumni</h2>
                 <p className="font-body text-ink/60 text-center mb-12 max-w-xl mx-auto">

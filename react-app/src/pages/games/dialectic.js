@@ -1,6 +1,6 @@
 export const DIALECTIC = [
     {
-        context: 'Berkeley → Materialism → Transcendental Idealism',
+        context: 'Berkeley (1710) → Materialism (18th c.) → Transcendental Idealism (1781)',
         thesis: '"To exist is to be perceived. Material objects have no existence independent of a mind that apprehends them. The so-called external world is a construction of ideas." — Berkeley',
         antitheses: [
             {
@@ -28,19 +28,22 @@ export const DIALECTIC = [
             {
                 text: "Hume's bundle theory: the self is just a bundle of perceptions with no underlying substance — neither mental nor material substance truly exists.",
                 correct: false,
+                explanation: "Hume's skepticism radicalized empiricism rather than resolving the contradiction between idealism and materialism, prompting Kant's synthesis."
             },
             {
                 text: "Spinoza's neutral monism: mind and matter are two attributes of a single infinite substance, neither reducible to the other.",
                 correct: false,
+                explanation: "Spinoza's monism preceded the Berkeley/Materialism debate and asserts a single substance, circumventing the epistemological problem rather than synthesizing it."
             },
             {
                 text: 'Pragmatism: the mind/matter debate is meaningless unless it produces practical consequences. Truth is what works.',
                 correct: false,
+                explanation: "Pragmatism sidesteps the metaphysical debate by focusing on practical consequences, dissolving rather than synthesizing the contradiction."
             },
         ],
     },
     {
-        context: 'Utilitarianism → Kantian Deontology → Virtue Ethics',
+        context: 'Utilitarianism (18th c.) → Kantian Deontology (1785) → Virtue Ethics (20th c.)',
         thesis: '"An action is right if and only if it produces the greatest happiness for the greatest number. Moral worth is determined entirely by consequences." — Bentham/Mill',
         antitheses: [
             {
@@ -68,19 +71,22 @@ export const DIALECTIC = [
             {
                 text: 'Contractualism: an action is wrong if its governing principle could not be justified to others on terms they could not reasonably reject.',
                 correct: false,
+                explanation: "Contractualism remains a rule-based system (like deontology) rather than moving beyond the rule/consequence binary to focus on character."
             },
             {
                 text: 'Moral particularism: no general principles apply universally — each situation must be evaluated entirely on its own morally relevant features.',
                 correct: false,
+                explanation: "Particularism rejects general principles entirely, failing to provide a systematic resolution to the conflict between duty and utility."
             },
             {
                 text: 'Moral realism: there are objective moral facts, discoverable empirically, that ground both duty and welfare.',
                 correct: false,
+                explanation: "Moral realism is a metaethical position about the nature of moral facts, not a normative theory that resolves the tension between consequences and duty."
             },
         ],
     },
     {
-        context: "Heraclitus → Parmenides → Aristotle's Hylomorphism",
+        context: "Heraclitus (6th c. BCE) → Parmenides (5th c. BCE) → Aristotle's Hylomorphism (4th c. BCE)",
         thesis: '"Everything flows; nothing is fixed. The same river cannot be stepped in twice. Stability is appearance; flux is the underlying reality." — Heraclitus',
         antitheses: [
             {
@@ -108,20 +114,23 @@ export const DIALECTIC = [
             {
                 text: "Plato's theory of Forms: the changing sensible world is mere appearance; the eternal, unchanging Forms are genuine reality.",
                 correct: false,
+                explanation: "Plato separates reality into two realms (being and becoming) rather than integrating them into a single account of physical change."
             },
             {
                 text: 'Stoic logos: flux is real, but the rational principle governing it is eternal and unchanging.',
                 correct: false,
+                explanation: "The Stoic logos focuses on rational order within flux, but does not provide a metaphysical mechanism for how substances persist through change."
             },
             {
                 text: "Whitehead's process philosophy: reality consists of events rather than substances. Events perish — genuine becoming without static substance.",
                 correct: false,
+                explanation: "Whitehead's event-based ontology aligns more closely with Heraclitean flux and abandons substance entirely, rather than synthesizing it with stability."
             },
         ],
     },
     {
         context:
-            'Cartesian Rationalism → Humean Empiricism → Kantian Critical Philosophy',
+            'Cartesian Rationalism (17th c.) → Humean Empiricism (18th c.) → Kantian Critical Philosophy (1781)',
         thesis: '"I think, therefore I am. Clear and distinct perception is the mark of truth. The mind contains innate ideas — of God, substance, and extension — that no sensory experience could produce. Knowledge is secured not by the senses, which deceive, but by pure reason operating on its own resources." — Descartes',
         antitheses: [
             {
@@ -149,19 +158,22 @@ export const DIALECTIC = [
             {
                 text: "Hegel's absolute idealism: both the rationalist subject and the empiricist object are abstractions from a single self-developing Absolute whose movement constitutes the whole of history and nature.",
                 correct: false,
+                explanation: "Hegel's idealism is a later development that historicizes the dialectic rather than serving as the immediate synthesis of early modern rationalism and empiricism."
             },
             {
                 text: 'Pragmatism: the debate between rationalism and empiricism is meaningless unless it produces a practical difference. Ideas are tools for action; their truth is their usefulness.',
                 correct: false,
+                explanation: "Pragmatism shifts the focus from epistemological certainty to practical utility, bypassing the foundationalist debate rather than resolving it."
             },
             {
                 text: 'Logical positivism: only statements verifiable by sensory experience are meaningful. Metaphysical claims of both rationalism and traditional empiricism are neither true nor false but nonsense.',
                 correct: false,
+                explanation: "Logical positivism radicalizes empiricism and dismisses rationalist metaphysics as meaningless, rather than synthesizing the two traditions."
             },
         ],
     },
     {
-        context: 'Libertarian Free Will → Hard Determinism → Compatibilism',
+        context: 'Libertarian Free Will (Antiquity) → Hard Determinism (19th c.) → Compatibilism (20th c.)',
         thesis: '"When I deliberate and choose, I am the uncaused originator of my own action. The will is not determined by prior causes in the way that billiard balls are. This capacity for genuine self-initiation is what makes praise, blame, and moral responsibility intelligible — and distinguishes persons from mechanisms." — Libertarian free will',
         antitheses: [
             {
@@ -189,20 +201,23 @@ export const DIALECTIC = [
             {
                 text: 'Existentialism (Sartre): we are condemned to be free. Even in a determined world, consciousness constitutes itself as a perpetual negation of what it is — freedom is the inescapable structure of subjectivity, not a metaphysical property of the will.',
                 correct: false,
+                explanation: "Existentialism asserts radical freedom, functioning more as a defense of libertarian subjectivity than a reconciliation with causal laws."
             },
             {
                 text: 'Hard incompatibilism: since determinism and genuine agency are irreconcilable, and since determinism is true, we must abandon the reactive attitudes — praise, blame, gratitude, resentment — in favour of a purely forward-looking, consequentialist response to behaviour.',
                 correct: false,
+                explanation: "Hard incompatibilism accepts the contradiction and concludes that moral responsibility is impossible, rather than resolving the tension."
             },
             {
                 text: 'Agent causation theory: persons are irreducible causal agents who initiate chains of events by rational deliberation. This preserves libertarian freedom within a naturalistic framework by positing a distinct causal category — agent causation — alongside event causation.',
                 correct: false,
+                explanation: "Agent causation is a defense of libertarianism that posits a special kind of cause, rather than reconciling ordinary causal determinism with freedom."
             },
         ],
     },
     {
         context:
-            'Ancient Atomism → Aristotelian Teleology → Modern Mechanistic Science',
+            'Ancient Atomism (5th c. BCE) → Aristotelian Teleology (4th c. BCE) → Modern Mechanistic Science (17th c.)',
         thesis: '"Everything is made of indivisible atoms moving through void. There is no purpose in nature, no divine craftsman, no final causes. What we call order — stars, organisms, minds — arises from the mechanical collision and aggregation of particles. All apparent design is chance arrangement." — Democritus/Leucippus',
         antitheses: [
             {
@@ -230,20 +245,23 @@ export const DIALECTIC = [
             {
                 text: "Darwin's natural selection: teleological language — 'organs are for functions' — is retained but reinterpreted. Functions are not intrinsic purposes but the product of selection history. Purpose re-enters biology without any designer.",
                 correct: false,
+                explanation: "Darwin provided a mechanism for biological adaptation, which addresses specific organic complexity rather than the general physical synthesis of the Scientific Revolution."
             },
             {
                 text: 'Kantian regulative teleology: we cannot know whether nature has genuine final causes, but we must represent organisms as if purposive in order to understand them. Teleology is a necessary heuristic, not a metaphysical claim.',
                 correct: false,
+                explanation: "Kant's approach is an epistemological stance on how we must study organisms, not the ontological framework that synthesized atomic mechanism and predictive power."
             },
             {
                 text: "Whitehead's process philosophy: both atomism and teleology are partial truths. Reality consists of events that have both a mechanical past-inheritance and a purposive self-creative advance. Organisms and cosmology require both notions.",
                 correct: false,
+                explanation: "Process philosophy is a 20th-century reaction against mechanistic science, attempting to reintroduce organismic thinking, not the historical synthesis that followed Aristotelianism."
             },
         ],
     },
     {
         context:
-            'Liberal Individualism → Communitarian Critique → Rawlsian Justice',
+            'Liberal Individualism (17th c.) → Communitarian Critique (1980s) → Rawlsian Justice (1993)',
         thesis: '"Individuals have natural rights — to life, liberty, and estate — prior to and independent of any social arrangement. Society is constituted by the voluntary consent of pre-social individuals to protect these rights. The state has no authority to impose a conception of the good; persons are free to pursue their own ends." — Locke/Nozick',
         antitheses: [
             {
@@ -271,14 +289,17 @@ export const DIALECTIC = [
             {
                 text: "Habermas's discourse ethics: just norms are those that all affected parties could accept in an ideal rational discourse. Neither individual rights nor community traditions are foundational; legitimacy derives from the procedures of public reasoning.",
                 correct: false,
+                explanation: "Habermas focuses on procedural rationality and communicative action, which is a different structural response to modernity rather than Rawls' direct synthesis of rights and structural fairness."
             },
             {
                 text: 'The capabilities approach (Sen/Nussbaum): justice requires securing a threshold of human capabilities for all — not just rights or welfare, but the real freedom to live a dignified life. Communities provide context; the individual remains the ultimate norm.',
                 correct: false,
+                explanation: "The capabilities approach is a refinement and critique of Rawlsian primary goods, coming after Rawls' initial synthesis."
             },
             {
                 text: "Communitarianism wins: Rawls's veil of ignorance is incoherent because a self stripped of all particular attachments has no basis for any choice. Justice can only be worked out from within a shared tradition.",
                 correct: false,
+                explanation: "This simply asserts the victory of the antithesis, failing to achieve a synthesis that preserves the insights of liberal individualism."
             },
         ],
     },
