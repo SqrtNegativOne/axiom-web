@@ -139,7 +139,7 @@ export default function ArgumentReconstruction() {
     if (done) {
         return (
             <div style={T.root}>
-                <SEO title="Argument Reconstruction | Axiom Games" />
+                <SEO title="Argument Reconstruction" />
                 <div style={T.doneCard}>
                     <div style={T.doneStamp}>§</div>
                     <div style={T.doneTitle}>All Arguments Reconstructed</div>
@@ -153,7 +153,7 @@ export default function ArgumentReconstruction() {
 
     return (
         <div style={T.root}>
-            <SEO title="Argument Reconstruction | Axiom Games" />
+            <SEO title="Argument Reconstruction" />
             <div style={T.header}>
                 <span style={T.brand}>ARGUMENT RECONSTRUCTION</span>
                 <span style={T.score}>{score} pts</span>

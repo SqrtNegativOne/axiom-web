@@ -15,7 +15,7 @@ function shuffle(arr) {
     return b
 }
 
-function OptionButton({ text, result, pending, onClick, disabled }) {
+function OptionButton({ text, explanation, result, onClick, disabled }) {
     let className =
         'w-full text-left px-4 py-3 rounded-lg border font-body text-sm leading-relaxed transition-all duration-150 '
 
@@ -27,9 +27,6 @@ function OptionButton({ text, result, pending, onClick, disabled }) {
     } else if (result === 'reveal') {
         className +=
             'bg-green/5 dark:bg-green/10 border-green/30 text-ink/80 cursor-default italic'
-    } else if (pending) {
-        className +=
-            'border-gold/80 bg-cream-dark text-ink cursor-pointer ring-1 ring-gold/40'
     } else if (disabled) {
         className += 'border-ink/20 text-ink/40 cursor-default'
     } else {
@@ -51,10 +48,15 @@ function OptionButton({ text, result, pending, onClick, disabled }) {
             )}
             {result === 'reveal' && (
                 <span className="font-mono text-xs text-green/60 tracking-widest uppercase block mb-1">
-                    This was the antithesis
+                    Correct Answer
                 </span>
             )}
-            {text}
+            <div>{text}</div>
+            {result === 'wrong' && explanation && (
+                <div className="mt-2 pt-2 border-t border-terracotta/20 text-ink/80 text-sm">
+                    {explanation}
+                </div>
+            )}
         </button>
     )
 }
@@ -63,73 +65,46 @@ function GameBoard({ puzzle, onNewGame }) {
     const [antitheses] = useState(() => shuffle(puzzle.antitheses))
     const [syntheses] = useState(() => shuffle(puzzle.syntheses))
 
-    const [stage, setStage] = useState(1) // 1 or 2
-    const [aAttempts, setAAttempts] = useState(0)
-    const [aResult, setAResult] = useState(null) // {idx, correct, revealIdx?}
-    const [sAttempts, setSAttempts] = useState(0)
-    const [sResult, setSResult] = useState(null)
-    const [status, setStatus] = useState('playing')
-    const [pendingA, setPendingA] = useState(null) // idx | null
-    const [pendingS, setPendingS] = useState(null) // idx | null
+    const [aAttempts, setAAttempts] = useState([])
+    const [sAttempts, setSAttempts] = useState([])
+
+    const aCorrectIdx = antitheses.findIndex((a) => a.correct)
+    const aSuccess = aAttempts.includes(aCorrectIdx)
+    const aFailed = !aSuccess && aAttempts.length >= 2
+    const stage = aSuccess || aFailed ? 2 : 1
+
+    const sCorrectIdx = syntheses.findIndex((s) => s.correct)
+    const sSuccess = sAttempts.includes(sCorrectIdx)
+    const sFailed = !sSuccess && sAttempts.length >= 2
+    const status = sSuccess ? 'win' : sFailed ? 'lose' : 'playing'
 
     function pickAntithesis(idx) {
-        if (stage !== 1 || aResult?.correct || aResult?.revealIdx !== undefined)
-            return
-        setPendingA(idx)
-    }
-
-    function submitAntithesis() {
-        const idx = pendingA
-        if (idx === null) return
-        setPendingA(null)
-        const correct = antitheses[idx].correct
-        const newAttempts = aAttempts + 1
-        setAAttempts(newAttempts)
-
-        if (correct) {
-            setAResult({ idx, correct: true })
-            setStage(2)
-        } else if (newAttempts >= 2) {
-            const revealIdx = antitheses.findIndex((a) => a.correct)
-            setAResult({ idx, correct: false, revealIdx })
-            setStage(2)
-        } else {
-            setAResult({ idx, correct: false })
-        }
+        if (stage !== 1 || aAttempts.includes(idx)) return
+        setAAttempts((prev) => [...prev, idx])
     }
 
     function pickSynthesis(idx) {
-        if (stage !== 2 || status !== 'playing') return
-        setPendingS(idx)
-    }
-
-    function submitSynthesis() {
-        const idx = pendingS
-        if (idx === null) return
-        setPendingS(null)
-        const correct = syntheses[idx].correct
-        const newAttempts = sAttempts + 1
-        setSAttempts(newAttempts)
-        setSResult({ idx, correct })
-        if (correct) setStatus('win')
-        else if (newAttempts >= 2) setStatus('lose')
+        if (stage !== 2 || status !== 'playing' || sAttempts.includes(idx)) return
+        setSAttempts((prev) => [...prev, idx])
     }
 
     function getAntithesisResult(idx) {
-        if (!aResult) return null
-        if (aResult.correct && aResult.idx === idx) return 'correct'
-        if (!aResult.correct) {
-            if (aResult.idx === idx) return 'wrong'
-            if (aResult.revealIdx === idx) return 'reveal'
+        if (aAttempts.includes(idx)) {
+            return idx === aCorrectIdx ? 'correct' : 'wrong'
+        }
+        if (aFailed && idx === aCorrectIdx) {
+            return 'reveal'
         }
         return null
     }
 
     function getSynthesisResult(idx) {
-        if (!sResult) return null
-        const correct = syntheses[idx].correct
-        if (sResult.idx === idx) return sResult.correct ? 'correct' : 'wrong'
-        if (status !== 'playing' && correct) return 'reveal'
+        if (sAttempts.includes(idx)) {
+            return idx === sCorrectIdx ? 'correct' : 'wrong'
+        }
+        if (sFailed && idx === sCorrectIdx) {
+            return 'reveal'
+        }
         return null
     }
 
@@ -195,41 +170,13 @@ function GameBoard({ puzzle, onNewGame }) {
                         <OptionButton
                             key={i}
                             text={a.text}
+                            explanation={a.explanation}
                             result={getAntithesisResult(i)}
-                            pending={
-                                pendingA === i &&
-                                !aResult?.correct &&
-                                aResult?.revealIdx === undefined
-                            }
                             onClick={() => pickAntithesis(i)}
-                            disabled={
-                                stage !== 1 ||
-                                aResult?.correct ||
-                                aResult?.revealIdx !== undefined
-                            }
+                            disabled={stage !== 1}
                         />
                     ))}
                 </div>
-                {aResult && !aResult.correct && stage === 1 && (
-                    <div className="mt-3 bg-terracotta/10 dark:bg-terracotta/20 border border-terracotta/20 rounded-md p-3 animate-slide-up">
-                        <p className="font-body text-sm font-semibold text-terracotta mb-1">
-                            Not quite — one more attempt.
-                        </p>
-                        {antitheses[aResult.idx]?.explanation && (
-                            <p className="font-body text-sm text-ink/80 leading-relaxed">
-                                {antitheses[aResult.idx].explanation}
-                            </p>
-                        )}
-                    </div>
-                )}
-                {stage === 1 && pendingA !== null && (
-                    <button
-                        onClick={submitAntithesis}
-                        className="mt-3 px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150"
-                    >
-                        Submit
-                    </button>
-                )}
             </div>
 
             {/* Stage 2: Synthesis (shown only when antithesis is done) */}
@@ -246,33 +193,13 @@ function GameBoard({ puzzle, onNewGame }) {
                             <OptionButton
                                 key={i}
                                 text={s.text}
+                                explanation={s.explanation}
                                 result={getSynthesisResult(i)}
-                                pending={pendingS === i && status === 'playing'}
                                 onClick={() => pickSynthesis(i)}
                                 disabled={status !== 'playing'}
                             />
                         ))}
                     </div>
-                    {sResult && !sResult.correct && status === 'playing' && (
-                        <div className="mt-3 bg-terracotta/10 dark:bg-terracotta/20 border border-terracotta/20 rounded-md p-3 animate-slide-up">
-                            <p className="font-body text-sm font-semibold text-terracotta mb-1">
-                                Not quite — one more attempt.
-                            </p>
-                            {syntheses[sResult.idx]?.explanation && (
-                                <p className="font-body text-sm text-ink/80 leading-relaxed">
-                                    {syntheses[sResult.idx].explanation}
-                                </p>
-                            )}
-                        </div>
-                    )}
-                    {status === 'playing' && pendingS !== null && (
-                        <button
-                            onClick={submitSynthesis}
-                            className="mt-3 px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150"
-                        >
-                            Submit
-                        </button>
-                    )}
                 </div>
             )}
 
@@ -306,13 +233,6 @@ function GameBoard({ puzzle, onNewGame }) {
                     <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-2">
                         Attempts exhausted
                     </p>
-                    {sResult && !sResult.correct && syntheses[sResult.idx]?.explanation && (
-                        <div className="mb-3 pb-3 border-b border-terracotta/20">
-                            <p className="font-body text-sm text-ink/80 leading-relaxed">
-                                {syntheses[sResult.idx].explanation}
-                            </p>
-                        </div>
-                    )}
                     <p className="font-body text-sm text-ink/65 leading-relaxed">
                         The correct synthesis is highlighted above. The full
                         movement:{' '}
@@ -349,7 +269,7 @@ export default function GameDialectic() {
     return (
         <div className="pt-20 animate-on-load">
             <SEO
-                title="Dialectic — Philosophy Games"
+                title="Dialectic"
                 path="/games/dialectic"
                 description="Match a philosophical thesis to its historical antithesis, then identify the synthesis that resolved the contradiction."
             />
