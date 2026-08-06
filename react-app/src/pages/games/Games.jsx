@@ -107,6 +107,12 @@ const games = [
         desc: 'A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction, tracing the actual movement of Western thought.',
     },
     {
+        path: '/games/negative-dialectic',
+        eyebrow: 'Critique',
+        title: 'Negative Dialectic',
+        desc: 'Dismantle a false historical synthesis by predicting its residual—the marginalized reality it represses or fails to capture.',
+    },
+    {
         path: '/games/sorites',
         eyebrow: 'Experiment',
         title: 'Sorites',

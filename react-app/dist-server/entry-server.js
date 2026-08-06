@@ -148,7 +148,7 @@ function NavBar() {
                 "a",
                 {
                   href: to,
-                  className: `font-body text-sm tracking-wider uppercase transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 ${pathname === to ? "text-terracotta after:scale-x-100" : "text-green hover:text-green"}`,
+                  className: `font-body text-sm tracking-wider uppercase transition-colors duration-200 ${pathname === to ? "text-terracotta" : "text-green hover:text-green relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gold after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100"}`,
                   children: label
                 }
               ) }, to) : /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
@@ -2449,36 +2449,8 @@ const teams = {
 function TeamByYear() {
   const { year } = useParams();
   const teamData = teams[year];
-  const nextYear = parseInt(year) + 1;
-  const prevYear = parseInt(year) - 1;
-  if (year === "2023") {
-    return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
-      /* @__PURE__ */ jsx(
-        SEO,
-        {
-          title: "Previous Leadership — 2023",
-          path: "/team/2023",
-          description: "The 2023 executive committee and members of Axiom, the philosophy society at NSUT.",
-          noindex: true
-        }
-      ),
-      /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-16 text-center", children: [
-        /* @__PURE__ */ jsx("p", { className: "label-mono mb-4", children: "Those Who Came Before" }),
-        /* @__PURE__ */ jsx("h1", { className: "section-heading mb-6", children: "Previous Leadership" }),
-        /* @__PURE__ */ jsx("div", { className: "h-px w-16 bg-gold/50 mx-auto mb-8" }),
-        /* @__PURE__ */ jsx("h2", { className: "font-heading text-green font-light text-3xl mb-8", children: "Team 2023" }),
-        /* @__PURE__ */ jsx("p", { className: "font-mono text-gold/70 tracking-widest text-sm", children: "NO DATA AVAILABLE" })
-      ] }),
-      /* @__PURE__ */ jsx("section", { className: "max-w-4xl mx-auto px-6 py-8 text-center", children: /* @__PURE__ */ jsx(
-        "a",
-        {
-          href: "/team/2024",
-          className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
-          children: "← Team 2024"
-        }
-      ) })
-    ] });
-  }
+  const nextYear = (parseInt(year) + 1).toString();
+  const prevYear = (parseInt(year) - 1).toString();
   if (!teamData) {
     return /* @__PURE__ */ jsx("div", { className: "pt-20 animate-on-load min-h-[60vh] flex items-center justify-center", children: /* @__PURE__ */ jsxs("div", { className: "text-center", children: [
       /* @__PURE__ */ jsx("h2", { className: "font-mono text-gold mb-4 text-xl", children: "404: TEAM NOT FOUND" }),
@@ -2489,13 +2461,12 @@ function TeamByYear() {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: `Previous Leadership — ${year}`,
+        title: `Team ${year}`,
         path: `/team/${year}`,
         description: `The ${year} executive committee and members of Axiom, the philosophy society at NSUT.`
       }
     ),
     /* @__PURE__ */ jsxs("section", { className: "max-w-6xl mx-auto px-6 py-16", children: [
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-center", children: "Previous Leadership" }),
       /* @__PURE__ */ jsxs("h2", { className: "section-heading text-center mb-3", children: [
         "Team ",
         year
@@ -2523,14 +2494,7 @@ function TeamByYear() {
       ] }, group.role))
     ] }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-8 flex justify-center gap-8", children: [
-      year === "2025" ? /* @__PURE__ */ jsx(
-        "a",
-        {
-          href: "/team",
-          className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
-          children: "← Back to current team"
-        }
-      ) : /* @__PURE__ */ jsxs(
+      /* @__PURE__ */ jsxs(
         "a",
         {
           href: `/team/${nextYear}`,
@@ -2889,6 +2853,12 @@ const games = [
     desc: "A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction, tracing the actual movement of Western thought."
   },
   {
+    path: "/games/negative-dialectic",
+    eyebrow: "Critique",
+    title: "Negative Dialectic",
+    desc: "Dismantle a false historical synthesis by predicting its residual—the marginalized reality it represses or fails to capture."
+  },
+  {
     path: "/games/sorites",
     eyebrow: "Experiment",
     title: "Sorites",
@@ -2952,18 +2922,18 @@ function Games() {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Philosophy Games",
+        title: "Games",
         path: "/games",
         description: "Interactive philosophy games: guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought."
       }
     ),
     /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-6 text-center", children: [
       /* @__PURE__ */ jsx("p", { className: "label-mono mb-3", children: "Play & Think" }),
-      /* @__PURE__ */ jsx("h1", { className: "section-heading mb-3", children: "Philosophy Games" }),
+      /* @__PURE__ */ jsx("h1", { className: "section-heading mb-3", children: "Games" }),
       /* @__PURE__ */ jsx("div", { className: "h-px w-16 bg-gold/50 mx-auto mb-3" })
     ] }),
-    /* @__PURE__ */ jsx("section", { className: "max-w-6xl mx-auto px-6 py-16", children: /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: games.map(({ path, href, eyebrow, title, desc }) => {
-      const cardClass = "group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 transition-all duration-300";
+    /* @__PURE__ */ jsx("section", { className: "max-w-6xl mx-auto px-6 pt-6 pb-16", children: /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6", children: games.map(({ path, href, eyebrow, title, desc }) => {
+      const cardClass = "group block bg-cream-dark border border-gold/20 rounded-lg p-6 relative overflow-hidden hover:border-gold/50 transition-all duration-300";
       const cardInner = /* @__PURE__ */ jsxs(Fragment, { children: [
         /* @__PURE__ */ jsx("div", { className: "absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" }),
         /* @__PURE__ */ jsxs("div", { className: "pl-4", children: [
@@ -2973,7 +2943,7 @@ function Games() {
             {
               className: "font-heading font-light text-green mb-3 group-hover:text-terracotta transition-colors duration-200",
               style: {
-                fontSize: "clamp(1.5rem, 2.5vw, 2rem)"
+                fontSize: "clamp(1.25rem, 2vw, 1.75rem)"
               },
               children: title
             }
@@ -3006,52 +2976,52 @@ function Games() {
               return /* @__PURE__ */ jsxs(
                 "div",
                 {
-                  className: "py-5 group",
+                  className: "py-5 group relative",
                   children: [
-                    /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-4 mb-1.5", children: [
-                      linkList.length === 1 ? /* @__PURE__ */ jsx(
-                        "a",
-                        {
-                          href: linkList[0].url,
-                          target: "_blank",
-                          rel: "noopener noreferrer",
-                          className: "font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0",
-                          style: {
-                            fontSize: "clamp(1rem, 1.5vw, 1.15rem)"
-                          },
-                          children: title
-                        }
-                      ) : /* @__PURE__ */ jsx(
-                        "span",
-                        {
-                          className: "font-heading font-light text-green min-w-0",
-                          style: {
-                            fontSize: "clamp(1rem, 1.5vw, 1.15rem)"
-                          },
-                          children: title
-                        }
-                      ),
-                      /* @__PURE__ */ jsx("div", { className: "flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1", children: linkList.map(
-                        ({
-                          url: lu,
-                          domain: ld
-                        }) => /* @__PURE__ */ jsxs(
-                          "a",
+                    /* @__PURE__ */ jsx(
+                      "a",
+                      {
+                        href: linkList[0].url,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        className: "absolute -inset-x-4 inset-y-0 z-0 rounded-xl hover:bg-ink/5 dark:hover:bg-cream/5 transition-colors",
+                        "aria-label": title
+                      }
+                    ),
+                    /* @__PURE__ */ jsxs("div", { className: "relative z-10 pointer-events-none", children: [
+                      /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-4 mb-1.5", children: [
+                        /* @__PURE__ */ jsx(
+                          "span",
                           {
-                            href: lu,
-                            target: "_blank",
-                            rel: "noopener noreferrer",
-                            className: "font-mono text-xs text-gold/50 hover:text-gold whitespace-nowrap transition-colors duration-150",
-                            children: [
-                              ld,
-                              " ↗"
-                            ]
-                          },
-                          lu
-                        )
-                      ) })
-                    ] }),
-                    /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/55 leading-relaxed", children: desc })
+                            className: "font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0",
+                            style: {
+                              fontSize: "clamp(1rem, 1.5vw, 1.15rem)"
+                            },
+                            children: title
+                          }
+                        ),
+                        /* @__PURE__ */ jsx("div", { className: "flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1 pointer-events-auto", children: linkList.map(
+                          ({
+                            url: lu,
+                            domain: ld
+                          }) => /* @__PURE__ */ jsxs(
+                            "a",
+                            {
+                              href: lu,
+                              target: "_blank",
+                              rel: "noopener noreferrer",
+                              className: "font-mono text-xs text-gold/50 hover:text-gold whitespace-nowrap transition-colors duration-150",
+                              children: [
+                                ld,
+                                " ↗"
+                              ]
+                            },
+                            lu
+                          )
+                        ) })
+                      ] }),
+                      /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/55 leading-relaxed", children: desc })
+                    ] })
                   ]
                 },
                 linkList[0].url
@@ -3062,27 +3032,36 @@ function Games() {
         /* @__PURE__ */ jsxs("div", { children: [
           /* @__PURE__ */ jsx("p", { className: "label-mono text-gold mb-5", children: "External Games" }),
           /* @__PURE__ */ jsx("div", { className: "space-y-0 divide-y divide-gold/12", children: externalGames.map(
-            ({ title, url, domain, desc }) => /* @__PURE__ */ jsxs("div", { className: "py-5 group", children: [
-              /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-4 mb-1.5", children: [
-                /* @__PURE__ */ jsx(
-                  "a",
-                  {
-                    href: url,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className: "font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0",
-                    style: {
-                      fontSize: "clamp(1rem, 1.5vw, 1.15rem)"
-                    },
-                    children: title
-                  }
-                ),
-                /* @__PURE__ */ jsxs("span", { className: "font-mono text-xs text-gold/50 whitespace-nowrap pt-1", children: [
-                  domain,
-                  " ↗"
-                ] })
-              ] }),
-              /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/55 leading-relaxed", children: desc })
+            ({ title, url, domain, desc }) => /* @__PURE__ */ jsxs("div", { className: "py-5 group relative", children: [
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: url,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  className: "absolute -inset-x-4 inset-y-0 z-0 rounded-xl hover:bg-ink/5 dark:hover:bg-cream/5 transition-colors",
+                  "aria-label": title
+                }
+              ),
+              /* @__PURE__ */ jsxs("div", { className: "relative z-10 pointer-events-none", children: [
+                /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-4 mb-1.5", children: [
+                  /* @__PURE__ */ jsx(
+                    "span",
+                    {
+                      className: "font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0",
+                      style: {
+                        fontSize: "clamp(1rem, 1.5vw, 1.15rem)"
+                      },
+                      children: title
+                    }
+                  ),
+                  /* @__PURE__ */ jsxs("span", { className: "font-mono text-xs text-gold/50 whitespace-nowrap pt-1", children: [
+                    domain,
+                    " ↗"
+                  ] })
+                ] }),
+                /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/55 leading-relaxed", children: desc })
+              ] })
             ] }, url)
           ) })
         ] })
@@ -3256,10 +3235,10 @@ const HERMENEUTIC_HARD = [
     ]
   }
 ];
-function rand$4(arr) {
+function rand$5(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
-function GameBoard$4({ puzzle, onNewGame }) {
+function GameBoard$5({ puzzle, onNewGame }) {
   const [shown, setShown] = useState(1);
   const [guesses, setGuesses] = useState([]);
   const [status, setStatus] = useState("playing");
@@ -3416,25 +3395,25 @@ function GameHermeneutic() {
   const [difficulty, setDifficulty] = useState("easy");
   const [gameKey, setGameKey] = useState(0);
   const [currentPuzzle, setCurrentPuzzle] = useState(
-    () => rand$4(HERMENEUTIC_EASY)
+    () => rand$5(HERMENEUTIC_EASY)
   );
   function handleNewGame() {
     const pool = difficulty === "easy" ? HERMENEUTIC_EASY : HERMENEUTIC_HARD;
-    setCurrentPuzzle(rand$4(pool));
+    setCurrentPuzzle(rand$5(pool));
     setGameKey((k) => k + 1);
   }
   function handleDifficulty(next) {
     if (next === difficulty) return;
     setDifficulty(next);
     const pool = next === "easy" ? HERMENEUTIC_EASY : HERMENEUTIC_HARD;
-    setCurrentPuzzle(rand$4(pool));
+    setCurrentPuzzle(rand$5(pool));
     setGameKey((k) => k + 1);
   }
   return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Hermeneutic —",
+        title: "Hermeneutic",
         path: "/games/hermeneutic",
         description: "Guess the philosophical term from progressively revealing clues. Each wrong answer unveils another layer of context."
       }
@@ -3472,7 +3451,7 @@ function GameHermeneutic() {
       ] })
     ] }),
     /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 pb-20", children: /* @__PURE__ */ jsx(
-      GameBoard$4,
+      GameBoard$5,
       {
         puzzle: currentPuzzle,
         onNewGame: handleNewGame
@@ -3583,7 +3562,7 @@ const EPOCHE = [
     note: "A synthetic empirical generalisation from comparative politics, not a conceptual truth. Its justification rests on the historical record — verifiable data on regime longevity. Contingent because the causal mechanisms could in principle fail; it is an inductive claim about tendencies, not a statement of logical necessity."
   }
 ];
-function rand$3(arr) {
+function rand$4(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 const AXIS_OPTIONS = {
@@ -3691,7 +3670,7 @@ function getButtonClass(status, hasResult, isSelected, axisCorrect, isCorrectAns
   }
   return btnClass;
 }
-function GameBoard$3({ puzzle, onNewGame }) {
+function GameBoard$4({ puzzle, onNewGame }) {
   const axes = Object.keys(puzzle.axes);
   const [sel, setSel] = useState(
     () => Object.fromEntries(axes.map((a) => [a, null]))
@@ -3833,16 +3812,16 @@ function GameBoard$3({ puzzle, onNewGame }) {
 }
 function GameEpoche() {
   const [gameKey, setGameKey] = useState(0);
-  const [currentPuzzle, setCurrentPuzzle] = useState(() => rand$3(EPOCHE));
+  const [currentPuzzle, setCurrentPuzzle] = useState(() => rand$4(EPOCHE));
   function handleNewGame() {
-    setCurrentPuzzle(rand$3(EPOCHE));
+    setCurrentPuzzle(rand$4(EPOCHE));
     setGameKey((k) => k + 1);
   }
   return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Époche —",
+        title: "Époche",
         path: "/games/epoche",
         description: "Classify a philosophical proposition across four axes: analytic/synthetic, a priori/a posteriori, necessary/contingent, descriptive/normative."
       }
@@ -3860,7 +3839,7 @@ function GameEpoche() {
       /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-widest uppercase text-ink/40", children: "Époche" })
     ] }) }),
     /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 pb-20", children: /* @__PURE__ */ jsx(
-      GameBoard$3,
+      GameBoard$4,
       {
         puzzle: currentPuzzle,
         onNewGame: handleNewGame
@@ -4174,7 +4153,7 @@ const FALLACY_OPTS = [
   }
 ];
 const MAX_GUESSES = 4;
-function rand$2(arr) {
+function rand$3(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 const RESULT_STYLES = {
@@ -4213,7 +4192,7 @@ const RESULT_STYLES = {
     dot: "#C4704F"
   }
 };
-function GameBoard$2({ puzzle, onNewGame }) {
+function GameBoard$3({ puzzle, onNewGame }) {
   const [guesses, setGuesses] = useState([]);
   const [status, setStatus] = useState("playing");
   function handlePick(i) {
@@ -4320,16 +4299,16 @@ function GameBoard$2({ puzzle, onNewGame }) {
 }
 function GameFallacy() {
   const [gameKey, setGameKey] = useState(0);
-  const [currentPuzzle, setCurrentPuzzle] = useState(() => rand$2(FALLACY));
+  const [currentPuzzle, setCurrentPuzzle] = useState(() => rand$3(FALLACY));
   function handleNewGame() {
-    setCurrentPuzzle(rand$2(FALLACY));
+    setCurrentPuzzle(rand$3(FALLACY));
     setGameKey((k) => k + 1);
   }
   return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Fallacy —",
+        title: "Fallacy",
         path: "/games/fallacy",
         description: "Identify the logical fallacy in a philosophical argument. Hints reveal whether your guess shares the right family or class."
       }
@@ -4347,7 +4326,7 @@ function GameFallacy() {
       /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-widest uppercase text-ink/40", children: "Fallacy" })
     ] }) }),
     /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 pb-20", children: /* @__PURE__ */ jsx(
-      GameBoard$2,
+      GameBoard$3,
       {
         puzzle: currentPuzzle,
         onNewGame: handleNewGame
@@ -4367,15 +4346,18 @@ const DIALECTIC = [
       },
       {
         text: "The self alone can be known with certainty. The external world, including other minds, cannot be verified.",
-        correct: false
+        correct: false,
+        explanation: "This describes Solipsism or radical skepticism. It retreats into the self rather than directly opposing idealism with a robust account of external matter."
       },
       {
         text: "Reality is fundamentally numerical and mathematical, accessible only to pure reason.",
-        correct: false
+        correct: false,
+        explanation: "This describes mathematical rationalism, sidestepping the debate over the material vs. ideal nature of perceived objects."
       },
       {
         text: "Reality is will — a blind striving force of which perception is only a representation.",
-        correct: false
+        correct: false,
+        explanation: "Schopenhauer's philosophy came later and does not represent the direct historical counter to Berkeley's idealism."
       }
     ],
     syntheses: [
@@ -4410,15 +4392,18 @@ const DIALECTIC = [
       },
       {
         text: "Morality is whatever a society collectively agrees upon. There are no universal moral truths, only social conventions.",
-        correct: false
+        correct: false,
+        explanation: "This describes Cultural Relativism. It simply rejects the idea of objective morality altogether, rather than engaging Utilitarianism on whether rules or consequences matter."
       },
       {
         text: "Moral claims are neither true nor false — they express only emotional attitudes. The question of right action is a pseudo-question.",
-        correct: false
+        correct: false,
+        explanation: "This describes Emotivism. Like relativism, it denies that moral claims have truth-value, sidestepping the debate entirely."
       },
       {
         text: "The right action is whatever God commands. Morality is grounded in divine authority, not reason or welfare.",
-        correct: false
+        correct: false,
+        explanation: "This describes Divine Command Theory, which locates morality in authority rather than in rational principles (deontology) or human welfare (utilitarianism)."
       }
     ],
     syntheses: [
@@ -4453,15 +4438,18 @@ const DIALECTIC = [
       },
       {
         text: "Nothing truly changes because time is circular. All events recur eternally in identical cycles — what appears as change is repetition.",
-        correct: false
+        correct: false,
+        explanation: "This describes the Eternal Return, which accepts change but makes it cyclical, rather than denying change entirely like Parmenides."
       },
       {
         text: "True reality is mathematical. Number and harmonic ratios constitute the stable structure beneath apparent flux.",
-        correct: false
+        correct: false,
+        explanation: "Pythagoreanism seeks stability in numbers but doesn't make the radical logical claim that all change is literally impossible."
       },
       {
         text: "Atoms are the unchanging fundamental units. All apparent transformation is rearrangement, not genuine becoming.",
-        correct: false
+        correct: false,
+        explanation: "Atomism tries to preserve both change and stability, acting more as a synthesis than the radical antithesis of pure stasis."
       }
     ],
     syntheses: [
@@ -4496,15 +4484,18 @@ const DIALECTIC = [
       },
       {
         text: "Only my own mind and its contents can be known with certainty. Whether an external world exists is unanswerable. The entire project of knowledge beyond the self is radically uncertain.",
-        correct: false
+        correct: false,
+        explanation: "This is radical skepticism. It doesn't counter Rationalism's claim about how we know things (reason vs. senses), it just denies that we know much at all."
       },
       {
         text: "Reality is fundamentally mathematical. The true language of nature is number, and only mathematical reasoning penetrates to what things actually are.",
-        correct: false
+        correct: false,
+        explanation: "This is highly compatible with early Rationalism (Galileo/Descartes), not its dialectical opposite."
       },
       {
         text: "We do not perceive an external world at all — only ideas in the mind of God. Matter is a fiction; the only substances are minds and their perceptions.",
-        correct: false
+        correct: false,
+        explanation: "This is Berkeleyan Idealism, an extreme form of empiricism that came later, not the foundational empiricist response (Locke/Hume) that directly opposes Rationalism."
       }
     ],
     syntheses: [
@@ -4539,15 +4530,18 @@ const DIALECTIC = [
       },
       {
         text: "The self is an illusion constructed after the fact. Neuroscience reveals that the brain initiates action before the subject is conscious of deciding. There is no agent — only the nervous system.",
-        correct: false
+        correct: false,
+        explanation: "This describes neurobiological eliminativism. While deterministic, it focuses on denying consciousness entirely, rather than opposing the metaphysical nature of causality."
       },
       {
         text: "Freedom consists in acting in conformity with divine will. The truly free person is not the one who does as they please, but the one whose will is aligned with reason and God.",
-        correct: false
+        correct: false,
+        explanation: "This changes the definition of freedom to spiritual obedience, rather than engaging with the metaphysical debate about causation."
       },
       {
         text: "Time is non-linear at the quantum scale. Free will is secured by genuine indeterminacy at the sub-atomic level, which propagates upward into brain states and hence into decisions.",
-        correct: false
+        correct: false,
+        explanation: "This is actually an argument for a version of free will (or random chance), not the Hard Determinist antithesis."
       }
     ],
     syntheses: [
@@ -4582,15 +4576,18 @@ const DIALECTIC = [
       },
       {
         text: "The sensible world is mere appearance. The truly real is the realm of eternal, unchanging mathematical Forms, of which atoms are at best a dim imitation.",
-        correct: false
+        correct: false,
+        explanation: "Platonism completely rejects the physical world as true reality, rather than arguing (like Aristotle) that the physical world is real and fundamentally purposive."
       },
       {
         text: "The ultimate constituents of nature are not material atoms but immaterial monads — substances whose nature is perception and striving, not extension and collision.",
-        correct: false
+        correct: false,
+        explanation: "Leibniz's monadology is a much later (17th c.) rationalist metaphysics, not the immediate historical antithesis to ancient atomism."
       },
       {
         text: "Nature is infinite and divine — identical with God. Every apparent part is an expression of a single infinite substance. Purposiveness is not a property of individual things but of the whole.",
-        correct: false
+        correct: false,
+        explanation: "Spinoza's pantheism denies individual purposes and identifies God with nature, contrasting with Aristotle's focus on individual organisms having intrinsic purposes."
       }
     ],
     syntheses: [
@@ -4625,15 +4622,18 @@ const DIALECTIC = [
       },
       {
         text: "Private property is the source of inequality and exploitation. Rights to life and liberty cannot be realised without material equality. The state must socialise the means of production to guarantee genuine freedom for all.",
-        correct: false
+        correct: false,
+        explanation: 'This is the Marxist critique. It attacks the economic outcomes of liberalism rather than its philosophical assumption of the "unencumbered self" prior to society.'
       },
       {
         text: "All moral and political distinctions are expressions of power. The concept of individual rights is an ideology that naturalises historically contingent power relations. There are no pre-political rights — only political struggles.",
-        correct: false
+        correct: false,
+        explanation: "This describes post-structuralist critique, which rejects normative political theory altogether rather than offering a communitarian alternative."
       },
       {
         text: "The individual is always less important than the collective. National culture, tradition, and organic community are the proper bases of political life. Abstract individual rights erode the social bonds that make genuine freedom possible.",
-        correct: false
+        correct: false,
+        explanation: "This describes authoritarian collectivisation, which entirely destroys the individual, rather than the communitarian argument that individuals are constituted by their communities."
       }
     ],
     syntheses: [
@@ -4659,10 +4659,10 @@ const DIALECTIC = [
     ]
   }
 ];
-function rand$1(arr) {
+function rand$2(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
-function shuffle$4(arr) {
+function shuffle$5(arr) {
   const b = [...arr];
   for (let i = b.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -4670,92 +4670,64 @@ function shuffle$4(arr) {
   }
   return b;
 }
-function OptionButton({ text, result, pending, onClick, disabled }) {
+function OptionButton$1({ text, explanation, result, onClick, disabled }) {
   let className = "w-full text-left px-4 py-3 rounded-lg border font-body text-sm leading-relaxed transition-all duration-150 ";
   if (result === "correct") {
-    className += "bg-green/10 border-green/40 text-ink cursor-default";
+    className += "bg-green/15 dark:bg-green/20 border-green/50 text-ink cursor-default";
   } else if (result === "wrong") {
-    className += "bg-terracotta/8 border-terracotta/20 text-terracotta/70 cursor-default";
+    className += "bg-terracotta/10 dark:bg-terracotta/20 border-terracotta/40 text-ink cursor-default";
   } else if (result === "reveal") {
-    className += "bg-green/8 border-green/25 text-ink/60 cursor-default italic";
-  } else if (pending) {
-    className += "border-gold/60 bg-cream-dark text-ink cursor-pointer ring-1 ring-gold/30";
+    className += "bg-green/5 dark:bg-green/10 border-green/30 text-ink/80 cursor-default italic";
   } else if (disabled) {
-    className += "border-gold/15 text-ink/30 cursor-default";
+    className += "border-ink/20 text-ink/40 cursor-default";
   } else {
-    className += "border-gold/25 text-ink/70 hover:border-gold/50 hover:bg-cream-dark hover:text-ink cursor-pointer";
+    className += "border-ink/30 text-ink hover:border-gold hover:bg-cream-dark cursor-pointer";
   }
   return /* @__PURE__ */ jsxs("button", { onClick, disabled, className, children: [
     result === "correct" && /* @__PURE__ */ jsx("span", { className: "font-mono text-xs text-green tracking-widest uppercase block mb-1", children: "Correct ✓" }),
     result === "wrong" && /* @__PURE__ */ jsx("span", { className: "font-mono text-xs text-terracotta tracking-widest uppercase block mb-1", children: "Incorrect ✗" }),
-    result === "reveal" && /* @__PURE__ */ jsx("span", { className: "font-mono text-xs text-green/60 tracking-widest uppercase block mb-1", children: "This was the antithesis" }),
-    text
+    result === "reveal" && /* @__PURE__ */ jsx("span", { className: "font-mono text-xs text-green/60 tracking-widest uppercase block mb-1", children: "Correct Answer" }),
+    /* @__PURE__ */ jsx("div", { children: text }),
+    result === "wrong" && explanation && /* @__PURE__ */ jsx("div", { className: "mt-2 pt-2 border-t border-terracotta/20 text-ink/80 text-sm", children: explanation })
   ] });
 }
-function GameBoard$1({ puzzle, onNewGame }) {
-  var _a, _b;
-  const [antitheses] = useState(() => shuffle$4(puzzle.antitheses));
-  const [syntheses] = useState(() => shuffle$4(puzzle.syntheses));
-  const [stage, setStage] = useState(1);
-  const [aAttempts, setAAttempts] = useState(0);
-  const [aResult, setAResult] = useState(null);
-  const [sAttempts, setSAttempts] = useState(0);
-  const [sResult, setSResult] = useState(null);
-  const [status, setStatus] = useState("playing");
-  const [pendingA, setPendingA] = useState(null);
-  const [pendingS, setPendingS] = useState(null);
+function GameBoard$2({ puzzle, onNewGame }) {
+  const [antitheses] = useState(() => shuffle$5(puzzle.antitheses));
+  const [syntheses] = useState(() => shuffle$5(puzzle.syntheses));
+  const [aAttempts, setAAttempts] = useState([]);
+  const [sAttempts, setSAttempts] = useState([]);
+  const aCorrectIdx = antitheses.findIndex((a) => a.correct);
+  const aSuccess = aAttempts.includes(aCorrectIdx);
+  const aFailed = !aSuccess && aAttempts.length >= 2;
+  const stage = aSuccess || aFailed ? 2 : 1;
+  const sCorrectIdx = syntheses.findIndex((s) => s.correct);
+  const sSuccess = sAttempts.includes(sCorrectIdx);
+  const sFailed = !sSuccess && sAttempts.length >= 2;
+  const status = sSuccess ? "win" : sFailed ? "lose" : "playing";
   function pickAntithesis(idx) {
-    if (stage !== 1 || (aResult == null ? void 0 : aResult.correct) || (aResult == null ? void 0 : aResult.revealIdx) !== void 0)
-      return;
-    setPendingA(idx);
-  }
-  function submitAntithesis() {
-    const idx = pendingA;
-    if (idx === null) return;
-    setPendingA(null);
-    const correct = antitheses[idx].correct;
-    const newAttempts = aAttempts + 1;
-    setAAttempts(newAttempts);
-    if (correct) {
-      setAResult({ idx, correct: true });
-      setStage(2);
-    } else if (newAttempts >= 2) {
-      const revealIdx = antitheses.findIndex((a) => a.correct);
-      setAResult({ idx, correct: false, revealIdx });
-      setStage(2);
-    } else {
-      setAResult({ idx, correct: false });
-    }
+    if (stage !== 1 || aAttempts.includes(idx)) return;
+    setAAttempts((prev) => [...prev, idx]);
   }
   function pickSynthesis(idx) {
-    if (stage !== 2 || status !== "playing") return;
-    setPendingS(idx);
-  }
-  function submitSynthesis() {
-    const idx = pendingS;
-    if (idx === null) return;
-    setPendingS(null);
-    const correct = syntheses[idx].correct;
-    const newAttempts = sAttempts + 1;
-    setSAttempts(newAttempts);
-    setSResult({ idx, correct });
-    if (correct) setStatus("win");
-    else if (newAttempts >= 2) setStatus("lose");
+    if (stage !== 2 || status !== "playing" || sAttempts.includes(idx)) return;
+    setSAttempts((prev) => [...prev, idx]);
   }
   function getAntithesisResult(idx) {
-    if (!aResult) return null;
-    if (aResult.correct && aResult.idx === idx) return "correct";
-    if (!aResult.correct) {
-      if (aResult.idx === idx) return "wrong";
-      if (aResult.revealIdx === idx) return "reveal";
+    if (aAttempts.includes(idx)) {
+      return idx === aCorrectIdx ? "correct" : "wrong";
+    }
+    if (aFailed && idx === aCorrectIdx) {
+      return "reveal";
     }
     return null;
   }
   function getSynthesisResult(idx) {
-    if (!sResult) return null;
-    const correct = syntheses[idx].correct;
-    if (sResult.idx === idx) return sResult.correct ? "correct" : "wrong";
-    if (status !== "playing" && correct) return "reveal";
+    if (sAttempts.includes(idx)) {
+      return idx === sCorrectIdx ? "correct" : "wrong";
+    }
+    if (sFailed && idx === sCorrectIdx) {
+      return "reveal";
+    }
     return null;
   }
   const contextParts = puzzle.context.split(" → ").map((part) => {
@@ -4799,25 +4771,16 @@ function GameBoard$1({ puzzle, onNewGame }) {
         }
       ),
       /* @__PURE__ */ jsx("div", { className: "space-y-2", children: antitheses.map((a, i) => /* @__PURE__ */ jsx(
-        OptionButton,
+        OptionButton$1,
         {
           text: a.text,
+          explanation: a.explanation,
           result: getAntithesisResult(i),
-          pending: pendingA === i && !(aResult == null ? void 0 : aResult.correct) && (aResult == null ? void 0 : aResult.revealIdx) === void 0,
           onClick: () => pickAntithesis(i),
-          disabled: stage !== 1 || (aResult == null ? void 0 : aResult.correct) || (aResult == null ? void 0 : aResult.revealIdx) !== void 0
+          disabled: stage !== 1
         },
         i
-      )) }),
-      aResult && !aResult.correct && stage === 1 && /* @__PURE__ */ jsx("p", { className: "font-body text-xs text-terracotta/80 mt-2 animate-slide-up", children: "Not quite — one more attempt." }),
-      stage === 1 && pendingA !== null && /* @__PURE__ */ jsx(
-        "button",
-        {
-          onClick: submitAntithesis,
-          className: "mt-3 px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150",
-          children: "Submit"
-        }
-      )
+      )) })
     ] }),
     stage === 2 && /* @__PURE__ */ jsxs("div", { className: "mb-6 animate-slide-up", children: [
       /* @__PURE__ */ jsxs("p", { className: "font-mono text-xs tracking-widest uppercase mb-3 text-ink", children: [
@@ -4825,28 +4788,16 @@ function GameBoard$1({ puzzle, onNewGame }) {
         status === "playing" ? "Select the synthesis" : "Synthesis"
       ] }),
       /* @__PURE__ */ jsx("div", { className: "space-y-2", children: syntheses.map((s, i) => /* @__PURE__ */ jsx(
-        OptionButton,
+        OptionButton$1,
         {
           text: s.text,
+          explanation: s.explanation,
           result: getSynthesisResult(i),
-          pending: pendingS === i && status === "playing",
           onClick: () => pickSynthesis(i),
           disabled: status !== "playing"
         },
         i
-      )) }),
-      sResult && !sResult.correct && status === "playing" && /* @__PURE__ */ jsxs("div", { className: "mt-3 bg-terracotta/10 border border-terracotta/20 rounded-md p-3 animate-slide-up", children: [
-        /* @__PURE__ */ jsx("p", { className: "font-body text-sm font-semibold text-terracotta/90 mb-1", children: "Not quite — one more attempt." }),
-        ((_a = syntheses[sResult.idx]) == null ? void 0 : _a.explanation) && /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-terracotta/80 leading-relaxed", children: syntheses[sResult.idx].explanation })
-      ] }),
-      status === "playing" && pendingS !== null && /* @__PURE__ */ jsx(
-        "button",
-        {
-          onClick: submitSynthesis,
-          className: "mt-3 px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150",
-          children: "Submit"
-        }
-      )
+      )) })
     ] }),
     status === "win" && /* @__PURE__ */ jsxs(
       "div",
@@ -4873,7 +4824,6 @@ function GameBoard$1({ puzzle, onNewGame }) {
         "aria-live": "polite",
         children: [
           /* @__PURE__ */ jsx("p", { className: "font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-2", children: "Attempts exhausted" }),
-          sResult && !sResult.correct && ((_b = syntheses[sResult.idx]) == null ? void 0 : _b.explanation) && /* @__PURE__ */ jsx("div", { className: "mb-3 pb-3 border-b border-terracotta/20", children: /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-terracotta/80 leading-relaxed", children: syntheses[sResult.idx].explanation }) }),
           /* @__PURE__ */ jsxs("p", { className: "font-body text-sm text-ink/65 leading-relaxed", children: [
             "The correct synthesis is highlighted above. The full movement:",
             " ",
@@ -4895,22 +4845,450 @@ function GameBoard$1({ puzzle, onNewGame }) {
 }
 function GameDialectic() {
   const [gameKey, setGameKey] = useState(0);
-  const [currentPuzzle, setCurrentPuzzle] = useState(() => rand$1(DIALECTIC));
+  const [currentPuzzle, setCurrentPuzzle] = useState(() => rand$2(DIALECTIC));
   function handleNewGame() {
-    setCurrentPuzzle(rand$1(DIALECTIC));
+    setCurrentPuzzle(rand$2(DIALECTIC));
     setGameKey((k) => k + 1);
   }
   return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Dialectic — Philosophy Games",
+        title: "Dialectic",
         path: "/games/dialectic",
         description: "Match a philosophical thesis to its historical antithesis, then identify the synthesis that resolved the contradiction."
       }
     ),
-    /* @__PURE__ */ jsxs("section", { className: "max-w-2xl mx-auto px-6 py-10", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
+    /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 py-10", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10", children: [
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-4", children: [
+          /* @__PURE__ */ jsx(
+            "a",
+            {
+              href: "/games",
+              className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
+              children: "← Games"
+            }
+          ),
+          /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "/" })
+        ] }),
+        /* @__PURE__ */ jsx(
+          "h1",
+          {
+            className: "font-heading font-light text-green uppercase tracking-wide",
+            style: { fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" },
+            children: "Dialectic"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "md:w-1/2", children: [
+        /* @__PURE__ */ jsx("div", { className: "h-px w-12 bg-gold/40 mb-4" }),
+        /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/60 leading-relaxed", children: "A philosophical thesis is presented. First, identify the position that historically opposed it — the antithesis. Then select the synthesis that preserved and resolved the contradiction. Two stages, two attempts each." })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 pb-20", children: /* @__PURE__ */ jsx(
+      GameBoard$2,
+      {
+        puzzle: currentPuzzle,
+        onNewGame: handleNewGame
+      },
+      gameKey
+    ) })
+  ] });
+}
+const NEGATIVE_DIALECTIC = [
+  {
+    context: "High Art → Folk Traditions → Mass Culture",
+    thesis: "High Art: Complex, challenging, and boundary-pushing, but structurally elitist and largely inaccessible to the working masses.",
+    antithesisOptions: [
+      { text: "Folk Culture: Accessible, communal, and created by the people, but highly localized and lacking formal sophistication.", correct: true },
+      { text: "Academic Censorship: A top-down ban on all artistic expression to enforce strict rationalism.", correct: false },
+      { text: "Scientific Positivism: The belief that art should be replaced entirely by empirical science.", correct: false },
+      { text: "Aristocratic Patronage: The complete privatization of art by wealthy individuals.", correct: false }
+    ],
+    falseSynthesis: "The advent of mass media and the Culture Industry has democratized art. By blending the sophistication of high culture with the mass accessibility of folk traditions, the system provides universal entertainment. The contradiction between the elite and the masses is resolved: culture is now freely available to all, satisfying the individual's need for leisure while harmoniously integrating them into modern society.",
+    residualOptions: [
+      {
+        text: "The eradication of genuine spontaneity. The individual is not harmonized, but standardized; even acts of rebellion are pre-packaged commodities, leaving total conformity disguised as free choice.",
+        correct: true
+      },
+      {
+        text: "The masses are successfully elevated to the intellectual level of the former aristocracy, creating a unified society of philosopher-citizens.",
+        correct: false,
+        explanation: "This takes the system's idealistic promise at face value. The Culture Industry does not aim to educate or elevate; its economic function is to pacify and distract."
+      },
+      {
+        text: "High art retreats entirely into isolated academic institutions, abandoning the public sphere to pure, unmediated chaos.",
+        correct: false,
+        explanation: "High art does not successfully escape. The Culture Industry absorbs high art too—turning avant-garde works into luxury commodities and classical music into background noise for commercials."
+      },
+      {
+        text: "A complete, violent reversion to local folk traditions by the masses in direct protest of technological reproduction.",
+        correct: false,
+        explanation: 'Genuine folk culture is largely eradicated by the Culture Industry, replaced instead by manufactured nostalgia and packaged "authenticity."'
+      }
+    ]
+  },
+  {
+    context: "Private Individuality → Public Community → The Networked Profile",
+    thesis: "Private Individuality: The deeply human desire to cultivate a unique, subjective inner life and personal autonomy.",
+    antithesisOptions: [
+      { text: "Public Community: The fundamental human need for social belonging, external recognition, and integration into the collective.", correct: true },
+      { text: "State Surveillance: The government's need to monitor all private correspondence.", correct: false },
+      { text: "Religious Asceticism: The rejection of all social ties in favor of isolated monasticism.", correct: false },
+      { text: "Corporate Monopoly: The consolidation of all physical marketplaces into a single entity.", correct: false }
+    ],
+    falseSynthesis: "The digital social profile perfectly resolves the ancient tension between private identity and public community. Through frictionless self-expression online, the individual becomes perfectly visible and connected to the universal network. We are now globally united in a digital town square, while remaining entirely, uniquely ourselves.",
+    residualOptions: [
+      {
+        text: 'The qualitative, incalculable depths of human experience. The supposedly "unique" individual is flattened into predictable, monetizable data points, while genuine connection is replaced by fragmented echo chambers.',
+        correct: true
+      },
+      {
+        text: "The complete dissolution of the physical world, as individuals upload their consciousness entirely into virtual reality environments.",
+        correct: false,
+        explanation: 'This is a sci-fi exaggeration. The "residual" is the physical, material reality of our bodies and labor in the present that the digital world relies upon but ignores.'
+      },
+      {
+        text: "A utopian global consensus where cultural misunderstandings are permanently eradicated by algorithmic translation.",
+        correct: false,
+        explanation: "This repeats the false promise of the Synthesis. In reality, algorithms optimize for engagement, which actively rewards and amplifies misunderstanding and outrage."
+      },
+      {
+        text: "The state seizes total control of all personal data, resulting in a conscious, top-down Orwellian dictatorship.",
+        correct: false,
+        explanation: "While surveillance exists, the primary mode of domination here is soft and decentralized. The system controls behavior through convenience, peer pressure, and market logic."
+      }
+    ]
+  },
+  {
+    context: 'Individual Freedom → Social Equality → The "End of History"',
+    thesis: "Individual Freedom: The drive for personal liberty, free enterprise, and the right to accumulate private property without restriction.",
+    antithesisOptions: [
+      { text: "Social Equality: The demand for collective welfare, the eradication of class privilege, and the equitable distribution of resources.", correct: true },
+      { text: "Feudal Hierarchy: A rigid caste system based on divine right and inherited land.", correct: false },
+      { text: "Anarcho-Primitivism: The desire to dismantle all complex societal structures and return to hunter-gatherer lifestyles.", correct: false },
+      { text: "Technocratic Rule: The belief that society should be governed solely by engineers and scientists.", correct: false }
+    ],
+    falseSynthesis: "Liberal democratic capitalism represents the final ideological evolution of humanity. It synthesizes the contradiction perfectly: free markets guarantee individual liberty and generate unprecedented wealth, while democratic institutions and human rights frameworks ensure that this prosperity eventually lifts all citizens, creating a just, equal, and post-historical global society.",
+    residualOptions: [
+      {
+        text: "Systemic inequality and ecological limits. The synthesis masks the fact that its prosperity relies on outsourced exploitation and treats the planet as an infinite resource, leaving a massive, destructive remainder.",
+        correct: true
+      },
+      {
+        text: "A perfectly frictionless global market where all nation-states willingly dissolve themselves into a single world government.",
+        correct: false,
+        explanation: "This ignores the persistence of nationalism and state violence, which are often utilized to secure the very markets this synthesis relies upon."
+      },
+      {
+        text: "Everyone becomes a perfectly rational economic actor, permanently eradicating all irrational human desires and conflicts.",
+        correct: false,
+        explanation: "This is the utopian assumption of neoclassical economics, ignoring the irrational, emotional, and cultural realities that drive human behavior."
+      },
+      {
+        text: "Complete technological automation instantly frees all humans from labor, allowing everyone to live as aristocrats.",
+        correct: false,
+        explanation: "This ignores how automation under this synthesis often leads to precarious gig labor and wealth concentration rather than universal leisure."
+      }
+    ]
+  }
+];
+function rand$1(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+function shuffle$4(arr) {
+  const b = [...arr];
+  for (let i = b.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [b[i], b[j]] = [b[j], b[i]];
+  }
+  return b;
+}
+function OptionButton({ text, result, pending, onClick, disabled }) {
+  let className = "w-full text-left px-4 py-3 rounded-lg border font-body text-sm leading-relaxed transition-all duration-150 ";
+  if (result === "correct") {
+    className += "bg-green/10 border-green/40 text-ink cursor-default";
+  } else if (result === "wrong") {
+    className += "bg-terracotta/8 border-terracotta/20 text-terracotta/70 cursor-default";
+  } else if (result === "reveal") {
+    className += "bg-green/8 border-green/25 text-ink/60 cursor-default italic";
+  } else if (pending) {
+    className += "border-gold/60 bg-cream-dark text-ink cursor-pointer ring-1 ring-gold/30";
+  } else if (disabled) {
+    className += "border-gold/15 text-ink/30 cursor-default";
+  } else {
+    className += "border-gold/25 text-ink/70 hover:border-gold/50 hover:bg-cream-dark hover:text-ink cursor-pointer";
+  }
+  return /* @__PURE__ */ jsxs("button", { onClick, disabled, className, children: [
+    result === "correct" && /* @__PURE__ */ jsx("span", { className: "font-mono text-xs text-green tracking-widest uppercase block mb-1", children: "Correct ✓" }),
+    result === "wrong" && /* @__PURE__ */ jsx("span", { className: "font-mono text-xs text-terracotta tracking-widest uppercase block mb-1", children: "Incorrect ✗" }),
+    result === "reveal" && /* @__PURE__ */ jsx("span", { className: "font-mono text-xs text-green/60 tracking-widest uppercase block mb-1", children: "This was the answer" }),
+    text
+  ] });
+}
+function GameBoard$1({ puzzle, onNewGame }) {
+  var _a, _b;
+  const [antitheses] = useState(() => shuffle$4(puzzle.antithesisOptions));
+  const [residuals] = useState(() => shuffle$4(puzzle.residualOptions));
+  const [stage, setStage] = useState(1);
+  const [aAttempts, setAAttempts] = useState(0);
+  const [aResult, setAResult] = useState(null);
+  const [rAttempts, setRAttempts] = useState(0);
+  const [rResult, setRResult] = useState(null);
+  const [status, setStatus] = useState("playing");
+  const [pendingA, setPendingA] = useState(null);
+  const [pendingR, setPendingR] = useState(null);
+  function pickAntithesis(idx) {
+    if (stage !== 1 || (aResult == null ? void 0 : aResult.correct) || (aResult == null ? void 0 : aResult.revealIdx) !== void 0)
+      return;
+    setPendingA(idx);
+  }
+  function submitAntithesis() {
+    const idx = pendingA;
+    if (idx === null) return;
+    setPendingA(null);
+    const correct = antitheses[idx].correct;
+    const newAttempts = aAttempts + 1;
+    setAAttempts(newAttempts);
+    if (correct) {
+      setAResult({ idx, correct: true });
+      setStage(2);
+    } else if (newAttempts >= 2) {
+      const revealIdx = antitheses.findIndex((a) => a.correct);
+      setAResult({ idx, correct: false, revealIdx });
+      setStage(2);
+    } else {
+      setAResult({ idx, correct: false });
+    }
+  }
+  function pickResidual(idx) {
+    if (stage !== 2 || status !== "playing") return;
+    setPendingR(idx);
+  }
+  function submitResidual() {
+    const idx = pendingR;
+    if (idx === null) return;
+    setPendingR(null);
+    const correct = residuals[idx].correct;
+    const newAttempts = rAttempts + 1;
+    setRAttempts(newAttempts);
+    setRResult({ idx, correct });
+    if (correct) setStatus("win");
+    else if (newAttempts >= 2) setStatus("lose");
+  }
+  function getAntithesisResult(idx) {
+    if (!aResult) return null;
+    if (aResult.correct && aResult.idx === idx) return "correct";
+    if (!aResult.correct) {
+      if (aResult.idx === idx) return "wrong";
+      if (aResult.revealIdx === idx) return "reveal";
+    }
+    return null;
+  }
+  function getResidualResult(idx) {
+    if (!rResult) return null;
+    const correct = residuals[idx].correct;
+    if (rResult.idx === idx) return rResult.correct ? "correct" : "wrong";
+    if (status !== "playing" && correct) return "reveal";
+    return null;
+  }
+  const contextParts = puzzle.context.split(" → ").map((part) => part.trim());
+  return /* @__PURE__ */ jsxs("div", { className: "max-w-4xl mx-auto", children: [
+    /* @__PURE__ */ jsx("div", { className: "flex items-center justify-center flex-wrap gap-1.5 mb-10 font-mono text-xs tracking-wide", children: contextParts.map((part, i) => /* @__PURE__ */ jsxs("span", { className: "flex items-center gap-1.5", children: [
+      /* @__PURE__ */ jsx(
+        "span",
+        {
+          className: i === 0 ? "text-gold" : i === 1 ? stage >= 1 ? "text-ink/80" : "text-ink/40" : stage >= 2 ? "text-ink/80" : "text-ink/40",
+          children: part
+        }
+      ),
+      i < contextParts.length - 1 && /* @__PURE__ */ jsx("span", { className: "text-gold/40", children: "→" })
+    ] }, i)) }),
+    /* @__PURE__ */ jsxs("div", { className: "flex flex-col md:flex-row gap-8 md:gap-12 relative z-10", children: [
+      /* @__PURE__ */ jsx("div", { className: "md:w-1/2", children: /* @__PURE__ */ jsxs("div", { className: "border-l-4 border-terracotta/50 pl-4 h-full", children: [
+        /* @__PURE__ */ jsx("p", { className: "font-mono text-xs text-terracotta/60 tracking-widest uppercase mb-3", children: "Thesis" }),
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            className: "font-heading font-light text-ink italic leading-relaxed",
+            style: { fontSize: "clamp(1.05rem, 1.5vw, 1.15rem)" },
+            children: puzzle.thesis
+          }
+        )
+      ] }) }),
+      /* @__PURE__ */ jsxs("div", { className: "md:w-1/2", children: [
+        /* @__PURE__ */ jsxs(
+          "p",
+          {
+            className: `font-mono text-xs tracking-widest uppercase mb-3 ${stage >= 1 ? "text-ink" : "text-ink/40"}`,
+            children: [
+              /* @__PURE__ */ jsx("span", { className: "text-gold/70 mr-2", children: "01" }),
+              stage === 1 ? "Select the antithesis" : "Antithesis"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "space-y-2", children: antitheses.map((a, i) => /* @__PURE__ */ jsx(
+          OptionButton,
+          {
+            text: a.text,
+            result: getAntithesisResult(i),
+            pending: pendingA === i && !(aResult == null ? void 0 : aResult.correct) && (aResult == null ? void 0 : aResult.revealIdx) === void 0,
+            onClick: () => pickAntithesis(i),
+            disabled: stage !== 1 || (aResult == null ? void 0 : aResult.correct) || (aResult == null ? void 0 : aResult.revealIdx) !== void 0
+          },
+          i
+        )) }),
+        aResult && !aResult.correct && stage === 1 && /* @__PURE__ */ jsx("p", { className: "font-body text-xs text-terracotta/80 mt-2 animate-slide-up text-right", children: "Not quite — one more attempt." }),
+        stage === 1 && pendingA !== null && /* @__PURE__ */ jsx("div", { className: "flex justify-end mt-3", children: /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: submitAntithesis,
+            className: "px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150 shadow-sm",
+            children: "Submit"
+          }
+        ) })
+      ] })
+    ] }),
+    stage === 2 && /* @__PURE__ */ jsxs("div", { className: "animate-slide-up relative mt-10 md:mt-16", children: [
+      /* @__PURE__ */ jsx("div", { className: "hidden md:block absolute -top-16 left-0 right-0 h-16 pointer-events-none z-0 opacity-60", children: /* @__PURE__ */ jsxs(
+        "svg",
+        {
+          className: "w-full h-full",
+          preserveAspectRatio: "none",
+          viewBox: "0 0 100 100",
+          children: [
+            /* @__PURE__ */ jsx(
+              "path",
+              {
+                d: "M 25 0 C 25 60, 50 60, 50 90",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "1",
+                className: "text-gold/60"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "path",
+              {
+                d: "M 75 0 C 75 60, 50 60, 50 90",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "1",
+                className: "text-gold/60"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "polygon",
+              {
+                points: "50,96 46,86 54,86",
+                fill: "currentColor",
+                className: "text-gold/60"
+              }
+            )
+          ]
+        }
+      ) }),
+      /* @__PURE__ */ jsx("div", { className: "flex flex-col items-center relative z-10 mb-12", children: /* @__PURE__ */ jsxs("div", { className: "bg-cream-dark border border-gold/25 p-6 md:p-8 rounded-xl max-w-3xl text-center shadow-md relative overflow-hidden", children: [
+        /* @__PURE__ */ jsx("div", { className: "absolute top-0 left-0 w-full h-1 bg-terracotta/60" }),
+        /* @__PURE__ */ jsx("p", { className: "font-mono text-xs tracking-widest uppercase text-terracotta/90 mb-4", children: "The False Synthesis" }),
+        /* @__PURE__ */ jsxs(
+          "p",
+          {
+            className: "font-heading font-light text-ink leading-relaxed",
+            style: { fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)" },
+            children: [
+              '"',
+              puzzle.falseSynthesis,
+              '"'
+            ]
+          }
+        )
+      ] }) }),
+      /* @__PURE__ */ jsxs("div", { className: "max-w-2xl mx-auto", children: [
+        /* @__PURE__ */ jsxs("p", { className: "font-mono text-xs tracking-widest uppercase mb-4 text-ink text-center", children: [
+          /* @__PURE__ */ jsx("span", { className: "text-gold/70 mr-2", children: "02" }),
+          status === "playing" ? "Predict the Residual" : "The Residual"
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: "text-center font-body text-sm text-ink/60 mb-6 italic", children: "What reality did this synthesis repress or fail to capture?" }),
+        /* @__PURE__ */ jsx("div", { className: "space-y-3", children: residuals.map((r, i) => /* @__PURE__ */ jsx(
+          OptionButton,
+          {
+            text: r.text,
+            result: getResidualResult(i),
+            pending: pendingR === i && status === "playing",
+            onClick: () => pickResidual(i),
+            disabled: status !== "playing"
+          },
+          i
+        )) }),
+        rResult && !rResult.correct && status === "playing" && /* @__PURE__ */ jsxs("div", { className: "mt-4 bg-terracotta/10 border border-terracotta/20 rounded-lg p-4 animate-slide-up", children: [
+          /* @__PURE__ */ jsx("p", { className: "font-body text-sm font-semibold text-terracotta/90 mb-1", children: "Not quite — one more attempt." }),
+          ((_a = residuals[rResult.idx]) == null ? void 0 : _a.explanation) && /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-terracotta/80 leading-relaxed", children: residuals[rResult.idx].explanation })
+        ] }),
+        status === "playing" && pendingR !== null && /* @__PURE__ */ jsx("div", { className: "flex justify-center mt-6", children: /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: submitResidual,
+            className: "px-8 py-2.5 rounded-lg bg-terracotta text-cream font-body text-sm hover:bg-terracotta/90 transition-colors duration-150 shadow-sm",
+            children: "Expose the Residual"
+          }
+        ) })
+      ] })
+    ] }),
+    status === "win" && /* @__PURE__ */ jsxs(
+      "div",
+      {
+        className: "mt-8 bg-green/10 border border-green/30 rounded-lg px-6 py-5 animate-pop-in max-w-2xl mx-auto text-center",
+        role: "status",
+        "aria-live": "polite",
+        children: [
+          /* @__PURE__ */ jsx("p", { className: "font-mono text-xs tracking-widest uppercase text-green/80 mb-2", children: "Critique Successful" }),
+          /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/75 leading-relaxed", children: "You successfully identified the non-identical remainder. The false synthesis has been dismantled." })
+        ]
+      }
+    ),
+    status === "lose" && /* @__PURE__ */ jsxs(
+      "div",
+      {
+        className: "mt-8 bg-terracotta/8 border border-terracotta/25 rounded-lg px-6 py-5 animate-pop-in max-w-2xl mx-auto text-center",
+        role: "status",
+        "aria-live": "polite",
+        children: [
+          /* @__PURE__ */ jsx("p", { className: "font-mono text-xs tracking-widest uppercase text-terracotta/80 mb-3", children: "Attempts Exhausted" }),
+          rResult && !rResult.correct && ((_b = residuals[rResult.idx]) == null ? void 0 : _b.explanation) && /* @__PURE__ */ jsx("div", { className: "mb-4 pb-4 border-b border-terracotta/15 text-left", children: /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-terracotta/80 leading-relaxed", children: residuals[rResult.idx].explanation }) }),
+          /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/75 leading-relaxed", children: "The correct residual is highlighted above. Critical theory demands we always look for what the system excludes." })
+        ]
+      }
+    ),
+    status !== "playing" && /* @__PURE__ */ jsx("div", { className: "flex justify-center mt-8", children: /* @__PURE__ */ jsx(
+      "button",
+      {
+        onClick: onNewGame,
+        className: "px-6 py-3 rounded-lg border border-gold/40 bg-cream dark:bg-cream-dark font-body text-sm text-ink/80 hover:border-gold hover:text-ink transition-colors duration-150 shadow-sm",
+        children: "Critique another Synthesis"
+      }
+    ) })
+  ] });
+}
+function GameNegativeDialectic() {
+  const [gameKey, setGameKey] = useState(0);
+  const [currentPuzzle, setCurrentPuzzle] = useState(() => rand$1(NEGATIVE_DIALECTIC));
+  function handleNewGame() {
+    setCurrentPuzzle(rand$1(NEGATIVE_DIALECTIC));
+    setGameKey((k) => k + 1);
+  }
+  return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
+    /* @__PURE__ */ jsx(
+      SEO,
+      {
+        title: "Negative Dialectic — Philosophy Games",
+        path: "/games/negative-dialectic",
+        description: "Dismantle a false historical synthesis by predicting its residual—the marginalized reality it represses or fails to capture."
+      }
+    ),
+    /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-10 text-center", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-center gap-3 mb-6", children: [
         /* @__PURE__ */ jsx(
           "a",
           {
@@ -4920,21 +5298,25 @@ function GameDialectic() {
           }
         ),
         /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "/" }),
-        /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-widest uppercase text-ink/40", children: "Dialectic" })
+        /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-widest uppercase text-ink/40", children: "Negative Dialectic" })
       ] }),
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-gold", children: "Synthesis · 04" }),
+      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-terracotta", children: "Critique · 04b" }),
       /* @__PURE__ */ jsx(
         "h1",
         {
           className: "font-heading font-light text-green mb-4",
-          style: { fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" },
-          children: "Dialectic"
+          style: { fontSize: "clamp(2rem, 4vw, 3rem)" },
+          children: "Negative Dialectic"
         }
       ),
-      /* @__PURE__ */ jsx("div", { className: "h-px w-12 bg-gold/40 mb-5" }),
-      /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/60 leading-relaxed", children: "A philosophical thesis is presented. First, identify the position that historically opposed it — the antithesis. Then select the synthesis that preserved and resolved the contradiction. Two stages, two attempts each." })
+      /* @__PURE__ */ jsx("div", { className: "h-px w-16 bg-gold/40 mx-auto mb-6" }),
+      /* @__PURE__ */ jsxs("p", { className: "font-body text-sm text-ink/70 leading-relaxed max-w-2xl mx-auto", children: [
+        "Instead of finding harmony, your goal is to identify what the system represses. First, establish the historical contradiction. Then, when presented with the false synthesis that claimed to resolve it, find the ",
+        /* @__PURE__ */ jsx("i", { children: "residual" }),
+        "—the non-identical remainder left behind."
+      ] })
     ] }),
-    /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 pb-20", children: /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsx("section", { className: "max-w-5xl mx-auto px-6 pb-24", children: /* @__PURE__ */ jsx(
       GameBoard$1,
       {
         puzzle: currentPuzzle,
@@ -6171,36 +6553,38 @@ function GameSorites() {
       /* @__PURE__ */ jsx(
         SEO,
         {
-          title: "Sorites — Philosophy Games",
+          title: "Sorites",
           path: "/games/sorites",
           description: "Pick two colours, then classify 34 patches between them. Discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness."
         }
       ),
-      /* @__PURE__ */ jsxs("section", { className: "max-w-2xl mx-auto px-6 py-10", children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
+      /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 py-10", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10", children: [
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-4", children: [
+            /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: "/games",
+                className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
+                children: "← Games"
+              }
+            ),
+            /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "/" })
+          ] }),
           /* @__PURE__ */ jsx(
-            "a",
+            "h1",
             {
-              href: "/games",
-              className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
-              children: "← Games"
+              className: "font-heading font-light text-green uppercase tracking-wide",
+              style: { fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" },
+              children: "Sorites"
             }
-          ),
-          /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "/" }),
-          /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-widest uppercase text-ink/40", children: "Sorites" })
+          )
         ] }),
-        /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-gold", children: "Experiment · 05" }),
-        /* @__PURE__ */ jsx(
-          "h1",
-          {
-            className: "font-heading font-light text-green mb-4",
-            style: { fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" },
-            children: "Sorites"
-          }
-        ),
-        /* @__PURE__ */ jsx("div", { className: "h-px w-12 bg-gold/40 mb-5" }),
-        /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/60 leading-relaxed", children: "The Sorites paradox asks: if removing one grain from a heap still leaves a heap, how can a heap ever become a non-heap? This experiment runs the same logic through your own colour preferences — and exposes the contradiction in your own judgements about vagueness and borderline cases." })
-      ] }),
+        /* @__PURE__ */ jsxs("div", { className: "md:w-1/2", children: [
+          /* @__PURE__ */ jsx("div", { className: "h-px w-12 bg-gold/40 mb-4" }),
+          /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/60 leading-relaxed", children: "The Sorites paradox asks: if removing one grain from a heap still leaves a heap, how can a heap ever become a non-heap? This experiment runs the same logic through your own colour preferences — and exposes the contradiction in your own judgements about vagueness and borderline cases." })
+        ] })
+      ] }) }),
       /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 pb-20", children: /* @__PURE__ */ jsx(
         SoritesBoard,
         {
@@ -8946,7 +9330,7 @@ function GamePhilosophle() {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Philosophle — Philosophy Games",
+        title: "Philosophle",
         path: "/games/philosophle",
         description: "A Wordle-style game using philosophical terms — concepts, thinkers, and Greek roots from 3 to 7 letters."
       }
@@ -12546,7 +12930,7 @@ function ArgumentReconstruction() {
   }
   if (done) {
     return /* @__PURE__ */ jsxs("div", { style: T.root, children: [
-      /* @__PURE__ */ jsx(SEO, { title: "Argument Reconstruction | Axiom Games" }),
+      /* @__PURE__ */ jsx(SEO, { title: "Argument Reconstruction" }),
       /* @__PURE__ */ jsxs("div", { style: T.doneCard, children: [
         /* @__PURE__ */ jsx("div", { style: T.doneStamp, children: "§" }),
         /* @__PURE__ */ jsx("div", { style: T.doneTitle, children: "All Arguments Reconstructed" }),
@@ -12560,7 +12944,7 @@ function ArgumentReconstruction() {
     ] });
   }
   return /* @__PURE__ */ jsxs("div", { style: T.root, children: [
-    /* @__PURE__ */ jsx(SEO, { title: "Argument Reconstruction | Axiom Games" }),
+    /* @__PURE__ */ jsx(SEO, { title: "Argument Reconstruction" }),
     /* @__PURE__ */ jsxs("div", { style: T.header, children: [
       /* @__PURE__ */ jsx("span", { style: T.brand, children: "ARGUMENT RECONSTRUCTION" }),
       /* @__PURE__ */ jsxs("span", { style: T.score, children: [
@@ -13598,6 +13982,13 @@ function App() {
           {
             path: "/games/dialectic",
             element: /* @__PURE__ */ jsx(GameDialectic, {})
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          Route,
+          {
+            path: "/games/negative-dialectic",
+            element: /* @__PURE__ */ jsx(GameNegativeDialectic, {})
           }
         ),
         /* @__PURE__ */ jsx(
