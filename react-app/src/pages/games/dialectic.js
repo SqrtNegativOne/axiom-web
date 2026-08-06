@@ -10,14 +10,17 @@ export const DIALECTIC = [
             {
                 text: 'The self alone can be known with certainty. The external world, including other minds, cannot be verified.',
                 correct: false,
+                explanation: 'This describes Solipsism or radical skepticism. It retreats into the self rather than directly opposing idealism with a robust account of external matter.',
             },
             {
                 text: 'Reality is fundamentally numerical and mathematical, accessible only to pure reason.',
                 correct: false,
+                explanation: 'This describes mathematical rationalism, sidestepping the debate over the material vs. ideal nature of perceived objects.',
             },
             {
                 text: 'Reality is will — a blind striving force of which perception is only a representation.',
                 correct: false,
+                explanation: 'Schopenhauer\'s philosophy came later and does not represent the direct historical counter to Berkeley\'s idealism.',
             },
         ],
         syntheses: [
@@ -53,14 +56,17 @@ export const DIALECTIC = [
             {
                 text: 'Morality is whatever a society collectively agrees upon. There are no universal moral truths, only social conventions.',
                 correct: false,
+                explanation: 'This describes Cultural Relativism. It simply rejects the idea of objective morality altogether, rather than engaging Utilitarianism on whether rules or consequences matter.',
             },
             {
                 text: 'Moral claims are neither true nor false — they express only emotional attitudes. The question of right action is a pseudo-question.',
                 correct: false,
+                explanation: 'This describes Emotivism. Like relativism, it denies that moral claims have truth-value, sidestepping the debate entirely.',
             },
             {
                 text: 'The right action is whatever God commands. Morality is grounded in divine authority, not reason or welfare.',
                 correct: false,
+                explanation: 'This describes Divine Command Theory, which locates morality in authority rather than in rational principles (deontology) or human welfare (utilitarianism).',
             },
         ],
         syntheses: [
@@ -96,14 +102,17 @@ export const DIALECTIC = [
             {
                 text: 'Nothing truly changes because time is circular. All events recur eternally in identical cycles — what appears as change is repetition.',
                 correct: false,
+                explanation: 'This describes the Eternal Return, which accepts change but makes it cyclical, rather than denying change entirely like Parmenides.',
             },
             {
                 text: 'True reality is mathematical. Number and harmonic ratios constitute the stable structure beneath apparent flux.',
                 correct: false,
+                explanation: 'Pythagoreanism seeks stability in numbers but doesn\'t make the radical logical claim that all change is literally impossible.',
             },
             {
                 text: 'Atoms are the unchanging fundamental units. All apparent transformation is rearrangement, not genuine becoming.',
                 correct: false,
+                explanation: 'Atomism tries to preserve both change and stability, acting more as a synthesis than the radical antithesis of pure stasis.',
             },
         ],
         syntheses: [
@@ -140,14 +149,17 @@ export const DIALECTIC = [
             {
                 text: 'Only my own mind and its contents can be known with certainty. Whether an external world exists is unanswerable. The entire project of knowledge beyond the self is radically uncertain.',
                 correct: false,
+                explanation: 'This is radical skepticism. It doesn\'t counter Rationalism\'s claim about how we know things (reason vs. senses), it just denies that we know much at all.',
             },
             {
                 text: 'Reality is fundamentally mathematical. The true language of nature is number, and only mathematical reasoning penetrates to what things actually are.',
                 correct: false,
+                explanation: 'This is highly compatible with early Rationalism (Galileo/Descartes), not its dialectical opposite.',
             },
             {
                 text: 'We do not perceive an external world at all — only ideas in the mind of God. Matter is a fiction; the only substances are minds and their perceptions.',
                 correct: false,
+                explanation: 'This is Berkeleyan Idealism, an extreme form of empiricism that came later, not the foundational empiricist response (Locke/Hume) that directly opposes Rationalism.',
             },
         ],
         syntheses: [
@@ -183,14 +195,17 @@ export const DIALECTIC = [
             {
                 text: 'The self is an illusion constructed after the fact. Neuroscience reveals that the brain initiates action before the subject is conscious of deciding. There is no agent — only the nervous system.',
                 correct: false,
+                explanation: 'This describes neurobiological eliminativism. While deterministic, it focuses on denying consciousness entirely, rather than opposing the metaphysical nature of causality.',
             },
             {
                 text: 'Freedom consists in acting in conformity with divine will. The truly free person is not the one who does as they please, but the one whose will is aligned with reason and God.',
                 correct: false,
+                explanation: 'This changes the definition of freedom to spiritual obedience, rather than engaging with the metaphysical debate about causation.',
             },
             {
                 text: 'Time is non-linear at the quantum scale. Free will is secured by genuine indeterminacy at the sub-atomic level, which propagates upward into brain states and hence into decisions.',
                 correct: false,
+                explanation: 'This is actually an argument for a version of free will (or random chance), not the Hard Determinist antithesis.',
             },
         ],
         syntheses: [
@@ -227,14 +242,17 @@ export const DIALECTIC = [
             {
                 text: 'The sensible world is mere appearance. The truly real is the realm of eternal, unchanging mathematical Forms, of which atoms are at best a dim imitation.',
                 correct: false,
+                explanation: 'Platonism completely rejects the physical world as true reality, rather than arguing (like Aristotle) that the physical world is real and fundamentally purposive.',
             },
             {
                 text: 'The ultimate constituents of nature are not material atoms but immaterial monads — substances whose nature is perception and striving, not extension and collision.',
                 correct: false,
+                explanation: 'Leibniz\'s monadology is a much later (17th c.) rationalist metaphysics, not the immediate historical antithesis to ancient atomism.',
             },
             {
                 text: 'Nature is infinite and divine — identical with God. Every apparent part is an expression of a single infinite substance. Purposiveness is not a property of individual things but of the whole.',
                 correct: false,
+                explanation: 'Spinoza\'s pantheism denies individual purposes and identifies God with nature, contrasting with Aristotle\'s focus on individual organisms having intrinsic purposes.',
             },
         ],
         syntheses: [
@@ -271,14 +289,17 @@ export const DIALECTIC = [
             {
                 text: 'Private property is the source of inequality and exploitation. Rights to life and liberty cannot be realised without material equality. The state must socialise the means of production to guarantee genuine freedom for all.',
                 correct: false,
+                explanation: 'This is the Marxist critique. It attacks the economic outcomes of liberalism rather than its philosophical assumption of the "unencumbered self" prior to society.',
             },
             {
                 text: 'All moral and political distinctions are expressions of power. The concept of individual rights is an ideology that naturalises historically contingent power relations. There are no pre-political rights — only political struggles.',
                 correct: false,
+                explanation: 'This describes post-structuralist critique, which rejects normative political theory altogether rather than offering a communitarian alternative.',
             },
             {
                 text: 'The individual is always less important than the collective. National culture, tradition, and organic community are the proper bases of political life. Abstract individual rights erode the social bonds that make genuine freedom possible.',
                 correct: false,
+                explanation: 'This describes authoritarian collectivisation, which entirely destroys the individual, rather than the communitarian argument that individuals are constituted by their communities.',
             },
         ],
         syntheses: [
