@@ -1,19 +1,28 @@
-This is the website for **Axiom**, the philosophy society at NSUT. Built with React + Vite + Tailwind (main site) and Eleventy (newsletter).
+This is the website for **Axiom**, the philosophy society at NSUT. Built with React + Vite + Tailwind (main site, statically pre-rendered via SSR) and Eleventy (newsletter).
 
-## Architecture
+## Architecture & Build Process
 
-Two build systems, one merged output:
+Two build systems, one merged output, statically pre-rendered:
 
 ```
 axiom-web/
-├── react-app/          # Vite + React + Tailwind (Home, About Us, Events)
+├── data/               # Static assets (images, fonts, logos) served directly
+├── react-app/          # Vite + React + Tailwind (Home, Team, Events, Games)
+│   ├── src/entry-client.jsx  # Client hydration entry
+│   └── src/entry-server.jsx  # SSR entry for pre-rendering
 ├── newsletter/         # Eleventy (newsletter index + posts)
 ├── shared/             # design-tokens.css (shared by both)
-├── scripts/            # postbuild.js (Node.js, cross-platform)
-└── dist/               # Final merged output at repo root (deployed to Vercel)
+├── scripts/            # Build scripts (generate-pages.js, postbuild.js)
+├── dist/               # Final merged output at repo root (deployed to Vercel)
+└── dist-server/        # Temporary SSR bundle used during build
 ```
 
-The postbuild step copies `newsletter/dist/` into `dist/newsletter/` so the entire site ships from one directory. Vite outputs to `../dist` (repo root) via `build.outDir` in `vite.config.js`.
+**Build Pipeline:**
+1. Vite builds the client bundle (`dist/`) and the SSR bundle (`dist-server/`).
+2. Eleventy builds the newsletter to `newsletter/dist/`.
+3. `scripts/postbuild.js` copies `newsletter/dist/` into `dist/newsletter/` and symlinks/copies the root `data/` folder to `dist/data/`.
+4. `scripts/generate-pages.js` uses the SSR bundle (`dist-server/entry-server.js`) to generate static HTML pages (SSG) for all React routes, injecting specific OpenGraph meta tags so social crawlers can read them.
+
 
 ## Commands
 
@@ -21,8 +30,8 @@ Run from the repo root:
 
 ```bash
 bun install            # Install all workspace dependencies
-bun run dev            # React :5173 + Eleventy :8081 in parallel
-bun run build          # Full production build (both systems + postbuild)
+bun run dev            # React :5173 + Eleventy :8081 in parallel (serves /data dynamically)
+bun run build          # Full production build (both systems + postbuild SSG)
 bun run preview        # Serve dist/ at :4173
 ```
 
@@ -30,31 +39,26 @@ Installing packages for the React app specifically:
 ```bash
 bun install <pkg> --workspace=react-app --legacy-peer-deps
 ```
-Always use `--legacy-peer-deps` when installing into the react-app workspace to avoid peer dep resolution failures.
-
-Installing packages for the newsletter specifically:
-```bash
-bun install <pkg> --workspace=axiom-newsletter
-```
+Always use `--legacy-peer-deps` when installing into the react-app workspace.
 
 ## Tech Stack
 
 | Tool | Version | Role |
 |------|---------|------|
-| React | ^18.3.1 | UI |
-| React Router | ^6.28.0 | BrowserRouter — clean URL routing (`/about`, `/events`) |
+| React | ^18.3.1 | UI (Client + SSR) |
+| React Router | ^6.28.0 | BrowserRouter — clean URL routing (`/team`, `/events`, `/privacy`) |
 | Vite | ^6.0.5 | Dev server + bundler |
 | Tailwind CSS | ^3.4.16 | Utility CSS |
 | Eleventy | ^3.0.0 | Newsletter static site |
 | Concurrently | ^8.2.2 | Parallel dev scripts |
 
-**Do not install three.js / @react-three/fiber.** The Canvas element from react-three/fiber captures all pointer events (blocks page scroll) and its WebGL context can throw on init — without an ErrorBoundary this crashes the entire React tree to a white screen.
+**Do not install three.js / @react-three/fiber.** The Canvas element captures pointer events and can crash the React tree without an ErrorBoundary.
 
 ## Routing
 
-React uses **BrowserRouter** — routes are `/`, `/about`, `/events`, `/colophon`. A catch-all `path="*"` renders the 404 page. Vercel's rewrite rule (`"source": "/(.*)"`) ensures deep links resolve to `index.html`.
+React uses **BrowserRouter** — routes are `/`, `/team`, `/team/:year`, `/events`, `/events/:year`, `/colophon`, `/privacy`. A catch-all `path="*"` renders the 404 page. The static pre-rendering in `generate-pages.js` ensures every route has a physical `index.html` file in `dist/`.
 
-The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a `<Link>`), crossing the build-system boundary. Eleventy nav links back to React using absolute paths (`/about`, `/events`).
+The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a `<Link>`), crossing the build-system boundary.
 
 ## Design System
 
@@ -64,7 +68,7 @@ The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a
 
 | Name | Light hex | Dark hex | Usage |
 |------|-----------|----------|-------|
-| `cream` | `#F8F4EC` | (fixed) | Footer/hero text, decorative elements — NOT remapped in dark mode |
+| `cream` | `#F8F4EC` | (fixed) | Footer/hero text, decorative elements — NOT remapped |
 | `cream-dark` | `#EDE9DF` | `#142219` | Card/elevated backgrounds |
 | `green` | `#2C4A3E` | `#9DBFB5` | Primary text, nav, headings |
 | `terracotta` | `#C4704F` | (fixed) | CTAs, pull-quote borders, hover accents |
@@ -72,277 +76,88 @@ The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a
 | `ink` | `#1A1A18` | `#DDD8CD` | Body text |
 
 ### Dark mode
-
-Dark mode is implemented via:
-- `darkMode: 'class'` in `tailwind.config.js` — toggle by adding `dark` class to `<html>`
-- `ThemeToggle.jsx` component in NavBar — persists to `localStorage` as `axiom-theme`
-- Anti-flash inline script in `react-app/index.html` applies dark class before React mounts
-- Tailwind colors defined as `rgb(var(--color-X-rgb) / <alpha-value>)` — preserves all opacity modifiers (`text-ink/70` etc.) while CSS variable overrides in `.dark {}` handle the actual color swap
-- Page backgrounds using `cream` (which is NOT remapped) need explicit `dark:bg-[#0E1A14]` classes
-- Footer uses `dark:bg-[#0C1610]` since the green → sage remap would break it
+- `darkMode: 'class'` in `tailwind.config.js`. Toggle via `dark` class on `<html>`.
+- Handled by `ThemeToggle.jsx`. Persists via `localStorage` as `axiom-theme`.
+- Page backgrounds using `cream` need explicit `dark:bg-[#0E1A14]`.
 
 ### Typography
+- **Headings**: Cormorant Garamond (`font-heading`, weight 300)
+- **Body/UI**: DM Sans (`font-body`, weights 300–600)
+- **Tech accent**: IBM Plex Mono (`font-mono`, labels/metadata)
 
-- **Headings**: Cormorant Garamond — `font-heading`, typically `font-light` (300)
-- **Body/UI**: DM Sans — `font-body`, weights 300–600
-- **Tech accent**: IBM Plex Mono — `font-mono`, used for labels, numbers, metadata
-All three fonts are loaded in `react-app/index.html` via a single Google Fonts `<link>`.
+### Tailwind utilities & Custom conventions
+- Use mapped colors: `text-green`, `bg-terracotta`, `border-gold`.
+- `label-mono`: defined in `index.css` for eyebrow labels (`font-mono text-xs tracking-[0.2em] uppercase text-gold`).
+- Section headings: `font-heading font-light text-green` at `clamp(2rem, 4vw, 3rem)`.
 
-### Tailwind utilities
+## Images and Assets
 
-Custom tokens are mapped into Tailwind (`tailwind.config.js`), so use `text-green`, `bg-terracotta`, `border-gold`, `font-mono`, etc. directly.
-
-The `label-mono` CSS class (defined in `index.css`) combines `font-mono text-xs tracking-[0.2em] uppercase text-gold` — use it for eyebrow labels and metadata tags.
-
-### Decorative conventions
-
-- Horizontal rules: 0.5px gold (`border-gold/20`, `border-gold/30`)
-- Pull quotes: 4px terracotta left border, italic Cormorant Garamond
-- Eyebrow labels: `label-mono` class or `text-xs tracking-[0.3em] uppercase text-gold`
-- Section headings: `font-heading font-light text-green` at `clamp(2rem, 4vw, 3rem)`
-- Large monospace numerals (01, 02, 03…) used as editorial decorations on event cards and CTA sections
-- Text selection: inverted — `::selection { background: #1A1A18; color: #F8F4EC }`
-
-### Home page layout
-
-- Hero section: full-viewport height, Dither canvas background, Icarus transparent PNG centred with AXIOM wordmark overlaid. No `overflow-hidden` or gradient overlays on the image container (the PNG has a transparent background — overlays create a visible dark rectangle).
-- Content sections below hero use `w-[82%] max-w-Nxl mx-auto` — no `px-N` padding class.
-- NavBar is **completely hidden** on the home page until the user scrolls 60px, then slides in as a cream bar.
-
-## Images
-
-All images live in `react-app/public/assets/` and are referenced as absolute paths — **never import images through Vite**:
+**CRITICAL:** Assets (images, fonts, logos) are **NO LONGER in `react-app/public/assets/`**. 
+They are located in the **root `/data/` directory**.
 
 ```
-public/assets/
-├── logo.png / logo.svg
-├── team/           — team member portraits
+axiom-web/data/
+├── logo.png / logo.svg / logo-axiom.svg
+├── portraits/      — team member portraits
 ├── alumni/         — alumni headshots
-├── events/
-│   ├── cpc/
-│   ├── farewell-24/
-│   ├── jagriti/
-│   ├── philo-walk/
-│   ├── scribble-and-scramble/
-│   ├── trustfall/
-│   └── wheel-of-doom/
-└── gallery/        — carousel images
+├── events/         — event photos
+├── gallery/        — carousel images
+└── fonts/          — local fonts
 ```
 
-Reference in code: `<img src="/assets/team/nikita.jpeg" />` or as a string in data files.
-
-If a photo is missing, `TeamCard` and `AlumniCard` render a colored **initials avatar** automatically via their `onError` handler.
+**How they are served:**
+During dev, `vite.config.js` uses a custom middleware to serve requests to `/data/*` directly from the root `/data/` directory. In production, `postbuild.js` symlinks (or copies) `/data/` to `dist/data/`.
+**Usage in code:** Reference paths as `/data/portraits/filename.jpg`. *Never import images through Vite*.
 
 ## Content Data Files
 
-Edit these to update site content — no component changes needed:
+Content files are located in `react-app/src/data/`:
 
 | File | Content |
 |------|---------|
-| `react-app/src/data/team.js` | Members grouped by role |
-| `react-app/src/data/events.js` | Events, newest-first order |
-| `react-app/src/data/alumni.js` | Alumni with batch year + testimonial |
-
-### Team entry shape
-
-```js
-{
-  name: "Full Name",
-  image: "/assets/team/filename.jpg",  // null → initials avatar
-  quote: "Their quote.",
-  socials: { linkedin: "https://...", instagram: "https://..." }
-}
-```
-
-### Event entry shape
-
-```js
-{
-  title: "Event Name",
-  date: "May 5, 2025",           // or "Weekly"
-  location: "NSUT Campus",
-  description: "...",
-  images: ["/assets/events/folder/img.jpg", ...]
-}
-```
+| `team-2024.js`, `team-2025.js` | Executive committee members for specific years |
+| `2026.js`, `2027.js`, etc. | General members by batch year |
+| `events.json` | All events data |
+| `alumni-quotes.js` | Testimonials from alumni |
 
 ## Games
 
-Route: `/games` (index) and `/games/<slug>` (individual games).
+Route: `/games` (index) and `/games/<slug>`.
+Game components and their respective data logic are located in `react-app/src/pages/games/`.
 
-Pages are organized by section under `react-app/src/pages/`:
-- `pages/games/` — all game pages
-- `pages/about/` — `About.jsx`, `Alumni.jsx`, `Leadership2023.jsx`
-- `pages/events/` — `Events.jsx`, `EventsByYear.jsx`
-- `pages/` root — `Home.jsx`, `Colophon.jsx`, `NotFound.jsx`
+### Game Roster
+| Component | Route |
+|-----------|-------|
+| `Hermeneutic.jsx` | `/games/hermeneutic` |
+| `Epoche.jsx` | `/games/epoche` |
+| `Fallacy.jsx` | `/games/fallacy` |
+| `Dialectic.jsx` | `/games/dialectic` |
+| `Sorites.jsx` | `/games/sorites` |
+| `Repugnant.jsx` | `/games/repugnant` |
+| `Philosophle.jsx` | `/games/philosophle` |
+| `ButterflyJob.jsx` | `/games/butterfly-job` |
+| `FallacyDetective.jsx`| `/games/fallacy-detective` |
+| `PhilosopherMatch.jsx`| `/games/philosopher-match` |
+| `ConceptMap.jsx` | `/games/concept-map` |
+| `ArgumentReconstruction.jsx`| `/games/argument-reconstruction`|
+| `ParadigmShift.jsx` | `/games/paradigm-shift` |
 
-### Pages
+**Puzzle Data:** Unlike other content, game data files (e.g., `dialectic.js`, `epoche.js`, `philosophle.js`) are co-located with the game components inside `react-app/src/pages/games/`. Fallacy Detective cases live in `react-app/src/pages/games/cases/*.md`.
 
-| File | Route | Game |
-|------|-------|------|
-| `react-app/src/pages/games/Games.jsx` | `/games` | Index — cards linking to each game + external resources |
-| `react-app/src/pages/games/Hermeneutic.jsx` | `/games/hermeneutic` | Guess a philosophical term from progressively revealing clues |
-| `react-app/src/pages/games/Epoche.jsx` | `/games/epoche` | Classify a proposition across four philosophical axes |
-| `react-app/src/pages/games/Fallacy.jsx` | `/games/fallacy` | Identify the logical fallacy in an argument; colour-coded family/class hints |
-| `react-app/src/pages/games/Dialectic.jsx` | `/games/dialectic` | Identify antithesis then synthesis for a given thesis |
-| `react-app/src/pages/games/Sorites.jsx` | `/games/sorites` | Colour-patch classification that reveals the Sorites paradox |
-| `react-app/src/pages/games/Repugnant.jsx` | `/games/repugnant` | Step-by-step population ethics thought experiment (Parfit) |
-| `react-app/src/pages/games/Philosophle.jsx` | `/games/philosophle` | Wordle-style game with philosophy/philosopher words across multiple word lengths |
-| `react-app/src/pages/games/ButterflyJob.jsx` | `/games/butterfly-job` | Butterfly Job game |
-| `react-app/src/pages/games/FallacyDetective.jsx` | `/games/fallacy-detective` | Identify fallacies in real-world case file documents |
-
-### Puzzle data
-
-Each game has its own data file in `react-app/src/data/`. Edit the relevant file to add or change puzzles — no game component changes needed:
-
-| File | Game |
-|------|------|
-| `hermeneutic.js` | `HERMENEUTIC_EASY`, `HERMENEUTIC_HARD` — clue sets for the word-guessing game |
-| `epoche.js` | `EPOCHE` — propositions with correct axis classifications |
-| `fallacy.js` | `FALLACY` — argument scenarios; `FALLACY_OPTS` — the full list of fallacy options |
-| `dialectic.js` | `DIALECTIC` — thesis/antithesis/synthesis triples |
-| `philosophle.js` | `WORDS_3` through `WORDS_7`, `ALL_WORDS` — word lists grouped by length |
-
-Sorites and Repugnant Conclusion have no external data file — their content is self-contained in their component files.
-
-Fallacy Detective data lives in:
-- `react-app/src/data/fallacyDetective.js` — `FALLACIES` array + `parseCaseMarkdown()` parser
-- `react-app/src/data/cases/*.md` — case files in CriticMarkup format (imported with `?raw`)
-
-To add a case: create `react-app/src/data/cases/your-case.md` and add the import + entry in `FallacyDetective.jsx`. Case file format: YAML frontmatter (`id`, `label`, `title`, `context`), then sentences one per line. Fallacy sentences: `{==sentence text==}{>>fallacy_id | Explanation.<<}`. Multi-sentence fallacies: multiple `{==...==}` lines, comment only on the last one.
-
-### Games index structure
-
-`Games.jsx` contains three local data arrays:
-- `games[]` — internal Axiom games (drives the index cards; use `path` for React routes)
-- `externalExperiments[]` — browser-based external experiments (philosophyexperiments.com, MIT Moral Machine, etc.)
-- `externalGames[]` — external games with philosophical themes (Steam titles, etc.)
-
-### Design system exception
-
-Individual game pages (`/games/*`) are **exempt from Axiom's design system**. Each game may use its own visual aesthetic — do not force the cream/green/terracotta palette, Cormorant/DM Sans typography, or layout conventions onto game pages. The index page (`Games.jsx`) does follow the main design system. Treat each game as a standalone visual artifact.
+**Design system exception:** Individual game pages are exempt from the Axiom design system.
 
 ## Newsletter Posts
 
 Create: `newsletter/src/posts/YYYY-MM-slug.md`
 
-**Required frontmatter:**
+- **Required frontmatter:** `layout: post.njk`, `title`, `date`, `tags: [posts]`
+- Posts are automatically sorted newest-first on the index.
+- Uses `markdown-it` configured in `.eleventy.js`.
 
-```markdown
----
-layout: post.njk
-title: "Post Title"
-date: 2025-03-15
-tags:
-  - posts
----
-```
+The React app fetches the recent newsletter posts via `/newsletter/posts.json` (generated by `posts.json.11ty.js`). During dev, Vite proxies `/newsletter/` to the Eleventy dev server (`http://localhost:8081`).
 
-**Optional frontmatter:**
+## Deployment (Vercel)
 
-```markdown
-author: Author Name
-excerpt: "One sentence shown on the index listing."
-```
-
-Posts are automatically sorted newest-first on the index. The `tags: [posts]` entry is required for Eleventy to include the file in the `posts` collection.
-
-### Newsletter posts JSON endpoint
-
-`newsletter/src/posts.json.11ty.js` generates `/newsletter/posts.json` — a machine-readable list of all posts consumed by the React Home page to show recent articles. It uses a `.11ty.js` JavaScript template (not `.njk`) because Nunjucks HTML-encodes JSON output (`&quot;` instead of `"`).
-
-During dev, `react-app/vite.config.js` proxies `/newsletter/` → `http://localhost:8081` so `fetch('/newsletter/posts.json')` works without a production build.
-
-### Eleventy URL gotcha
-
-In Eleventy v3, `page.url` in templates does **not** include `pathPrefix`. Always use the `withPrefix` filter when building hrefs to posts:
-
-```njk
-<a href="{{ post.url | withPrefix }}">...</a>
-```
-
-The filter is defined in `.eleventy.js` as `(url) => \`/newsletter\${url}\``.
-
-**Markdown support**: headings, paragraphs, blockquotes (renders with terracotta border), ordered/unordered lists, bold, italic, horizontal rules (renders as gold line).
-
-### Newsletter — Markdown & Plugins
-
-Eleventy uses **markdown-it** configured via `eleventyConfig.setLibrary("md", ...)` in `.eleventy.js`.
-Active plugins: `markdown-it-footnote` — footnote syntax `[^1]` inline and `[^1]: ...` definitions work out of the box, rendering as linked superscripts with a back-reference section. To add more plugins: `npm install <pkg> --workspace=axiom-newsletter`.
-
-### Newsletter — Images in Posts
-
-Images co-located with posts (`newsletter/src/posts/image.png`) are passed through to `dist/posts/image.png` via a glob passthrough in `.eleventy.js`. A post at `src/posts/slug.md` renders to `/newsletter/posts/slug/`, so reference images one level up: `../image.png` (resolves to `/newsletter/posts/image.png`).
-
-### Newsletter — Feeds
-
-RSS feed: `/newsletter/feed.xml` · Atom feed: `/newsletter/atom.xml` — both generated from Nunjucks templates in `newsletter/src/`. Auto-discovery `<link rel="alternate">` tags are in `base.njk`. Absolute feed URLs use `site.url` from `newsletter/src/_data/site.js` — update this to the real Vercel domain once known.
-
-## Components
-
-| Component | Purpose |
-|-----------|---------|
-| `NavBar.jsx` | Hidden on home hero; slides in as cream bar after 60px scroll. `<Link>` for internal routes, `<a>` for newsletter/external |
-| `Footer.jsx` | Green footer with nav + social links. Navigate list includes Branding (Google Drive link). Instagram: @axiomnsut |
-| `TeamCard.jsx` | Circular photo + name + quote; initials fallback |
-| `AlumniCard.jsx` | Alumni photo, batch, testimonial |
-| `EventCard.jsx` | Date, location, description, scrollable image strip, lightbox. Content column needs `min-w-0` to allow overflow-x-auto to work inside CSS Grid |
-| `GalleryCarousel.jsx` | Auto-advancing image carousel (pauses on hover) |
-| `SectionDivider.jsx` | Thin 0.5px gold horizontal rule |
-| `PullQuote.jsx` | Blockquote with terracotta left border |
-| `Dither.jsx` | Canvas-based animated Perlin FBM wave + Bayer ordered dither background. Pure canvas (no three.js). Canvas renders at 80×45 and is scaled up with `image-rendering: pixelated` for the chunky pixel look. Palette: 4 Axiom green levels |
-| `SpotlightCard.jsx` | Wrapper that stores mouse position in CSS custom properties (`--x`, `--y`) for a zero-rerender spotlight effect via `::before` gradient |
-| `ClickSpark.jsx` | Pure canvas click-spark animation (created but currently unused in App.jsx) |
-| `CircularText.jsx` | Spinning text ring using `motion/react` (unused — `motion` package remains as a dev dependency) |
-
-### Home page hero structure
-
-```
-<section>  ← full viewport, dither canvas bg
-  <Dither />  ← absolute, z-index 0
-  <grid-overlay />  ← absolute, z-index 1
-  <vignette />  ← absolute, z-index 1
-  <div>  ← content, z-index 2
-    <div>  ← image frame (no overflow-hidden, no bg)
-      <img Icarus PNG />
-      <div>  ← absolute overlay, flex-col centred
-        EST. 2017 label (dark pill bg)
-        <h1 .axiom-wordmark>AXIOM</h1>
-        "the philosophy society" italic
-      </div>
-    </div>
-    TypewriterPrompt  ← CSS block cursor (inline span), NOT Unicode █
-  </div>
-  scroll cue
-</section>
-```
-
-## Deployment
-
-Vercel reads `vercel.json` at the repo root:
-
-```json
-{
-  "framework": null,
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "rewrites": [{ "source": "/newsletter/(.*)", "destination": "/newsletter/$1" }]
-}
-```
-
-`"framework": null` is required — without it Vercel auto-detects Vite and overrides `outputDirectory` with its own preset.
-
-**Critical Vercel setting**: The project's **Root Directory** must be empty (repo root), not `react-app`. If Root Directory is set to `react-app`, only one workspace's packages install instead of the full set, and the newsletter build never runs. This setting lives on the Vercel project server-side and can be cleared via the dashboard or via the REST API:
-
-```bash
-# One-time fix if the dashboard setting is wrong:
-curl -X PATCH https://api.vercel.com/v9/projects/<projectId>?teamId=<teamId> \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
-  -d '{"rootDirectory": null}'
-```
-
-The auth token is at `%APPDATA%/com.vercel.cli/Data/auth.json` after `vercel login`. Project/team IDs are in `.vercel/project.json`.
-
-Every push to `main` triggers an automatic redeploy. See `DEPLOYMENT.md` for full setup instructions and a guide to adding content.
+Vercel reads `vercel.json` at the repo root.
+- `"framework": null` is required to prevent Vercel from overriding `outputDirectory`.
+- The **Root Directory** setting in the Vercel dashboard must be empty (repo root), not `react-app`.
