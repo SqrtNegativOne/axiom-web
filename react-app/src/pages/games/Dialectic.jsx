@@ -276,33 +276,34 @@ export default function GameDialectic() {
 
             {/* Header */}
             <section className="max-w-2xl mx-auto px-6 py-10">
-                <div className="flex items-center gap-3 mb-6">
-                    <a
-                        href="/games"
-                        className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
-                    >
-                        ← Games
-                    </a>
-                    <span className="text-gold/30">/</span>
-                    <span className="font-mono text-xs tracking-widest uppercase text-ink/40">
-                        Dialectic
-                    </span>
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                    <div>
+                        <div className="flex items-center gap-3 mb-4">
+                            <a
+                                href="/games"
+                                className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
+                            >
+                                ← Games
+                            </a>
+                            <span className="text-gold/30">/</span>
+                        </div>
+                        <h1
+                            className="font-heading font-light text-green uppercase tracking-wide"
+                            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
+                        >
+                            Dialectic
+                        </h1>
+                    </div>
+                    <div className="md:w-1/2">
+                        <div className="h-px w-12 bg-gold/40 mb-4" />
+                        <p className="font-body text-sm text-ink/60 leading-relaxed">
+                            A philosophical thesis is presented. First, identify the
+                            position that historically opposed it — the antithesis. Then
+                            select the synthesis that preserved and resolved the
+                            contradiction. Two stages, two attempts each.
+                        </p>
+                    </div>
                 </div>
-
-                <p className="label-mono mb-3 text-gold">Synthesis · 04</p>
-                <h1
-                    className="font-heading font-light text-green mb-4"
-                    style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
-                >
-                    Dialectic
-                </h1>
-                <div className="h-px w-12 bg-gold/40 mb-5" />
-                <p className="font-body text-sm text-ink/60 leading-relaxed">
-                    A philosophical thesis is presented. First, identify the
-                    position that historically opposed it — the antithesis. Then
-                    select the synthesis that preserved and resolved the
-                    contradiction. Two stages, two attempts each.
-                </p>
             </section>
 
             {/* Game area */}
