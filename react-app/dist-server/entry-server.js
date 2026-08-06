@@ -2749,6 +2749,92 @@ function EventsByYear() {
     allEvents.length > 0 ? /* @__PURE__ */ jsx("section", { className: "max-w-5xl mx-auto px-6 py-16", children: allEvents.map((event, i) => /* @__PURE__ */ jsx(EventCard, { ...event, index: i }, event.title)) }) : /* @__PURE__ */ jsx("section", { className: "max-w-5xl mx-auto px-6 py-16 text-center", children: /* @__PURE__ */ jsx("p", { className: "font-body text-ink/50 text-lg", children: "No events to display for this year." }) })
   ] });
 }
+const gamesList = [
+  {
+    path: "hermeneutic",
+    eyebrow: "Word Puzzle",
+    title: "Hermeneutic",
+    desc: "Guess the philosophical term from progressively revealing clues. Each wrong guess unveils another layer of context."
+  },
+  {
+    path: "epoche",
+    eyebrow: "Classification",
+    title: "Époche",
+    desc: "Classify propositions across four philosophical axes: analytic or synthetic, a priori or a posteriori, necessary or contingent, descriptive or normative."
+  },
+  {
+    path: "fallacy",
+    eyebrow: "Identification",
+    title: "Fallacy",
+    desc: "Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class, narrowing the field."
+  },
+  {
+    path: "dialectics",
+    eyebrow: "Synthesis",
+    title: "Dialectics",
+    desc: "A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction."
+  },
+  {
+    path: "negative-dialectics",
+    eyebrow: "Critique",
+    title: "Negative Dialectics",
+    desc: "Dismantle a false historical synthesis by predicting its residual—the marginalized reality it represses or fails to capture."
+  },
+  {
+    path: "sorites",
+    eyebrow: "Experiment",
+    title: "Sorites",
+    desc: "Pick two colours, classify 34 patches across the gradient between them, and discover the Sorites paradox hiding in your own judgements."
+  },
+  {
+    path: "repugnant",
+    eyebrow: "Population Ethics",
+    title: "The Repugnant Conclusion",
+    desc: `Make a series of world-comparisons, each individually reasonable, to solve Parfit's "most important problem in ethics".`
+  },
+  {
+    path: "philosophle",
+    eyebrow: "Word Puzzle",
+    title: "Philosophle",
+    desc: "wordle, but for philosophy."
+  },
+  {
+    path: "butterfly-job",
+    eyebrow: "Counterfactual History",
+    title: "The Butterfly Job",
+    desc: "Step into seven minor roles across the twentieth century and watch how tiny choices derail recorded history."
+  },
+  {
+    path: "fallacy-detective",
+    eyebrow: "Investigation",
+    title: "Fallacy Detective",
+    desc: "Highlight suspected sentences in real-world documents, name the fallacy, and close each case."
+  },
+  {
+    path: "philosopher-match",
+    eyebrow: "Attribution",
+    title: "Philosopher Match",
+    desc: "A philosophical quote is placed before you. Identify its author from four options, with hints."
+  },
+  {
+    path: "concept-map",
+    eyebrow: "Navigation",
+    title: "Concept Map",
+    desc: "Bridge two philosophical concepts via the shortest chain of directly related ideas."
+  },
+  {
+    path: "argument-reconstruction",
+    eyebrow: "Reconstruction",
+    title: "Argument Reconstruction",
+    desc: "Drag a philosopher's premises into their correct logical order."
+  },
+  {
+    path: "paradigm-shift",
+    eyebrow: "Classification",
+    title: "Paradigm Shift",
+    desc: "Classify historical episodes in science according to Kuhn's five phases."
+  }
+];
 const externalExperiments = [
   {
     title: "Philosophy Experiments",
@@ -2827,96 +2913,6 @@ const externalGames = [
     desc: "A detective RPG in which your fractured psyche — 24 competing skill-voices — debates every action. Engages directly with Marxism, existentialism, Taoism, and the phenomenology of failure. Widely considered the most philosophically dense game ever made."
   }
 ];
-const games = [
-  {
-    path: "/games/hermeneutic",
-    eyebrow: "Word Puzzle",
-    title: "Hermeneutic",
-    desc: "Guess the philosophical term from progressively revealing clues. Each wrong guess unveils another layer of context, from etymology to Heidegger."
-  },
-  {
-    path: "/games/epoche",
-    eyebrow: "Classification",
-    title: "Époche",
-    desc: "A proposition is placed before you. Classify it across four philosophical axes: analytic or synthetic, a priori or a posteriori, necessary or contingent, descriptive or normative."
-  },
-  {
-    path: "/games/fallacy",
-    eyebrow: "Identification",
-    title: "Fallacy",
-    desc: "Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class, narrowing the field."
-  },
-  {
-    path: "/games/dialectic",
-    eyebrow: "Synthesis",
-    title: "Dialectic",
-    desc: "A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction, tracing the actual movement of Western thought."
-  },
-  {
-    path: "/games/negative-dialectic",
-    eyebrow: "Critique",
-    title: "Negative Dialectic",
-    desc: "Dismantle a false historical synthesis by predicting its residual—the marginalized reality it represses or fails to capture."
-  },
-  {
-    path: "/games/sorites",
-    eyebrow: "Experiment",
-    title: "Sorites",
-    desc: "Pick your favourite and least favourite colour. Classify 34 patches across the gradient between them and discover the Sorites paradox hiding in your own judgements."
-  },
-  {
-    path: "/games/repugnant",
-    eyebrow: "Population Ethics",
-    title: "The Repugnant Conclusion",
-    desc: "Make a series of world-comparisons, each individually reasonable. Follow your own logic through 9 steps and discover whether you endorse the conclusion Parfit called the most important problem in ethics."
-  },
-  {
-    path: "/games/philosophle",
-    eyebrow: "Word Puzzle",
-    title: "Philosophle",
-    desc: "Guess the hidden philosophical term — a concept, thinker, or Greek root between 3 and 7 letters. Colour-coded feedback narrows each attempt. Three-letter words grant an extra guess."
-  },
-  {
-    path: "/games/butterfly-job",
-    eyebrow: "Counterfactual History",
-    title: "The Butterfly Job",
-    desc: "Step into seven minor roles across the twentieth century and make one decision in each moment. Watch how tiny choices preserve or derail recorded history."
-  },
-  {
-    path: "/games/fallacy-detective",
-    eyebrow: "Investigation",
-    title: "Fallacy Detective",
-    desc: "You receive a series of case files — real-world documents laced with hidden logical fallacies. Click suspected sentences, name the fallacy from 52 options, and close the case."
-  },
-  {
-    path: "/games/philosopher-match",
-    eyebrow: "Attribution",
-    title: "Philosopher Match",
-    desc: "A philosophical quote is placed before you. Identify its author from four options. Wrong guesses reveal the century and tradition as hints, costing points.",
-    hint: "2 rounds · 5 quotes each · up to 3 pts per quote"
-  },
-  {
-    path: "/games/concept-map",
-    eyebrow: "Navigation",
-    title: "Concept Map",
-    desc: "Bridge two philosophical concepts via the shortest chain of directly related ideas. Each step must be a genuine conceptual connection through a network of 50+ terms.",
-    hint: "3 puzzles · BFS optimal scoring · reveal path option"
-  },
-  {
-    path: "/games/argument-reconstruction",
-    eyebrow: "Reconstruction",
-    title: "Argument Reconstruction",
-    desc: "Drag a philosopher's premises into their correct logical order. Three classic arguments — Descartes, Hume, Kant — each with a hidden premise revealed on completion.",
-    hint: "3 arguments · drag to reorder · hidden premise reveal"
-  },
-  {
-    path: "/games/paradigm-shift",
-    eyebrow: "Classification",
-    title: "Paradigm Shift",
-    desc: "Classify historical episodes in science according to Kuhn's five phases: pre-science, normal science, anomaly, crisis, and revolution.",
-    hint: "8 cases · shuffled · Kuhn 1962"
-  }
-];
 function Games() {
   return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
     /* @__PURE__ */ jsx(
@@ -2932,7 +2928,7 @@ function Games() {
       /* @__PURE__ */ jsx("h1", { className: "section-heading mb-3", children: "Games" }),
       /* @__PURE__ */ jsx("div", { className: "h-px w-16 bg-gold/50 mx-auto mb-3" })
     ] }),
-    /* @__PURE__ */ jsx("section", { className: "max-w-6xl mx-auto px-6 pt-6 pb-16", children: /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6", children: games.map(({ path, href, eyebrow, title, desc }) => {
+    /* @__PURE__ */ jsx("section", { className: "max-w-6xl mx-auto px-6 pt-6 pb-16", children: /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6", children: gamesList.map(({ path, href, eyebrow, title, desc }) => {
       const cardClass = "group block bg-cream-dark border border-gold/20 rounded-lg p-6 relative overflow-hidden hover:border-gold/50 transition-all duration-300";
       const cardInner = /* @__PURE__ */ jsxs(Fragment, { children: [
         /* @__PURE__ */ jsx("div", { className: "absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" }),
@@ -2951,7 +2947,7 @@ function Games() {
           /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/65 leading-relaxed mb-6", children: desc })
         ] })
       ] });
-      return href ? /* @__PURE__ */ jsx("a", { href, className: cardClass, children: cardInner }, href) : /* @__PURE__ */ jsx("a", { href: path, className: cardClass, children: cardInner }, path);
+      return href ? /* @__PURE__ */ jsx("a", { href, className: cardClass, children: cardInner }, href) : /* @__PURE__ */ jsx("a", { href: `/games/${path}`, className: cardClass, children: cardInner }, path);
     }) }) }),
     /* @__PURE__ */ jsx(SectionDivider, { className: "px-6 max-w-6xl mx-auto" }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-6xl mx-auto px-6 py-16", children: [
@@ -4854,8 +4850,8 @@ function GameDialectic() {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Dialectic",
-        path: "/games/dialectic",
+        title: "Dialectics",
+        path: "/games/dialectics",
         description: "Match a philosophical thesis to its historical antithesis, then identify the synthesis that resolved the contradiction."
       }
     ),
@@ -4877,7 +4873,7 @@ function GameDialectic() {
           {
             className: "font-heading font-light text-green uppercase tracking-wide",
             style: { fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" },
-            children: "Dialectic"
+            children: "Dialectics"
           }
         )
       ] }),
@@ -5037,17 +5033,9 @@ function GameBoard$1({ puzzle, onNewGame }) {
   const [rAttempts, setRAttempts] = useState(0);
   const [rResult, setRResult] = useState(null);
   const [status, setStatus] = useState("playing");
-  const [pendingA, setPendingA] = useState(null);
-  const [pendingR, setPendingR] = useState(null);
   function pickAntithesis(idx) {
     if (stage !== 1 || (aResult == null ? void 0 : aResult.correct) || (aResult == null ? void 0 : aResult.revealIdx) !== void 0)
       return;
-    setPendingA(idx);
-  }
-  function submitAntithesis() {
-    const idx = pendingA;
-    if (idx === null) return;
-    setPendingA(null);
     const correct = antitheses[idx].correct;
     const newAttempts = aAttempts + 1;
     setAAttempts(newAttempts);
@@ -5064,12 +5052,6 @@ function GameBoard$1({ puzzle, onNewGame }) {
   }
   function pickResidual(idx) {
     if (stage !== 2 || status !== "playing") return;
-    setPendingR(idx);
-  }
-  function submitResidual() {
-    const idx = pendingR;
-    if (idx === null) return;
-    setPendingR(null);
     const correct = residuals[idx].correct;
     const newAttempts = rAttempts + 1;
     setRAttempts(newAttempts);
@@ -5133,21 +5115,13 @@ function GameBoard$1({ puzzle, onNewGame }) {
           {
             text: a.text,
             result: getAntithesisResult(i),
-            pending: pendingA === i && !(aResult == null ? void 0 : aResult.correct) && (aResult == null ? void 0 : aResult.revealIdx) === void 0,
+            pending: false,
             onClick: () => pickAntithesis(i),
             disabled: stage !== 1 || (aResult == null ? void 0 : aResult.correct) || (aResult == null ? void 0 : aResult.revealIdx) !== void 0
           },
           i
         )) }),
-        aResult && !aResult.correct && stage === 1 && /* @__PURE__ */ jsx("p", { className: "font-body text-xs text-terracotta/80 mt-2 animate-slide-up text-right", children: "Not quite — one more attempt." }),
-        stage === 1 && pendingA !== null && /* @__PURE__ */ jsx("div", { className: "flex justify-end mt-3", children: /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: submitAntithesis,
-            className: "px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150 shadow-sm",
-            children: "Submit"
-          }
-        ) })
+        aResult && !aResult.correct && stage === 1 && /* @__PURE__ */ jsx("p", { className: "font-body text-xs text-terracotta/80 mt-2 animate-slide-up text-right", children: "Not quite — one more attempt." })
       ] })
     ] }),
     stage === 2 && /* @__PURE__ */ jsxs("div", { className: "animate-slide-up relative mt-10 md:mt-16", children: [
@@ -5216,7 +5190,7 @@ function GameBoard$1({ puzzle, onNewGame }) {
           {
             text: r.text,
             result: getResidualResult(i),
-            pending: pendingR === i && status === "playing",
+            pending: false,
             onClick: () => pickResidual(i),
             disabled: status !== "playing"
           },
@@ -5225,15 +5199,7 @@ function GameBoard$1({ puzzle, onNewGame }) {
         rResult && !rResult.correct && status === "playing" && /* @__PURE__ */ jsxs("div", { className: "mt-4 bg-terracotta/10 border border-terracotta/20 rounded-lg p-4 animate-slide-up", children: [
           /* @__PURE__ */ jsx("p", { className: "font-body text-sm font-semibold text-terracotta/90 mb-1", children: "Not quite — one more attempt." }),
           ((_a = residuals[rResult.idx]) == null ? void 0 : _a.explanation) && /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-terracotta/80 leading-relaxed", children: residuals[rResult.idx].explanation })
-        ] }),
-        status === "playing" && pendingR !== null && /* @__PURE__ */ jsx("div", { className: "flex justify-center mt-6", children: /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: submitResidual,
-            className: "px-8 py-2.5 rounded-lg bg-terracotta text-cream font-body text-sm hover:bg-terracotta/90 transition-colors duration-150 shadow-sm",
-            children: "Expose the Residual"
-          }
-        ) })
+        ] })
       ] })
     ] }),
     status === "win" && /* @__PURE__ */ jsxs(
@@ -5282,40 +5248,42 @@ function GameNegativeDialectic() {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Negative Dialectic — Philosophy Games",
-        path: "/games/negative-dialectic",
+        title: "Negative Dialectics — Philosophy Games",
+        path: "/games/negative-dialectics",
         description: "Dismantle a false historical synthesis by predicting its residual—the marginalized reality it represses or fails to capture."
       }
     ),
-    /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-10 text-center", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-center gap-3 mb-6", children: [
+    /* @__PURE__ */ jsx("section", { className: "max-w-4xl mx-auto px-6 py-10", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10", children: [
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-4", children: [
+          /* @__PURE__ */ jsx(
+            "a",
+            {
+              href: "/games",
+              className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
+              children: "← Games"
+            }
+          ),
+          /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "/" })
+        ] }),
         /* @__PURE__ */ jsx(
-          "a",
+          "h1",
           {
-            href: "/games",
-            className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
-            children: "← Games"
+            className: "font-heading font-light text-green uppercase tracking-wide",
+            style: { fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" },
+            children: "Negative Dialectics"
           }
-        ),
-        /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "/" }),
-        /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-widest uppercase text-ink/40", children: "Negative Dialectic" })
+        )
       ] }),
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-terracotta", children: "Critique · 04b" }),
-      /* @__PURE__ */ jsx(
-        "h1",
-        {
-          className: "font-heading font-light text-green mb-4",
-          style: { fontSize: "clamp(2rem, 4vw, 3rem)" },
-          children: "Negative Dialectic"
-        }
-      ),
-      /* @__PURE__ */ jsx("div", { className: "h-px w-16 bg-gold/40 mx-auto mb-6" }),
-      /* @__PURE__ */ jsxs("p", { className: "font-body text-sm text-ink/70 leading-relaxed max-w-2xl mx-auto", children: [
-        "Instead of finding harmony, your goal is to identify what the system represses. First, establish the historical contradiction. Then, when presented with the false synthesis that claimed to resolve it, find the ",
-        /* @__PURE__ */ jsx("i", { children: "residual" }),
-        "—the non-identical remainder left behind."
+      /* @__PURE__ */ jsxs("div", { className: "md:w-1/2", children: [
+        /* @__PURE__ */ jsx("div", { className: "h-px w-12 bg-gold/40 mb-4" }),
+        /* @__PURE__ */ jsxs("p", { className: "font-body text-sm text-ink/60 leading-relaxed", children: [
+          "Instead of finding harmony, your goal is to identify what the system represses. First, establish the historical contradiction. Then, when presented with the false synthesis that claimed to resolve it, find the ",
+          /* @__PURE__ */ jsx("i", { children: "residual" }),
+          "—the non-identical remainder left behind."
+        ] })
       ] })
-    ] }),
+    ] }) }),
     /* @__PURE__ */ jsx("section", { className: "max-w-5xl mx-auto px-6 pb-24", children: /* @__PURE__ */ jsx(
       GameBoard$1,
       {
@@ -13980,14 +13948,14 @@ function App() {
         /* @__PURE__ */ jsx(
           Route,
           {
-            path: "/games/dialectic",
+            path: "/games/dialectics",
             element: /* @__PURE__ */ jsx(GameDialectic, {})
           }
         ),
         /* @__PURE__ */ jsx(
           Route,
           {
-            path: "/games/negative-dialectic",
+            path: "/games/negative-dialectics",
             element: /* @__PURE__ */ jsx(GameNegativeDialectic, {})
           }
         ),

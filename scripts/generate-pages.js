@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { gamesList } from '../react-app/src/data/gamesList.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const distDir = join(__dirname, '..', 'dist')
@@ -68,78 +69,12 @@ const ROUTES = [
     title: `Philosophy Games ⋅ ${SITE_NAME}`,
     description: 'Four interactive philosophy games — guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought.',
   },
-  {
-    outDir: 'games/hermeneutic',
-    path: '/games/hermeneutic',
-    title: `Hermeneutic ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Guess the philosophical term from progressively revealing clues. Each wrong answer unveils another layer of context.',
-  },
-  {
-    outDir: 'games/epoche',
-    path: '/games/epoche',
-    title: `Époche ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Classify a philosophical proposition across four axes: analytic/synthetic, a priori/a posteriori, necessary/contingent, descriptive/normative.',
-  },
-  {
-    outDir: 'games/fallacy',
-    path: '/games/fallacy',
-    title: `Fallacy ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Identify the logical fallacy in a philosophical argument. Hints reveal whether your guess shares the right family or class.',
-  },
-  {
-    outDir: 'games/dialectic',
-    path: '/games/dialectic',
-    title: `Dialectic ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Match a philosophical thesis to its historical antithesis, then identify the synthesis that resolved the contradiction.',
-  },
-  {
-    outDir: 'games/sorites',
-    path: '/games/sorites',
-    title: `Sorites ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Where does red end? Classify 34 colour patches and discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness.',
-  },
-  {
-    outDir: 'games/philosophle',
-    path: '/games/philosophle',
-    title: `Philosophle ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'A Wordle-style game using philosophical terms — concepts, thinkers, and Greek roots from 3 to 7 letters.',
-  },
-  {
-    outDir: 'games/butterfly-job',
-    path: '/games/butterfly-job',
-    title: `Butterfly Job ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Butterfly Job Game.',
-  },
-  {
-    outDir: 'games/fallacy-detective',
-    path: '/games/fallacy-detective',
-    title: `Fallacy Detective ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Fallacy Detective Game.',
-  },
-  {
-    outDir: 'games/philosopher-match',
-    path: '/games/philosopher-match',
-    title: `Philosopher Match ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Philosopher Match Game.',
-  },
-  {
-    outDir: 'games/concept-map',
-    path: '/games/concept-map',
-    title: `Concept Map ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Concept Map Game.',
-  },
-  {
-    outDir: 'games/argument-reconstruction',
-    path: '/games/argument-reconstruction',
-    title: `Argument Reconstruction ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Argument Reconstruction Game.',
-  },
-  {
-    outDir: 'games/paradigm-shift',
-    path: '/games/paradigm-shift',
-    title: `Paradigm Shift ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
-    description: 'Paradigm Shift Game.',
-  },
+  ...gamesList.map(game => ({
+    outDir: `games/${game.path}`,
+    path: `/games/${game.path}`,
+    title: `${game.title} ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
+    description: game.desc,
+  })),
   {
     outDir: 'events/2026',
     path: '/events/2026',

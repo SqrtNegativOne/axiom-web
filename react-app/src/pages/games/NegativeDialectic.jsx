@@ -69,19 +69,11 @@ function GameBoard({ puzzle, onNewGame }) {
     const [rAttempts, setRAttempts] = useState(0)
     const [rResult, setRResult] = useState(null)
     const [status, setStatus] = useState('playing')
-    const [pendingA, setPendingA] = useState(null) // idx | null
-    const [pendingR, setPendingR] = useState(null) // idx | null
 
     function pickAntithesis(idx) {
         if (stage !== 1 || aResult?.correct || aResult?.revealIdx !== undefined)
             return
-        setPendingA(idx)
-    }
-
-    function submitAntithesis() {
-        const idx = pendingA
-        if (idx === null) return
-        setPendingA(null)
+            
         const correct = antitheses[idx].correct
         const newAttempts = aAttempts + 1
         setAAttempts(newAttempts)
@@ -100,13 +92,7 @@ function GameBoard({ puzzle, onNewGame }) {
 
     function pickResidual(idx) {
         if (stage !== 2 || status !== 'playing') return
-        setPendingR(idx)
-    }
-
-    function submitResidual() {
-        const idx = pendingR
-        if (idx === null) return
-        setPendingR(null)
+        
         const correct = residuals[idx].correct
         const newAttempts = rAttempts + 1
         setRAttempts(newAttempts)
@@ -194,11 +180,7 @@ function GameBoard({ puzzle, onNewGame }) {
                                 key={i}
                                 text={a.text}
                                 result={getAntithesisResult(i)}
-                                pending={
-                                    pendingA === i &&
-                                    !aResult?.correct &&
-                                    aResult?.revealIdx === undefined
-                                }
+                                pending={false}
                                 onClick={() => pickAntithesis(i)}
                                 disabled={
                                     stage !== 1 ||
@@ -212,16 +194,6 @@ function GameBoard({ puzzle, onNewGame }) {
                         <p className="font-body text-xs text-terracotta/80 mt-2 animate-slide-up text-right">
                             Not quite — one more attempt.
                         </p>
-                    )}
-                    {stage === 1 && pendingA !== null && (
-                        <div className="flex justify-end mt-3">
-                            <button
-                                onClick={submitAntithesis}
-                                className="px-5 py-2 rounded-lg bg-green text-cream font-body text-sm hover:bg-green/90 transition-colors duration-150 shadow-sm"
-                            >
-                                Submit
-                            </button>
-                        </div>
                     )}
                 </div>
             </div>
@@ -296,7 +268,7 @@ function GameBoard({ puzzle, onNewGame }) {
                                     key={i}
                                     text={r.text}
                                     result={getResidualResult(i)}
-                                    pending={pendingR === i && status === 'playing'}
+                                    pending={false}
                                     onClick={() => pickResidual(i)}
                                     disabled={status !== 'playing'}
                                 />
@@ -313,17 +285,6 @@ function GameBoard({ puzzle, onNewGame }) {
                                         {residuals[rResult.idx].explanation}
                                     </p>
                                 )}
-                            </div>
-                        )}
-                        
-                        {status === 'playing' && pendingR !== null && (
-                            <div className="flex justify-center mt-6">
-                                <button
-                                    onClick={submitResidual}
-                                    className="px-8 py-2.5 rounded-lg bg-terracotta text-cream font-body text-sm hover:bg-terracotta/90 transition-colors duration-150 shadow-sm"
-                                >
-                                    Expose the Residual
-                                </button>
                             </div>
                         )}
                     </div>
@@ -396,39 +357,40 @@ export default function GameNegativeDialectic() {
     return (
         <div className="pt-20 animate-on-load">
             <SEO
-                title="Negative Dialectic — Philosophy Games"
-                path="/games/negative-dialectic"
+                title="Negative Dialectics — Philosophy Games"
+                path="/games/negative-dialectics"
                 description="Dismantle a false historical synthesis by predicting its residual—the marginalized reality it represses or fails to capture."
             />
 
             {/* Header */}
-            <section className="max-w-4xl mx-auto px-6 py-10 text-center">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                    <a
-                        href="/games"
-                        className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
-                    >
-                        ← Games
-                    </a>
-                    <span className="text-gold/30">/</span>
-                    <span className="font-mono text-xs tracking-widest uppercase text-ink/40">
-                        Negative Dialectic
-                    </span>
+            <section className="max-w-4xl mx-auto px-6 py-10">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                    <div>
+                        <div className="flex items-center gap-3 mb-4">
+                            <a
+                                href="/games"
+                                className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
+                            >
+                                ← Games
+                            </a>
+                            <span className="text-gold/30">/</span>
+                        </div>
+                        <h1
+                            className="font-heading font-light text-green uppercase tracking-wide"
+                            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
+                        >
+                            Negative Dialectics
+                        </h1>
+                    </div>
+                    <div className="md:w-1/2">
+                        <div className="h-px w-12 bg-gold/40 mb-4" />
+                        <p className="font-body text-sm text-ink/60 leading-relaxed">
+                            Instead of finding harmony, your goal is to identify what the system represses. 
+                            First, establish the historical contradiction. Then, when presented with the false synthesis 
+                            that claimed to resolve it, find the <i>residual</i>—the non-identical remainder left behind.
+                        </p>
+                    </div>
                 </div>
-
-                <p className="label-mono mb-3 text-terracotta">Critique · 04b</p>
-                <h1
-                    className="font-heading font-light text-green mb-4"
-                    style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
-                >
-                    Negative Dialectic
-                </h1>
-                <div className="h-px w-16 bg-gold/40 mx-auto mb-6" />
-                <p className="font-body text-sm text-ink/70 leading-relaxed max-w-2xl mx-auto">
-                    Instead of finding harmony, your goal is to identify what the system represses. 
-                    First, establish the historical contradiction. Then, when presented with the false synthesis 
-                    that claimed to resolve it, find the <i>residual</i>—the non-identical remainder left behind.
-                </p>
             </section>
 
             {/* Game area */}
