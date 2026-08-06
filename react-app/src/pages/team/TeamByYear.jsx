@@ -5,16 +5,16 @@ import team2024 from '../../data/team-2024'
 import team2025 from '../../data/team-2025'
 
 const teams = {
-    2024: team2024,
-    2025: team2025,
+    '2024': team2024,
+    '2025': team2025,
 }
 
 export default function TeamByYear() {
-    const { year } = parseInt(useParams())
+    const { year } = useParams()
     const teamData = teams[year]
 
-    const nextYear = year + 1
-    const prevYear = year - 1
+    const nextYear = (parseInt(year) + 1).toString()
+    const prevYear = (parseInt(year) - 1).toString()
 
     if (!teamData) {
         return (
@@ -38,9 +38,6 @@ export default function TeamByYear() {
             />
 
             <section className="max-w-6xl mx-auto px-6 py-16">
-                <p className="label-mono mb-3 text-center">
-                    Previous Leadership
-                </p>
                 <h2 className="section-heading text-center mb-3">Team {year}</h2>
                 <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
                     The team that steered Axiom through its previous chapter.
@@ -74,21 +71,12 @@ export default function TeamByYear() {
             </section>
 
             <section className="max-w-4xl mx-auto px-6 py-8 flex justify-center gap-8">
-                {year === '2025' ? (
-                    <a
-                        href="/team"
-                        className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
-                    >
-                        &larr; Back to current team
-                    </a>
-                ) : (
-                    <a
-                        href={`/team/${nextYear}`}
-                        className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
-                    >
-                        &larr; Team {nextYear}
-                    </a>
-                )}
+                <a
+                    href={`/team/${nextYear}`}
+                    className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
+                >
+                    &larr; Team {nextYear}
+                </a>
                 
                 <a
                     href={`/team/${prevYear}`}
