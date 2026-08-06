@@ -184,10 +184,10 @@ export default function Games() {
 
             {/* Game cards */}
             <section className="max-w-6xl mx-auto px-6 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {games.map(({ path, href, eyebrow, title, desc }) => {
                         const cardClass =
-                            'group block bg-cream-dark border border-gold/20 rounded-lg p-8 relative overflow-hidden hover:border-gold/50 transition-all duration-300'
+                            'group block bg-cream-dark border border-gold/20 rounded-lg p-6 relative overflow-hidden hover:border-gold/50 transition-all duration-300'
                         const cardInner = (
                             <>
                                 {/* Terracotta left-border on hover */}
@@ -204,7 +204,7 @@ export default function Games() {
                                         className="font-heading font-light text-green mb-3 group-hover:text-terracotta transition-colors duration-200"
                                         style={{
                                             fontSize:
-                                                'clamp(1.5rem, 2.5vw, 2rem)',
+                                                'clamp(1.25rem, 2vw, 1.75rem)',
                                         }}
                                     >
                                         {title}
