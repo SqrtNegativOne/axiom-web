@@ -170,7 +170,7 @@ export default function Games() {
     return (
         <div className="pt-20 animate-on-load">
             <SEO
-                title="Philosophy Games"
+                title="Games"
                 path="/games"
                 description="Interactive philosophy games: guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought."
             />
@@ -178,12 +178,12 @@ export default function Games() {
             {/* Header */}
             <section className="max-w-4xl mx-auto px-6 py-6 text-center">
                 <p className="label-mono mb-3">Play & Think</p>
-                <h1 className="section-heading mb-3">Philosophy Games</h1>
+                <h1 className="section-heading mb-3">Games</h1>
                 <div className="h-px w-16 bg-gold/50 mx-auto mb-3" />
             </section>
 
             {/* Game cards */}
-            <section className="max-w-6xl mx-auto px-6 py-16">
+            <section className="max-w-6xl mx-auto px-6 pt-6 pb-16">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {games.map(({ path, href, eyebrow, title, desc }) => {
                         const cardClass =
@@ -257,14 +257,18 @@ export default function Games() {
                                     return (
                                         <div
                                             key={linkList[0].url}
-                                            className="py-5 group"
+                                            className="py-5 group relative"
                                         >
-                                            <div className="flex items-start justify-between gap-4 mb-1.5">
-                                                {linkList.length === 1 ? (
-                                                    <a
-                                                        href={linkList[0].url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
+                                            <a
+                                                href={linkList[0].url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="absolute -inset-x-4 inset-y-0 z-0 rounded-xl hover:bg-ink/5 dark:hover:bg-cream/5 transition-colors"
+                                                aria-label={title}
+                                            ></a>
+                                            <div className="relative z-10 pointer-events-none">
+                                                <div className="flex items-start justify-between gap-4 mb-1.5">
+                                                    <span
                                                         className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
                                                         style={{
                                                             fontSize:
@@ -272,40 +276,30 @@ export default function Games() {
                                                         }}
                                                     >
                                                         {title}
-                                                    </a>
-                                                ) : (
-                                                    <span
-                                                        className="font-heading font-light text-green min-w-0"
-                                                        style={{
-                                                            fontSize:
-                                                                'clamp(1rem, 1.5vw, 1.15rem)',
-                                                        }}
-                                                    >
-                                                        {title}
                                                     </span>
-                                                )}
-                                                <div className="flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1">
-                                                    {linkList.map(
-                                                        ({
-                                                            url: lu,
-                                                            domain: ld,
-                                                        }) => (
-                                                            <a
-                                                                key={lu}
-                                                                href={lu}
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="font-mono text-xs text-gold/50 hover:text-gold whitespace-nowrap transition-colors duration-150"
-                                                            >
-                                                                {ld} ↗
-                                                            </a>
-                                                        ),
-                                                    )}
+                                                    <div className="flex flex-wrap justify-end gap-x-3 gap-y-1 pt-1 pointer-events-auto">
+                                                        {linkList.map(
+                                                            ({
+                                                                url: lu,
+                                                                domain: ld,
+                                                            }) => (
+                                                                <a
+                                                                    key={lu}
+                                                                    href={lu}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className="font-mono text-xs text-gold/50 hover:text-gold whitespace-nowrap transition-colors duration-150"
+                                                                >
+                                                                    {ld} ↗
+                                                                </a>
+                                                            ),
+                                                        )}
+                                                    </div>
                                                 </div>
+                                                <p className="font-body text-sm text-ink/55 leading-relaxed">
+                                                    {desc}
+                                                </p>
                                             </div>
-                                            <p className="font-body text-sm text-ink/55 leading-relaxed">
-                                                {desc}
-                                            </p>
                                         </div>
                                     )
                                 },
@@ -321,27 +315,33 @@ export default function Games() {
                         <div className="space-y-0 divide-y divide-gold/12">
                             {externalGames.map(
                                 ({ title, url, domain, desc }) => (
-                                    <div key={url} className="py-5 group">
-                                        <div className="flex items-start justify-between gap-4 mb-1.5">
-                                            <a
-                                                href={url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
-                                                style={{
-                                                    fontSize:
-                                                        'clamp(1rem, 1.5vw, 1.15rem)',
-                                                }}
-                                            >
-                                                {title}
-                                            </a>
-                                            <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1">
-                                                {domain} ↗
-                                            </span>
+                                    <div key={url} className="py-5 group relative">
+                                        <a
+                                            href={url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="absolute -inset-x-4 inset-y-0 z-0 rounded-xl hover:bg-ink/5 dark:hover:bg-cream/5 transition-colors"
+                                            aria-label={title}
+                                        ></a>
+                                        <div className="relative z-10 pointer-events-none">
+                                            <div className="flex items-start justify-between gap-4 mb-1.5">
+                                                <span
+                                                    className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-150 min-w-0"
+                                                    style={{
+                                                        fontSize:
+                                                            'clamp(1rem, 1.5vw, 1.15rem)',
+                                                    }}
+                                                >
+                                                    {title}
+                                                </span>
+                                                <span className="font-mono text-xs text-gold/50 whitespace-nowrap pt-1">
+                                                    {domain} ↗
+                                                </span>
+                                            </div>
+                                            <p className="font-body text-sm text-ink/55 leading-relaxed">
+                                                {desc}
+                                            </p>
                                         </div>
-                                        <p className="font-body text-sm text-ink/55 leading-relaxed">
-                                            {desc}
-                                        </p>
                                     </div>
                                 ),
                             )}
