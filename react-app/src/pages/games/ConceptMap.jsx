@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const GRAPH = {
     consciousness: ['mind', 'qualia', 'self', 'perception', 'intentionality'],
@@ -118,6 +118,10 @@ export default function ConceptMap() {
     const [showSolution, setShowSolution] = useState(false)
     const [gameOver, setGameOver] = useState(false)
     const inputRef = useRef(null)
+
+    useEffect(() => {
+        document.title = 'Concept Map | Axiom'
+    }, [])
 
     const puzzle = PUZZLES[puzzleIdx]
     const optimal = bfs(puzzle.start, puzzle.end, GRAPH)
@@ -337,7 +341,7 @@ const S = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '28px 16px 60px',
+        padding: '120px 16px 60px',
     },
     topBar: {
         width: '100%',

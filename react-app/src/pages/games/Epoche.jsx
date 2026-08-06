@@ -114,19 +114,10 @@ function getButtonClass(
     let btnClass =
         'px-4 py-1.5 rounded-full border font-body text-xs cursor-pointer transition-all duration-150 '
 
-    if (status === 'playing' && !hasResult) {
+    if (status === 'playing') {
         btnClass += isSelected
             ? 'bg-green text-cream border-transparent'
             : 'border-gold/30 text-ink/60 hover:border-gold/60 hover:text-ink'
-    } else if (status === 'playing' && hasResult) {
-        // After submission but not yet done — show partial feedback
-        if (isSelected && !axisCorrect) {
-            btnClass += 'bg-terracotta/15 text-terracotta border-terracotta/25'
-        } else if (isSelected && axisCorrect) {
-            btnClass += 'bg-green text-cream border-transparent'
-        } else {
-            btnClass += 'border-gold/20 text-ink/35 cursor-default'
-        }
     } else {
         // Done (win or lose): reveal correct
         if (isCorrectAnswer) {
@@ -190,7 +181,7 @@ function GameBoard({ puzzle, onNewGame }) {
             </div>
 
             {/* Axes */}
-            <div className="border border-gold/20 rounded-lg overflow-hidden mb-5">
+            <div className="border border-gold/20 rounded-lg mb-5">
                 {axes.map((axis, i) => {
                     const opts = AXIS_OPTIONS[axis]
                     const chosen = sel[axis]
@@ -210,7 +201,7 @@ function GameBoard({ puzzle, onNewGame }) {
                             {/* Label */}
                             <span className="font-mono text-xs text-ink/50 tracking-wide flex-1 min-w-[160px]">
                                 {axis}
-                                {hasResult && (
+                                {hasResult && status !== 'playing' && (
                                     <span
                                         className={`ml-2 animate-pop-in ${axisCorrect ? 'text-green' : 'text-terracotta'}`}
                                     >
@@ -346,7 +337,7 @@ function GameBoard({ puzzle, onNewGame }) {
             {status !== 'playing' && (
                 <button
                     onClick={onNewGame}
-                    className="mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150"
+                    className="mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream dark:bg-cream-dark font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150"
                 >
                     New proposition
                 </button>

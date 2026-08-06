@@ -361,7 +361,7 @@ function Footer() {
     ] }) })
   ] }) });
 }
-const SITE_NAME = "Axiom — The Philosophy Society";
+const SITE_NAME = "Axiom ⋅ The Philosophy Society";
 const SITE_URL = "https://axiomnsut.in";
 const DEFAULT_IMAGE = `${SITE_URL}/assets/logo.png`;
 const DEFAULT_DESCRIPTION = "Axiom is the philosophy society at NSUT — fostering intellectual curiosity, critical thinking, and philosophical inquiry since 2017.";
@@ -373,7 +373,7 @@ function SEO({
   image = DEFAULT_IMAGE,
   noindex = false
 }) {
-  const fullTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
+  const fullTitle = title ? `${title} ⋅ ${SITE_NAME}` : SITE_NAME;
   const canonicalUrl = `${SITE_URL}${path}`;
   return /* @__PURE__ */ jsxs(Helmet, { children: [
     /* @__PURE__ */ jsx("title", { children: fullTitle }),
@@ -2037,20 +2037,6 @@ function GalleryCarousel() {
     }
   );
 }
-const pillars = [
-  {
-    label: "Mission",
-    text: "To cultivate a culture of philosophical inquiry at NSUT. Regular, accessible spaces for rigorous yet welcoming dialogue on the deepest questions of human existence."
-  },
-  {
-    label: "Vision",
-    text: "A university where critical thinking and philosophical reflection are part of everyday student life, preparing graduates who are not just skilled, but genuinely wise."
-  },
-  {
-    label: "Philosophy",
-    text: "We believe every question deserves to be asked and every perspective deserves to be heard. We hold our certainties lightly and our curiosity firmly."
-  }
-];
 function Team() {
   const [cpcClicked, setCpcClicked] = useState(false);
   useEffect(() => {
@@ -2105,19 +2091,6 @@ function Team() {
       )
     ] }),
     /* @__PURE__ */ jsx(SectionDivider, { className: "px-6 max-w-6xl mx-auto" }),
-    /* @__PURE__ */ jsx("section", { className: "max-w-6xl mx-auto px-6 py-16", children: /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: pillars.map(({ label, text }) => /* @__PURE__ */ jsxs(
-      "div",
-      {
-        className: "bg-cream-dark p-8 relative overflow-hidden group",
-        children: [
-          /* @__PURE__ */ jsx("div", { className: "absolute top-0 left-0 w-1 h-0 bg-terracotta group-hover:h-full transition-all duration-500" }),
-          /* @__PURE__ */ jsx("p", { className: "label-mono mb-4 pl-4 text-gold", children: label }),
-          /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/70 leading-relaxed pl-4", children: text })
-        ]
-      },
-      label
-    )) }) }),
-    /* @__PURE__ */ jsx(SectionDivider, { className: "px-6 max-w-6xl mx-auto" }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-16", children: [
       /* @__PURE__ */ jsx("p", { className: "label-mono mb-3", children: "Our Story" }),
       /* @__PURE__ */ jsx("h2", { className: "font-heading text-green font-light text-3xl mb-8", children: "How it began" }),
@@ -2130,7 +2103,7 @@ function Team() {
               style: {
                 fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)"
               },
-              children: "Axiom began with a small group of students who found themselves unsatisfied with purely technical conversations. They wanted to ask bigger questions — about ethics in technology, the nature of consciousness, what it means to live a good life."
+              children: "Like all great societies, Axiom had its genesis in a question. No one remembers what this question was, but it sparked a prarie fire that consumed our intellectual ennui, leaving only the legacy of curiosity in its wake. Something far greater than the true answer to the original question could have given us."
             }
           ),
           /* @__PURE__ */ jsx(
@@ -2176,9 +2149,8 @@ function Team() {
     ] }),
     /* @__PURE__ */ jsx(SectionDivider, { className: "px-6 max-w-6xl mx-auto" }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-6xl mx-auto px-6 py-16", children: [
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-center", children: "The People" }),
-      /* @__PURE__ */ jsx("h2", { className: "section-heading text-center mb-3", children: "Core Team" }),
-      /* @__PURE__ */ jsx("p", { className: "font-body text-ink/60 text-center mb-14 max-w-xl mx-auto", children: "The leadership that steers Axiom — thinkers, organisers, and dedicated stewards of philosophical culture at NSUT." }),
+      /* @__PURE__ */ jsx("h2", { className: "section-heading text-center mb-3", children: "The Core" }),
+      /* @__PURE__ */ jsx("p", { className: "font-body text-ink/60 text-center mb-14 max-w-xl mx-auto", children: "Dedicated stewards sworn to steer Axiom." }),
       core$1.map((group) => /* @__PURE__ */ jsxs("div", { className: "mb-14", children: [
         /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 mb-8", children: [
           /* @__PURE__ */ jsx("div", { className: "h-px flex-1 bg-gold/20" }),
@@ -2190,14 +2162,13 @@ function Team() {
     ] }),
     /* @__PURE__ */ jsx(SectionDivider, { className: "px-6 max-w-6xl mx-auto" }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-6xl mx-auto px-6 py-16", children: [
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-center", children: "The Community" }),
       /* @__PURE__ */ jsx("h2", { className: "section-heading text-center mb-3", children: "Members" }),
-      /* @__PURE__ */ jsx("p", { className: "font-body text-ink/60 text-center mb-14 max-w-xl mx-auto", children: "The heart and soul of Axiom — every voice matters." }),
+      /* @__PURE__ */ jsx("p", { className: "font-body text-ink/60 text-center mb-14 max-w-xl mx-auto", children: "The reasoned foot-soldiers of Axiom." }),
       /* @__PURE__ */ jsx("div", { className: "flex flex-wrap justify-center gap-x-4 gap-y-6", children: members$1.map((member) => /* @__PURE__ */ jsx("div", { className: "w-[120px]", children: /* @__PURE__ */ jsx(TeamPortraitCard, { ...member, compact: true }) }, member.name)) })
     ] }),
     /* @__PURE__ */ jsx(SectionDivider, { className: "px-6 max-w-6xl mx-auto" }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-6xl mx-auto px-6 py-16", children: [
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-center", children: "Those Who Came Before" }),
+      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-center", children: "Emigrants of Omelas" }),
       /* @__PURE__ */ jsx("h2", { className: "section-heading text-center mb-3", children: "Alumni" }),
       /* @__PURE__ */ jsx("p", { className: "font-body text-ink/60 text-center mb-12 max-w-xl mx-auto", children: "In their own words — what Axiom meant to the people who built it." }),
       /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: alumniQuotes.map((person) => /* @__PURE__ */ jsx(AlumniQuoteCard, { ...person }, person.name)) }),
@@ -3322,8 +3293,8 @@ function GameBoard$4({ puzzle, onNewGame }) {
   const attemptsLeft = 6 - guesses.length;
   return /* @__PURE__ */ jsxs("div", { className: "max-w-2xl mx-auto", children: [
     /* @__PURE__ */ jsx("div", { className: "mb-6 space-y-2", children: puzzle.clues.map((clue, i) => {
-      const isLive = i < shown;
-      const isNewest = isLive && i === shown - 1;
+      const isLive = i < shown || status !== "playing";
+      const isNewest = i < shown && i === shown - 1;
       return /* @__PURE__ */ jsx(
         "div",
         {
@@ -3707,16 +3678,8 @@ function Tooltip({ children, text }) {
 }
 function getButtonClass(status, hasResult, isSelected, axisCorrect, isCorrectAnswer) {
   let btnClass = "px-4 py-1.5 rounded-full border font-body text-xs cursor-pointer transition-all duration-150 ";
-  if (status === "playing" && !hasResult) {
+  if (status === "playing") {
     btnClass += isSelected ? "bg-green text-cream border-transparent" : "border-gold/30 text-ink/60 hover:border-gold/60 hover:text-ink";
-  } else if (status === "playing" && hasResult) {
-    if (isSelected && !axisCorrect) {
-      btnClass += "bg-terracotta/15 text-terracotta border-terracotta/25";
-    } else if (isSelected && axisCorrect) {
-      btnClass += "bg-green text-cream border-transparent";
-    } else {
-      btnClass += "border-gold/20 text-ink/35 cursor-default";
-    }
   } else {
     if (isCorrectAnswer) {
       btnClass += "bg-green text-cream border-transparent";
@@ -3764,7 +3727,7 @@ function GameBoard$3({ puzzle, onNewGame }) {
       /* @__PURE__ */ jsx("p", { className: "font-mono text-xs text-gold tracking-widest uppercase mb-2", children: "Proposition" }),
       /* @__PURE__ */ jsx("p", { className: "font-heading font-light text-ink text-xl leading-snug", children: puzzle.statement })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "border border-gold/20 rounded-lg overflow-hidden mb-5", children: axes.map((axis, i) => {
+    /* @__PURE__ */ jsx("div", { className: "border border-gold/20 rounded-lg mb-5", children: axes.map((axis, i) => {
       const opts = AXIS_OPTIONS[axis];
       const chosen = sel[axis];
       const correct = puzzle.axes[axis];
@@ -3777,7 +3740,7 @@ function GameBoard$3({ puzzle, onNewGame }) {
           children: [
             /* @__PURE__ */ jsxs("span", { className: "font-mono text-xs text-ink/50 tracking-wide flex-1 min-w-[160px]", children: [
               axis,
-              hasResult && /* @__PURE__ */ jsx(
+              hasResult && status !== "playing" && /* @__PURE__ */ jsx(
                 "span",
                 {
                   className: `ml-2 animate-pop-in ${axisCorrect ? "text-green" : "text-terracotta"}`,
@@ -3862,7 +3825,7 @@ function GameBoard$3({ puzzle, onNewGame }) {
       "button",
       {
         onClick: onNewGame,
-        className: "mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150",
+        className: "mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream dark:bg-cream-dark font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150",
         children: "New proposition"
       }
     )
@@ -4349,7 +4312,7 @@ function GameBoard$2({ puzzle, onNewGame }) {
       "button",
       {
         onClick: onNewGame,
-        className: "mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150",
+        className: "mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream dark:bg-cream-dark font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150",
         children: "New argument"
       }
     )
@@ -4395,7 +4358,7 @@ function GameFallacy() {
 }
 const DIALECTIC = [
   {
-    context: "Berkeley → Materialism → Transcendental Idealism",
+    context: "Berkeley (1710) → Materialism (18th c.) → Transcendental Idealism (1781)",
     thesis: '"To exist is to be perceived. Material objects have no existence independent of a mind that apprehends them. The so-called external world is a construction of ideas." — Berkeley',
     antitheses: [
       {
@@ -4422,20 +4385,23 @@ const DIALECTIC = [
       },
       {
         text: "Hume's bundle theory: the self is just a bundle of perceptions with no underlying substance — neither mental nor material substance truly exists.",
-        correct: false
+        correct: false,
+        explanation: "Hume's skepticism radicalized empiricism rather than resolving the contradiction between idealism and materialism, prompting Kant's synthesis."
       },
       {
         text: "Spinoza's neutral monism: mind and matter are two attributes of a single infinite substance, neither reducible to the other.",
-        correct: false
+        correct: false,
+        explanation: "Spinoza's monism preceded the Berkeley/Materialism debate and asserts a single substance, circumventing the epistemological problem rather than synthesizing it."
       },
       {
         text: "Pragmatism: the mind/matter debate is meaningless unless it produces practical consequences. Truth is what works.",
-        correct: false
+        correct: false,
+        explanation: "Pragmatism sidesteps the metaphysical debate by focusing on practical consequences, dissolving rather than synthesizing the contradiction."
       }
     ]
   },
   {
-    context: "Utilitarianism → Kantian Deontology → Virtue Ethics",
+    context: "Utilitarianism (18th c.) → Kantian Deontology (1785) → Virtue Ethics (20th c.)",
     thesis: '"An action is right if and only if it produces the greatest happiness for the greatest number. Moral worth is determined entirely by consequences." — Bentham/Mill',
     antitheses: [
       {
@@ -4462,20 +4428,23 @@ const DIALECTIC = [
       },
       {
         text: "Contractualism: an action is wrong if its governing principle could not be justified to others on terms they could not reasonably reject.",
-        correct: false
+        correct: false,
+        explanation: "Contractualism remains a rule-based system (like deontology) rather than moving beyond the rule/consequence binary to focus on character."
       },
       {
         text: "Moral particularism: no general principles apply universally — each situation must be evaluated entirely on its own morally relevant features.",
-        correct: false
+        correct: false,
+        explanation: "Particularism rejects general principles entirely, failing to provide a systematic resolution to the conflict between duty and utility."
       },
       {
         text: "Moral realism: there are objective moral facts, discoverable empirically, that ground both duty and welfare.",
-        correct: false
+        correct: false,
+        explanation: "Moral realism is a metaethical position about the nature of moral facts, not a normative theory that resolves the tension between consequences and duty."
       }
     ]
   },
   {
-    context: "Heraclitus → Parmenides → Aristotle's Hylomorphism",
+    context: "Heraclitus (6th c. BCE) → Parmenides (5th c. BCE) → Aristotle's Hylomorphism (4th c. BCE)",
     thesis: '"Everything flows; nothing is fixed. The same river cannot be stepped in twice. Stability is appearance; flux is the underlying reality." — Heraclitus',
     antitheses: [
       {
@@ -4502,20 +4471,23 @@ const DIALECTIC = [
       },
       {
         text: "Plato's theory of Forms: the changing sensible world is mere appearance; the eternal, unchanging Forms are genuine reality.",
-        correct: false
+        correct: false,
+        explanation: "Plato separates reality into two realms (being and becoming) rather than integrating them into a single account of physical change."
       },
       {
         text: "Stoic logos: flux is real, but the rational principle governing it is eternal and unchanging.",
-        correct: false
+        correct: false,
+        explanation: "The Stoic logos focuses on rational order within flux, but does not provide a metaphysical mechanism for how substances persist through change."
       },
       {
         text: "Whitehead's process philosophy: reality consists of events rather than substances. Events perish — genuine becoming without static substance.",
-        correct: false
+        correct: false,
+        explanation: "Whitehead's event-based ontology aligns more closely with Heraclitean flux and abandons substance entirely, rather than synthesizing it with stability."
       }
     ]
   },
   {
-    context: "Cartesian Rationalism → Humean Empiricism → Kantian Critical Philosophy",
+    context: "Cartesian Rationalism (17th c.) → Humean Empiricism (18th c.) → Kantian Critical Philosophy (1781)",
     thesis: '"I think, therefore I am. Clear and distinct perception is the mark of truth. The mind contains innate ideas — of God, substance, and extension — that no sensory experience could produce. Knowledge is secured not by the senses, which deceive, but by pure reason operating on its own resources." — Descartes',
     antitheses: [
       {
@@ -4542,20 +4514,23 @@ const DIALECTIC = [
       },
       {
         text: "Hegel's absolute idealism: both the rationalist subject and the empiricist object are abstractions from a single self-developing Absolute whose movement constitutes the whole of history and nature.",
-        correct: false
+        correct: false,
+        explanation: "Hegel's idealism is a later development that historicizes the dialectic rather than serving as the immediate synthesis of early modern rationalism and empiricism."
       },
       {
         text: "Pragmatism: the debate between rationalism and empiricism is meaningless unless it produces a practical difference. Ideas are tools for action; their truth is their usefulness.",
-        correct: false
+        correct: false,
+        explanation: "Pragmatism shifts the focus from epistemological certainty to practical utility, bypassing the foundationalist debate rather than resolving it."
       },
       {
         text: "Logical positivism: only statements verifiable by sensory experience are meaningful. Metaphysical claims of both rationalism and traditional empiricism are neither true nor false but nonsense.",
-        correct: false
+        correct: false,
+        explanation: "Logical positivism radicalizes empiricism and dismisses rationalist metaphysics as meaningless, rather than synthesizing the two traditions."
       }
     ]
   },
   {
-    context: "Libertarian Free Will → Hard Determinism → Compatibilism",
+    context: "Libertarian Free Will (Antiquity) → Hard Determinism (19th c.) → Compatibilism (20th c.)",
     thesis: '"When I deliberate and choose, I am the uncaused originator of my own action. The will is not determined by prior causes in the way that billiard balls are. This capacity for genuine self-initiation is what makes praise, blame, and moral responsibility intelligible — and distinguishes persons from mechanisms." — Libertarian free will',
     antitheses: [
       {
@@ -4582,20 +4557,23 @@ const DIALECTIC = [
       },
       {
         text: "Existentialism (Sartre): we are condemned to be free. Even in a determined world, consciousness constitutes itself as a perpetual negation of what it is — freedom is the inescapable structure of subjectivity, not a metaphysical property of the will.",
-        correct: false
+        correct: false,
+        explanation: "Existentialism asserts radical freedom, functioning more as a defense of libertarian subjectivity than a reconciliation with causal laws."
       },
       {
         text: "Hard incompatibilism: since determinism and genuine agency are irreconcilable, and since determinism is true, we must abandon the reactive attitudes — praise, blame, gratitude, resentment — in favour of a purely forward-looking, consequentialist response to behaviour.",
-        correct: false
+        correct: false,
+        explanation: "Hard incompatibilism accepts the contradiction and concludes that moral responsibility is impossible, rather than resolving the tension."
       },
       {
         text: "Agent causation theory: persons are irreducible causal agents who initiate chains of events by rational deliberation. This preserves libertarian freedom within a naturalistic framework by positing a distinct causal category — agent causation — alongside event causation.",
-        correct: false
+        correct: false,
+        explanation: "Agent causation is a defense of libertarianism that posits a special kind of cause, rather than reconciling ordinary causal determinism with freedom."
       }
     ]
   },
   {
-    context: "Ancient Atomism → Aristotelian Teleology → Modern Mechanistic Science",
+    context: "Ancient Atomism (5th c. BCE) → Aristotelian Teleology (4th c. BCE) → Modern Mechanistic Science (17th c.)",
     thesis: '"Everything is made of indivisible atoms moving through void. There is no purpose in nature, no divine craftsman, no final causes. What we call order — stars, organisms, minds — arises from the mechanical collision and aggregation of particles. All apparent design is chance arrangement." — Democritus/Leucippus',
     antitheses: [
       {
@@ -4622,20 +4600,23 @@ const DIALECTIC = [
       },
       {
         text: "Darwin's natural selection: teleological language — 'organs are for functions' — is retained but reinterpreted. Functions are not intrinsic purposes but the product of selection history. Purpose re-enters biology without any designer.",
-        correct: false
+        correct: false,
+        explanation: "Darwin provided a mechanism for biological adaptation, which addresses specific organic complexity rather than the general physical synthesis of the Scientific Revolution."
       },
       {
         text: "Kantian regulative teleology: we cannot know whether nature has genuine final causes, but we must represent organisms as if purposive in order to understand them. Teleology is a necessary heuristic, not a metaphysical claim.",
-        correct: false
+        correct: false,
+        explanation: "Kant's approach is an epistemological stance on how we must study organisms, not the ontological framework that synthesized atomic mechanism and predictive power."
       },
       {
         text: "Whitehead's process philosophy: both atomism and teleology are partial truths. Reality consists of events that have both a mechanical past-inheritance and a purposive self-creative advance. Organisms and cosmology require both notions.",
-        correct: false
+        correct: false,
+        explanation: "Process philosophy is a 20th-century reaction against mechanistic science, attempting to reintroduce organismic thinking, not the historical synthesis that followed Aristotelianism."
       }
     ]
   },
   {
-    context: "Liberal Individualism → Communitarian Critique → Rawlsian Justice",
+    context: "Liberal Individualism (17th c.) → Communitarian Critique (1980s) → Rawlsian Justice (1993)",
     thesis: '"Individuals have natural rights — to life, liberty, and estate — prior to and independent of any social arrangement. Society is constituted by the voluntary consent of pre-social individuals to protect these rights. The state has no authority to impose a conception of the good; persons are free to pursue their own ends." — Locke/Nozick',
     antitheses: [
       {
@@ -4662,15 +4643,18 @@ const DIALECTIC = [
       },
       {
         text: "Habermas's discourse ethics: just norms are those that all affected parties could accept in an ideal rational discourse. Neither individual rights nor community traditions are foundational; legitimacy derives from the procedures of public reasoning.",
-        correct: false
+        correct: false,
+        explanation: "Habermas focuses on procedural rationality and communicative action, which is a different structural response to modernity rather than Rawls' direct synthesis of rights and structural fairness."
       },
       {
         text: "The capabilities approach (Sen/Nussbaum): justice requires securing a threshold of human capabilities for all — not just rights or welfare, but the real freedom to live a dignified life. Communities provide context; the individual remains the ultimate norm.",
-        correct: false
+        correct: false,
+        explanation: "The capabilities approach is a refinement and critique of Rawlsian primary goods, coming after Rawls' initial synthesis."
       },
       {
         text: "Communitarianism wins: Rawls's veil of ignorance is incoherent because a self stripped of all particular attachments has no basis for any choice. Justice can only be worked out from within a shared tradition.",
-        correct: false
+        correct: false,
+        explanation: "This simply asserts the victory of the antithesis, failing to achieve a synthesis that preserves the insights of liberal individualism."
       }
     ]
   }
@@ -4709,6 +4693,7 @@ function OptionButton({ text, result, pending, onClick, disabled }) {
   ] });
 }
 function GameBoard$1({ puzzle, onNewGame }) {
+  var _a, _b;
   const [antitheses] = useState(() => shuffle$4(puzzle.antitheses));
   const [syntheses] = useState(() => shuffle$4(puzzle.syntheses));
   const [stage, setStage] = useState(1);
@@ -4773,14 +4758,20 @@ function GameBoard$1({ puzzle, onNewGame }) {
     if (status !== "playing" && correct) return "reveal";
     return null;
   }
-  const contextParts = puzzle.context.split(" → ");
+  const contextParts = puzzle.context.split(" → ").map((part) => {
+    const match = part.match(/^(.*?)\s*(\(.*\))$/);
+    return match ? { name: match[1], date: match[2] } : { name: part, date: null };
+  });
   return /* @__PURE__ */ jsxs("div", { className: "max-w-2xl mx-auto", children: [
     /* @__PURE__ */ jsx("div", { className: "flex items-center flex-wrap gap-1.5 mb-5 font-mono text-xs tracking-wide", children: contextParts.map((part, i) => /* @__PURE__ */ jsxs("span", { className: "flex items-center gap-1.5", children: [
-      /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxs(
         "span",
         {
           className: i === 0 ? "text-gold" : i === 1 ? stage >= 1 ? "text-ink/60" : "text-ink/25" : stage >= 2 ? "text-ink/60" : "text-ink/25",
-          children: part
+          children: [
+            part.name,
+            part.date && /* @__PURE__ */ jsx("span", { className: "opacity-50 ml-1 font-normal tracking-normal", children: part.date })
+          ]
         }
       ),
       i < contextParts.length - 1 && /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "→" })
@@ -4844,7 +4835,10 @@ function GameBoard$1({ puzzle, onNewGame }) {
         },
         i
       )) }),
-      sResult && !sResult.correct && status === "playing" && /* @__PURE__ */ jsx("p", { className: "font-body text-xs text-terracotta/80 mt-2 animate-slide-up", children: "Not quite — one more attempt." }),
+      sResult && !sResult.correct && status === "playing" && /* @__PURE__ */ jsxs("div", { className: "mt-3 bg-terracotta/10 border border-terracotta/20 rounded-md p-3 animate-slide-up", children: [
+        /* @__PURE__ */ jsx("p", { className: "font-body text-sm font-semibold text-terracotta/90 mb-1", children: "Not quite — one more attempt." }),
+        ((_a = syntheses[sResult.idx]) == null ? void 0 : _a.explanation) && /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-terracotta/80 leading-relaxed", children: syntheses[sResult.idx].explanation })
+      ] }),
       status === "playing" && pendingS !== null && /* @__PURE__ */ jsx(
         "button",
         {
@@ -4878,7 +4872,8 @@ function GameBoard$1({ puzzle, onNewGame }) {
         role: "status",
         "aria-live": "polite",
         children: [
-          /* @__PURE__ */ jsx("p", { className: "font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1", children: "Attempts exhausted" }),
+          /* @__PURE__ */ jsx("p", { className: "font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-2", children: "Attempts exhausted" }),
+          sResult && !sResult.correct && ((_b = syntheses[sResult.idx]) == null ? void 0 : _b.explanation) && /* @__PURE__ */ jsx("div", { className: "mb-3 pb-3 border-b border-terracotta/20", children: /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-terracotta/80 leading-relaxed", children: syntheses[sResult.idx].explanation }) }),
           /* @__PURE__ */ jsxs("p", { className: "font-body text-sm text-ink/65 leading-relaxed", children: [
             "The correct synthesis is highlighted above. The full movement:",
             " ",
@@ -4892,7 +4887,7 @@ function GameBoard$1({ puzzle, onNewGame }) {
       "button",
       {
         onClick: onNewGame,
-        className: "mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150",
+        className: "mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream dark:bg-cream-dark font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150",
         children: "New dialectic"
       }
     )
@@ -4976,8 +4971,8 @@ function shuffle$3(arr) {
   }
   return a;
 }
-const BG = "#F8F4EC";
-const INK = "#1A1A18";
+const BG = "var(--sor-bg, #F8F4EC)";
+const INK = "var(--sor-ink, #1A1A18)";
 const MONO = "'IBM Plex Mono', 'Courier New', monospace";
 function Swatch({ color, size = 16 }) {
   return /* @__PURE__ */ jsx(
@@ -5008,7 +5003,7 @@ function SoritesBoard({ onNewGame }) {
   const [step, setStep] = useState(0);
   const [ans, setAns] = useState({});
   function toRGB(t) {
-    if (!favColour || !leastColour) return "#ccc";
+    if (!favColour || !leastColour) return "var(--sor-subtle, #ccc)";
     return lerpRGB(favColour.rgb, leastColour.rgb, t);
   }
   function classify(v) {
@@ -5064,7 +5059,7 @@ function SoritesBoard({ onNewGame }) {
                 style: {
                   fontSize: 10,
                   letterSpacing: "0.22em",
-                  color: "#999",
+                  color: "var(--sor-muted, #999)",
                   textTransform: "uppercase",
                   margin: "0 0 14px"
                 },
@@ -5094,7 +5089,7 @@ function SoritesBoard({ onNewGame }) {
               {
                 style: {
                   fontSize: 12,
-                  color: "#888",
+                  color: "var(--sor-muted, #888)",
                   lineHeight: 1.8,
                   margin: "0 0 36px"
                 },
@@ -5127,7 +5122,7 @@ function SoritesBoard({ onNewGame }) {
                     {
                       style: {
                         fontSize: 10,
-                        color: "#aaa",
+                        color: "var(--sor-muted, #aaa)",
                         letterSpacing: "0.1em",
                         textTransform: "uppercase"
                       },
@@ -5208,7 +5203,7 @@ function SoritesBoard({ onNewGame }) {
                 style: {
                   fontSize: 10,
                   letterSpacing: "0.22em",
-                  color: "#999",
+                  color: "var(--sor-muted, #999)",
                   textTransform: "uppercase",
                   margin: "0 0 14px"
                 },
@@ -5239,7 +5234,7 @@ function SoritesBoard({ onNewGame }) {
               {
                 style: {
                   fontSize: 13,
-                  color: "#555",
+                  color: "var(--sor-muted-dark, #555)",
                   lineHeight: 1.85,
                   margin: "0 0 12px"
                 },
@@ -5280,7 +5275,7 @@ function SoritesBoard({ onNewGame }) {
               {
                 style: {
                   fontSize: 12,
-                  color: "#888",
+                  color: "var(--sor-muted, #888)",
                   lineHeight: 1.8,
                   margin: "0 0 44px"
                 },
@@ -5338,7 +5333,7 @@ function SoritesBoard({ onNewGame }) {
                       style: {
                         flex: 1,
                         height: 1,
-                        background: "#ddd",
+                        background: "var(--sor-border, #ddd)",
                         position: "relative"
                       },
                       children: /* @__PURE__ */ jsx(
@@ -5362,7 +5357,7 @@ function SoritesBoard({ onNewGame }) {
                     {
                       style: {
                         fontSize: 10,
-                        color: "#aaa",
+                        color: "var(--sor-muted, #aaa)",
                         whiteSpace: "nowrap"
                       },
                       children: [
@@ -5428,7 +5423,7 @@ function SoritesBoard({ onNewGame }) {
               {
                 style: {
                   fontSize: 10,
-                  color: "#ccc",
+                  color: "var(--sor-subtle, #ccc)",
                   textAlign: "center",
                   marginTop: 20,
                   letterSpacing: "0.1em"
@@ -5531,7 +5526,7 @@ function SoritesBoard({ onNewGame }) {
                 {
                   style: {
                     fontSize: 12,
-                    color: "#666",
+                    color: "var(--sor-muted-dark, #666)",
                     lineHeight: 1.85,
                     margin: "0 0 36px",
                     maxWidth: 440,
@@ -5572,7 +5567,7 @@ function SoritesBoard({ onNewGame }) {
                         style: {
                           fontSize: 10,
                           letterSpacing: "0.15em",
-                          color: "#999",
+                          color: "var(--sor-muted, #999)",
                           textTransform: "uppercase",
                           margin: 0
                         },
@@ -5622,7 +5617,7 @@ function SoritesBoard({ onNewGame }) {
           style: {
             fontSize: 10,
             letterSpacing: "0.22em",
-            color: "#999",
+            color: "var(--sor-muted, #999)",
             textTransform: "uppercase",
             margin: "0 0 10px"
           },
@@ -5670,7 +5665,7 @@ function SoritesBoard({ onNewGame }) {
                 style: {
                   width: "100%",
                   height: 6,
-                  background: ans[p.id] === true ? INK : ans[p.id] === false ? "#e0ddd6" : "#ccc"
+                  background: ans[p.id] === true ? INK : ans[p.id] === false ? "var(--sor-border-light, #e0ddd6)" : "var(--sor-subtle, #ccc)"
                 }
               }
             )
@@ -5687,14 +5682,14 @@ function SoritesBoard({ onNewGame }) {
             marginBottom: 48
           },
           children: [
-            /* @__PURE__ */ jsxs("span", { style: { fontSize: 10, color: "#999" }, children: [
+            /* @__PURE__ */ jsxs("span", { style: { fontSize: 10, color: "var(--sor-muted, #999)" }, children: [
               "▲ ",
               favName,
               " (",
               favCount,
               ")"
             ] }),
-            /* @__PURE__ */ jsxs("span", { style: { fontSize: 10, color: "#bbb" }, children: [
+            /* @__PURE__ */ jsxs("span", { style: { fontSize: 10, color: "var(--sor-subtle-dark, #bbb)" }, children: [
               "▲ not ",
               favName,
               " (",
@@ -5842,7 +5837,7 @@ function SoritesBoard({ onNewGame }) {
                       N,
                       " →",
                       " ",
-                      /* @__PURE__ */ jsxs("strong", { style: { color: "#888" }, children: [
+                      /* @__PURE__ */ jsxs("strong", { style: { color: "var(--sor-muted, #888)" }, children: [
                         "NOT ",
                         favName.toUpperCase()
                       ] })
@@ -5856,7 +5851,7 @@ function SoritesBoard({ onNewGame }) {
                   style: {
                     margin: 0,
                     fontSize: 12,
-                    color: "#aaa"
+                    color: "var(--sor-muted, #aaa)"
                   },
                   children: [
                     "Gap: ",
@@ -5881,7 +5876,7 @@ function SoritesBoard({ onNewGame }) {
               fontSize: 11,
               textTransform: "uppercase",
               letterSpacing: "0.18em",
-              color: "#999",
+              color: "var(--sor-muted, #999)",
               margin: "0 0 14px",
               fontFamily: MONO
             },
@@ -5893,7 +5888,7 @@ function SoritesBoard({ onNewGame }) {
           {
             style: {
               fontSize: 12,
-              color: "#666",
+              color: "var(--sor-muted-dark, #666)",
               lineHeight: 1.9,
               margin: "0 0 20px"
             },
@@ -5972,7 +5967,7 @@ function SoritesBoard({ onNewGame }) {
                     {
                       style: {
                         fontSize: 7,
-                        color: ans[p.id] === false ? "#b50000" : "#ccc",
+                        color: ans[p.id] === false ? "#b50000" : "var(--sor-subtle, #ccc)",
                         marginTop: 2
                       },
                       children: ans[p.id] === false ? "✗" : "·"
@@ -6036,7 +6031,7 @@ function SoritesBoard({ onNewGame }) {
             fontSize: 11,
             textTransform: "uppercase",
             letterSpacing: "0.18em",
-            color: "#999",
+            color: "var(--sor-muted, #999)",
             margin: "0 0 20px",
             fontFamily: MONO
           },
@@ -6104,7 +6099,7 @@ function SoritesBoard({ onNewGame }) {
               {
                 style: {
                   fontSize: 12,
-                  color: "#666",
+                  color: "var(--sor-muted-dark, #666)",
                   margin: 0,
                   lineHeight: 1.8
                 },
@@ -6129,7 +6124,7 @@ function SoritesBoard({ onNewGame }) {
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             cursor: "pointer",
-            color: "#666",
+            color: "var(--sor-muted-dark, #666)",
             transition: "all .15s"
           },
           onMouseEnter: (e) => {
@@ -6137,8 +6132,8 @@ function SoritesBoard({ onNewGame }) {
             e.currentTarget.style.color = INK;
           },
           onMouseLeave: (e) => {
-            e.currentTarget.style.borderColor = "#ccc";
-            e.currentTarget.style.color = "#666";
+            e.currentTarget.style.borderColor = "var(--sor-subtle, #ccc)";
+            e.currentTarget.style.color = "var(--sor-muted-dark, #666)";
           },
           children: "Try again"
         }
@@ -6149,53 +6144,93 @@ function SoritesBoard({ onNewGame }) {
 }
 function GameSorites() {
   const [gameKey, setGameKey] = useState(0);
-  return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
-    /* @__PURE__ */ jsx(
-      SEO,
-      {
-        title: "Sorites — Philosophy Games",
-        path: "/games/sorites",
-        description: "Pick two colours, then classify 34 patches between them. Discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness."
-      }
-    ),
-    /* @__PURE__ */ jsxs("section", { className: "max-w-2xl mx-auto px-6 py-10", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
-        /* @__PURE__ */ jsx(
-          "a",
-          {
-            href: "/games",
-            className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
-            children: "← Games"
-          }
-        ),
-        /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "/" }),
-        /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-widest uppercase text-ink/40", children: "Sorites" })
-      ] }),
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-gold", children: "Experiment · 05" }),
+  return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load dark:bg-[#0E1A14] min-h-screen", children: [
+    /* @__PURE__ */ jsx("style", { children: `
+                .sorites-wrapper {
+                    --sor-bg: #F8F4EC;
+                    --sor-ink: #1A1A18;
+                    --sor-muted: #888888;
+                    --sor-muted-dark: #555555;
+                    --sor-subtle: #cccccc;
+                    --sor-subtle-dark: #bbbbbb;
+                    --sor-border: #dddddd;
+                    --sor-border-light: #e0ddd6;
+                }
+                .dark .sorites-wrapper {
+                    --sor-bg: #0E1A14;
+                    --sor-ink: #DDD8CD;
+                    --sor-muted: #999999;
+                    --sor-muted-dark: #aaaaaa;
+                    --sor-subtle: #444444;
+                    --sor-subtle-dark: #555555;
+                    --sor-border: #333333;
+                    --sor-border-light: #222222;
+                }
+            ` }),
+    /* @__PURE__ */ jsxs("div", { className: "sorites-wrapper", children: [
       /* @__PURE__ */ jsx(
-        "h1",
+        SEO,
         {
-          className: "font-heading font-light text-green mb-4",
-          style: { fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" },
-          children: "Sorites"
+          title: "Sorites — Philosophy Games",
+          path: "/games/sorites",
+          description: "Pick two colours, then classify 34 patches between them. Discover the Sorites paradox — the contradiction hiding in your own judgements about vagueness."
         }
       ),
-      /* @__PURE__ */ jsx("div", { className: "h-px w-12 bg-gold/40 mb-5" }),
-      /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/60 leading-relaxed", children: "The Sorites paradox asks: if removing one grain from a heap still leaves a heap, how can a heap ever become a non-heap? This experiment runs the same logic through your own colour preferences — and exposes the contradiction in your own judgements about vagueness and borderline cases." })
-    ] }),
-    /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 pb-20", children: /* @__PURE__ */ jsx(
-      SoritesBoard,
-      {
-        onNewGame: () => setGameKey((k) => k + 1)
-      },
-      gameKey
-    ) })
+      /* @__PURE__ */ jsxs("section", { className: "max-w-2xl mx-auto px-6 py-10", children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
+          /* @__PURE__ */ jsx(
+            "a",
+            {
+              href: "/games",
+              className: "font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150",
+              children: "← Games"
+            }
+          ),
+          /* @__PURE__ */ jsx("span", { className: "text-gold/30", children: "/" }),
+          /* @__PURE__ */ jsx("span", { className: "font-mono text-xs tracking-widest uppercase text-ink/40", children: "Sorites" })
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-gold", children: "Experiment · 05" }),
+        /* @__PURE__ */ jsx(
+          "h1",
+          {
+            className: "font-heading font-light text-green mb-4",
+            style: { fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" },
+            children: "Sorites"
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "h-px w-12 bg-gold/40 mb-5" }),
+        /* @__PURE__ */ jsx("p", { className: "font-body text-sm text-ink/60 leading-relaxed", children: "The Sorites paradox asks: if removing one grain from a heap still leaves a heap, how can a heap ever become a non-heap? This experiment runs the same logic through your own colour preferences — and exposes the contradiction in your own judgements about vagueness and borderline cases." })
+      ] }),
+      /* @__PURE__ */ jsx("section", { className: "max-w-2xl mx-auto px-6 pb-20", children: /* @__PURE__ */ jsx(
+        SoritesBoard,
+        {
+          onNewGame: () => setGameKey((k) => k + 1)
+        },
+        gameKey
+      ) })
+    ] })
   ] });
 }
-function World({ n, w, label, selected, pending, onSelect, disabled }) {
-  const barCount = Math.min(n, 20);
+function World({ n, w, groups, label, selected, pending, onSelect, disabled }) {
+  const data = groups || [{ n, w }];
+  const totalN = data.reduce((sum, g) => sum + g.n, 0);
+  const totalW = data.reduce((sum, g) => sum + g.n * g.w, 0);
+  const avgW = totalW / totalN;
+  const barCount = Math.min(totalN, 20);
   const barWidth = Math.max(3, Math.floor(160 / barCount));
-  const barH = Math.round(w / 100 * 76);
+  let bars = [];
+  if (groups) {
+    data.forEach((g) => {
+      const count = Math.round(g.n / totalN * barCount);
+      for (let i = 0; i < count; i++) {
+        bars.push(g.w);
+      }
+    });
+    while (bars.length < barCount) bars.push(data[data.length - 1].w);
+    bars = bars.slice(0, barCount);
+  } else {
+    bars = Array(barCount).fill(w);
+  }
   return /* @__PURE__ */ jsxs(
     "div",
     {
@@ -6236,13 +6271,14 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
             },
             children: [
               /* @__PURE__ */ jsxs("span", { children: [
-                n <= 32 ? "×" + n : "×" + n,
+                totalN <= 32 ? "×" + totalN : "×" + totalN.toLocaleString(),
                 " people"
               ] }),
               /* @__PURE__ */ jsx("br", {}),
               /* @__PURE__ */ jsxs("span", { children: [
+                groups ? "avg " : "",
                 "welfare: ",
-                w % 1 === 0 ? w : w.toFixed(1)
+                avgW % 1 === 0 ? avgW : avgW.toFixed(1)
               ] }),
               /* @__PURE__ */ jsx("br", {}),
               /* @__PURE__ */ jsxs(
@@ -6253,7 +6289,7 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
                   },
                   children: [
                     "total: ",
-                    n * w % 1 === 0 ? n * w : (n * w).toFixed(0)
+                    totalW % 1 === 0 ? totalW : totalW.toFixed(0)
                   ]
                 }
               )
@@ -6272,12 +6308,12 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
               overflow: "hidden"
             },
             children: [
-              Array.from({ length: barCount }).map((_, i) => /* @__PURE__ */ jsx(
+              bars.map((barW, i) => /* @__PURE__ */ jsx(
                 "div",
                 {
                   style: {
                     width: barWidth,
-                    height: Math.max(2, barH),
+                    height: Math.max(2, Math.round(barW / 100 * 76)),
                     background: selected ? "#00e87a" : pending ? "#c9a44c" : "#2d6a34",
                     transition: "height .3s",
                     flexShrink: 0
@@ -6285,7 +6321,7 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
                 },
                 i
               )),
-              n > 20 && /* @__PURE__ */ jsxs(
+              totalN > 20 && /* @__PURE__ */ jsxs(
                 "span",
                 {
                   style: {
@@ -6297,7 +6333,7 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
                   },
                   children: [
                     "+",
-                    n - 20,
+                    totalN > 1e3 ? (totalN - 20).toLocaleString() : totalN - 20,
                     " more"
                   ]
                 }
@@ -6336,34 +6372,34 @@ const STEPS = [
     aLabel: "World A",
     bLabel: "World A+",
     a: { n: 10, w: 100 },
-    b: { n: 20, w: 75 },
-    prompt: "World A+ is World A, plus 10 additional people whose lives are worth living (welfare 75), plus a welfare boost for everyone. Is A+ at least as good as A?",
+    b: { groups: [{ n: 10, w: 105 }, { n: 10, w: 45 }] },
+    prompt: "World A+ is World A, plus 10 additional people whose lives are worth living, plus a welfare boost for the original people. Is A+ at least as good as A?",
     bArgument: "More happy lives exist. Nobody is worse off. Total welfare is higher.",
     aArgument: "Average welfare falls. The original people deserve to keep their quality of life."
   },
   {
     aLabel: "World A+",
     bLabel: "World B",
-    a: { n: 20, w: 75 },
+    a: { groups: [{ n: 10, w: 105 }, { n: 10, w: 45 }] },
     b: { n: 20, w: 75 },
     prompt: "World B has the same 20 people and the same total welfare as A+, but distributed more equally. Is B at least as good as A+?",
     bArgument: "Equality is better. Same total welfare, same population, more fair.",
-    aArgument: "(These are actually identical in population and welfare — equality is the only difference.)",
+    aArgument: "(These are identical in population and welfare — equality is the only difference.)",
     tricky: true
   },
   {
     aLabel: "World B",
     bLabel: "World B+",
     a: { n: 20, w: 75 },
-    b: { n: 40, w: 56 },
-    prompt: "World B+ adds 20 more people at welfare 56 (good lives, below average). Is B+ at least as good as B?",
+    b: { groups: [{ n: 20, w: 80 }, { n: 20, w: 32 }] },
+    prompt: "World B+ adds 20 more people whose lives are worth living, plus a welfare boost for the original 20. Is B+ at least as good as B?",
     bArgument: "Again: more happy lives, nobody worse off, total utility rises.",
     aArgument: "Average welfare fell from 75 to 56. Adding lower-welfare lives drags down the mean."
   },
   {
     aLabel: "World B+",
     bLabel: "World C",
-    a: { n: 40, w: 56 },
+    a: { groups: [{ n: 20, w: 80 }, { n: 20, w: 32 }] },
     b: { n: 40, w: 56 },
     prompt: "World C equalises welfare across all 40 people. Is C at least as good as B+?",
     bArgument: "Same reasoning: equality is an improvement.",
@@ -6374,15 +6410,15 @@ const STEPS = [
     aLabel: "World C",
     bLabel: "World C+",
     a: { n: 40, w: 56 },
-    b: { n: 80, w: 42 },
-    prompt: "World C+ adds 40 more people with welfare 42. Their lives are worth living. Is C+ at least as good as C?",
+    b: { groups: [{ n: 40, w: 60 }, { n: 40, w: 24 }] },
+    prompt: "World C+ adds 40 more people, plus a welfare boost for the original 40. Is C+ at least as good as C?",
     bArgument: "More people with lives worth living. Nobody worse off. Total utility rises again.",
     aArgument: "Average welfare now 42. Quantity is replacing quality."
   },
   {
     aLabel: "World C+",
     bLabel: "World D",
-    a: { n: 80, w: 42 },
+    a: { groups: [{ n: 40, w: 60 }, { n: 40, w: 24 }] },
     b: { n: 80, w: 42 },
     prompt: "World D equalises welfare again across 80 people. Is D at least as good as C+?",
     bArgument: "Equality is better. Same total welfare, same population.",
@@ -6393,15 +6429,15 @@ const STEPS = [
     aLabel: "World D",
     bLabel: "World D+",
     a: { n: 80, w: 42 },
-    b: { n: 160, w: 31 },
-    prompt: "World D+ again adds lives worth living. Welfare is 31 — unpleasant in many ways, but above zero. Is D+ at least as good as D?",
+    b: { groups: [{ n: 80, w: 45 }, { n: 80, w: 17 }] },
+    prompt: "World D+ adds 80 more people, plus a welfare boost for the original 80. Is D+ at least as good as D?",
     bArgument: "Every life added has positive welfare. More is better.",
     aArgument: "Welfare 31 is a grim existence: perpetual mild suffering, few joys."
   },
   {
     aLabel: "World D+",
     bLabel: "World E",
-    a: { n: 160, w: 31 },
+    a: { groups: [{ n: 80, w: 45 }, { n: 80, w: 17 }] },
     b: { n: 160, w: 31 },
     prompt: "World E equalises. Is E at least as good as D+?",
     bArgument: "Equality is better, as before.",
@@ -6412,7 +6448,7 @@ const STEPS = [
     aLabel: "World E",
     bLabel: "World Z",
     a: { n: 160, w: 31 },
-    b: { n: 1e4, w: 1 },
+    b: { n: 16e5, w: 1 },
     prompt: "World Z contains 10,000× more people, each at welfare 1. Their lives are barely worth living — just above the threshold of a life not worth having. Is Z at least as good as E?",
     bArgument: "Each life has positive welfare. By the logic applied at every prior step, total utility is what matters.",
     aArgument: "These lives are miserable by any ordinary standard. 'Barely worth living' is not what we owe future people.",
@@ -6646,6 +6682,7 @@ function GameRepugnant() {
                 {
                   n: current.a.n,
                   w: current.a.w,
+                  groups: current.a.groups,
                   label: current.aLabel,
                   selected: selected === false,
                   pending: selected === null && pendingChoice === false,
@@ -6660,6 +6697,7 @@ function GameRepugnant() {
                 {
                   n: current.b.n,
                   w: current.b.w,
+                  groups: current.b.groups,
                   label: current.bLabel,
                   selected: selected === true,
                   pending: selected === null && pendingChoice === true,
@@ -6793,6 +6831,14 @@ function GameRepugnant() {
       }
     );
   if (phase === "conclusion") {
+    let getWorldStats = function(world) {
+      if (world.groups) {
+        const n = world.groups.reduce((acc, g) => acc + g.n, 0);
+        const w = world.groups.reduce((acc, g) => acc + g.n * g.w, 0) / n;
+        return { n, w };
+      }
+      return { n: world.n, w: world.w };
+    };
     const chainToZ = choices.every(Boolean);
     const firstRefusal = choices.findIndex((c) => !c);
     return /* @__PURE__ */ jsxs(
@@ -6864,44 +6910,48 @@ function GameRepugnant() {
                       children: "Your complete chain of endorsements"
                     }
                   ),
-                  STEPS.map((s, i) => /* @__PURE__ */ jsxs(
-                    "div",
-                    {
-                      style: {
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 10,
-                        marginBottom: 8
-                      },
-                      children: [
-                        /* @__PURE__ */ jsx(
-                          "div",
-                          {
-                            style: {
-                              width: 6,
-                              height: 6,
-                              borderRadius: "50%",
-                              background: choices[i] ? GREEN : "#7a3a3a",
-                              flexShrink: 0
+                  STEPS.map((s, i) => {
+                    const bStats = getWorldStats(s.b);
+                    const aStats = getWorldStats(s.a);
+                    return /* @__PURE__ */ jsxs(
+                      "div",
+                      {
+                        style: {
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          marginBottom: 8
+                        },
+                        children: [
+                          /* @__PURE__ */ jsx(
+                            "div",
+                            {
+                              style: {
+                                width: 6,
+                                height: 6,
+                                borderRadius: "50%",
+                                background: choices[i] ? GREEN : "#7a3a3a",
+                                flexShrink: 0
+                              }
                             }
-                          }
-                        ),
-                        /* @__PURE__ */ jsx(
-                          "span",
-                          {
-                            style: {
-                              fontSize: 11,
-                              fontFamily: MONO2,
-                              color: choices[i] ? "#4a9a5a" : "#7a4a4a",
-                              lineHeight: 1.7
-                            },
-                            children: choices[i] ? `${s.bLabel} ≥ ${s.aLabel}  ·  ${s.b.n} people @ welfare ${s.b.w % 1 === 0 ? s.b.w : s.b.w.toFixed(1)}` : `STOPPED: preferred ${s.aLabel}  ·  ${s.a.n} people @ welfare ${s.a.w}`
-                          }
-                        )
-                      ]
-                    },
-                    i
-                  ))
+                          ),
+                          /* @__PURE__ */ jsx(
+                            "span",
+                            {
+                              style: {
+                                fontSize: 11,
+                                fontFamily: MONO2,
+                                color: choices[i] ? "#4a9a5a" : "#7a4a4a",
+                                lineHeight: 1.7
+                              },
+                              children: choices[i] ? `${s.bLabel} ≥ ${s.aLabel}  ·  ${bStats.n > 1e3 ? bStats.n.toLocaleString() : bStats.n} people @ avg ${bStats.w % 1 === 0 ? bStats.w : bStats.w.toFixed(1)}` : `STOPPED: preferred ${s.aLabel}  ·  ${aStats.n > 1e3 ? aStats.n.toLocaleString() : aStats.n} people @ avg ${aStats.w % 1 === 0 ? aStats.w : aStats.w.toFixed(1)}`
+                            }
+                          )
+                        ]
+                      },
+                      i
+                    );
+                  })
                 ]
               }
             ),
@@ -6953,7 +7003,7 @@ function GameRepugnant() {
                         children: [
                           "World A: 10 people at welfare 100 (flourishing).",
                           /* @__PURE__ */ jsx("br", {}),
-                          "World Z: 10,000 people at welfare 1 (barely worth living).",
+                          "World Z: 1,600,000 people at welfare 1 (barely worth living).",
                           /* @__PURE__ */ jsx("br", {}),
                           /* @__PURE__ */ jsx("br", {}),
                           "Your chain of endorsements — each individually reasonable — implies the vast, miserable Z is at least as good as the small, flourishing A. This is Parfit's",
@@ -9947,10 +9997,66 @@ function parseCaseMarkdown(text) {
     fallacies
   };
 }
-const therapyRaw = "---\nid: therapy\nlabel: Session Worksheet — Cognitive Behavioural Therapy\ntitle: The Weight I Carry\ncontext: Personal journal written by a patient during CBT, examining her belief that she is a bad mother. The therapist asked her to write freely. Her reasoning contains several logical distortions.\n---\n\nI've been keeping this journal for three weeks now, and the more I write, the clearer it becomes that I've been failing my children in ways I'm only beginning to understand.\n{==Last Tuesday I forgot to pack Emma's lunch — a good mother would never let something so basic slip her mind.==}{>>no_true_scotsman | The speaker invokes an idealised definition of 'a good mother' that automatically excludes anyone who forgets a packed lunch. This redefines the category so that any counterexample is impossible — a textbook No True Scotsman.<<}\n{==It's not just the lunch; I'm always the one forgetting permission slips, missing sign-up deadlines, arriving five minutes late to pickup — this is simply who I am as a mother.==}{>>hasty_gen | A handful of emotionally salient mistakes are generalised into a fixed, permanent character trait ('this is simply who I am'). A small, unrepresentative sample is being used to draw a sweeping conclusion about her entire identity as a parent.<<}\n{==Since I went back to full-time work eighteen months ago, Emma's grades have slipped from mostly A's to mostly B's — my going back to work is clearly what caused it.==}{>>post_hoc | Emma's grades dropped after the return to full-time work, so work is declared the cause. But grades fluctuate for many reasons — a harder teacher, social pressures, changing coursework — and temporal sequence alone does not establish causation.<<}\n{==I feel like a stranger in my own family, and if I feel that way then I must truly have let the distance grow too wide to fix.==}{>>appeal_emotion | The speaker treats her feeling of estrangement as proof that she is truly estranged. Emotional states are real, but they are not reliable evidence about external reality. This pattern — 'I feel it, therefore it is so' — is called emotional reasoning.<<}\nMy neighbour Rachel manages a demanding legal career, three children under ten, and volunteers at the school garden every second Friday — if she can do all of that, there is simply no excuse for my exhaustion.\n{==Either I put my children first in every single decision I make, or I have chosen my career over them — and the evidence shows which choice I've made.==}{>>false_dichotomy | The speaker offers exactly two options: total child-first devotion in every decision, or having chosen career over children. This ignores the vast middle ground occupied by the overwhelming majority of working parents who love their children deeply.<<}\nDr Ames tells me that exhaustion is a completely normal response to the demands I face, but he only sees me for fifty minutes a week and doesn't know what the evenings are actually like.\n{==If I cannot manage something as basic as a packed lunch, then I am clearly not equipped to handle the real pressures of motherhood that are still ahead of me,==}\n{==and once those harder years arrive and I fail again, the damage to our relationship will be permanent — there will be no coming back from it.==}{>>slippery_slope | Across two consecutive sentences, forgetting a packed lunch escalates to irreparable relationship damage in the teenage years, with each step treated as inevitable. No argument is made for why one small failure must cascade into permanent harm.<<}\nMy own mother worked double shifts at the hospital and still made it to every school play and every sports day — she managed it all on far less money, so I have no excuse.\n{==No real mother needs to take a Saturday afternoon away from her children just to decompress; that time should always belong to the family.==}{>>no_true_scotsman | 'No real mother' sets up an impossible standard and uses it to preemptively disqualify anyone who takes personal time. The qualifier 'real' does all the logical work: it excludes counterexamples by definition rather than by argument.<<}\n{==James came home last Thursday upset after a falling-out with his best friend, and I know that if I had been more present, that friendship would never have been strained.==}{>>post_hoc | A friend argument is attributed entirely to her absence with no evidence linking the two. This is post hoc reasoning: because she was less available and the friendship suffered, her unavailability must have caused it.<<}\nThe parenting books I've read all emphasise that the early years are decisive for long-term emotional development, and since I've spent these years stretched too thin, the damage is probably already done.\n{==Every mother I know seems to manage this better than I do — even the ones who say they're struggling always seem, in practice, to be more on top of things than I ever am.==}{>>hasty_gen | 'Every mother I know' is a small, self-selected social circle. Concluding from it that all other mothers manage better is a hasty generalisation, compounded by the subjective impression that struggling mothers still seem more competent.<<}\n{==If I keep pushing at this pace I will eventually collapse completely, lose my job, become financially dependent, and in the end lose my children's trust entirely.==}{>>slippery_slope | In a single sentence the speaker moves from ongoing stress to complete collapse, job loss, financial dependency, and total loss of the children's trust — a chain of catastrophic outcomes asserted without any argument for why each step must follow the last.<<}\n";
-const climateRaw = "---\nid: climate_denial\nlabel: Opinion — Regional Newspaper\ntitle: The Consensus Is Not the Science\ncontext: Op-ed by a retired engineer who disputes mainstream climate science. The factual claims are not endorsed; the document is presented purely for logical analysis.\n---\n\nFor thirty years I designed industrial thermodynamic systems, where a miscalculated variable could bring a plant to a halt — and the climate models our governments rely on today would not survive a week of real engineering scrutiny.\n{==Last December was the coldest on record in our county, and I watched my neighbours scraping six inches of ice off their windshields every morning — if the planet is warming, someone forgot to update the weather.==}{>>cherry_pick | A single cold December in one county is selected to counter a global, multi-decadal warming trend. One locally convenient data point is highlighted while the vast contrary evidence — rising global average temperatures, melting ice sheets, warming oceans — is ignored entirely.<<}\n{==Dr Arthur Hennessey, who won the Nobel Prize in Economics and has spent decades studying complex adaptive systems, has publicly stated that the inputs used in leading climate models are far too speculative to support the sweeping policy conclusions drawn from them.==}{>>appeal_auth | Dr Hennessey's Nobel Prize is in Economics, not atmospheric science or climate physics. Citing an expert's prestige from an unrelated field as though it carries over to a scientific dispute is a classic appeal to irrelevant authority.<<}\n{==The research teams producing the most alarming projections receive their funding from governments that have already staked major political capital on the climate agenda — naturally, the results confirm what the funders need to hear.==}{>>genetic | The research is dismissed based on where its funding originates, not on any identified flaw in the methods or data. This is the genetic fallacy: judging a claim by its source rather than its content.<<}\n{==Both sides of this debate have credentialed scientists, peer-reviewed papers, and computer models that support their conclusions — we are not witnessing settled science so much as a contested political battleground.==}{>>false_equiv | Describing this as 'both sides have scientists and papers' treats a small minority of contrarian researchers as equivalent to an overwhelming scientific consensus. The two sides are not equivalent in the volume, quality, or methodological rigour of their evidence.<<}\nScience has overturned its own consensus before: doctors who proposed hand-washing were ridiculed, the link between smoking and cancer was denied for decades, and the germ theory of disease was mocked by the surgical establishment — the majority is not always right.\n{==If we allow governments to mandate carbon reductions today, they will soon regulate what fuel goes in our cars, then the temperature of our homes, then the food on our plates, and before long every private economic decision we make.==}{>>slippery_slope | The author leaps from carbon emission regulations to total government control of every private economic decision, presenting each step as inevitable — with no argument for why any one step must logically follow another.<<}\n{==I spent a weekend speaking with fourteen farmers at the county agricultural fair, and to a man they told me the seasons feel no different from how they felt in their fathers' time — these are people who read the land every single day of their lives.==}{>>anecdotal | Fourteen farmers at a county fair constitute a tiny, geographically concentrated, self-selected sample. Their subjective impressions about local seasonal feel cannot stand as evidence against decades of globally distributed instrumental climate records.<<}\n{==Greta Thunberg left school at fifteen to lecture world leaders on atmospheric physics — at what point are we allowed to ask whether we should restructure the global economy on the advice of a teenager?==}{>>ad_hominem | Rather than addressing the scientific arguments about climate change, the author attacks Greta Thunberg's age and educational history. Her biography is irrelevant to whether the underlying science she cites is correct or incorrect.<<}\nCarbon dioxide makes up just 0.04 percent of the atmosphere; it beggars belief that a trace gas at that concentration could be responsible for the civilisation-ending changes the models predict.\n{==The Medieval Warm Period, roughly 950 to 1250 AD, produced the great cathedral-building boom, expanded agriculture, and the flowering of Norse exploration — warming has historically meant civilisation, not catastrophe.==}{>>cherry_pick | The Medieval Warm Period is cited selectively to imply warming is always benign — ignoring other periods, regional variation, the far faster rate of current warming, and evidence that the same era brought prolonged drought and famine to other regions.<<}\nThose who question the orthodoxy are smeared as deniers, their funding is scrutinised, and their papers are rejected from journals run by editors who are themselves wedded to the consensus — this is ideology, not science.\n{==They ridiculed Copernicus; they silenced Galileo; they dismissed the early germ theorists as cranks — in every era, history has eventually vindicated the outsiders who refused to bow to institutional pressure.==}{>>galileo_gambit | Citing Copernicus and Galileo implies that mainstream opposition proves one must be right. But for every persecuted genius, there are vastly more fringe theorists who were simply wrong. Rejection by the establishment does not confer correctness.<<}\nThe nations pushing hardest for international climate agreements happen to be the same ones whose industrial competitors stand to be most disadvantaged by the resulting regulations.\nOur great-grandchildren will look back with disbelief that we nearly dismantled the most productive economic system in human history on the basis of computer simulations that cannot reliably forecast next week's rain.\n";
-const extremistRaw = "---\nid: extremist_speech\nlabel: Historical Analysis — Extremist Propaganda\ntitle: A Nation Betrayed\ncontext: Fictional speech in the style of 1930s European fascist rhetoric, presented for educational analysis of propaganda technique and logical fallacy. The views expressed are historically condemned and not endorsed.\n---\n\nMy countrymen, for generations our nation stood as the proudest achievement of Western civilisation — its sciences, its arts, its industries were the envy of the world — and yet today we find ourselves humiliated, impoverished, and systematically deceived.\n{==The newspapers that should speak for the people are owned and controlled by the very financial interests that profit most from our misery, and so they will never print a word of the truth we are telling you tonight.==}{>>genetic | The press is dismissed entirely based on claimed ownership rather than any analysis of specific reports. This is the genetic fallacy: because we dislike the alleged source, we reject all content — without engaging with whether any particular story is accurate.<<}\nLook at who occupies the lecture halls of our universities: ideologues imported from abroad, who fill our children's minds with foreign philosophies designed to make them ashamed of their own heritage and incapable of resistance.\n{==Every great civilisation in history — Rome, Carthage, Byzantium — fell not to armies from without, but to the decay of the national spirit from within, to citizens who placed private comfort above collective glory.==}{>>false_analogy | Rome, Carthage, and Byzantium collapsed for varied, contested, and historically complex reasons. Using them as a simple, universal template for a present-day political situation is a false analogy that erases all the differences in context, structure, and circumstance.<<}\n{==I have stood on the factory floors and street corners of a dozen cities; I have spoken with workers who have lost everything — their savings, their dignity, their futures — and they all tell me exactly the same story of systematic betrayal.==}{>>anecdotal | Workers encountered on factory floors and street corners constitute a self-selected, non-representative sample: people who are suffering and willing to speak to a political agitator. Presenting this as though it captures the experience and diagnosis of an entire nation is anecdotal reasoning dressed as field research.<<}\n{==You are either a patriot who stands with your people in this hour of total crisis, or you are a collaborator with the forces that are grinding your fellow citizens into the dust — there is no third path.==}{>>false_dichotomy | Patriot or collaborator: the speech eliminates all nuanced positions — critics of both the current government and the nationalist movement, the politically indifferent, those who share some concerns but disagree on methods. Complex political situations never divide cleanly into two moral camps.<<}\n{==Look at the state of our streets, our hospitals, our schools since the current government took power — this ruin is the harvest of their policies, the proof of their deliberate betrayal.==}{>>post_hoc | Social and infrastructural decay is attributed to the current government simply because it occurred during their tenure. Many factors drive urban, hospital, and school conditions over time; coincidence with a government's time in power is not proof of causation, let alone deliberate betrayal.<<}\nOur opponents call our movement extreme — these are the same men who spent their careers selling our national assets to foreign buyers and our workers' futures to international speculators.\nThose international financial networks that move capital across borders without loyalty to any flag or any people — their only nation is profit, and our nation is simply one more market to be hollowed out.\n{==Our forefathers built everything you see with their hands, their sweat, and their sacrifice — and the timid compromisers in parliament want to hand it all away without so much as a fight.==}{>>appeal_tradition | The sacrifices of ancestors are invoked to demand a specific political course of action. What the forefathers built is real, but the emotional weight of their sacrifice is used as a substitute for argument — it does not by itself determine what policy should be followed today.<<}\n{==Any man who questions what I am telling you tonight has either been deceived by the controlled press or is himself part of the apparatus working against us — there is no innocent confusion on a question this clear.==}{>>ad_hominem | Anyone who raises questions is pre-labelled as either deceived or complicit in betrayal. This forecloses genuine inquiry by attacking the character of the questioner rather than addressing the substance of any objection — a form of ad hominem that also poisons the well against all future criticism.<<}\n{==If we do not act decisively in the next electoral cycle to remove these destructive influences from our national life, within a single generation there will be nothing left of the civilisation our ancestors gave their lives to build.==}{>>slippery_slope | The speaker asserts that failing to act in the next election will, within one generation, result in the complete destruction of civilisation. No causal mechanism is provided for why inaction must produce this extreme and total outcome.<<}\n{==Our opponents receive substantial funding from abroad — and this single fact tells you everything you need to know about whose interests their policies actually serve.==}{>>genetic | Foreign funding is presented as conclusive proof that opponents serve foreign interests. This is again the genetic fallacy: the origin of money does not automatically determine the content or validity of policies, which would require independent examination of the actual proposals.<<}\nHistory has always belonged to the people willing to sacrifice for something larger than themselves; the nations that hesitated, that compromised, that apologised for their own existence — they are merely footnotes.\nWe are not asking for power — we are asking only to give you back what is already yours by right, to restore what was stolen, to make this nation again what it has always in its deepest nature truly been.\n";
-const equalPayRaw = "---\nid: equal_pay\nlabel: Labour Rights Rally — Speech Transcript\ntitle: Equal Work, Equal Pay\ncontext: Transcript of a speech at a union rally advocating for gender pay equity legislation. The underlying case for pay equity is well-evidenced. Note that logical fallacies in an argument do not make its conclusion wrong — evaluate the reasoning, not just the cause.\n---\n\nSisters and brothers, the numbers do not lie: women in this country are paid, on average, eighty-two cents for every dollar paid to men, and that gap has barely shifted in twenty years.\n{==Every woman I know — my mother, my two sisters, the colleagues who have stood beside me through every campaign — has been underpaid, undervalued, or passed over at some point in her career.==}{>>hasty_gen | 'Every woman I know' is a small, personally connected, non-representative circle. Genuine pay discrimination is extensively documented by large-scale studies — but this sentence substitutes personal acquaintance for that systematic evidence, which is a hasty generalisation.<<}\nThe research is not ambiguous: a 2023 report from the Economic Policy Institute found a significant, unexplained pay gap even after controlling for occupation, education, hours worked, and years of experience.\n{==Senator Bradford has voted against equal pay legislation three times in six years — and you deserve to know that he has accepted over two hundred thousand dollars in donations from the industry lobby groups that oppose this bill most vocally.==}{>>genetic | Bradford's donation history is presented as though it explains and thereby dismisses his legislative position. Even a genuine conflict of interest does not tell us whether his stated arguments against the bill are valid — those arguments need to be addressed on their own merits.<<}\nCountries that have enacted strong pay equity laws — Iceland, Sweden, New Zealand — consistently rank among the best places in the world to work, for women and men alike.\n{==If we do not close this gap now, women will keep losing tens of thousands of dollars over their working lives, retire into poverty, and pass exactly the same disadvantage on to their daughters — a cycle with no natural end point.==}{>>slippery_slope | While these are real concerns supported by data, the chain from an unclosed gap to poverty-stricken retirement to daughters inheriting the exact same disadvantage is presented as inevitable and self-perpetuating. The 'no natural end point' framing asserts inevitability without establishing it.<<}\n{==The executives who lobby most aggressively against this legislation are the very same ones awarding themselves seven-figure bonuses while their lowest-paid employees — predominantly women — struggle to cover rent.==}{>>ad_hominem | Attacking the executives' personal compensation makes them look hypocritical but does not engage with the actual arguments they offer against the bill. Even people with very high pay can make valid arguments about labour policy.<<}\n{==Our opponents say the market should set wages freely and naturally — but those same opponents have never had to look their own daughter in the eye and explain why her male colleague earns more for the identical work.==}{>>appeal_emotion | The image of facing one's daughter is emotionally resonant, but it is deployed as a rhetorical substitute rather than a complement to argument. The opponents' stated reasoning is bypassed in favour of an emotional challenge.<<}\n{==Recent polling shows that seventy-six percent of Americans support legislation requiring equal pay for equal work — this is not a fringe position; it is what the overwhelming majority of this country already believes is right.==}{>>appeal_pop | Seventy-six percent public support is a politically significant fact, but popular opinion is not a logical argument for a policy's correctness. Many widely supported positions have been wrong; many correct positions started as minority views.<<}\nThe International Labour Organization, the World Economic Forum, and every major international economic body has concluded that closing the gender pay gap benefits not just women but entire national economies.\n{==You are either fighting to change this or you are comfortable with discrimination — there is no neutral ground when it comes to a question of basic human justice.==}{>>false_dichotomy | 'Fighting for change or comfortable with discrimination' erases every nuanced position: people who support the goal but oppose this specific bill's mechanism, those who prefer different legislative approaches, or those uncertain about implementation. Complex policy debates rarely resolve into two clean moral camps.<<}\nWe tried raising awareness for a decade; we tried voluntary corporate pledges; we tried waiting for the market to correct itself — and today the gap still stands at eighty-two cents on the dollar.\nHistory has not been kind to those who stood on the wrong side of civil rights, of suffrage, of labour protections — and it will not be kind to those who choose to stand in the way of this.\n{==My grandmother marched for the right to vote and was told to be patient; my mother marched for equal employment opportunity and was told to be patient; I refuse to still be marching for equal pay when my daughter is old enough to march beside me.==}{>>appeal_emotion | The three-generation image is powerful and humanising, but it functions as a pure emotional appeal. The audience's sympathy is being leveraged to support a policy conclusion rather than supplementing an argument for it.<<}\nWe will win this fight, because the arc of history bends toward justice — and no lobby's money and no politician's timidity can bend it back for much longer.\n";
+const therapyRaw = `---
+id: therapy
+label: Literature — Depressive Confession
+title: A Confession (1882)
+context: Verbatim excerpt from Leo Tolstoy's autobiographical essay "A Confession" (1882) and a verbatim excerpt from an 1841 letter by Abraham Lincoln. Both historical figures suffered from severe clinical depression (melancholia). These texts represent actual, real-world examples of cognitive distortions (logical fallacies applied to oneself) common in depressive episodes.
+---
+
+"My life came to a standstill. I could breathe, eat, drink, and sleep, and I could not help doing these things; but there was no life, for there were no wishes the fulfillment of which I could consider reasonable... 
+{==The truth was that life is meaningless. I had as it were lived, lived, and walked, walked, till I had come to a precipice and saw clearly that there was nothing ahead of me but destruction.==}{>>slippery_slope | Tolstoy engages in catastrophizing (the depressive equivalent of a slippery slope fallacy). He assumes that because he currently lacks fulfillment, the only inevitable future outcome is total destruction and suffering, ignoring any possibility of recovery or change in perspective.<<}
+
+{==It was impossible to stop, impossible to go back, and impossible to close my eyes or avoid seeing that there was nothing ahead but suffering and real death—complete annihilation." — Leo Tolstoy==}{>>false_dichotomy | Also known in CBT as 'black-and-white thinking'. Tolstoy sees no middle ground or alternative paths. It is either complete fulfillment (which he has lost) or complete annihilation, ignoring the nuanced realities of living with both pain and meaning.<<}
+
+"For not giving you a general summary of news, you must pardon me; it is not in my power to do so. 
+{==I am now the most miserable man living. If what I feel were equally distributed to the whole human family, there would not be one cheerful face on the earth.==}{>>appeal_emotion | Emotional reasoning. Lincoln treats his profound internal emotional pain as an objective measure of universal truth. Because he feels an overwhelming misery, he assumes it is the absolute reality of his existence and inherently insurmountable.<<}
+
+{==Whether I shall ever be better I can not tell; I awfully forebode I shall not. To remain as I am is impossible; I must die or be better, it appears to me." — Abraham Lincoln==}{>>hasty_gen | Overgeneralization. Lincoln takes his current, temporary state of severe depression and assumes it is a permanent, unchangeable trait ("I awfully forebode I shall not"). He uses his current feeling to predict an eternal future.<<}
+`;
+const climateRaw = `---
+id: climate_denial
+label: Historical Floor Speech — Climate Debate
+title: The Snowball
+context: Verbatim excerpts from Senator James Inhofe's statements denying climate change, most notably his February 26, 2015 speech on the US Senate floor where he brought a snowball to work, and a 2012 radio interview.
+---
+
+{==In case we have forgotten, because we keep hearing that 2014 has been the warmest year on record. I ask the chair, you know what this is? It's a snowball just from outside here. It's very, very cold out. Very unseasonable. So here, Mr. President, catch this.==}{>>anecdotal | The speaker uses a single, local weather event (a snowball in Washington D.C.) as evidence against a long-term, global climate trend. This is anecdotal evidence that confuses localized weather with global climate patterns.<<}
+
+{==We hear this coming from the media, they say, well, the global warming, this is it, the world is coming to an end. It's just not happening.==}{>>straw_man | He exaggerates the scientific consensus ("the world is coming to an end") to make it easier to dismiss, characterizing climate science as hyperbolic doomsday panic rather than empirical data.<<}
+
+{==God's still up there. The arrogance of people to think that we, human beings, would be able to change what He is doing in the climate is to me outrageous.==}{>>appeal_emotion | This relies on religious appeal and personal incredulity ("outrageous arrogance") rather than addressing the atmospheric physics of carbon emissions. It replaces scientific argument with an appeal to divine sovereignty.<<}
+`;
+const extremistRaw = `---
+id: extremist_speech
+label: Historical Analysis — Political Rhetoric
+title: Enemies from Within (1950)
+context: Verbatim excerpts from Senator Joseph McCarthy's famous February 9, 1950 speech in Wheeling, West Virginia, which launched the "Red Scare". 
+---
+
+The reason why we find ourselves in a position of impotency is not because our only powerful potential enemy has sent men to invade our shores... but rather because of the traitorous actions of those who have been treated so well by this Nation. 
+
+{==It has not been the less fortunate, or members of minority groups who have been traitorous to this Nation, but rather those who have had all the benefits that the wealthiest Nation on earth has had to offer... the finest homes, the finest college education and the finest jobs in government we can give.==}{>>hasty_gen | McCarthy generalizes that the most privileged individuals in government are the ones committing treason, without providing statistical evidence linking privilege or college education to treasonous behavior.<<}
+
+{==I have here in my hand a list of 205—a list of names that were made known to the Secretary of State as being members of the Communist Party and who nevertheless are still working and shaping policy in the State Department.==}{>>appeal_emotion | The dramatic visual claim of holding a secret list is designed to invoke immediate panic and paranoia (appeal to fear) rather than providing the actual names for evidentiary review or legal scrutiny.<<}
+
+{==As you know, very recently the Secretary of State proclaimed his loyalty to a man guilty of what has always been considered as the most abominable of all crimes—being a traitor to the people who gave him a position of great trust... The high priest of this treasonable group is now the Secretary of State.==}{>>ad_hominem | Instead of addressing the Secretary of State's actual foreign policies, McCarthy attacks his character by associating him with a convicted traitor (Alger Hiss) and labeling him a "high priest of treason", aiming to destroy his credibility through guilt by association and personal attacks.<<}
+`;
+const equalPayRaw = `---
+id: equal_pay
+label: Historical Speech — The War on Terror
+title: With Us or Against Us
+context: Verbatim excerpts from President George W. Bush's Address to a Joint Session of Congress on September 20, 2001. This is presented as an example of arguing for a noble cause (defending democracy and freedom) while utilizing highly fallacious rhetoric to unify the audience.
+---
+
+{==They hate our freedoms—our freedom of religion, our freedom of speech, our freedom to vote and assemble and disagree with each other... These terrorists kill not merely to end lives, but to disrupt and end a way of life.==}{>>straw_man | By defining the enemy's motivation entirely as "hating freedom," the speech simplifies a complex geopolitical and historical conflict into a cartoonish villainy, making it easier to rally the public without examining nuanced foreign policy issues.<<}
+
+{==Every nation, in every region, now has a decision to make. Either you are with us, or you are with the terrorists.==}{>>false_dichotomy | The ultimate example of a false dilemma. It eliminates any possibility of a neutral nation, a nation that opposes terrorism but also opposes US military intervention, or a nation that prefers diplomatic resolution. It forces a complex global spectrum into exactly two absolute camps.<<}
+
+{==From this day forward, any nation that continues to harbor or support terrorism will be regarded by the United States as a hostile regime.==}{>>slippery_slope | While stated as policy, the implication is that any lack of total compliance with US directives equates directly to supporting terrorism and thus becoming a military target.<<}
+
+{==This is not, however, just America's fight. And what is at stake is not just America's freedom. This is the world's fight. This is civilization's fight.==}{>>appeal_emotion | An appeal to grand concepts (civilization itself) designed to evoke a powerful emotional response and a sense of existential urgency, bypassing logical debate over the specific military actions being proposed.<<}
+`;
 const CASE_RAWS = [therapyRaw, climateRaw, extremistRaw, equalPayRaw];
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
@@ -10025,9 +10131,16 @@ function FallacyDetective() {
   const rounds = useRef(CASE_RAWS.map(parseCaseMarkdown));
   const [phase, setPhase] = useState("intro");
   const [curRound, setCurRound] = useState(0);
+  const [scores, setScores] = useState(() => {
+    try {
+      const stored = localStorage.getItem("fallacy-detective-scores");
+      return stored ? JSON.parse(stored) : {};
+    } catch {
+      return {};
+    }
+  });
   const [selectedSents, setSelectedSents] = useState(/* @__PURE__ */ new Set());
   const [foundFallacies, setFoundFallacies] = useState(/* @__PURE__ */ new Set());
-  const [totalFound, setTotalFound] = useState(0);
   const [selectedFallacyId, setSelectedFallacyId] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -10153,38 +10266,37 @@ function FallacyDetective() {
       setFoundFallacies((prev) => /* @__PURE__ */ new Set([...prev, target.idx]));
       setFoundSentSet((prev) => /* @__PURE__ */ new Set([...prev, ...target.sis]));
       setFoundBadges((prev) => ({ ...prev, [target.sis[0]]: fname }));
-      setTotalFound((n) => n + 1);
       setSelectedSents(/* @__PURE__ */ new Set());
       setFeedback({ type: "ok", msg: `✓  ${fname} — ${target.expl}` });
       clearFallacy();
     }, 650);
   }
   function finishRound() {
+    const R_curr = rounds.current[curRound];
+    const count = foundFallacies.size;
+    const total = R_curr.fallacies.length;
+    const pct = total ? Math.round(count / total * 100) : 0;
+    setScores((prev) => {
+      const next = { ...prev, [curRound]: { found: count, total, pct } };
+      try {
+        localStorage.setItem("fallacy-detective-scores", JSON.stringify(next));
+      } catch (e) {
+      }
+      return next;
+    });
     setPhase("results");
     setCtrlOpen(false);
-  }
-  function nextRound() {
-    if (curRound >= rounds.current.length - 1) {
-      setPhase("final");
-    } else {
-      startRound(curRound + 1);
-      setPhase("game");
-    }
-  }
-  function restartGame() {
-    setTotalFound(0);
-    startRound(0);
-    setPhase("intro");
   }
   const foundCount = foundFallacies.size;
   const allFound = foundCount === R.fallacies.length;
   const canSubmit = selectedSents.size > 0 && !!selectedFallacyId;
   const selCount = selectedSents.size;
+  const overallFound = Object.values(scores).reduce((sum, s) => sum + s.found, 0);
   const totalFallacies = rounds.current.reduce(
     (s, r) => s + r.fallacies.length,
     0
   );
-  const finalPct = Math.round(totalFound / totalFallacies * 100);
+  const finalPct = Math.round(overallFound / totalFallacies * 100);
   const roundPct = R.fallacies.length ? Math.round(foundCount / R.fallacies.length * 100) : 0;
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx("style", { children: css }),
@@ -10285,11 +10397,9 @@ function FallacyDetective() {
                       marginBottom: "2.5rem"
                     },
                     children: [
-                      "You'll receive a series of",
-                      " ",
-                      /* @__PURE__ */ jsx("strong", { style: { color: "#f0e8d8" }, children: "case files" }),
-                      " ",
-                      "— real-world documents laced with hidden logical fallacies. The number of fallacies in each document is unknown. Your job: find them, name them, close the case."
+                      "Select a ",
+                      /* @__PURE__ */ jsx("strong", { style: { color: "#f0e8d8" }, children: "case file" }),
+                      " below. They are real-world documents laced with hidden logical fallacies. Your job: find them, name them, close the case."
                     ]
                   }
                 ),
@@ -10299,78 +10409,98 @@ function FallacyDetective() {
                     className: "fd-fade-4",
                     style: {
                       display: "grid",
-                      gridTemplateColumns: "1fr 1fr",
-                      gap: ".5rem 1.2rem",
-                      maxWidth: 460,
+                      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                      gap: "1rem",
+                      maxWidth: 800,
+                      width: "100%",
                       marginBottom: "2.5rem",
                       textAlign: "left"
                     },
-                    children: [
-                      [
-                        "01",
-                        "Click a sentence you suspect contains a fallacy"
-                      ],
-                      [
-                        "02",
-                        "Search for and select the fallacy type"
-                      ],
-                      ["03", "Submit — get immediate feedback"],
-                      [
-                        "04",
-                        "Close the case when ready — you may miss some"
-                      ]
-                    ].map(([n, t]) => /* @__PURE__ */ jsxs(
-                      "div",
-                      {
-                        style: {
-                          display: "flex",
-                          alignItems: "flex-start",
-                          gap: ".5rem",
-                          fontFamily: "var(--ff-mono)",
-                          fontSize: ".68rem",
-                          lineHeight: 1.55,
-                          color: "rgba(240,232,216,.52)"
+                    children: rounds.current.map((r, i) => {
+                      const score = scores[i];
+                      return /* @__PURE__ */ jsxs(
+                        "div",
+                        {
+                          onClick: () => {
+                            startRound(i);
+                            setPhase("game");
+                          },
+                          style: {
+                            background: "var(--panel)",
+                            border: "1px solid var(--border)",
+                            padding: "1.2rem",
+                            cursor: "pointer",
+                            transition: "border-color 0.2s, background 0.2s"
+                          },
+                          onMouseEnter: (e) => {
+                            e.currentTarget.style.borderColor = "rgba(196,154,40,0.5)";
+                            e.currentTarget.style.background = "var(--panel2)";
+                          },
+                          onMouseLeave: (e) => {
+                            e.currentTarget.style.borderColor = "var(--border)";
+                            e.currentTarget.style.background = "var(--panel)";
+                          },
+                          children: [
+                            /* @__PURE__ */ jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: ".5rem" }, children: [
+                              /* @__PURE__ */ jsx("div", { style: {
+                                fontFamily: "var(--ff-mono)",
+                                fontSize: ".62rem",
+                                letterSpacing: ".15em",
+                                textTransform: "uppercase",
+                                color: score ? score.pct === 100 ? "#7fcf9f" : "#c49a28" : "#b83232"
+                              }, children: r.label }),
+                              score && /* @__PURE__ */ jsxs("div", { style: {
+                                fontFamily: "var(--ff-mono)",
+                                fontSize: ".65rem",
+                                color: score.pct === 100 ? "#7fcf9f" : "rgba(240,232,216,.6)",
+                                background: "rgba(0,0,0,0.2)",
+                                padding: ".2rem .5rem",
+                                borderRadius: "2px"
+                              }, children: [
+                                score.pct,
+                                "% (",
+                                score.found,
+                                "/",
+                                score.total,
+                                ")"
+                              ] })
+                            ] }),
+                            /* @__PURE__ */ jsx("div", { style: { fontFamily: "var(--ff-head)", fontSize: "1.2rem", color: "var(--paper)", marginBottom: ".4rem", fontWeight: 700 }, children: r.title }),
+                            /* @__PURE__ */ jsx("div", { style: { fontSize: ".85rem", color: "rgba(240,232,216,.5)", lineHeight: 1.4, fontStyle: "italic", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }, children: r.context })
+                          ]
                         },
-                        children: [
-                          /* @__PURE__ */ jsx(
-                            "span",
-                            {
-                              style: {
-                                color: "#c49a28",
-                                fontWeight: 700,
-                                flexShrink: 0
-                              },
-                              children: n
-                            }
-                          ),
-                          t
-                        ]
-                      },
-                      n
-                    ))
+                        i
+                      );
+                    })
                   }
                 ),
                 /* @__PURE__ */ jsx(
-                  "button",
+                  "div",
                   {
-                    className: "fd-clip fd-fade-5",
-                    onClick: () => {
-                      startRound(0);
-                      setPhase("game");
-                    },
+                    className: "fd-fade-5",
                     style: {
-                      fontFamily: "var(--ff-mono)",
-                      fontSize: ".78rem",
-                      letterSpacing: ".18em",
-                      textTransform: "uppercase",
-                      color: "#17140f",
-                      background: "#c49a28",
-                      border: "none",
-                      padding: ".85rem 2.5rem",
-                      cursor: "pointer",
-                      fontWeight: 700
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "1rem"
                     },
-                    children: "Open First Case File →"
+                    children: /* @__PURE__ */ jsx(
+                      "button",
+                      {
+                        onClick: () => setPhase("final"),
+                        style: {
+                          fontFamily: "var(--ff-mono)",
+                          fontSize: ".65rem",
+                          letterSpacing: ".12em",
+                          textTransform: "uppercase",
+                          color: "rgba(240,232,216,.4)",
+                          background: "transparent",
+                          border: "1px solid rgba(240,232,216,.15)",
+                          padding: ".6rem 1rem",
+                          cursor: "pointer"
+                        },
+                        children: "View Final Assessment →"
+                      }
+                    )
                   }
                 )
               ]
@@ -10440,7 +10570,9 @@ function FallacyDetective() {
                           },
                           children: [
                             "Found: ",
-                            totalFound
+                            foundFallacies.size,
+                            " / ",
+                            R.fallacies.length
                           ]
                         }
                       )
@@ -11160,7 +11292,7 @@ function FallacyDetective() {
                         children: /* @__PURE__ */ jsx(
                           "button",
                           {
-                            onClick: nextRound,
+                            onClick: () => setPhase("intro"),
                             className: "fd-clip",
                             style: {
                               flex: 1,
@@ -11175,7 +11307,7 @@ function FallacyDetective() {
                               cursor: "pointer",
                               fontWeight: 700
                             },
-                            children: curRound >= rounds.current.length - 1 ? "View Final Results →" : "Next Case →"
+                            children: "Return to Case Files →"
                           }
                         )
                       }
@@ -11285,7 +11417,7 @@ function FallacyDetective() {
                             marginTop: ".35rem"
                           },
                           children: [
-                            totalFound,
+                            overallFound,
                             " of ",
                             totalFallacies,
                             " fallacies identified"
@@ -11325,7 +11457,7 @@ function FallacyDetective() {
                 /* @__PURE__ */ jsx(
                   "button",
                   {
-                    onClick: restartGame,
+                    onClick: () => setPhase("intro"),
                     className: "fd-clip",
                     style: {
                       fontFamily: "var(--ff-mono)",
@@ -11339,7 +11471,7 @@ function FallacyDetective() {
                       cursor: "pointer",
                       fontWeight: 700
                     },
-                    children: "Reopen All Cases"
+                    children: "Return to Case Files"
                   }
                 )
               ]
@@ -11358,31 +11490,36 @@ const ROUNDS = [
         text: "The mind is a tabula rasa upon which experience writes its characters.",
         philosopher: "John Locke",
         tradition: "British Empiricism",
-        century: "17th"
+        century: "17th",
+        detail: "An English philosopher and physician, widely regarded as one of the most influential of Enlightenment thinkers."
       },
       {
         text: "I think, therefore I am. But what am I? A thing that thinks.",
         philosopher: "René Descartes",
         tradition: "Continental Rationalism",
-        century: "17th"
+        century: "17th",
+        detail: "A French philosopher and mathematician who laid the foundations for rationalism and analytic geometry."
       },
       {
         text: "The unity of consciousness is nothing but the unity of the act of apperception.",
         philosopher: "Immanuel Kant",
         tradition: "German Idealism",
-        century: "18th"
+        century: "18th",
+        detail: "A central figure in modern philosophy who synthesized early modern rationalism and empiricism."
       },
       {
         text: "What is it like to be a bat? We cannot suppose that experience is absent in creatures so unlike us.",
         philosopher: "Thomas Nagel",
         tradition: "Analytic Philosophy",
-        century: "20th"
+        century: "20th",
+        detail: "An American philosopher known for his critique of reductionist accounts of the mind and objective viewpoints."
       },
       {
         text: "The stream of thought flows on; but most of its segments fall into the bottomless abyss of oblivion.",
         philosopher: "William James",
         tradition: "American Pragmatism",
-        century: "19th"
+        century: "19th",
+        detail: 'An American philosopher and psychologist, considered one of the leading thinkers of the late 19th century and the "Father of American psychology".'
       }
     ]
   },
@@ -11393,31 +11530,36 @@ const ROUNDS = [
         text: "Truth is subjectivity. The inward how is the truth.",
         philosopher: "Søren Kierkegaard",
         tradition: "Existentialism",
-        century: "19th"
+        century: "19th",
+        detail: "A Danish philosopher, theologian, and cultural critic who was a major influence on existentialism and Protestant theology."
       },
       {
         text: "We can only know that we know nothing, and that is the highest degree of human wisdom.",
         philosopher: "Leo Tolstoy",
         tradition: "Literary Philosophy",
-        century: "19th"
+        century: "19th",
+        detail: "A Russian writer who is regarded as one of the greatest authors of all time, who later in life developed a radical anarcho-pacifist Christian philosophy."
       },
       {
         text: "The whole is the true. The true is the whole.",
         philosopher: "Georg Wilhelm Friedrich Hegel",
         tradition: "German Idealism",
-        century: "19th"
+        century: "19th",
+        detail: "A German philosopher whose dialectical method and historicist and idealist account of reality revolutionized European philosophy."
       },
       {
         text: "Whereof one cannot speak, thereof one must be silent.",
         philosopher: "Ludwig Wittgenstein",
         tradition: "Analytic Philosophy",
-        century: "20th"
+        century: "20th",
+        detail: "An Austrian-British philosopher who worked primarily in logic, the philosophy of mathematics, the philosophy of mind, and the philosophy of language."
       },
       {
         text: "What is truth? Truth is not a thing; it is a process of verification.",
         philosopher: "William James",
         tradition: "American Pragmatism",
-        century: "19th"
+        century: "19th",
+        detail: 'An American philosopher and psychologist, considered one of the leading thinkers of the late 19th century and the "Father of American psychology".'
       }
     ]
   }
@@ -11466,6 +11608,7 @@ function PhilosopherMatch() {
       setAttempts(newAttempts);
       if (newAttempts === 1) setRevealed(1);
       else if (newAttempts === 2) setRevealed(2);
+      else if (newAttempts === 3) setRevealed(3);
     }
   }
   function next() {
@@ -11538,12 +11681,17 @@ function PhilosopherMatch() {
         '"'
       ] }),
       revealed >= 1 && /* @__PURE__ */ jsxs("div", { style: styles.hint, children: [
+        /* @__PURE__ */ jsx("span", { style: styles.hintLabel, children: "Hint — Detail:" }),
+        " ",
+        quote.detail
+      ] }),
+      revealed >= 2 && /* @__PURE__ */ jsxs("div", { style: styles.hint, children: [
         /* @__PURE__ */ jsx("span", { style: styles.hintLabel, children: "Hint — Century:" }),
         " ",
         quote.century,
         " century"
       ] }),
-      revealed >= 2 && /* @__PURE__ */ jsxs("div", { style: styles.hint, children: [
+      revealed >= 3 && /* @__PURE__ */ jsxs("div", { style: styles.hint, children: [
         /* @__PURE__ */ jsx("span", { style: styles.hintLabel, children: "Hint — Tradition:" }),
         " ",
         quote.tradition
@@ -11888,6 +12036,9 @@ function ConceptMap() {
   const [showSolution, setShowSolution] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const inputRef = useRef(null);
+  useEffect(() => {
+    document.title = "Concept Map | Axiom";
+  }, []);
   const puzzle = PUZZLES[puzzleIdx];
   const optimal = bfs(puzzle.start, puzzle.end, GRAPH);
   const optimalLength = optimal ? optimal.length : 0;
@@ -12056,7 +12207,7 @@ const S = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "28px 16px 60px"
+    padding: "120px 16px 60px"
   },
   topBar: {
     width: "100%",
@@ -12394,18 +12545,22 @@ function ArgumentReconstruction() {
     }
   }
   if (done) {
-    return /* @__PURE__ */ jsx("div", { style: T.root, children: /* @__PURE__ */ jsxs("div", { style: T.doneCard, children: [
-      /* @__PURE__ */ jsx("div", { style: T.doneStamp, children: "§" }),
-      /* @__PURE__ */ jsx("div", { style: T.doneTitle, children: "All Arguments Reconstructed" }),
-      /* @__PURE__ */ jsxs("div", { style: T.doneScore, children: [
-        "Score: ",
-        score,
-        " / ",
-        ARGUMENTS.length * 3
+    return /* @__PURE__ */ jsxs("div", { style: T.root, children: [
+      /* @__PURE__ */ jsx(SEO, { title: "Argument Reconstruction | Axiom Games" }),
+      /* @__PURE__ */ jsxs("div", { style: T.doneCard, children: [
+        /* @__PURE__ */ jsx("div", { style: T.doneStamp, children: "§" }),
+        /* @__PURE__ */ jsx("div", { style: T.doneTitle, children: "All Arguments Reconstructed" }),
+        /* @__PURE__ */ jsxs("div", { style: T.doneScore, children: [
+          "Score: ",
+          score,
+          " / ",
+          ARGUMENTS.length * 3
+        ] })
       ] })
-    ] }) });
+    ] });
   }
   return /* @__PURE__ */ jsxs("div", { style: T.root, children: [
+    /* @__PURE__ */ jsx(SEO, { title: "Argument Reconstruction | Axiom Games" }),
     /* @__PURE__ */ jsxs("div", { style: T.header, children: [
       /* @__PURE__ */ jsx("span", { style: T.brand, children: "ARGUMENT RECONSTRUCTION" }),
       /* @__PURE__ */ jsxs("span", { style: T.score, children: [
@@ -12493,7 +12648,7 @@ const T = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "28px 16px 60px"
+    padding: "100px 16px 60px"
   },
   header: {
     width: "100%",
@@ -12535,7 +12690,7 @@ const T = {
     fontSize: 12,
     color: "#5a4a2a",
     marginBottom: 20,
-    alignSelf: "flex-start",
+    textAlign: "center",
     maxWidth: 660,
     width: "100%"
   },
@@ -12839,6 +12994,9 @@ function ParadigmShift() {
   const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
   const [attempts, setAttempts] = useState(0);
+  useEffect(() => {
+    document.title = "Paradigm Shift | Axiom";
+  }, []);
   const c = cases[idx];
   const isCorrect2 = selected === c.correct;
   function handleSelect(id) {
@@ -12985,7 +13143,7 @@ const P = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "28px 16px 60px"
+    padding: "120px 16px 60px"
   },
   topBar: {
     width: "100%",
@@ -13066,7 +13224,7 @@ const P = {
     fontSize: 13,
     color: "#4a5a7a",
     marginBottom: 16,
-    alignSelf: "flex-start",
+    textAlign: "center",
     maxWidth: 680,
     width: "100%",
     letterSpacing: "0.04em"

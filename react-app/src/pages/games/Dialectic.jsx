@@ -133,7 +133,10 @@ function GameBoard({ puzzle, onNewGame }) {
         return null
     }
 
-    const contextParts = puzzle.context.split(' → ')
+    const contextParts = puzzle.context.split(' → ').map((part) => {
+        const match = part.match(/^(.*?)\s*(\(.*\))$/)
+        return match ? { name: match[1], date: match[2] } : { name: part, date: null }
+    })
 
     return (
         <div className="max-w-2xl mx-auto">
@@ -154,7 +157,10 @@ function GameBoard({ puzzle, onNewGame }) {
                                         : 'text-ink/25'
                             }
                         >
-                            {part}
+                            {part.name}
+                            {part.date && (
+                                <span className="opacity-50 ml-1 font-normal tracking-normal">{part.date}</span>
+                            )}
                         </span>
                         {i < contextParts.length - 1 && (
                             <span className="text-gold/30">→</span>
@@ -241,9 +247,16 @@ function GameBoard({ puzzle, onNewGame }) {
                         ))}
                     </div>
                     {sResult && !sResult.correct && status === 'playing' && (
-                        <p className="font-body text-xs text-terracotta/80 mt-2 animate-slide-up">
-                            Not quite — one more attempt.
-                        </p>
+                        <div className="mt-3 bg-terracotta/10 border border-terracotta/20 rounded-md p-3 animate-slide-up">
+                            <p className="font-body text-sm font-semibold text-terracotta/90 mb-1">
+                                Not quite — one more attempt.
+                            </p>
+                            {syntheses[sResult.idx]?.explanation && (
+                                <p className="font-body text-sm text-terracotta/80 leading-relaxed">
+                                    {syntheses[sResult.idx].explanation}
+                                </p>
+                            )}
+                        </div>
                     )}
                     {status === 'playing' && pendingS !== null && (
                         <button
@@ -283,9 +296,16 @@ function GameBoard({ puzzle, onNewGame }) {
                     role="status"
                     aria-live="polite"
                 >
-                    <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1">
+                    <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-2">
                         Attempts exhausted
                     </p>
+                    {sResult && !sResult.correct && syntheses[sResult.idx]?.explanation && (
+                        <div className="mb-3 pb-3 border-b border-terracotta/20">
+                            <p className="font-body text-sm text-terracotta/80 leading-relaxed">
+                                {syntheses[sResult.idx].explanation}
+                            </p>
+                        </div>
+                    )}
                     <p className="font-body text-sm text-ink/65 leading-relaxed">
                         The correct synthesis is highlighted above. The full
                         movement:{' '}
@@ -301,7 +321,7 @@ function GameBoard({ puzzle, onNewGame }) {
             {status !== 'playing' && (
                 <button
                     onClick={onNewGame}
-                    className="mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150"
+                    className="mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream dark:bg-cream-dark font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150"
                 >
                     New dialectic
                 </button>

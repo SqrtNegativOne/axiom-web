@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const PHASES = [
     {
@@ -117,6 +117,10 @@ export default function ParadigmShift() {
     const [score, setScore] = useState(0)
     const [done, setDone] = useState(false)
     const [attempts, setAttempts] = useState(0)
+
+    useEffect(() => {
+        document.title = 'Paradigm Shift | Axiom'
+    }, [])
 
     const c = cases[idx]
     const isCorrect = selected === c.correct
@@ -303,7 +307,7 @@ const P = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '28px 16px 60px',
+        padding: '120px 16px 60px',
     },
     topBar: {
         width: '100%',
@@ -384,7 +388,7 @@ const P = {
         fontSize: 13,
         color: '#4a5a7a',
         marginBottom: 16,
-        alignSelf: 'flex-start',
+        textAlign: 'center',
         maxWidth: 680,
         width: '100%',
         letterSpacing: '0.04em',

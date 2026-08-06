@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 
-const SITE_NAME = 'Axiom — The Philosophy Society'
+const SITE_NAME = 'Axiom ⋅ The Philosophy Society'
 const SITE_URL = 'https://axiomnsut.in'
 const DEFAULT_IMAGE = `${SITE_URL}/assets/logo.png`
 const DEFAULT_DESCRIPTION =
@@ -14,7 +14,7 @@ export default function SEO({
     image = DEFAULT_IMAGE,
     noindex = false,
 }) {
-    const fullTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME
+    const fullTitle = title ? `${title} ⋅ ${SITE_NAME}` : SITE_NAME
     const canonicalUrl = `${SITE_URL}${path}`
 
     return (

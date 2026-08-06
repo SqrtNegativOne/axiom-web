@@ -4,10 +4,28 @@ import { useState, useEffect } from 'react'
 // Structure: { a: {n, w, label}, b: {n, w, label}, prompt, aReason, bReason }
 // n = relative population units, w = welfare (0–100)
 
-function World({ n, w, label, selected, pending, onSelect, disabled }) {
-    const barCount = Math.min(n, 20)
+function World({ n, w, groups, label, selected, pending, onSelect, disabled }) {
+    const data = groups || [{ n, w }]
+    const totalN = data.reduce((sum, g) => sum + g.n, 0)
+    const totalW = data.reduce((sum, g) => sum + g.n * g.w, 0)
+    const avgW = totalW / totalN
+
+    const barCount = Math.min(totalN, 20)
     const barWidth = Math.max(3, Math.floor(160 / barCount))
-    const barH = Math.round((w / 100) * 76)
+
+    let bars = []
+    if (groups) {
+        data.forEach(g => {
+            const count = Math.round((g.n / totalN) * barCount)
+            for (let i = 0; i < count; i++) {
+                bars.push(g.w)
+            }
+        })
+        while (bars.length < barCount) bars.push(data[data.length - 1].w)
+        bars = bars.slice(0, barCount)
+    } else {
+        bars = Array(barCount).fill(w)
+    }
 
     return (
         <div
@@ -55,9 +73,9 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
                     lineHeight: 1.7,
                 }}
             >
-                <span>{n <= 32 ? '×' + n : '×' + n} people</span>
+                <span>{totalN <= 32 ? '×' + totalN : '×' + totalN.toLocaleString()} people</span>
                 <br />
-                <span>welfare: {w % 1 === 0 ? w : w.toFixed(1)}</span>
+                <span>{groups ? 'avg ' : ''}welfare: {avgW % 1 === 0 ? avgW : avgW.toFixed(1)}</span>
                 <br />
                 <span
                     style={{
@@ -68,7 +86,7 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
                               : '#5aaa64',
                     }}
                 >
-                    total: {(n * w) % 1 === 0 ? n * w : (n * w).toFixed(0)}
+                    total: {totalW % 1 === 0 ? totalW : totalW.toFixed(0)}
                 </span>
             </div>
 
@@ -83,12 +101,12 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
                     overflow: 'hidden',
                 }}
             >
-                {Array.from({ length: barCount }).map((_, i) => (
+                {bars.map((barW, i) => (
                     <div
                         key={i}
                         style={{
                             width: barWidth,
-                            height: Math.max(2, barH),
+                            height: Math.max(2, Math.round((barW / 100) * 76)),
                             background: selected
                                 ? '#00e87a'
                                 : pending
@@ -99,7 +117,7 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
                         }}
                     />
                 ))}
-                {n > 20 && (
+                {totalN > 20 && (
                     <span
                         style={{
                             fontSize: 9,
@@ -109,7 +127,7 @@ function World({ n, w, label, selected, pending, onSelect, disabled }) {
                             fontFamily: "'Space Mono', monospace",
                         }}
                     >
-                        +{n - 20} more
+                        +{totalN > 1000 ? (totalN - 20).toLocaleString() : totalN - 20} more
                     </span>
                 )}
             </div>
@@ -146,8 +164,8 @@ const STEPS = [
         aLabel: 'World A',
         bLabel: 'World A+',
         a: { n: 10, w: 100 },
-        b: { n: 20, w: 75 },
-        prompt: 'World A+ is World A, plus 10 additional people whose lives are worth living (welfare 75), plus a welfare boost for everyone. Is A+ at least as good as A?',
+        b: { groups: [{ n: 10, w: 105 }, { n: 10, w: 45 }] },
+        prompt: 'World A+ is World A, plus 10 additional people whose lives are worth living, plus a welfare boost for the original people. Is A+ at least as good as A?',
         bArgument:
             'More happy lives exist. Nobody is worse off. Total welfare is higher.',
         aArgument:
@@ -156,21 +174,21 @@ const STEPS = [
     {
         aLabel: 'World A+',
         bLabel: 'World B',
-        a: { n: 20, w: 75 },
+        a: { groups: [{ n: 10, w: 105 }, { n: 10, w: 45 }] },
         b: { n: 20, w: 75 },
         prompt: 'World B has the same 20 people and the same total welfare as A+, but distributed more equally. Is B at least as good as A+?',
         bArgument:
             'Equality is better. Same total welfare, same population, more fair.',
         aArgument:
-            '(These are actually identical in population and welfare — equality is the only difference.)',
+            '(These are identical in population and welfare — equality is the only difference.)',
         tricky: true,
     },
     {
         aLabel: 'World B',
         bLabel: 'World B+',
         a: { n: 20, w: 75 },
-        b: { n: 40, w: 56 },
-        prompt: 'World B+ adds 20 more people at welfare 56 (good lives, below average). Is B+ at least as good as B?',
+        b: { groups: [{ n: 20, w: 80 }, { n: 20, w: 32 }] },
+        prompt: 'World B+ adds 20 more people whose lives are worth living, plus a welfare boost for the original 20. Is B+ at least as good as B?',
         bArgument:
             'Again: more happy lives, nobody worse off, total utility rises.',
         aArgument:
@@ -179,7 +197,7 @@ const STEPS = [
     {
         aLabel: 'World B+',
         bLabel: 'World C',
-        a: { n: 40, w: 56 },
+        a: { groups: [{ n: 20, w: 80 }, { n: 20, w: 32 }] },
         b: { n: 40, w: 56 },
         prompt: 'World C equalises welfare across all 40 people. Is C at least as good as B+?',
         bArgument: 'Same reasoning: equality is an improvement.',
@@ -191,8 +209,8 @@ const STEPS = [
         aLabel: 'World C',
         bLabel: 'World C+',
         a: { n: 40, w: 56 },
-        b: { n: 80, w: 42 },
-        prompt: 'World C+ adds 40 more people with welfare 42. Their lives are worth living. Is C+ at least as good as C?',
+        b: { groups: [{ n: 40, w: 60 }, { n: 40, w: 24 }] },
+        prompt: 'World C+ adds 40 more people, plus a welfare boost for the original 40. Is C+ at least as good as C?',
         bArgument:
             'More people with lives worth living. Nobody worse off. Total utility rises again.',
         aArgument: 'Average welfare now 42. Quantity is replacing quality.',
@@ -200,7 +218,7 @@ const STEPS = [
     {
         aLabel: 'World C+',
         bLabel: 'World D',
-        a: { n: 80, w: 42 },
+        a: { groups: [{ n: 40, w: 60 }, { n: 40, w: 24 }] },
         b: { n: 80, w: 42 },
         prompt: 'World D equalises welfare again across 80 people. Is D at least as good as C+?',
         bArgument: 'Equality is better. Same total welfare, same population.',
@@ -211,8 +229,8 @@ const STEPS = [
         aLabel: 'World D',
         bLabel: 'World D+',
         a: { n: 80, w: 42 },
-        b: { n: 160, w: 31 },
-        prompt: 'World D+ again adds lives worth living. Welfare is 31 — unpleasant in many ways, but above zero. Is D+ at least as good as D?',
+        b: { groups: [{ n: 80, w: 45 }, { n: 80, w: 17 }] },
+        prompt: 'World D+ adds 80 more people, plus a welfare boost for the original 80. Is D+ at least as good as D?',
         bArgument: 'Every life added has positive welfare. More is better.',
         aArgument:
             'Welfare 31 is a grim existence: perpetual mild suffering, few joys.',
@@ -220,7 +238,7 @@ const STEPS = [
     {
         aLabel: 'World D+',
         bLabel: 'World E',
-        a: { n: 160, w: 31 },
+        a: { groups: [{ n: 80, w: 45 }, { n: 80, w: 17 }] },
         b: { n: 160, w: 31 },
         prompt: 'World E equalises. Is E at least as good as D+?',
         bArgument: 'Equality is better, as before.',
@@ -231,7 +249,7 @@ const STEPS = [
         aLabel: 'World E',
         bLabel: 'World Z',
         a: { n: 160, w: 31 },
-        b: { n: 10000, w: 1 },
+        b: { n: 1600000, w: 1 },
         prompt: 'World Z contains 10,000× more people, each at welfare 1. Their lives are barely worth living — just above the threshold of a life not worth having. Is Z at least as good as E?',
         bArgument:
             'Each life has positive welfare. By the logic applied at every prior step, total utility is what matters.',
@@ -449,6 +467,7 @@ export default function GameRepugnant() {
                         <World
                             n={current.a.n}
                             w={current.a.w}
+                            groups={current.a.groups}
                             label={current.aLabel}
                             selected={selected === false}
                             pending={
@@ -462,6 +481,7 @@ export default function GameRepugnant() {
                         <World
                             n={current.b.n}
                             w={current.b.w}
+                            groups={current.b.groups}
                             label={current.bLabel}
                             selected={selected === true}
                             pending={
@@ -600,6 +620,15 @@ export default function GameRepugnant() {
         const chainToZ = choices.every(Boolean)
         const firstRefusal = choices.findIndex((c) => !c)
 
+        function getWorldStats(world) {
+            if (world.groups) {
+                const n = world.groups.reduce((acc, g) => acc + g.n, 0)
+                const w = world.groups.reduce((acc, g) => acc + g.n * g.w, 0) / n
+                return { n, w }
+            }
+            return { n: world.n, w: world.w }
+        }
+
         return (
             <div
                 style={{
@@ -664,43 +693,47 @@ export default function GameRepugnant() {
                         >
                             Your complete chain of endorsements
                         </p>
-                        {STEPS.map((s, i) => (
-                            <div
-                                key={i}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: 10,
-                                    marginBottom: 8,
-                                }}
-                            >
+                        {STEPS.map((s, i) => {
+                            const bStats = getWorldStats(s.b)
+                            const aStats = getWorldStats(s.a)
+                            return (
                                 <div
+                                    key={i}
                                     style={{
-                                        width: 6,
-                                        height: 6,
-                                        borderRadius: '50%',
-                                        background: choices[i]
-                                            ? GREEN
-                                            : '#7a3a3a',
-                                        flexShrink: 0,
-                                    }}
-                                />
-                                <span
-                                    style={{
-                                        fontSize: 11,
-                                        fontFamily: MONO,
-                                        color: choices[i]
-                                            ? '#4a9a5a'
-                                            : '#7a4a4a',
-                                        lineHeight: 1.7,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 10,
+                                        marginBottom: 8,
                                     }}
                                 >
-                                    {choices[i]
-                                        ? `${s.bLabel} ≥ ${s.aLabel}  ·  ${s.b.n} people @ welfare ${s.b.w % 1 === 0 ? s.b.w : s.b.w.toFixed(1)}`
-                                        : `STOPPED: preferred ${s.aLabel}  ·  ${s.a.n} people @ welfare ${s.a.w}`}
-                                </span>
-                            </div>
-                        ))}
+                                    <div
+                                        style={{
+                                            width: 6,
+                                            height: 6,
+                                            borderRadius: '50%',
+                                            background: choices[i]
+                                                ? GREEN
+                                                : '#7a3a3a',
+                                            flexShrink: 0,
+                                        }}
+                                    />
+                                    <span
+                                        style={{
+                                            fontSize: 11,
+                                            fontFamily: MONO,
+                                            color: choices[i]
+                                                ? '#4a9a5a'
+                                                : '#7a4a4a',
+                                            lineHeight: 1.7,
+                                        }}
+                                    >
+                                        {choices[i]
+                                            ? `${s.bLabel} ≥ ${s.aLabel}  ·  ${bStats.n > 1000 ? bStats.n.toLocaleString() : bStats.n} people @ avg ${bStats.w % 1 === 0 ? bStats.w : bStats.w.toFixed(1)}`
+                                            : `STOPPED: preferred ${s.aLabel}  ·  ${aStats.n > 1000 ? aStats.n.toLocaleString() : aStats.n} people @ avg ${aStats.w % 1 === 0 ? aStats.w : aStats.w.toFixed(1)}`}
+                                    </span>
+                                </div>
+                            )
+                        })}
                     </div>
 
                     {chainToZ ? (
@@ -745,7 +778,7 @@ export default function GameRepugnant() {
                                     World A: 10 people at welfare 100
                                     (flourishing).
                                     <br />
-                                    World Z: 10,000 people at welfare 1 (barely
+                                    World Z: 1,600,000 people at welfare 1 (barely
                                     worth living).
                                     <br />
                                     <br />

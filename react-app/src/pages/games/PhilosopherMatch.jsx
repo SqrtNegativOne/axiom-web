@@ -9,30 +9,35 @@ const ROUNDS = [
                 philosopher: 'John Locke',
                 tradition: 'British Empiricism',
                 century: '17th',
+                detail: 'An English philosopher and physician, widely regarded as one of the most influential of Enlightenment thinkers.',
             },
             {
                 text: 'I think, therefore I am. But what am I? A thing that thinks.',
                 philosopher: 'René Descartes',
                 tradition: 'Continental Rationalism',
                 century: '17th',
+                detail: 'A French philosopher and mathematician who laid the foundations for rationalism and analytic geometry.',
             },
             {
                 text: 'The unity of consciousness is nothing but the unity of the act of apperception.',
                 philosopher: 'Immanuel Kant',
                 tradition: 'German Idealism',
                 century: '18th',
+                detail: 'A central figure in modern philosophy who synthesized early modern rationalism and empiricism.',
             },
             {
                 text: 'What is it like to be a bat? We cannot suppose that experience is absent in creatures so unlike us.',
                 philosopher: 'Thomas Nagel',
                 tradition: 'Analytic Philosophy',
                 century: '20th',
+                detail: 'An American philosopher known for his critique of reductionist accounts of the mind and objective viewpoints.',
             },
             {
                 text: 'The stream of thought flows on; but most of its segments fall into the bottomless abyss of oblivion.',
                 philosopher: 'William James',
                 tradition: 'American Pragmatism',
                 century: '19th',
+                detail: 'An American philosopher and psychologist, considered one of the leading thinkers of the late 19th century and the "Father of American psychology".',
             },
         ],
     },
@@ -44,30 +49,35 @@ const ROUNDS = [
                 philosopher: 'Søren Kierkegaard',
                 tradition: 'Existentialism',
                 century: '19th',
+                detail: 'A Danish philosopher, theologian, and cultural critic who was a major influence on existentialism and Protestant theology.',
             },
             {
                 text: 'We can only know that we know nothing, and that is the highest degree of human wisdom.',
                 philosopher: 'Leo Tolstoy',
                 tradition: 'Literary Philosophy',
                 century: '19th',
+                detail: 'A Russian writer who is regarded as one of the greatest authors of all time, who later in life developed a radical anarcho-pacifist Christian philosophy.',
             },
             {
                 text: 'The whole is the true. The true is the whole.',
                 philosopher: 'Georg Wilhelm Friedrich Hegel',
                 tradition: 'German Idealism',
                 century: '19th',
+                detail: 'A German philosopher whose dialectical method and historicist and idealist account of reality revolutionized European philosophy.',
             },
             {
                 text: 'Whereof one cannot speak, thereof one must be silent.',
                 philosopher: 'Ludwig Wittgenstein',
                 tradition: 'Analytic Philosophy',
                 century: '20th',
+                detail: 'An Austrian-British philosopher who worked primarily in logic, the philosophy of mathematics, the philosophy of mind, and the philosophy of language.',
             },
             {
                 text: 'What is truth? Truth is not a thing; it is a process of verification.',
                 philosopher: 'William James',
                 tradition: 'American Pragmatism',
                 century: '19th',
+                detail: 'An American philosopher and psychologist, considered one of the leading thinkers of the late 19th century and the "Father of American psychology".',
             },
         ],
     },
@@ -95,7 +105,7 @@ export default function PhilosopherMatch() {
     const [roundIdx, setRoundIdx] = useState(0)
     const [quoteIdx, setQuoteIdx] = useState(0)
     const [attempts, setAttempts] = useState(0)
-    const [revealed, setRevealed] = useState(0) // 0 = no hints, 1 = century, 2 = tradition
+    const [revealed, setRevealed] = useState(0) // 0 = no hints, 1 = detail, 2 = century, 3 = tradition
     const [selected, setSelected] = useState(null)
     const [correct, setCorrect] = useState(false)
     const [score, setScore] = useState(0)
@@ -122,6 +132,7 @@ export default function PhilosopherMatch() {
             setAttempts(newAttempts)
             if (newAttempts === 1) setRevealed(1)
             else if (newAttempts === 2) setRevealed(2)
+            else if (newAttempts === 3) setRevealed(3)
         }
     }
 
@@ -197,11 +208,17 @@ export default function PhilosopherMatch() {
 
                 {revealed >= 1 && (
                     <div style={styles.hint}>
+                        <span style={styles.hintLabel}>Hint — Detail:</span>{' '}
+                        {quote.detail}
+                    </div>
+                )}
+                {revealed >= 2 && (
+                    <div style={styles.hint}>
                         <span style={styles.hintLabel}>Hint — Century:</span>{' '}
                         {quote.century} century
                     </div>
                 )}
-                {revealed >= 2 && (
+                {revealed >= 3 && (
                     <div style={styles.hint}>
                         <span style={styles.hintLabel}>Hint — Tradition:</span>{' '}
                         {quote.tradition}

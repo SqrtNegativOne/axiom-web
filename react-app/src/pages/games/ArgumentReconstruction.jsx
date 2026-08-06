@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SEO from '../../components/SEO'
 
 const ARGUMENTS = [
     {
@@ -138,6 +139,7 @@ export default function ArgumentReconstruction() {
     if (done) {
         return (
             <div style={T.root}>
+                <SEO title="Argument Reconstruction | Axiom Games" />
                 <div style={T.doneCard}>
                     <div style={T.doneStamp}>§</div>
                     <div style={T.doneTitle}>All Arguments Reconstructed</div>
@@ -151,6 +153,7 @@ export default function ArgumentReconstruction() {
 
     return (
         <div style={T.root}>
+            <SEO title="Argument Reconstruction | Axiom Games" />
             <div style={T.header}>
                 <span style={T.brand}>ARGUMENT RECONSTRUCTION</span>
                 <span style={T.score}>{score} pts</span>
@@ -267,7 +270,7 @@ const T = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '28px 16px 60px',
+        padding: '100px 16px 60px',
     },
     header: {
         width: '100%',
@@ -309,7 +312,7 @@ const T = {
         fontSize: 12,
         color: '#5a4a2a',
         marginBottom: 20,
-        alignSelf: 'flex-start',
+        textAlign: 'center',
         maxWidth: 660,
         width: '100%',
     },

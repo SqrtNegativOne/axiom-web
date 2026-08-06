@@ -195,7 +195,7 @@ function GameBoard({ puzzle, onNewGame }) {
             {status !== 'playing' && (
                 <button
                     onClick={onNewGame}
-                    className="mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150"
+                    className="mt-5 px-5 py-2.5 rounded-lg border border-gold/40 bg-cream dark:bg-cream-dark font-body text-sm text-ink/70 hover:border-gold hover:text-ink transition-colors duration-150"
                 >
                     New argument
                 </button>
