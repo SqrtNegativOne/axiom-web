@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import SEO from '../../components/SEO'
-import { core, members } from '../../data/team-2025'
+import { core, members } from '../../data/team-2026'
 import alumniQuotes from '../../data/alumni-quotes'
 import TeamPortraitCard from '../../components/TeamPortraitCard'
 import AlumniQuoteCard from '../../components/AlumniQuoteCard'
@@ -239,7 +239,7 @@ export default function Team() {
                 </div>
                 <div className="mt-8 text-center">
                     <a
-                        href="/team/2025-legacy"
+                        href="/team/2025"
                         className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
                     >
                         See previous leadership &rarr;

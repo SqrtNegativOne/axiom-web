@@ -1,76 +1,88 @@
-import batch2027 from './2027';
 import batch2028 from './2028';
 import batch2029 from './2029';
 
-const core = [
+export const core = [
     {
         role: 'President',
         members: [
-            batch2027['Adarsh Jain'],
-            batch2027['Vivek'],
+            batch2028['Bhavishya Maheshwari'],
+            batch2028['Arnav Gupta'],
         ],
     },
     {
         role: 'Vice President',
         members: [
-            batch2027['Aman Kumar'],
-            batch2027['Akshay Yadav'],
-        ],
-    },
-    {
-        role: 'General Secretary',
-        members: [
-            batch2027['Arusha'],
-            batch2027['Ribhu'],
+            batch2028['Poorva'],
+            batch2028['Hansika'],
         ],
     },
     {
         role: 'Director of External Affairs',
         members: [
-            batch2027['Dhruv'],
+            batch2028['Taneesha Bangia'],
         ],
     },
     {
-        role: 'Treasurer',
+        role: 'Director of Tech',
         members: [
-            batch2027['Kanishka'],
+            batch2028['Ark Malhotra'],
         ],
     },
     {
-        role: 'Director of Strategy',
+        role: 'General Secretary',
         members: [
-            batch2027['Keshav'],
+            batch2028['Erut'],
+            batch2028['Utsav Dwivedi'],
         ],
     },
     {
         role: 'Joint Secretary',
         members: [
-            batch2027['Shreyash'],
-            batch2027['Ujjwal'],
+            batch2029['Ashish Joshi'],
+            batch2028['Vibhuti'],
+            batch2028['Prableen Kaur'],
+            batch2029['Himanshi'],
+        ],
+    },
+    {
+        role: 'Social Media and Design Head',
+        members: [
+            batch2028['Erut'],
+            batch2028['Devika'],
+        ],
+    },
+    {
+        role: 'Podcast Head',
+        members: [
+            batch2028['Utsav Dwivedi'],
+            batch2028['Poorva'],
+        ],
+    },
+    {
+        role: 'Newsletter Heads',
+        members: [
+            batch2028['Ark Malhotra'],
+            batch2028['Iba Shibli'],
+        ],
+    },
+    {
+        role: 'Filmmaking Head',
+        members: [
+            batch2028['Kartavya'],
+            batch2028['Shreshth'],
+        ],
+    },
+    {
+        role: 'PARTY HEADS',
+        members: [
+            batch2028['Bhavishya Maheshwari'],
+            batch2028['Utsav Dwivedi'],
+            batch2028['Erut'],
         ],
     },
 ];
 
-const execomm = [
-    batch2028['Ark Malhotra'],
-    batch2028['Arnav Gupta'],
-    batch2028['Bhavishya Maheshwari'],
-    batch2028['Hansika'],
-    batch2028['Iba Shibli'],
-    batch2028['Prableen Kaur'],
-    batch2028['Taneesha Bangia'],
-    batch2028['Utsav Dwivedi'],
-    batch2028['Anisha'],
-    batch2028['Devika'],
-    batch2028['Erut'],
-    batch2028['Kartavya'],
-    batch2028['Meghal'],
-    batch2028['Poorva'],
-    batch2028['Shreshth'],
-    batch2028['Vibhuti'],
-];
-
-const members = [
+export const members = [
     batch2029['Adit Gaur'],
     batch2029['Aditi Poonia'],
     batch2029['Adwita Suri'],
@@ -116,11 +128,3 @@ const members = [
     batch2029['Supreet'],
     batch2029['Tanu'],
 ];
-
-const teamLegacy2025 = [
-    ...core,
-    { role: 'Executive Committee', members: execomm },
-    { role: 'Members', members: members },
-];
-
-export default teamLegacy2025;

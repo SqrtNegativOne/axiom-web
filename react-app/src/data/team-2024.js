@@ -1,102 +1,51 @@
-// Legacy team data — previous leadership (2024-25)
-// Preserved from the original team.js
+import batch2026 from './2026';
 
 const teamLegacy = [
     {
         role: 'President',
         members: [
-            {
-                name: 'Nikita',
-                image: '/data/portraits/nikita.jpeg',
-                quote: 'Leadership is about making others better as a result of your presence.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
-            {
-                name: 'Arnav Khare',
-                image: '/data/portraits/arnav khare.jpg',
-                quote: 'A leader is one who knows the way, goes the way, and shows the way.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
+            batch2026['Nikita'],
+            batch2026['Arnav Khare'],
         ],
     },
     {
         role: 'Vice President',
         members: [
-            {
-                name: 'Tejas',
-                image: '/data/portraits/tejas.jpg',
-                quote: 'Empowering others is the key to success.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
-            {
-                name: 'Shrey Paul',
-                image: '/data/portraits/shrey-paul.jpg',
-                quote: "Great leaders don't set out to be a leader, they set out to make a difference.",
-                socials: { linkedin: '#', instagram: '#' },
-            },
+            batch2026['Tejas'],
+            batch2026['Shrey Paul'],
         ],
     },
     {
         role: 'General Secretary',
         members: [
-            {
-                name: 'Garima Singh',
-                image: '/data/portraits/garima-singh.jpg',
-                quote: 'The secret of getting ahead is getting started.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
+            batch2026['Garima Singh'],
         ],
     },
     {
         role: 'Admin Directors',
         members: [
-            {
-                name: 'Dev Vats',
-                image: '/data/portraits/dev vats.jpeg',
-                quote: 'Discipline is the bridge between goals and accomplishment.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
-            {
-                name: 'Nikhil Kumar',
-                image: '/data/portraits/nikhil kumar.jpg',
-                quote: 'Success is the sum of small efforts repeated day in and day out.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
+            batch2026['Dev Vats'],
+            batch2026['Nikhil Kumar'],
         ],
     },
     {
         role: 'Social Media Director',
         members: [
-            {
-                name: 'Shreyashi Das',
-                image: '/data/portraits/shreyashi-das.jpg',
-                quote: 'Social media is not a media. The key is to listen, engage, and build relationships.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
+            batch2026['Shreyashi Das'],
         ],
     },
     {
         role: 'Design Director',
         members: [
-            {
-                name: 'Sachin Rout',
-                image: '/data/portraits/sachin-rout.jpg',
-                quote: 'Design is not just what it looks like, but how it works.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
+            batch2026['Sachin Rout'],
         ],
     },
     {
         role: 'Content Director',
         members: [
-            {
-                name: 'Pratham Puri',
-                image: '/data/portraits/pratham-puri.jpg',
-                quote: 'Content is the reason search began in the first place.',
-                socials: { linkedin: '#', instagram: '#' },
-            },
+            batch2026['Pratham Puri'],
         ],
     },
-]
+];
 
-export default teamLegacy
+export default teamLegacy;

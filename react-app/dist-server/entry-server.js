@@ -1306,193 +1306,84 @@ function NotFound() {
     )
   ] });
 }
-const core$1 = [
-  {
-    role: "President",
-    members: [
-      {
-        name: "Bhavishya Maheshwari",
-        image: "/data/portraits/bhavishya-maheshwari.jpg",
-        quote: "The dildo of consequences rarely arrives lubed.",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/bhavishyamaheshwari/",
-          instagram: "https://www.instagram.com/bhavishyamaheshwari19/"
-        }
-      },
-      {
-        name: "Arnav Gupta",
-        image: "/data/portraits/arnav-gupta.jpg",
-        quote: "P²C² — Principles before position, comprehension before conclusion",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/arnav-gupta-65a575323",
-          instagram: "https://www.instagram.com/arnavg_2024"
-        }
-      }
-    ]
+const batch2028 = {
+  "Ark Malhotra": {
+    name: "Ark Malhotra",
+    image: "/data/portraits/ark-malhotra.jpg",
+    quote: "All map and no territory made Jack a very dull boy.",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/ark-malhotra/",
+      instagram: "https://www.instagram.com/sqrtnegativ1/"
+    }
   },
-  {
-    role: "Vice President",
-    members: [
-      { name: "Poorva" },
-      {
-        name: "Hansika",
-        image: "/data/portraits/hansika.jpeg",
-        quote: "Everything you lose is a step you take",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/hansika-c-bbb34339a/"
-        }
-      }
-    ]
+  "Arnav Gupta": {
+    name: "Arnav Gupta",
+    image: "/data/portraits/arnav-gupta.jpg",
+    quote: "P²C² — Principles before position, comprehension before conclusion",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/arnav-gupta-65a575323",
+      instagram: "https://www.instagram.com/arnavg_2024"
+    }
   },
-  {
-    role: "Director of External Affairs",
-    members: [
-      {
-        name: "Taneesha Bangia",
-        image: "/data/portraits/taneesha-bangia.jpg",
-        quote: "Everything that is real was imagined first",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/taneesha-bangia"
-        }
-      }
-    ]
+  "Bhavishya Maheshwari": {
+    name: "Bhavishya Maheshwari",
+    image: "/data/portraits/bhavishya-maheshwari.jpg",
+    quote: "The dildo of consequences rarely arrives lubed.",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/bhavishyamaheshwari/",
+      instagram: "https://www.instagram.com/bhavishyamaheshwari19/"
+    }
   },
-  {
-    role: "Director of Tech",
-    members: [
-      {
-        name: "Ark Malhotra",
-        image: "/data/portraits/ark-malhotra.jpg",
-        quote: "All map and no territory made Jack a very dull boy.",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/ark-malhotra/",
-          instagram: "https://www.instagram.com/sqrtnegativ1/"
-        }
-      }
-    ]
+  Hansika: {
+    name: "Hansika",
+    image: "/data/portraits/hansika.jpeg",
+    quote: "Everything you lose is a step you take",
+    socials: { linkedin: "https://www.linkedin.com/in/hansika-c-bbb34339a/" }
   },
-  {
-    role: "General Secretary",
-    members: [
-      { name: "Erut" },
-      {
-        name: "Utsav Dwivedi",
-        image: "/data/portraits/utsav-dwivedi.jpg",
-        quote: "Sunrise parabellum",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/utsav-dwivedi-980575323",
-          instagram: "https://www.instagram.com/utsavdwivedi5"
-        }
-      }
-    ]
+  "Iba Shibli": {
+    name: "Iba Shibli",
+    image: "/data/portraits/iba-shibli.jpg",
+    quote: "Things happen, life goes on.",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/iba-shibli-277a37323",
+      instagram: "https://www.instagram.com/phoenix_69185"
+    }
   },
-  {
-    role: "Joint Secretary",
-    members: [
-      {
-        name: "Ashish Joshi",
-        image: "/data/portraits/ashish-joshi.jpg",
-        quote: "Life is pointless, so make sure to embarrass yourself in every possible way",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/ashishjoshi540",
-          instagram: "https://www.instagram.com/miselfashish"
-        }
-      },
-      { name: "Vibhuti" },
-      {
-        name: "Prableen Kaur",
-        image: "/data/portraits/prableen-kaur.png",
-        quote: "Aspire to Inspire",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/linkdin-link-prableenkaur",
-          instagram: "https://www.instagram.com/prableen.19/"
-        }
-      },
-      {
-        name: "Himanshi",
-        image: "/data/portraits/himanshi.jpeg",
-        quote: "Whatever will be, will be",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/himanshi-b2b478359",
-          instagram: "https://www.instagram.com/himanshiii_rohilla"
-        }
-      }
-    ]
+  "Prableen Kaur": {
+    name: "Prableen Kaur",
+    image: "/data/portraits/prableen-kaur.png",
+    quote: "Aspire to Inspire",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/linkdin-link-prableenkaur",
+      instagram: "https://www.instagram.com/prableen.19/"
+    }
   },
-  {
-    role: "Social Media and Design Head",
-    members: [{ name: "Erut" }, { name: "Devika" }]
+  "Taneesha Bangia": {
+    name: "Taneesha Bangia",
+    image: "/data/portraits/taneesha-bangia.jpg",
+    quote: "Everything that is real was imagined first",
+    socials: { linkedin: "https://www.linkedin.com/in/taneesha-bangia" }
   },
-  {
-    role: "Podcast Head",
-    members: [
-      {
-        name: "Utsav Dwivedi",
-        image: "/data/portraits/utsav-dwivedi.jpg",
-        quote: "Sunrise parabellum",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/utsav-dwivedi-980575323",
-          instagram: "https://www.instagram.com/utsavdwivedi5"
-        }
-      },
-      { name: "Poorva" }
-    ]
+  "Utsav Dwivedi": {
+    name: "Utsav Dwivedi",
+    image: "/data/portraits/utsav-dwivedi.jpg",
+    quote: "Sunrise parabellum",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/utsav-dwivedi-980575323",
+      instagram: "https://www.instagram.com/utsavdwivedi5"
+    }
   },
-  {
-    role: "Newsletter Heads",
-    members: [
-      {
-        name: "Ark Malhotra",
-        image: "/data/portraits/ark-malhotra.jpg",
-        quote: "All map and no territory made Jack a very dull boy.",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/ark-malhotra/",
-          instagram: "https://www.instagram.com/sqrtnegativ1/"
-        }
-      },
-      {
-        name: "Iba Shibli",
-        image: "/data/portraits/iba-shibli.jpg",
-        quote: "Things happen, life goes on.",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/iba-shibli-277a37323",
-          instagram: "https://www.instagram.com/phoenix_69185"
-        }
-      }
-    ]
-  },
-  {
-    role: "Filmmaking Head",
-    members: [{ name: "Kartavya" }, { name: "Shreshth" }]
-  },
-  {
-    role: "PARTY HEADS",
-    members: [
-      {
-        name: "Bhavishya Maheshwari",
-        image: "/data/portraits/bhavishya-maheshwari.jpg",
-        quote: "The dildo of consequences rarely arrives lubed.",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/bhavishyamaheshwari/",
-          instagram: "https://www.instagram.com/bhavishyamaheshwari19/"
-        }
-      },
-      {
-        name: "Utsav Dwivedi",
-        image: "/data/portraits/utsav-dwivedi.jpg",
-        quote: "Sunrise parabellum",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/utsav-dwivedi-980575323",
-          instagram: "https://www.instagram.com/utsavdwivedi5"
-        }
-      },
-      { name: "Erut" }
-    ]
-  }
-];
-const members$1 = [
-  // — has photo —
-  {
+  Anisha: { name: "Anisha" },
+  Devika: { name: "Devika" },
+  Erut: { name: "Erut" },
+  Kartavya: { name: "Kartavya" },
+  Meghal: { name: "Meghal" },
+  Poorva: { name: "Poorva" },
+  Shreshth: { name: "Shreshth" },
+  Vibhuti: { name: "Vibhuti" }
+};
+const batch2029 = {
+  "Adit Gaur": {
     name: "Adit Gaur",
     image: "/data/portraits/adit-gaur.jpeg",
     quote: "To pray is to accept defeat",
@@ -1501,7 +1392,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/adit__gaur_/"
     }
   },
-  {
+  "Aditi Poonia": {
     name: "Aditi Poonia",
     image: "/data/portraits/aditi-poonia.jpeg",
     quote: "He who has a why to live can bear almost any how.",
@@ -1510,15 +1401,13 @@ const members$1 = [
       instagram: "https://www.instagram.com/a.deity_333"
     }
   },
-  {
+  "Adwita Suri": {
     name: "Adwita Suri",
     image: "/data/portraits/adwita-suri.jpg",
     quote: "I exist. In thousand of agonies I exist.",
-    socials: {
-      instagram: "https://www.instagram.com/adwitasuri"
-    }
+    socials: { instagram: "https://www.instagram.com/adwitasuri" }
   },
-  {
+  Anju: {
     name: "Anju",
     image: "/data/portraits/anju.jpg",
     quote: "Every season serves a purpose!",
@@ -1527,7 +1416,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/i_anjuuuuu"
     }
   },
-  {
+  "Ankit Kumar": {
     name: "Ankit Kumar",
     image: "/data/portraits/ankit-kumar.jpg",
     quote: "Climb mountain so you can see the world, not so the world can see you.",
@@ -1536,7 +1425,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/ankit_kumar0_o"
     }
   },
-  {
+  "Ashish Joshi": {
     name: "Ashish Joshi",
     image: "/data/portraits/ashish-joshi.jpg",
     quote: "Life is pointless, so make sure to embarrass yourself in every possible way",
@@ -1545,7 +1434,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/miselfashish"
     }
   },
-  {
+  "Charu Vats": {
     name: "Charu Vats",
     image: "/data/portraits/charu-vats.jpg",
     socials: {
@@ -1553,7 +1442,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/designdiaries5"
     }
   },
-  {
+  "Dev Manchanda": {
     name: "Dev Manchanda",
     image: "/data/portraits/dev-manchanda.png",
     quote: "I always get to where I’m going by walking away from where I’ve been. — Winnie the Pooh",
@@ -1562,15 +1451,13 @@ const members$1 = [
       instagram: "https://www.instagram.com/manchandadeva/"
     }
   },
-  {
+  "Dhruv Bansal": {
     name: "Dhruv Bansal",
     image: "/data/portraits/dhruv-bansal.jpeg",
     quote: "We only feel free because we lack the language to articulate our unfreedom",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/dhruv-bansal-35270b302"
-    }
+    socials: { linkedin: "https://www.linkedin.com/in/dhruv-bansal-35270b302" }
   },
-  {
+  "Dushyant Singh Rathore": {
     name: "Dushyant Singh Rathore",
     image: "/data/portraits/dushyant-rathore.jpg",
     quote: "Loyalty is tested when betrayal is the most profitable option",
@@ -1579,7 +1466,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/dushyant_.rathore"
     }
   },
-  {
+  Himanshi: {
     name: "Himanshi",
     image: "/data/portraits/himanshi.jpeg",
     quote: "Whatever will be, will be",
@@ -1588,7 +1475,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/himanshiii_rohilla"
     }
   },
-  {
+  "Joseph Jisso Aliyath": {
     name: "Joseph Jisso Aliyath",
     image: "/data/portraits/joseph-aliyath.jpg",
     quote: "Hallelujah",
@@ -1597,15 +1484,13 @@ const members$1 = [
       instagram: "https://www.instagram.com/joseph_jisso"
     }
   },
-  {
+  "Khushi Mittal": {
     name: "Khushi Mittal",
     image: "/data/portraits/khushi-mittal.jpeg",
     quote: "A smile is a curve that sets everything straight.",
-    socials: {
-      instagram: "https://www.instagram.com/khushi_mittal01"
-    }
+    socials: { instagram: "https://www.instagram.com/khushi_mittal01" }
   },
-  {
+  "Md Rashid Iqbal": {
     name: "Md Rashid Iqbal",
     image: "/data/portraits/md-rashid-iqbal.jpg",
     quote: "One is never afraid of the unknown; one is afraid of the known coming to an end",
@@ -1614,7 +1499,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/rashid_zyannn"
     }
   },
-  {
+  "Navratan Choudhary": {
     name: "Navratan Choudhary",
     image: "/data/portraits/navratan-choudhary.jpeg",
     quote: "It is better to die on your feet than to live on your knees.",
@@ -1623,23 +1508,19 @@ const members$1 = [
       instagram: "https://www.instagram.com/navratan_choudhary10"
     }
   },
-  {
+  "Prachetas Shukla": {
     name: "Prachetas Shukla",
     image: "/data/portraits/prachetas-shukla.jpeg",
     quote: "Curiosity is Discipline disguised as Wonder",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/prachetasshukla/"
-    }
+    socials: { linkedin: "https://www.linkedin.com/in/prachetasshukla/" }
   },
-  {
+  "Prince Gangwar": {
     name: "Prince Gangwar",
     image: "/data/portraits/prince-gangwar.jpg",
     quote: "The truth is rarely pure and never simple.",
-    socials: {
-      instagram: "https://www.instagram.com/ern1l/"
-    }
+    socials: { instagram: "https://www.instagram.com/ern1l/" }
   },
-  {
+  "Shivangi Amat": {
     name: "Shivangi Amat",
     image: "/data/portraits/shivangi-amat.png",
     quote: "Life is short. Smile while you still have teeth.",
@@ -1648,7 +1529,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/_shhhivangii/"
     }
   },
-  {
+  "Tushar Kumar Karn": {
     name: "Tushar Kumar Karn",
     image: "/data/portraits/tushar-karn.png",
     quote: "If you can be anything in this world, be kind.",
@@ -1657,7 +1538,7 @@ const members$1 = [
       instagram: "https://www.instagram.com/tushar__karn____"
     }
   },
-  {
+  "Vinayak Mittal": {
     name: "Vinayak Mittal",
     image: "/data/portraits/vinayak-mittal.png",
     quote: "The universe is under no obligation to make sense to you. — Neil deGrasse Tyson",
@@ -1666,31 +1547,156 @@ const members$1 = [
       instagram: "https://www.instagram.com/vinayak.mittal.9/"
     }
   },
-  // — name only —
-  { name: "Ashu" },
-  { name: "Ayush Rai" },
-  { name: "Chetna" },
-  { name: "Chirag" },
-  { name: "Devansh" },
-  { name: "Divyansh" },
-  { name: "Garv Chawla" },
-  { name: "Garv Singhal" },
-  { name: "Jatin" },
-  { name: "Nandini" },
-  { name: "Neha" },
-  { name: "Nikhil" },
-  { name: "Prachi" },
-  { name: "Pranav" },
-  { name: "Robin" },
-  { name: "Rudra" },
-  { name: "Sanskriti" },
-  { name: "Sarah" },
-  { name: "Shaurya" },
-  { name: "Shivam" },
-  { name: "Shreya" },
-  { name: "Sonia" },
-  { name: "Supreet" },
-  { name: "Tanu" }
+  Ashu: { name: "Ashu" },
+  "Ayush Rai": { name: "Ayush Rai" },
+  Chetna: { name: "Chetna" },
+  Chirag: { name: "Chirag" },
+  Devansh: { name: "Devansh" },
+  Divyansh: { name: "Divyansh" },
+  "Garv Chawla": { name: "Garv Chawla" },
+  "Garv Singhal": { name: "Garv Singhal" },
+  Jatin: { name: "Jatin" },
+  Nandini: { name: "Nandini" },
+  Neha: { name: "Neha" },
+  Nikhil: { name: "Nikhil" },
+  Prachi: { name: "Prachi" },
+  Pranav: { name: "Pranav" },
+  Robin: { name: "Robin" },
+  Rudra: { name: "Rudra" },
+  Sanskriti: { name: "Sanskriti" },
+  Sarah: { name: "Sarah" },
+  Shaurya: { name: "Shaurya" },
+  Shivam: { name: "Shivam" },
+  Shreya: { name: "Shreya" },
+  Sonia: { name: "Sonia" },
+  Supreet: { name: "Supreet" },
+  Tanu: { name: "Tanu" }
+};
+const core$1 = [
+  {
+    role: "President",
+    members: [
+      batch2028["Bhavishya Maheshwari"],
+      batch2028["Arnav Gupta"]
+    ]
+  },
+  {
+    role: "Vice President",
+    members: [
+      batch2028["Poorva"],
+      batch2028["Hansika"]
+    ]
+  },
+  {
+    role: "Director of External Affairs",
+    members: [
+      batch2028["Taneesha Bangia"]
+    ]
+  },
+  {
+    role: "Director of Tech",
+    members: [
+      batch2028["Ark Malhotra"]
+    ]
+  },
+  {
+    role: "General Secretary",
+    members: [
+      batch2028["Erut"],
+      batch2028["Utsav Dwivedi"]
+    ]
+  },
+  {
+    role: "Joint Secretary",
+    members: [
+      batch2029["Ashish Joshi"],
+      batch2028["Vibhuti"],
+      batch2028["Prableen Kaur"],
+      batch2029["Himanshi"]
+    ]
+  },
+  {
+    role: "Social Media and Design Head",
+    members: [
+      batch2028["Erut"],
+      batch2028["Devika"]
+    ]
+  },
+  {
+    role: "Podcast Head",
+    members: [
+      batch2028["Utsav Dwivedi"],
+      batch2028["Poorva"]
+    ]
+  },
+  {
+    role: "Newsletter Heads",
+    members: [
+      batch2028["Ark Malhotra"],
+      batch2028["Iba Shibli"]
+    ]
+  },
+  {
+    role: "Filmmaking Head",
+    members: [
+      batch2028["Kartavya"],
+      batch2028["Shreshth"]
+    ]
+  },
+  {
+    role: "PARTY HEADS",
+    members: [
+      batch2028["Bhavishya Maheshwari"],
+      batch2028["Utsav Dwivedi"],
+      batch2028["Erut"]
+    ]
+  }
+];
+const members$1 = [
+  batch2029["Adit Gaur"],
+  batch2029["Aditi Poonia"],
+  batch2029["Adwita Suri"],
+  batch2029["Anju"],
+  batch2029["Ankit Kumar"],
+  batch2029["Ashish Joshi"],
+  batch2029["Charu Vats"],
+  batch2029["Dev Manchanda"],
+  batch2029["Dhruv Bansal"],
+  batch2029["Dushyant Singh Rathore"],
+  batch2029["Himanshi"],
+  batch2029["Joseph Jisso Aliyath"],
+  batch2029["Khushi Mittal"],
+  batch2029["Md Rashid Iqbal"],
+  batch2029["Navratan Choudhary"],
+  batch2029["Prachetas Shukla"],
+  batch2029["Prince Gangwar"],
+  batch2029["Shivangi Amat"],
+  batch2029["Tushar Kumar Karn"],
+  batch2029["Vinayak Mittal"],
+  batch2029["Ashu"],
+  batch2029["Ayush Rai"],
+  batch2029["Chetna"],
+  batch2029["Chirag"],
+  batch2029["Devansh"],
+  batch2029["Divyansh"],
+  batch2029["Garv Chawla"],
+  batch2029["Garv Singhal"],
+  batch2029["Jatin"],
+  batch2029["Nandini"],
+  batch2029["Neha"],
+  batch2029["Nikhil"],
+  batch2029["Prachi"],
+  batch2029["Pranav"],
+  batch2029["Robin"],
+  batch2029["Rudra"],
+  batch2029["Sanskriti"],
+  batch2029["Sarah"],
+  batch2029["Shaurya"],
+  batch2029["Shivam"],
+  batch2029["Shreya"],
+  batch2029["Sonia"],
+  batch2029["Supreet"],
+  batch2029["Tanu"]
 ];
 const alumniQuotes = [
   {
@@ -2198,7 +2204,7 @@ function Team() {
       /* @__PURE__ */ jsx("div", { className: "mt-8 text-center", children: /* @__PURE__ */ jsx(
         "a",
         {
-          href: "/team/2025-legacy",
+          href: "/team/2025",
           className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
           children: "See previous leadership →"
         }
@@ -2211,519 +2217,320 @@ function Team() {
     ] })
   ] });
 }
+const batch2026 = {
+  Nikita: {
+    name: "Nikita",
+    image: "/data/portraits/nikita.jpeg",
+    quote: "Leadership is about making others better as a result of your presence.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  "Arnav Khare": {
+    name: "Arnav Khare",
+    image: "/data/portraits/arnav khare.jpg",
+    quote: "A leader is one who knows the way, goes the way, and shows the way.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  Tejas: {
+    name: "Tejas",
+    image: "/data/portraits/tejas.jpg",
+    quote: "Empowering others is the key to success.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  "Shrey Paul": {
+    name: "Shrey Paul",
+    image: "/data/portraits/shrey-paul.jpg",
+    quote: "Great leaders don't set out to be a leader, they set out to make a difference.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  "Garima Singh": {
+    name: "Garima Singh",
+    image: "/data/portraits/garima-singh.jpg",
+    quote: "The secret of getting ahead is getting started.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  "Dev Vats": {
+    name: "Dev Vats",
+    image: "/data/portraits/dev vats.jpeg",
+    quote: "Discipline is the bridge between goals and accomplishment.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  "Nikhil Kumar": {
+    name: "Nikhil Kumar",
+    image: "/data/portraits/nikhil kumar.jpg",
+    quote: "Success is the sum of small efforts repeated day in and day out.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  "Shreyashi Das": {
+    name: "Shreyashi Das",
+    image: "/data/portraits/shreyashi-das.jpg",
+    quote: "Social media is not a media. The key is to listen, engage, and build relationships.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  "Sachin Rout": {
+    name: "Sachin Rout",
+    image: "/data/portraits/sachin-rout.jpg",
+    quote: "Design is not just what it looks like, but how it works.",
+    socials: { linkedin: "#", instagram: "#" }
+  },
+  "Pratham Puri": {
+    name: "Pratham Puri",
+    image: "/data/portraits/pratham-puri.jpg",
+    quote: "Content is the reason search began in the first place.",
+    socials: { linkedin: "#", instagram: "#" }
+  }
+};
 const teamLegacy = [
   {
     role: "President",
     members: [
-      {
-        name: "Nikita",
-        image: "/data/portraits/nikita.jpeg",
-        quote: "Leadership is about making others better as a result of your presence.",
-        socials: { linkedin: "#", instagram: "#" }
-      },
-      {
-        name: "Arnav Khare",
-        image: "/data/portraits/arnav khare.jpg",
-        quote: "A leader is one who knows the way, goes the way, and shows the way.",
-        socials: { linkedin: "#", instagram: "#" }
-      }
+      batch2026["Nikita"],
+      batch2026["Arnav Khare"]
     ]
   },
   {
     role: "Vice President",
     members: [
-      {
-        name: "Tejas",
-        image: "/data/portraits/tejas.jpg",
-        quote: "Empowering others is the key to success.",
-        socials: { linkedin: "#", instagram: "#" }
-      },
-      {
-        name: "Shrey Paul",
-        image: "/data/portraits/shrey-paul.jpg",
-        quote: "Great leaders don't set out to be a leader, they set out to make a difference.",
-        socials: { linkedin: "#", instagram: "#" }
-      }
+      batch2026["Tejas"],
+      batch2026["Shrey Paul"]
     ]
   },
   {
     role: "General Secretary",
     members: [
-      {
-        name: "Garima Singh",
-        image: "/data/portraits/garima-singh.jpg",
-        quote: "The secret of getting ahead is getting started.",
-        socials: { linkedin: "#", instagram: "#" }
-      }
+      batch2026["Garima Singh"]
     ]
   },
   {
     role: "Admin Directors",
     members: [
-      {
-        name: "Dev Vats",
-        image: "/data/portraits/dev vats.jpeg",
-        quote: "Discipline is the bridge between goals and accomplishment.",
-        socials: { linkedin: "#", instagram: "#" }
-      },
-      {
-        name: "Nikhil Kumar",
-        image: "/data/portraits/nikhil kumar.jpg",
-        quote: "Success is the sum of small efforts repeated day in and day out.",
-        socials: { linkedin: "#", instagram: "#" }
-      }
+      batch2026["Dev Vats"],
+      batch2026["Nikhil Kumar"]
     ]
   },
   {
     role: "Social Media Director",
     members: [
-      {
-        name: "Shreyashi Das",
-        image: "/data/portraits/shreyashi-das.jpg",
-        quote: "Social media is not a media. The key is to listen, engage, and build relationships.",
-        socials: { linkedin: "#", instagram: "#" }
-      }
+      batch2026["Shreyashi Das"]
     ]
   },
   {
     role: "Design Director",
     members: [
-      {
-        name: "Sachin Rout",
-        image: "/data/portraits/sachin-rout.jpg",
-        quote: "Design is not just what it looks like, but how it works.",
-        socials: { linkedin: "#", instagram: "#" }
-      }
+      batch2026["Sachin Rout"]
     ]
   },
   {
     role: "Content Director",
     members: [
-      {
-        name: "Pratham Puri",
-        image: "/data/portraits/pratham-puri.jpg",
-        quote: "Content is the reason search began in the first place.",
-        socials: { linkedin: "#", instagram: "#" }
-      }
+      batch2026["Pratham Puri"]
     ]
   }
 ];
-function Alumni() {
-  return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
-    /* @__PURE__ */ jsx(
-      SEO,
-      {
-        title: "Previous Leadership — 2024",
-        path: "/team/2024",
-        description: "The 2024 executive committee and members of Axiom, the philosophy society at NSUT."
-      }
-    ),
-    /* @__PURE__ */ jsxs("section", { className: "max-w-6xl mx-auto px-6 py-16", children: [
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-center", children: "Previous Leadership" }),
-      /* @__PURE__ */ jsx("h2", { className: "section-heading text-center mb-3", children: "Team 2024" }),
-      /* @__PURE__ */ jsx("p", { className: "font-body text-ink/60 text-center mb-14 max-w-xl mx-auto", children: "The team that steered Axiom through its previous chapter." }),
-      teamLegacy.map((group) => /* @__PURE__ */ jsxs("div", { className: "mb-14", children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 mb-8", children: [
-          /* @__PURE__ */ jsx("div", { className: "h-px flex-1 bg-gold/20" }),
-          /* @__PURE__ */ jsx("h3", { className: "label-mono px-4", children: group.role }),
-          /* @__PURE__ */ jsx("div", { className: "h-px flex-1 bg-gold/20" })
-        ] }),
-        /* @__PURE__ */ jsx(
-          "div",
-          {
-            className: `grid gap-10 ${group.members.length === 1 ? "grid-cols-1 place-items-center" : group.members.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-lg mx-auto" : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4"}`,
-            children: group.members.map((member) => /* @__PURE__ */ jsx(
-              TeamPortraitCard,
-              {
-                ...member
-              },
-              member.name
-            ))
-          }
-        )
-      ] }, group.role))
-    ] }),
-    /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-8 flex justify-center gap-8", children: [
-      /* @__PURE__ */ jsx(
-        "a",
-        {
-          href: "/team/2025-legacy",
-          className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
-          children: "← Team 2025"
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        "a",
-        {
-          href: "/team/2023",
-          className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
-          children: "Team 2023 →"
-        }
-      )
-    ] })
-  ] });
-}
+const batch2027 = {
+  "Adarsh Jain": {
+    name: "Adarsh Jain",
+    image: "/data/portraits/adarsh-jain.jpg",
+    quote: "Do not take life seriously. You will never get out of it alive.",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/adarsh-jain-ba2801291/",
+      instagram: "https://www.instagram.com/jainwin_adarsh/"
+    }
+  },
+  Vivek: { name: "Vivek" },
+  "Aman Kumar": {
+    name: "Aman Kumar",
+    image: "/data/portraits/aman-kumar.jpg",
+    quote: "Make The Logo Bigger",
+    socials: {
+      linkedin: "https://in.linkedin.com/in/aman-kumar-meena-754816288"
+    }
+  },
+  "Akshay Yadav": { name: "Akshay Yadav" },
+  Arusha: { name: "Arusha" },
+  Ribhu: { name: "Ribhu" },
+  Dhruv: { name: "Dhruv" },
+  Kanishka: { name: "Kanishka" },
+  Keshav: { name: "Keshav" },
+  Shreyash: { name: "Shreyash" },
+  Ujjwal: { name: "Ujjwal" }
+};
 const core = [
   {
     role: "President",
     members: [
-      {
-        name: "Adarsh Jain",
-        image: "/data/portraits/adarsh-jain.jpg",
-        quote: "Do not take life seriously. You will never get out of it alive.",
-        socials: {
-          linkedin: "https://www.linkedin.com/in/adarsh-jain-ba2801291/",
-          instagram: "https://www.instagram.com/jainwin_adarsh/"
-        }
-      },
-      { name: "Vivek" }
+      batch2027["Adarsh Jain"],
+      batch2027["Vivek"]
     ]
   },
   {
     role: "Vice President",
     members: [
-      {
-        name: "Aman Kumar",
-        image: "/data/portraits/aman-kumar.jpg",
-        quote: "Make The Logo Bigger",
-        socials: {
-          linkedin: "https://in.linkedin.com/in/aman-kumar-meena-754816288"
-        }
-      },
-      { name: "Akshay Yadav" }
+      batch2027["Aman Kumar"],
+      batch2027["Akshay Yadav"]
     ]
   },
   {
     role: "General Secretary",
-    members: [{ name: "Arusha" }, { name: "Ribhu" }]
+    members: [
+      batch2027["Arusha"],
+      batch2027["Ribhu"]
+    ]
   },
   {
     role: "Director of External Affairs",
-    members: [{ name: "Dhruv" }]
+    members: [
+      batch2027["Dhruv"]
+    ]
   },
   {
     role: "Treasurer",
-    members: [{ name: "Kanishka" }]
+    members: [
+      batch2027["Kanishka"]
+    ]
   },
   {
     role: "Director of Strategy",
-    members: [{ name: "Keshav" }]
+    members: [
+      batch2027["Keshav"]
+    ]
   },
   {
     role: "Joint Secretary",
-    members: [{ name: "Shreyash" }, { name: "Ujjwal" }]
+    members: [
+      batch2027["Shreyash"],
+      batch2027["Ujjwal"]
+    ]
   }
 ];
 const execomm = [
-  // — has photo —
-  {
-    name: "Ark Malhotra",
-    image: "/data/portraits/ark-malhotra.jpg",
-    quote: "All map and no territory made Jack a very dull boy.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/ark-malhotra/",
-      instagram: "https://www.instagram.com/sqrtnegativ1/"
-    }
-  },
-  {
-    name: "Arnav Gupta",
-    image: "/data/portraits/arnav-gupta.jpg",
-    quote: "P²C² — Principles before position, comprehension before conclusion",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/arnav-gupta-65a575323",
-      instagram: "https://www.instagram.com/arnavg_2024"
-    }
-  },
-  {
-    name: "Bhavishya Maheshwari",
-    image: "/data/portraits/bhavishya-maheshwari.jpg",
-    quote: "The dildo of consequences rarely arrives lubed.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/bhavishyamaheshwari/",
-      instagram: "https://www.instagram.com/bhavishyamaheshwari19/"
-    }
-  },
-  {
-    name: "Hansika",
-    image: "/data/portraits/hansika.jpeg",
-    quote: "Everything you lose is a step you take",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/hansika-c-bbb34339a/"
-    }
-  },
-  {
-    name: "Iba Shibli",
-    image: "/data/portraits/iba-shibli.jpg",
-    quote: "Things happen, life goes on.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/iba-shibli-277a37323",
-      instagram: "https://www.instagram.com/phoenix_69185"
-    }
-  },
-  {
-    name: "Prableen Kaur",
-    image: "/data/portraits/prableen-kaur.png",
-    quote: "Aspire to Inspire",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/linkdin-link-prableenkaur",
-      instagram: "https://www.instagram.com/prableen.19/"
-    }
-  },
-  {
-    name: "Taneesha Bangia",
-    image: "/data/portraits/taneesha-bangia.jpg",
-    quote: "Everything that is real was imagined first",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/taneesha-bangia"
-    }
-  },
-  {
-    name: "Utsav Dwivedi",
-    image: "/data/portraits/utsav-dwivedi.jpg",
-    quote: "Sunrise parabellum",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/utsav-dwivedi-980575323",
-      instagram: "https://www.instagram.com/utsavdwivedi5"
-    }
-  },
-  // — name only —
-  { name: "Anisha" },
-  { name: "Devika" },
-  { name: "Erut" },
-  { name: "Kartavya" },
-  { name: "Meghal" },
-  { name: "Poorva" },
-  { name: "Shreshth" },
-  { name: "Vibhuti" }
+  batch2028["Ark Malhotra"],
+  batch2028["Arnav Gupta"],
+  batch2028["Bhavishya Maheshwari"],
+  batch2028["Hansika"],
+  batch2028["Iba Shibli"],
+  batch2028["Prableen Kaur"],
+  batch2028["Taneesha Bangia"],
+  batch2028["Utsav Dwivedi"],
+  batch2028["Anisha"],
+  batch2028["Devika"],
+  batch2028["Erut"],
+  batch2028["Kartavya"],
+  batch2028["Meghal"],
+  batch2028["Poorva"],
+  batch2028["Shreshth"],
+  batch2028["Vibhuti"]
 ];
 const members = [
-  // — has photo —
-  {
-    name: "Adit Gaur",
-    image: "/data/portraits/adit-gaur.jpeg",
-    quote: "To pray is to accept defeat",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/aditgaur/",
-      instagram: "https://www.instagram.com/adit__gaur_/"
-    }
-  },
-  {
-    name: "Aditi Poonia",
-    image: "/data/portraits/aditi-poonia.jpeg",
-    quote: "He who has a why to live can bear almost any how.",
-    socials: {
-      linkedin: "https://in.linkedin.com/in/aditi-poonia-55638b3a5",
-      instagram: "https://www.instagram.com/a.deity_333"
-    }
-  },
-  {
-    name: "Adwita Suri",
-    image: "/data/portraits/adwita-suri.jpg",
-    quote: "I exist. In thousand of agonies I exist.",
-    socials: {
-      instagram: "https://www.instagram.com/adwitasuri"
-    }
-  },
-  {
-    name: "Anju",
-    image: "/data/portraits/anju.jpg",
-    quote: "Every season serves a purpose!",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/anju-kumari-a12a0936b",
-      instagram: "https://www.instagram.com/i_anjuuuuu"
-    }
-  },
-  {
-    name: "Ankit Kumar",
-    image: "/data/portraits/ankit-kumar.jpg",
-    quote: "Climb mountain so you can see the world, not so the world can see you.",
-    socials: {
-      linkedin: "https://in.linkedin.com/in/ankit-kumar-42800a37b",
-      instagram: "https://www.instagram.com/ankit_kumar0_o"
-    }
-  },
-  {
-    name: "Ashish Joshi",
-    image: "/data/portraits/ashish-joshi.jpg",
-    quote: "Life is pointless, so make sure to embarrass yourself in every possible way",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/ashishjoshi540",
-      instagram: "https://www.instagram.com/miselfashish"
-    }
-  },
-  {
-    name: "Charu Vats",
-    image: "/data/portraits/charu-vats.jpg",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/charu-vats-a93586338",
-      instagram: "https://www.instagram.com/designdiaries5"
-    }
-  },
-  {
-    name: "Dev Manchanda",
-    image: "/data/portraits/dev-manchanda.png",
-    quote: "I always get to where I’m going by walking away from where I’ve been. — Winnie the Pooh",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/dev-manchanda-7a0867269/",
-      instagram: "https://www.instagram.com/manchandadeva/"
-    }
-  },
-  {
-    name: "Dhruv Bansal",
-    image: "/data/portraits/dhruv-bansal.jpeg",
-    quote: "We only feel free because we lack the language to articulate our unfreedom",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/dhruv-bansal-35270b302"
-    }
-  },
-  {
-    name: "Dushyant Singh Rathore",
-    image: "/data/portraits/dushyant-rathore.jpg",
-    quote: "Loyalty is tested when betrayal is the most profitable option",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/dushyant-singh-rathore-7bb319242",
-      instagram: "https://www.instagram.com/dushyant_.rathore"
-    }
-  },
-  {
-    name: "Himanshi",
-    image: "/data/portraits/himanshi.jpeg",
-    quote: "Whatever will be, will be",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/himanshi-b2b478359",
-      instagram: "https://www.instagram.com/himanshiii_rohilla"
-    }
-  },
-  {
-    name: "Joseph Jisso Aliyath",
-    image: "/data/portraits/joseph-aliyath.jpg",
-    quote: "Hallelujah",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/josephjissoa",
-      instagram: "https://www.instagram.com/joseph_jisso"
-    }
-  },
-  {
-    name: "Khushi Mittal",
-    image: "/data/portraits/khushi-mittal.jpeg",
-    quote: "A smile is a curve that sets everything straight.",
-    socials: {
-      instagram: "https://www.instagram.com/khushi_mittal01"
-    }
-  },
-  {
-    name: "Md Rashid Iqbal",
-    image: "/data/portraits/md-rashid-iqbal.jpg",
-    quote: "One is never afraid of the unknown; one is afraid of the known coming to an end",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/md-rashid-iqbal01",
-      instagram: "https://www.instagram.com/rashid_zyannn"
-    }
-  },
-  {
-    name: "Navratan Choudhary",
-    image: "/data/portraits/navratan-choudhary.jpeg",
-    quote: "It is better to die on your feet than to live on your knees.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/navratan-choudhary-aa81bb325",
-      instagram: "https://www.instagram.com/navratan_choudhary10"
-    }
-  },
-  {
-    name: "Prachetas Shukla",
-    image: "/data/portraits/prachetas-shukla.jpeg",
-    quote: "Curiosity is Discipline disguised as Wonder",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/prachetasshukla/"
-    }
-  },
-  {
-    name: "Prince Gangwar",
-    image: "/data/portraits/prince-gangwar.jpg",
-    quote: "The truth is rarely pure and never simple.",
-    socials: {
-      instagram: "https://www.instagram.com/ern1l/"
-    }
-  },
-  {
-    name: "Shivangi Amat",
-    image: "/data/portraits/shivangi-amat.png",
-    quote: "Life is short. Smile while you still have teeth.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/shivangi-amat-431112369/",
-      instagram: "https://www.instagram.com/_shhhivangii/"
-    }
-  },
-  {
-    name: "Tushar Kumar Karn",
-    image: "/data/portraits/tushar-karn.png",
-    quote: "If you can be anything in this world, be kind.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/tushar-kumar-karn-9a5356378",
-      instagram: "https://www.instagram.com/tushar__karn____"
-    }
-  },
-  {
-    name: "Vinayak Mittal",
-    image: "/data/portraits/vinayak-mittal.png",
-    quote: "The universe is under no obligation to make sense to you. — Neil deGrasse Tyson",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/vinayak-mittal-2846b4312/",
-      instagram: "https://www.instagram.com/vinayak.mittal.9/"
-    }
-  },
-  // — name only —
-  { name: "Ashu" },
-  { name: "Ayush Rai" },
-  { name: "Chetna" },
-  { name: "Chirag" },
-  { name: "Devansh" },
-  { name: "Divyansh" },
-  { name: "Garv Chawla" },
-  { name: "Garv Singhal" },
-  { name: "Jatin" },
-  { name: "Nandini" },
-  { name: "Neha" },
-  { name: "Nikhil" },
-  { name: "Prachi" },
-  { name: "Pranav" },
-  { name: "Robin" },
-  { name: "Rudra" },
-  { name: "Sanskriti" },
-  { name: "Sarah" },
-  { name: "Shaurya" },
-  { name: "Shivam" },
-  { name: "Shreya" },
-  { name: "Sonia" },
-  { name: "Supreet" },
-  { name: "Tanu" }
+  batch2029["Adit Gaur"],
+  batch2029["Aditi Poonia"],
+  batch2029["Adwita Suri"],
+  batch2029["Anju"],
+  batch2029["Ankit Kumar"],
+  batch2029["Ashish Joshi"],
+  batch2029["Charu Vats"],
+  batch2029["Dev Manchanda"],
+  batch2029["Dhruv Bansal"],
+  batch2029["Dushyant Singh Rathore"],
+  batch2029["Himanshi"],
+  batch2029["Joseph Jisso Aliyath"],
+  batch2029["Khushi Mittal"],
+  batch2029["Md Rashid Iqbal"],
+  batch2029["Navratan Choudhary"],
+  batch2029["Prachetas Shukla"],
+  batch2029["Prince Gangwar"],
+  batch2029["Shivangi Amat"],
+  batch2029["Tushar Kumar Karn"],
+  batch2029["Vinayak Mittal"],
+  batch2029["Ashu"],
+  batch2029["Ayush Rai"],
+  batch2029["Chetna"],
+  batch2029["Chirag"],
+  batch2029["Devansh"],
+  batch2029["Divyansh"],
+  batch2029["Garv Chawla"],
+  batch2029["Garv Singhal"],
+  batch2029["Jatin"],
+  batch2029["Nandini"],
+  batch2029["Neha"],
+  batch2029["Nikhil"],
+  batch2029["Prachi"],
+  batch2029["Pranav"],
+  batch2029["Robin"],
+  batch2029["Rudra"],
+  batch2029["Sanskriti"],
+  batch2029["Sarah"],
+  batch2029["Shaurya"],
+  batch2029["Shivam"],
+  batch2029["Shreya"],
+  batch2029["Sonia"],
+  batch2029["Supreet"],
+  batch2029["Tanu"]
 ];
 const teamLegacy2025 = [
   ...core,
-  {
-    role: "Executive Committee",
-    members: execomm
-  },
-  {
-    role: "Members",
-    members
-  }
+  { role: "Executive Committee", members: execomm },
+  { role: "Members", members }
 ];
-function Alumni2025() {
+const teams = {
+  "2024": teamLegacy,
+  "2025": teamLegacy2025
+};
+function TeamByYear() {
+  const { year } = useParams();
+  const teamData = teams[year];
+  const nextYear = parseInt(year) + 1;
+  const prevYear = parseInt(year) - 1;
+  if (year === "2023") {
+    return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
+      /* @__PURE__ */ jsx(
+        SEO,
+        {
+          title: "Previous Leadership — 2023",
+          path: "/team/2023",
+          description: "The 2023 executive committee and members of Axiom, the philosophy society at NSUT.",
+          noindex: true
+        }
+      ),
+      /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-16 text-center", children: [
+        /* @__PURE__ */ jsx("p", { className: "label-mono mb-4", children: "Those Who Came Before" }),
+        /* @__PURE__ */ jsx("h1", { className: "section-heading mb-6", children: "Previous Leadership" }),
+        /* @__PURE__ */ jsx("div", { className: "h-px w-16 bg-gold/50 mx-auto mb-8" }),
+        /* @__PURE__ */ jsx("h2", { className: "font-heading text-green font-light text-3xl mb-8", children: "Team 2023" }),
+        /* @__PURE__ */ jsx("p", { className: "font-mono text-gold/70 tracking-widest text-sm", children: "NO DATA AVAILABLE" })
+      ] }),
+      /* @__PURE__ */ jsx("section", { className: "max-w-4xl mx-auto px-6 py-8 text-center", children: /* @__PURE__ */ jsx(
+        "a",
+        {
+          href: "/team/2024",
+          className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
+          children: "← Team 2024"
+        }
+      ) })
+    ] });
+  }
+  if (!teamData) {
+    return /* @__PURE__ */ jsx("div", { className: "pt-20 animate-on-load min-h-[60vh] flex items-center justify-center", children: /* @__PURE__ */ jsxs("div", { className: "text-center", children: [
+      /* @__PURE__ */ jsx("h2", { className: "font-mono text-gold mb-4 text-xl", children: "404: TEAM NOT FOUND" }),
+      /* @__PURE__ */ jsx("a", { href: "/team", className: "text-terracotta hover:text-green underline underline-offset-4 transition-colors", children: "Return to current team" })
+    ] }) });
+  }
   return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Previous Leadership — 2025",
-        path: "/team/2025-legacy",
-        description: "The 2025 executive committee and members of Axiom, the philosophy society at NSUT."
+        title: `Previous Leadership — ${year}`,
+        path: `/team/${year}`,
+        description: `The ${year} executive committee and members of Axiom, the philosophy society at NSUT.`
       }
     ),
     /* @__PURE__ */ jsxs("section", { className: "max-w-6xl mx-auto px-6 py-16", children: [
       /* @__PURE__ */ jsx("p", { className: "label-mono mb-3 text-center", children: "Previous Leadership" }),
-      /* @__PURE__ */ jsx("h2", { className: "section-heading text-center mb-3", children: "Team 2025" }),
+      /* @__PURE__ */ jsxs("h2", { className: "section-heading text-center mb-3", children: [
+        "Team ",
+        year
+      ] }),
       /* @__PURE__ */ jsx("p", { className: "font-body text-ink/60 text-center mb-14 max-w-xl mx-auto", children: "The team that steered Axiom through its previous chapter." }),
-      teamLegacy2025.map((group) => /* @__PURE__ */ jsxs("div", { className: "mb-14", children: [
+      teamData.map((group) => /* @__PURE__ */ jsxs("div", { className: "mb-14", children: [
         /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 mb-8", children: [
           /* @__PURE__ */ jsx("div", { className: "h-px flex-1 bg-gold/20" }),
           /* @__PURE__ */ jsx("h3", { className: "label-mono px-4", children: group.role }),
@@ -2745,51 +2552,37 @@ function Alumni2025() {
       ] }, group.role))
     ] }),
     /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-8 flex justify-center gap-8", children: [
-      /* @__PURE__ */ jsx(
+      year === "2025" ? /* @__PURE__ */ jsx(
         "a",
         {
           href: "/team",
           className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
           children: "← Back to current team"
         }
-      ),
-      /* @__PURE__ */ jsx(
+      ) : /* @__PURE__ */ jsxs(
         "a",
         {
-          href: "/team/2024",
+          href: `/team/${nextYear}`,
           className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
-          children: "Team 2024 →"
+          children: [
+            "← Team ",
+            nextYear
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxs(
+        "a",
+        {
+          href: `/team/${prevYear}`,
+          className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
+          children: [
+            "Team ",
+            prevYear,
+            " →"
+          ]
         }
       )
     ] })
-  ] });
-}
-function Leadership2023() {
-  return /* @__PURE__ */ jsxs("div", { className: "pt-20 animate-on-load", children: [
-    /* @__PURE__ */ jsx(
-      SEO,
-      {
-        title: "Previous Leadership — 2023",
-        path: "/team/2023",
-        description: "The 2023 executive committee and members of Axiom, the philosophy society at NSUT.",
-        noindex: true
-      }
-    ),
-    /* @__PURE__ */ jsxs("section", { className: "max-w-4xl mx-auto px-6 py-16 text-center", children: [
-      /* @__PURE__ */ jsx("p", { className: "label-mono mb-4", children: "Those Who Came Before" }),
-      /* @__PURE__ */ jsx("h1", { className: "section-heading mb-6", children: "Previous Leadership" }),
-      /* @__PURE__ */ jsx("div", { className: "h-px w-16 bg-gold/50 mx-auto mb-8" }),
-      /* @__PURE__ */ jsx("h2", { className: "font-heading text-green font-light text-3xl mb-8", children: "Team 2023" }),
-      /* @__PURE__ */ jsx("p", { className: "font-mono text-gold/70 tracking-widest text-sm", children: "NO DATA AVAILABLE" })
-    ] }),
-    /* @__PURE__ */ jsx("section", { className: "max-w-4xl mx-auto px-6 py-8 text-center", children: /* @__PURE__ */ jsx(
-      "a",
-      {
-        href: "/team/2024",
-        className: "font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4",
-        children: "← Team 2024"
-      }
-    ) })
   ] });
 }
 const ongoing = [{ "title": "CPC — Chai Pe Charcha", "date": "Weekly", "location": "NSUT Canteen", "description": "Join us every week for engaging discussions over chai. Share ideas, debate philosophical concepts, and connect with like-minded individuals in a casual setting. Each session focuses on a different theme, allowing for diverse perspectives and enriching conversations. CPC is the heartbeat of Axiom — informal, curious, and always stimulating.", "imageFolder": "cpc-all" }];
@@ -13622,12 +13415,10 @@ function App() {
         /* @__PURE__ */ jsx(
           Route,
           {
-            path: "/team/2025-legacy",
-            element: /* @__PURE__ */ jsx(Alumni2025, {})
+            path: "/team/:year",
+            element: /* @__PURE__ */ jsx(TeamByYear, {})
           }
         ),
-        /* @__PURE__ */ jsx(Route, { path: "/team/2024", element: /* @__PURE__ */ jsx(Alumni, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/team/2023", element: /* @__PURE__ */ jsx(Leadership2023, {}) }),
         /* @__PURE__ */ jsx(Route, { path: "/games", element: /* @__PURE__ */ jsx(Games, {}) }),
         /* @__PURE__ */ jsx(
           Route,
