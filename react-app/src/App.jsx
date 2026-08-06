@@ -14,6 +14,7 @@ import GameHermeneutic from './pages/games/Hermeneutic.jsx'
 import GameEpoche from './pages/games/Epoche.jsx'
 import GameFallacy from './pages/games/Fallacy.jsx'
 import GameDialectic from './pages/games/Dialectic.jsx'
+import GameNegativeDialectic from './pages/games/NegativeDialectic.jsx'
 import GameSorites from './pages/games/Sorites.jsx'
 import GameRepugnant from './pages/games/Repugnant.jsx'
 import GamePhilosophle from './pages/games/Philosophle.jsx'
@@ -66,6 +67,10 @@ export default function App() {
                         <Route
                             path="/games/dialectic"
                             element={<GameDialectic />}
+                        />
+                        <Route
+                            path="/games/negative-dialectic"
+                            element={<GameNegativeDialectic />}
                         />
                         <Route
                             path="/games/sorites"
