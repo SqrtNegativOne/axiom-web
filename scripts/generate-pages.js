@@ -39,8 +39,8 @@ const ROUTES = [
     description: "Chai Pe Charcha, Wheel of Doom, Philo Walk and more — explore all of Axiom's philosophical events at NSUT.",
   },
   {
-    outDir: 'team/2025-legacy',
-    path: '/team/2025-legacy',
+    outDir: 'team/2025',
+    path: '/team/2025',
     title: `2025 Legacy — ${SITE_NAME}`,
     description: 'The 2025 executive committee and members of Axiom, the philosophy society at NSUT.',
   },

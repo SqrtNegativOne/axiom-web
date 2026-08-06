@@ -6,9 +6,7 @@ import Home from './pages/Home'
 import Colophon from './pages/Colophon'
 import NotFound from './pages/NotFound'
 import Team from './pages/team/Team'
-import Alumni from './pages/team/Alumni'
-import Alumni2025 from './pages/team/Alumni2025'
-import Leadership2023 from './pages/team/Leadership2023'
+import TeamByYear from './pages/team/TeamByYear'
 import Events from './pages/events/Events'
 import EventsByYear from './pages/events/EventsByYear'
 import Games from './pages/games/Games'
@@ -52,11 +50,9 @@ export default function App() {
                         />
                         <Route path="/colophon" element={<Colophon />} />
                         <Route
-                            path="/team/2025-legacy"
-                            element={<Alumni2025 />}
+                            path="/team/:year"
+                            element={<TeamByYear />}
                         />
-                        <Route path="/team/2024" element={<Alumni />} />
-                        <Route path="/team/2023" element={<Leadership2023 />} />
                         <Route path="/games" element={<Games />} />
                         <Route
                             path="/games/hermeneutic"
