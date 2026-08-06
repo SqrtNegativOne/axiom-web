@@ -269,8 +269,8 @@ export default function GameDialectic() {
     return (
         <div className="pt-20 animate-on-load">
             <SEO
-                title="Dialectic"
-                path="/games/dialectic"
+                title="Dialectics"
+                path="/games/dialectics"
                 description="Match a philosophical thesis to its historical antithesis, then identify the synthesis that resolved the contradiction."
             />
 
@@ -291,7 +291,7 @@ export default function GameDialectic() {
                             className="font-heading font-light text-green uppercase tracking-wide"
                             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
                         >
-                            Dialectic
+                            Dialectics
                         </h1>
                     </div>
                     <div className="md:w-1/2">

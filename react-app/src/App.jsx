@@ -65,11 +65,11 @@ export default function App() {
                             element={<GameFallacy />}
                         />
                         <Route
-                            path="/games/dialectic"
+                            path="/games/dialectics"
                             element={<GameDialectic />}
                         />
                         <Route
-                            path="/games/negative-dialectic"
+                            path="/games/negative-dialectics"
                             element={<GameNegativeDialectic />}
                         />
                         <Route
