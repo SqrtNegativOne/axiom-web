@@ -20,21 +20,21 @@ function OptionButton({ text, result, pending, onClick, disabled }) {
         'w-full text-left px-4 py-3 rounded-lg border font-body text-sm leading-relaxed transition-all duration-150 '
 
     if (result === 'correct') {
-        className += 'bg-green/10 border-green/40 text-ink cursor-default'
+        className += 'bg-green/15 dark:bg-green/20 border-green/50 text-ink cursor-default'
     } else if (result === 'wrong') {
         className +=
-            'bg-terracotta/8 border-terracotta/20 text-terracotta/70 cursor-default'
+            'bg-terracotta/10 dark:bg-terracotta/20 border-terracotta/40 text-ink cursor-default'
     } else if (result === 'reveal') {
         className +=
-            'bg-green/8 border-green/25 text-ink/60 cursor-default italic'
+            'bg-green/5 dark:bg-green/10 border-green/30 text-ink/80 cursor-default italic'
     } else if (pending) {
         className +=
-            'border-gold/60 bg-cream-dark text-ink cursor-pointer ring-1 ring-gold/30'
+            'border-gold/80 bg-cream-dark text-ink cursor-pointer ring-1 ring-gold/40'
     } else if (disabled) {
-        className += 'border-gold/15 text-ink/30 cursor-default'
+        className += 'border-ink/20 text-ink/40 cursor-default'
     } else {
         className +=
-            'border-gold/25 text-ink/70 hover:border-gold/50 hover:bg-cream-dark hover:text-ink cursor-pointer'
+            'border-ink/30 text-ink hover:border-gold hover:bg-cream-dark cursor-pointer'
     }
 
     return (
@@ -211,9 +211,16 @@ function GameBoard({ puzzle, onNewGame }) {
                     ))}
                 </div>
                 {aResult && !aResult.correct && stage === 1 && (
-                    <p className="font-body text-xs text-terracotta/80 mt-2 animate-slide-up">
-                        Not quite — one more attempt.
-                    </p>
+                    <div className="mt-3 bg-terracotta/10 dark:bg-terracotta/20 border border-terracotta/20 rounded-md p-3 animate-slide-up">
+                        <p className="font-body text-sm font-semibold text-terracotta mb-1">
+                            Not quite — one more attempt.
+                        </p>
+                        {antitheses[aResult.idx]?.explanation && (
+                            <p className="font-body text-sm text-ink/80 leading-relaxed">
+                                {antitheses[aResult.idx].explanation}
+                            </p>
+                        )}
+                    </div>
                 )}
                 {stage === 1 && pendingA !== null && (
                     <button
@@ -247,12 +254,12 @@ function GameBoard({ puzzle, onNewGame }) {
                         ))}
                     </div>
                     {sResult && !sResult.correct && status === 'playing' && (
-                        <div className="mt-3 bg-terracotta/10 border border-terracotta/20 rounded-md p-3 animate-slide-up">
-                            <p className="font-body text-sm font-semibold text-terracotta/90 mb-1">
+                        <div className="mt-3 bg-terracotta/10 dark:bg-terracotta/20 border border-terracotta/20 rounded-md p-3 animate-slide-up">
+                            <p className="font-body text-sm font-semibold text-terracotta mb-1">
                                 Not quite — one more attempt.
                             </p>
                             {syntheses[sResult.idx]?.explanation && (
-                                <p className="font-body text-sm text-terracotta/80 leading-relaxed">
+                                <p className="font-body text-sm text-ink/80 leading-relaxed">
                                     {syntheses[sResult.idx].explanation}
                                 </p>
                             )}
@@ -301,7 +308,7 @@ function GameBoard({ puzzle, onNewGame }) {
                     </p>
                     {sResult && !sResult.correct && syntheses[sResult.idx]?.explanation && (
                         <div className="mb-3 pb-3 border-b border-terracotta/20">
-                            <p className="font-body text-sm text-terracotta/80 leading-relaxed">
+                            <p className="font-body text-sm text-ink/80 leading-relaxed">
                                 {syntheses[sResult.idx].explanation}
                             </p>
                         </div>
