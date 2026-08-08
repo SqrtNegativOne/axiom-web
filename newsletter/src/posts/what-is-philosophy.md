@@ -27,17 +27,19 @@ The Wikipedia page on philosophy tells us the following.
 
 > Philosophy (from Ancient Greek *philosophía*, lit. 'love of wisdom') is a systematic study of general and fundamental questions concerning topics like existence, knowledge, mind, reason, language, and value. It is a rational and critical inquiry that reflects on its methods and assumptions.
 
-Good enough I guess. But could you *possibly* get any vaguer? Couldn't you say the same for science, psychology, parts of math, even engineering, or some eclectic combination of it? What does it even *mean* to "study" these questions? And what does it even *mean* to "love" wisdom? Why not do literally *anything* else?
+Good enough, I guess. But could you *possibly* get any vaguer?
+
+Do physicsists not care about the nature of existence and the Universe? Do pychologists not care about the nature of the mind and consciousness? Do mathematicians and linguistics not care about reason and language, respectively? Do all of them hate wisdom? Can't you do a "systematic study" of all of the above through some eclectic combination of the fields aforementioned?
 
 > Trying to define philosophy is philosophy itself.
 
 # Welcome to the Metaverse
 
-Allow me to affirm one simple contention: a more applicatable, dare I say intuitive, definition of philosophy, is that it is the practice of Meta-ness.
+If you would allow me an opinion: a more applicable, dare I say more intuitive, definition of philosophy, is that it is the practice of Meta-ness.
 
 We prepend the "meta-" prefix to all sorts of things — meta-ethics, meta-cognition, in literature and media we have "metanarrative", "metatext", "metafiction", "metacommunication", "metanalysis", and in programming we have "metaprogramming", "metaobjects", "metaclasses", "metadata" and so on.
 
-I think you see the concept-space I am referring to. The "meta-" prefix is acting as an operator to refer to a higher level of abstraction on the same concept. Philosophy, then, is merely the set of all objects obtained through, I would reckon, at least two levels of this; a meta-analysis of meta. Thus, applying the meta operator to philosophy, gives you philosophy itself.
+I think you see the concept-space I am referring to. The "meta-" prefix is acting as an operator to refer to a higher level of abstraction on the same concept. Philosophy, then, is merely the set of all concepts obtained through, say, at least two levels of this; a meta-analysis of meta. Thus, applying the meta operator to philosophy, **gives you philosophy itself**. Reflections on our reflections.
 
 And what does that give us?
 
@@ -49,7 +51,7 @@ Ever come out of a room and immediately forget why you went in there? Absentmind
 
 Automaticity, habit loops, autopilot, context-drift, plain absentmindedness, doorway effect, action slips, prospective memory failure, whatever you want to call it. It's a fact of life that we are not in control of our attention.
 
-And it's not really its fault. The human brain is a wonderful thing; scientists used 100% of their brain power to only recently estimate that we get (in the range of) a billion [Shannon bits of information](https://en.wikipedia.org/wiki/Shannon_(unit)) *every* second, through all 5 of our (main) senses. While our conscious mind, the "speed limit" of our narrow light cone of attention in this vast universe, so to speak, is 10.[^1]
+And it's not really its fault. The human brain is a wonderful thing; scientists used 100% of their brain power to only recently estimate that we get (in the range of) 10 million [Shannon bits of information](https://en.wikipedia.org/wiki/Shannon_(unit)) *every* second, through all 5 of our (main) senses. While our conscious mind, the "speed limit" of our narrow light cone of attention in this vast universe, so to speak, is 10.[^speed-limit]
 
 ![Yeah](../berries.png "Yeah")
 
@@ -58,7 +60,7 @@ Surprising to think that the brain even works despite this. And I am not referri
 What really begs the question is the fact that we can do what we can do, *despite* this.
 
 > Mice can see, but they can’t understand seeing. You can understand seeing, and because of that, you can do things that mice cannot do. Take a moment to marvel at this, for it is indeed marvelous.<br>
-> Mice see, but they don’t know they have visual cortexes, so they can’t correct for optical illusions. A mouse lives in a mental world that includes cats, holes, cheese and mousetraps—but not mouse brains. Their camera does not take pictures of its own lens. But we, as humans, can look at a seemingly bizarre image, and realize that part of what we’re seeing is the lens itself. You don’t always have to believe your own eyes, but you have to realize that you have eyes—you must have distinct mental buckets for the map and the territory, for the senses and reality. Lest you think this a trivial ability, remember how rare it is in the animal kingdom.[^2]
+> Mice see, but they don’t know they have visual cortexes, so they can’t correct for optical illusions. A mouse lives in a mental world that includes cats, holes, cheese and mousetraps—but not mouse brains. Their camera does not take pictures of its own lens. But we, as humans, can look at a seemingly bizarre image, and realize that part of what we’re seeing is the lens itself. You don’t always have to believe your own eyes, but you have to realize that you have eyes—you must have distinct mental buckets for the map and the territory, for the senses and reality. Lest you think this a trivial ability, remember how rare it is in the animal kingdom.[^lens-flaws]
 
 Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of choosing your own damn lenses, and then looking through them to see the world in a way that surprises you.
 
@@ -98,5 +100,5 @@ Maybe that's the true definition of philosophy. Mucking around.
 
 *Ark Malhotra is an Executive Committee member at Axiom.*
 
-[^1]: See [The unbearable slowness of being: Why do we live at 10 bits/s?](https://www.cell.com/neuron/fulltext/S0896-6273(24)00808-0). See also, [The Magical Number Seven, Plus or Minus Two](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two), also known as _Miller's Law_.
-[^2]: See the brilliant [The Lens That Sees Its Flaws](https://www.lesswrong.com/posts/46qnWRSR7L2eyNbMA/the-lens-that-sees-its-flaws)
+[^speed-limit]: See [The unbearable slowness of being: Why do we live at 10 bits/s?](https://www.cell.com/neuron/fulltext/S0896-6273(24)00808-0). See also, [The Magical Number Seven, Plus or Minus Two](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two), also known as _Miller's Law_.
+[^lens-flaws]: See the brilliant [The Lens That Sees Its Flaws](https://www.lesswrong.com/posts/46qnWRSR7L2eyNbMA/the-lens-that-sees-its-flaws)
