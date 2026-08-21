@@ -135,6 +135,8 @@ export default function Home() {
                             src="/assets/the-thinker.png"
                             alt="The Thinker"
                             className="w-full max-w-sm md:max-w-md object-contain"
+                            loading="lazy"
+                            decoding="async"
                             style={{
                                 willChange: 'transform',
                                 transform: 'translateZ(0)',

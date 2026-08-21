@@ -4,20 +4,45 @@
 // crawlers (LinkedIn, Slack, Discord) see per-page OG cards even though
 // they don't execute JavaScript.
 
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync, readdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { gamesList } from '../react-app/src/data/gamesList.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const distDir = join(__dirname, '..', 'dist')
+const rootDir = join(__dirname, '..')
+const distDir = join(rootDir, 'dist')
+const dataDir = join(rootDir, 'data')
 const serverDistDir = join(__dirname, '..', 'react-app', 'dist-server')
 
 const SITE_URL = 'https://axiomnsut.in'
 const SITE_NAME = 'Axiom ⋅ The Philosophy Society'
-const DEFAULT_IMAGE = `${SITE_URL}/assets/logo.png`
+const DEFAULT_IMAGE = `${SITE_URL}/data/logo.png`
 const DEFAULT_DESCRIPTION =
   'Axiom is the philosophy society at NSUT — fostering intellectual curiosity, critical thinking, and philosophical inquiry since 2017.'
+
+// Pick a representative event photo for a given year by scanning events.json
+// (newest event first) for an imageFolder that actually exists in data/events.
+function eventImageForYear(year) {
+  let events
+  try {
+    events = JSON.parse(
+      readFileSync(join(__dirname, '..', 'react-app', 'src', 'data', 'events.json'), 'utf-8')
+    )[year]
+  } catch {
+    return null
+  }
+  if (!Array.isArray(events)) return null
+  for (const event of [...events].reverse()) {
+    const folder = join(dataDir, 'events', event.imageFolder)
+    if (!existsSync(folder)) continue
+    const image = readdirSync(folder).find(f => /\.(jpe?g|png|webp|avif)$/i.test(f))
+    if (image) return `${SITE_URL}/data/events/${event.imageFolder}/${encodeURIComponent(image)}`
+  }
+  return null
+}
+
+const GAME_IMAGE_BASE = `${SITE_URL}/data/og/games`
 
 // Each entry: where to write the file (outDir) and what meta tags to inject
 const ROUTES = [
@@ -38,6 +63,7 @@ const ROUTES = [
     path: '/events',
     title: `Events ⋅ ${SITE_NAME}`,
     description: "Chai Pe Charcha, Wheel of Doom, Philo Walk and more — explore all of Axiom's philosophical events at NSUT.",
+    image: eventImageForYear('2025'),
   },
   {
     outDir: 'team/2025',
@@ -74,30 +100,35 @@ const ROUTES = [
     path: `/games/${game.path}`,
     title: `${game.title} ⋅ Philosophy Games ⋅ ${SITE_NAME}`,
     description: game.desc,
+    image: `${GAME_IMAGE_BASE}/${game.path}.png`,
   })),
   {
     outDir: 'events/2026',
     path: '/events/2026',
     title: `Events 2026 ⋅ ${SITE_NAME}`,
     description: 'Events from 2026.',
+    image: eventImageForYear('2026'),
   },
   {
     outDir: 'events/2025',
     path: '/events/2025',
     title: `Events 2025 ⋅ ${SITE_NAME}`,
     description: 'Events from 2025.',
+    image: eventImageForYear('2025'),
   },
   {
     outDir: 'events/2024',
     path: '/events/2024',
     title: `Events 2024 ⋅ ${SITE_NAME}`,
     description: 'Events from 2024.',
+    image: eventImageForYear('2024'),
   },
   {
     outDir: 'events/2023',
     path: '/events/2023',
     title: `Events 2023 ⋅ ${SITE_NAME}`,
     description: 'Events from 2023.',
+    image: eventImageForYear('2023'),
   },
   {
     outDir: 'privacy',
@@ -115,7 +146,8 @@ const ROUTES = [
 
 function buildMetaBlock(route) {
   const canonicalUrl = `${SITE_URL}${route.path}`
-  const image = DEFAULT_IMAGE
+  const image = route.image || DEFAULT_IMAGE
+  const isCustomImage = Boolean(route.image)
   return `
     <title>${route.title}</title>
     <meta name="description" content="${route.description}" />
@@ -126,10 +158,10 @@ function buildMetaBlock(route) {
     <meta property="og:description" content="${route.description}" />
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:image" content="${image}" />
-    <meta property="og:image:width" content="512" />
-    <meta property="og:image:height" content="512" />
-    <meta property="og:image:alt" content="${SITE_NAME} logo" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image:width" content="${isCustomImage ? '1200' : '512'}" />
+    <meta property="og:image:height" content="${isCustomImage ? '630' : '512'}" />
+    <meta property="og:image:alt" content="${route.title}" />
+    <meta name="twitter:card" content="${isCustomImage ? 'summary_large_image' : 'summary'}" />
     <meta name="twitter:title" content="${route.title}" />
     <meta name="twitter:description" content="${route.description}" />
     <meta name="twitter:image" content="${image}" />`
@@ -177,8 +209,25 @@ for (const route of ROUTES) {
 }
 
 // Generate sitemap.xml from the same ROUTES list so it never goes stale.
-// The 404 page is excluded — it should never be indexed.
+// Newsletter post URLs are appended from dist/newsletter/posts.json (written
+// by Eleventy and copied into dist/newsletter by postbuild.js, which runs
+// before this script). The 404 page is excluded — never indexed.
 const lastmod = new Date().toISOString().slice(0, 10)
+
+function readNewsletterPosts() {
+  const postsJsonPath = join(distDir, 'newsletter', 'posts.json')
+  try {
+    const posts = JSON.parse(readFileSync(postsJsonPath, 'utf-8'))
+    return posts
+      .filter(post => typeof post.url === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(post.date ?? ''))
+      .map(post => ({ loc: `${SITE_URL}${post.url}`, lastmod: post.date }))
+  } catch {
+    console.log('[generate-pages] No dist/newsletter/posts.json found — skipping newsletter URLs in sitemap.')
+    return []
+  }
+}
+
+const newsletterUrls = readNewsletterPosts()
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${ROUTES
@@ -187,10 +236,16 @@ ${ROUTES
     <loc>${SITE_URL}${route.path}</loc>
     <lastmod>${lastmod}</lastmod>
   </url>`)
+  .concat(
+    newsletterUrls.map(post => `  <url>
+    <loc>${post.loc}</loc>
+    <lastmod>${post.lastmod}</lastmod>
+  </url>`)
+  )
   .join('\n')}
 </urlset>
 `
 writeFileSync(join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8')
-console.log('[generate-pages] Written: dist/sitemap.xml')
+console.log(`[generate-pages] Written: dist/sitemap.xml (${newsletterUrls.length} newsletter URLs included)`)
 
 console.log(`[generate-pages] Done — ${ROUTES.length} pages pre-rendered.`)

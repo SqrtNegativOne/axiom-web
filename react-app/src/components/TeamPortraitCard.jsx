@@ -1,5 +1,6 @@
 import { useState, useRef, useLayoutEffect } from 'react'
 import DefaultAvatar from './ui/DefaultAvatar'
+import OptimizedImage from './OptimizedImage'
 
 // Measures the name element after render and shortens it if it wraps to a second line.
 // Strategy: drop the last word until it fits; if it's one word and still too long, truncate with '..'.
@@ -112,11 +113,12 @@ export default function TeamPortraitCard({
                     className={`${avatarSize} rounded-full overflow-hidden mb-3 ring-2 ring-gold/30 group-hover:ring-gold transition-all duration-300`}
                 >
                     {image && !imgFailed ? (
-                        <img
+                        <OptimizedImage
                             src={image}
                             alt={`Portrait of ${name}`}
                             className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
+                            decoding="async"
                             onError={() => setImgFailed(true)}
                         />
                     ) : (
