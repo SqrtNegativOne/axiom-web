@@ -11,6 +11,8 @@ import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
+import OptimizedImage from './OptimizedImage'
+
 export default function EventCarousel({ images, eventTitle }) {
     const validImages = (images || []).filter(Boolean)
 
@@ -48,13 +50,14 @@ export default function EventCarousel({ images, eventTitle }) {
                             className="block w-full h-full focus:outline-none focus:ring-2 focus:ring-gold/50 overflow-hidden"
                             aria-label={`View ${eventTitle} photo ${idx + 1} in new tab`}
                         >
-                            <img
+                            <OptimizedImage
                                 src={src}
                                 alt={`${eventTitle} — photo ${idx + 1}`}
                                 className="w-full h-full object-cover"
                                 loading="lazy"
+                                decoding="async"
                                 onError={(e) => {
-                                    e.target.parentElement.style.display =
+                                    e.target.parentElement.parentElement.style.display =
                                         'none'
                                 }}
                             />

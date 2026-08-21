@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import DefaultAvatar from './ui/DefaultAvatar'
+import OptimizedImage from './OptimizedImage'
 
 export default function AlumniQuoteCard({ name, batch, image, thought }) {
     const [imgFailed, setImgFailed] = useState(false)
@@ -9,11 +10,12 @@ export default function AlumniQuoteCard({ name, batch, image, thought }) {
             <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
                     {image && !imgFailed ? (
-                        <img
+                        <OptimizedImage
                             src={image}
                             alt={`Portrait of ${name}`}
                             className="w-full h-full object-cover object-top"
                             loading="lazy"
+                            decoding="async"
                             onError={() => setImgFailed(true)}
                         />
                     ) : (

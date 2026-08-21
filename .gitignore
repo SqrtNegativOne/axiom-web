@@ -6,3 +6,11 @@ newsletter/dist/
 
 .vercel
 .claude/
+
+# Generated image derivatives (built by scripts/optimize-images.mjs)
+data/events/**/*.avif
+data/events/**/*.webp
+data/portraits/**/*.avif
+data/portraits/**/*.webp
+data/alumni/**/*.avif
+data/gallery/**/*.avif

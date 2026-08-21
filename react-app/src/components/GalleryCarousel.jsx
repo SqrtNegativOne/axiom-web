@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import OptimizedImage from './OptimizedImage'
 
 const galleryImages = [
     '/data/gallery/gal1.webp',
@@ -55,12 +56,15 @@ export default function GalleryCarousel() {
                     style={{ opacity: idx === current ? 1 : 0 }}
                 >
                     {loaded.has(idx) && (
-                        <img
+                        <OptimizedImage
                             src={src}
                             alt={`Gallery image ${idx + 1}`}
                             className="w-full h-full object-cover"
+                            loading={idx === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
                             onError={(e) => {
-                                e.target.parentElement.style.display = 'none'
+                                e.target.parentElement.parentElement.style.display =
+                                    'none'
                             }}
                         />
                     )}

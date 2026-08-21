@@ -29,12 +29,17 @@ export default function TeamByYear() {
         )
     }
 
+    const people = teamData.flatMap((group) =>
+        group.members.map((member) => ({ ...member, jobTitle: group.role })),
+    )
+
     return (
         <div className="pt-20 animate-on-load">
             <SEO
                 title={`Team ${year}`}
                 path={`/team/${year}`}
                 description={`The ${year} executive committee and members of Axiom, the philosophy society at NSUT.`}
+                people={people}
             />
 
             <section className="max-w-6xl mx-auto px-6 py-16">

@@ -11,6 +11,13 @@ import PullQuote from '../../components/PullQuote'
 export default function Team() {
     const [cpcClicked, setCpcClicked] = useState(false)
 
+    const people = [
+        ...core.flatMap((group) =>
+            group.members.map((member) => ({ ...member, jobTitle: group.role })),
+        ),
+        ...members.map((member) => ({ ...member, jobTitle: 'Member' })),
+    ]
+
     // Easter egg (2026): if any rendered text contains "Sunrise parabellum", wrap it
     // in a link to the Disco Elysium fitgirl page. No data-file changes needed.
     useEffect(() => {
@@ -50,6 +57,7 @@ export default function Team() {
                 title="Meet the Team"
                 path="/team"
                 description="Meet the Axiom team — our mission, vision, and the people behind NSUT's philosophy society, established in 2017."
+                people={people}
             />
             {/* Page header */}
             <section className="max-w-4xl mx-auto px-6 py-16 text-center">

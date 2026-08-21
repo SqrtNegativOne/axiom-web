@@ -11,7 +11,7 @@
     "build:bloom": "node scripts/build-bloom.js",
     "prebuild": "node scripts/build-bloom.js",
     "build": "cd react-app && npm run build && cd ../newsletter && npm run build",
-    "postbuild": "node scripts/generate-image-manifest.js && node scripts/postbuild.js && node scripts/generate-pages.js && node -e \"fs.rmSync('react-app/dist-server', {recursive:true, force:true}); fs.rmSync('newsletter/dist', {recursive:true, force:true})\"",
+    "postbuild": "node scripts/generate-image-manifest.js && node scripts/optimize-images.mjs && node scripts/postbuild.js && node scripts/make-og-images.mjs && node scripts/generate-pages.js && node -e \"fs.rmSync('react-app/dist-server', {recursive:true, force:true}); fs.rmSync('newsletter/dist', {recursive:true, force:true})\"",
     "preview": "npm run preview --workspace=react-app",
     "lint": "oxlint --ignore-path=.gitignore"
   },
@@ -21,6 +21,7 @@
     "wordlist-english": "^1.2.1"
   },
   "dependencies": {
-    "oxlint": "^1.76.0"
+    "oxlint": "^1.76.0",
+    "sharp": "^0.35.3"
   }
 }

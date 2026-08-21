@@ -71,6 +71,35 @@ function buildEventsItemList() {
     }
 }
 
+function buildPersonSchema(member, pageUrl) {
+    const sameAs = Object.values(member.socials ?? {}).filter(
+        (link) => typeof link === 'string' && link.startsWith('http'),
+    )
+    return {
+        '@type': 'Person',
+        name: member.name,
+        jobTitle: member.jobTitle,
+        ...(member.image && { image: `${SITE_URL}${encodeURI(member.image)}` }),
+        url: pageUrl,
+        memberOf: { '@id': `${SITE_URL}/#organization` },
+        worksFor: { '@id': `${SITE_URL}/#organization` },
+        ...(sameAs.length > 0 && { sameAs }),
+    }
+}
+
+function buildTeamPeople(people, pathname) {
+    const pageUrl = `${SITE_URL}${pathname}`
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: people.map((member, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            item: buildPersonSchema(member, pageUrl),
+        })),
+    }
+}
+
 export default function SEO({
     title,
     description = DEFAULT_DESCRIPTION,
@@ -78,6 +107,7 @@ export default function SEO({
     type = 'website',
     image = DEFAULT_IMAGE,
     noindex = false,
+    people = null,
 }) {
     const fullTitle = title ? `${title} ⋅ ${SITE_NAME}` : SITE_NAME
     const location = useLocation()
@@ -90,6 +120,9 @@ export default function SEO({
     }
     if (resolvedPath.replace(/\/+$/, '') === '/events') {
         jsonLd.push(buildEventsItemList())
+    }
+    if (people && people.length > 0) {
+        jsonLd.push(buildTeamPeople(people, resolvedPath))
     }
 
     return (
