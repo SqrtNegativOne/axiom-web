@@ -1,0 +1,4 @@
+Contact: mailto:axiom.society@nsut.ac.in
+Expires: 2027-08-22T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://axiomnsut.in/.well-known/security.txt

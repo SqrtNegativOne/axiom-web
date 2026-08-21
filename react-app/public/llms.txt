@@ -1,0 +1,42 @@
+# Axiom ⋅ The Philosophy Society
+
+> Axiom is the philosophy society at NSUT — fostering intellectual curiosity, critical thinking, and philosophical inquiry since 2017.
+
+## Pages
+
+- [Home](https://axiomnsut.in/): Axiom is the philosophy society at NSUT — fostering intellectual curiosity, critical thinking, and philosophical inquiry since 2017.
+- [Team](https://axiomnsut.in/team): Meet the Axiom team — our mission, vision, and the people behind NSUT's philosophy society, established in 2017.
+- [Team 2025](https://axiomnsut.in/team/2025): The 2025 executive committee and members of Axiom, the philosophy society at NSUT.
+- [Team 2024](https://axiomnsut.in/team/2024): The 2024 executive committee and members of Axiom, the philosophy society at NSUT.
+- [Team 2023](https://axiomnsut.in/team/2023): The 2023 executive committee and members of Axiom, the philosophy society at NSUT.
+- [Events](https://axiomnsut.in/events): Chai Pe Charcha, Wheel of Doom, Philo Walk and more — explore all of Axiom's philosophical events at NSUT.
+- [Events 2026](https://axiomnsut.in/events/2026): Events from 2026.
+- [Events 2025](https://axiomnsut.in/events/2025): Events from 2025.
+- [Events 2024](https://axiomnsut.in/events/2024): Events from 2024.
+- [Events 2023](https://axiomnsut.in/events/2023): Events from 2023.
+- [Colophon](https://axiomnsut.in/colophon): How the Axiom website was built — typography, tools, colour palette, and deployment details.
+- [Privacy Policy](https://axiomnsut.in/privacy): Privacy Policy.
+
+## Newsletter
+
+- [Newsletter](https://axiomnsut.in/newsletter/): Essays, reflections, and dispatches from Axiom — the philosophy society at NSUT.
+
+## Games
+
+Interactive philosophy games built by the society.
+
+- [Games](https://axiomnsut.in/games): Four interactive philosophy games — guess a term from clues, classify propositions, identify fallacies, and trace dialectical movements in the history of thought.
+- [Hermeneutic](https://axiomnsut.in/games/hermeneutic): Guess the philosophical term from progressively revealing clues. Each wrong guess unveils another layer of context.
+- [Époche](https://axiomnsut.in/games/epoche): Classify propositions across four philosophical axes: analytic or synthetic, a priori or a posteriori, necessary or contingent, descriptive or normative.
+- [Fallacy](https://axiomnsut.in/games/fallacy): Identify the logical fallacy embedded in a philosophical argument. Wrong guesses reveal whether you're in the right family or class, narrowing the field.
+- [Dialectics](https://axiomnsut.in/games/dialectics): A thesis is presented. First identify its historical antithesis, then select the synthesis that resolves the contradiction.
+- [Negative Dialectics](https://axiomnsut.in/games/negative-dialectics): Dismantle a false historical synthesis by predicting its residual—the marginalized reality it represses or fails to capture.
+- [Sorites](https://axiomnsut.in/games/sorites): Pick two colours, classify 34 patches across the gradient between them, and discover the Sorites paradox hiding in your own judgements.
+- [The Repugnant Conclusion](https://axiomnsut.in/games/repugnant): Make a series of world-comparisons, each individually reasonable, to solve Parfit's "most important problem in ethics".
+- [Philosophle](https://axiomnsut.in/games/philosophle): wordle, but for philosophy.
+- [The Butterfly Job](https://axiomnsut.in/games/butterfly-job): Step into seven minor roles across the twentieth century and watch how tiny choices derail recorded history.
+- [Fallacy Detective](https://axiomnsut.in/games/fallacy-detective): Highlight suspected sentences in real-world documents, name the fallacy, and close each case.
+- [Philosopher Match](https://axiomnsut.in/games/philosopher-match): A philosophical quote is placed before you. Identify its author from four options, with hints.
+- [Concept Map](https://axiomnsut.in/games/concept-map): Bridge two philosophical concepts via the shortest chain of directly related ideas.
+- [Argument Reconstruction](https://axiomnsut.in/games/argument-reconstruction): Drag a philosopher's premises into their correct logical order.
+- [Paradigm Shift](https://axiomnsut.in/games/paradigm-shift): Classify historical episodes in science according to Kuhn's five phases.

@@ -4,7 +4,7 @@
 // crawlers (LinkedIn, Slack, Discord) see per-page OG cards even though
 // they don't execute JavaScript.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { gamesList } from '../react-app/src/data/gamesList.js'
@@ -149,9 +149,12 @@ const { render } = await import(new URL('file://' + join(serverDistDir, 'entry-s
 for (const route of ROUTES) {
   const metaBlock = buildMetaBlock(route)
   let html = stripped.replace('</head>', `${metaBlock}\n  </head>`)
-  
+
   // Render the React app to string for this route
-  const appHtml = render(route.path)
+  const { body: appHtml, head: helmetHead } = render(route.path)
+  if (helmetHead) {
+    html = html.replace('</head>', `${helmetHead}\n  </head>`)
+  }
   html = html.replace('<!--app-html-->', appHtml)
 
   const outPath = route.outDir
@@ -164,6 +167,30 @@ for (const route of ROUTES) {
 
   writeFileSync(outPath, html, 'utf-8')
   console.log(`[generate-pages] Written: ${outPath.replace(distDir, 'dist')}`)
+
+  // Vercel serves dist/404.html for genuine 404 responses — copy the
+  // pre-rendered 404 page there so we don't get soft-404s.
+  if (route.outDir === '404') {
+    copyFileSync(outPath, join(distDir, '404.html'))
+    console.log('[generate-pages] Written: dist/404.html')
+  }
 }
+
+// Generate sitemap.xml from the same ROUTES list so it never goes stale.
+// The 404 page is excluded — it should never be indexed.
+const lastmod = new Date().toISOString().slice(0, 10)
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${ROUTES
+  .filter(route => route.path !== '/404')
+  .map(route => `  <url>
+    <loc>${SITE_URL}${route.path}</loc>
+    <lastmod>${lastmod}</lastmod>
+  </url>`)
+  .join('\n')}
+</urlset>
+`
+writeFileSync(join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8')
+console.log('[generate-pages] Written: dist/sitemap.xml')
 
 console.log(`[generate-pages] Done — ${ROUTES.length} pages pre-rendered.`)
