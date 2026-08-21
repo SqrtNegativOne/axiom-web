@@ -10,7 +10,17 @@ const CASE_RAWS = [therapyRaw, climateRaw, extremistRaw, equalPayRaw]
 
 // ── Styles (game is exempt from Axiom design system) ────────────────────────
 const css = `
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+  /* Self-hosted fonts (latin subset) — served from /data/fonts/games/ */
+  @font-face { font-family:'Playfair Display'; font-style:normal; font-weight:400; font-display:swap; src:url('/data/fonts/games/PlayfairDisplay-400.woff2') format('woff2'); }
+  @font-face { font-family:'Playfair Display'; font-style:normal; font-weight:700; font-display:swap; src:url('/data/fonts/games/PlayfairDisplay-700.woff2') format('woff2'); }
+  @font-face { font-family:'Playfair Display'; font-style:normal; font-weight:900; font-display:swap; src:url('/data/fonts/games/PlayfairDisplay-900.woff2') format('woff2'); }
+  @font-face { font-family:'Playfair Display'; font-style:italic; font-weight:400; font-display:swap; src:url('/data/fonts/games/PlayfairDisplay-400i.woff2') format('woff2'); }
+  @font-face { font-family:'Crimson Pro'; font-style:normal; font-weight:400; font-display:swap; src:url('/data/fonts/games/CrimsonPro-400.woff2') format('woff2'); }
+  @font-face { font-family:'Crimson Pro'; font-style:normal; font-weight:600; font-display:swap; src:url('/data/fonts/games/CrimsonPro-600.woff2') format('woff2'); }
+  @font-face { font-family:'Crimson Pro'; font-style:italic; font-weight:400; font-display:swap; src:url('/data/fonts/games/CrimsonPro-400i.woff2') format('woff2'); }
+  @font-face { font-family:'Courier Prime'; font-style:normal; font-weight:400; font-display:swap; src:url('/data/fonts/games/CourierPrime-400.woff2') format('woff2'); }
+  @font-face { font-family:'Courier Prime'; font-style:normal; font-weight:700; font-display:swap; src:url('/data/fonts/games/CourierPrime-700.woff2') format('woff2'); }
+  @font-face { font-family:'Courier Prime'; font-style:italic; font-weight:400; font-display:swap; src:url('/data/fonts/games/CourierPrime-400i.woff2') format('woff2'); }
 
   .fd-root { --bg:#17140f; --panel:#1f1b14; --panel2:#261f16; --paper:#f0e8d8; --paper2:#e8deca; --ink:#1a1208; --ink2:#4a3820; --red:#b83232; --gold:#c49a28; --green:#2a6644; --border:rgba(196,154,40,0.22); --border2:rgba(196,154,40,0.12); --sel:rgba(255,215,40,0.42); --found:rgba(42,102,68,0.18); --ff-head:'Playfair Display',Georgia,serif; --ff-body:'Crimson Pro',Georgia,serif; --ff-mono:'Courier Prime','Courier New',monospace; }
   .fd-root { background: var(--bg); color: var(--paper); font-family: var(--ff-body); }

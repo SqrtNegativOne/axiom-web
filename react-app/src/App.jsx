@@ -39,8 +39,14 @@ export default function App() {
         <>
             <ScrollToTop />
             <div className="min-h-screen flex flex-col bg-cream dark:bg-[#0E1A14]">
+                <a
+                    href="#main-content"
+                    className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-cream focus:text-green focus:p-3 focus:font-body focus:shadow-md"
+                >
+                    Skip to content
+                </a>
                 <NavBar />
-                <main className="flex-1">
+                <main id="main-content" className="flex-1">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/team" element={<Team />} />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 // Each step: compare WorldA (current) with WorldB (proposal)
 // Structure: { a: {n, w, label}, b: {n, w, label}, prompt, aReason, bReason }
@@ -260,14 +260,6 @@ const STEPS = [
 ]
 
 export default function GameRepugnant() {
-    useEffect(() => {
-        const link = document.createElement('link')
-        link.href =
-            'https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600&display=swap'
-        link.rel = 'stylesheet'
-        document.head.appendChild(link)
-    }, [])
-
     const [step, setStep] = useState(0)
     const [choices, setChoices] = useState([]) // true = chose B (better/equal), false = chose A
     const [pendingChoice, setPendingChoice] = useState(null)
@@ -313,6 +305,13 @@ export default function GameRepugnant() {
                 }}
             >
                 <style>{`
+        /* Self-hosted fonts (latin subset) — served from /data/fonts/games/ */
+        @font-face { font-family:'Space Grotesk'; font-style:normal; font-weight:300; font-display:swap; src:url('/data/fonts/games/SpaceGrotesk-300.woff2') format('woff2'); }
+        @font-face { font-family:'Space Grotesk'; font-style:normal; font-weight:400; font-display:swap; src:url('/data/fonts/games/SpaceGrotesk-400.woff2') format('woff2'); }
+        @font-face { font-family:'Space Grotesk'; font-style:normal; font-weight:500; font-display:swap; src:url('/data/fonts/games/SpaceGrotesk-500.woff2') format('woff2'); }
+        @font-face { font-family:'Space Grotesk'; font-style:normal; font-weight:600; font-display:swap; src:url('/data/fonts/games/SpaceGrotesk-600.woff2') format('woff2'); }
+        @font-face { font-family:'Space Mono'; font-style:normal; font-weight:400; font-display:swap; src:url('/data/fonts/games/SpaceMono-400.woff2') format('woff2'); }
+        @font-face { font-family:'Space Mono'; font-style:normal; font-weight:700; font-display:swap; src:url('/data/fonts/games/SpaceMono-700.woff2') format('woff2'); }
         .start-rp { background:${GREEN}; color:#040a06; border:none; padding:14px 44px; font-family:${MONO}; font-size:13px; font-weight:700; letter-spacing:0.12em; cursor:pointer; transition:opacity .15s; }
         .start-rp:hover { opacity:0.85; }
       `}</style>

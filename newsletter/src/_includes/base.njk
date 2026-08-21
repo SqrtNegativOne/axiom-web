@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ description or site.description }}" />
-  <title>{{ title }} ⋅ Axiom Newsletter</title>
+  <meta name="description" content="{{ description or excerpt or site.description }}" />
+  <title>{% if title %}{{ title }} ⋅ Axiom Newsletter{% else %}{{ site.title }}{% endif %}</title>
+  <link rel="canonical" href="{{ site.url }}{{ page.url | withPrefix }}" />
+
+  <!-- Color scheme -->
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F4EC" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0E1A14" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/svg+xml" href="/data/logo.svg" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="{{ ogType or 'website' }}" />
