@@ -46,7 +46,7 @@ export default function Colophon() {
                                     IBM Plex Mono
                                 </span>
                                 <span className="text-ink/60">
-                                    Metadata, dates, eyebrow labels — IBM's
+                                    Metadata, dates, eyebrow labels — IBM&apos;s
                                     humanist monospace with a technical
                                     character.
                                 </span>

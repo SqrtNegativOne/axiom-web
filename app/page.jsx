@@ -71,7 +71,7 @@ export default async function Home() {
                                 fontSize: 'clamp(1.05rem, 1.6vw, 1.2rem)',
                             }}
                         >
-                            Whether it's a spirited Chai Pe Charcha on free
+                            Whether it&apos;s a spirited Chai Pe Charcha on free
                             will, a walking seminar around campus, or a curated
                             newsletter essay;{' '}
                             <i>Axiom is where curiosity finds a home.</i>

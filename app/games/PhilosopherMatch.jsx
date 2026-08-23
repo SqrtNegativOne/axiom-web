@@ -205,7 +205,7 @@ export default function PhilosopherMatch() {
                 <div style={styles.quoteNumber}>
                     Quote {quoteIdx + 1} of {round.quotes.length}
                 </div>
-                <div style={styles.quoteText}>"{quote.text}"</div>
+                <div style={styles.quoteText}>&quot;{quote.text}&quot;</div>
 
                 {revealed >= 1 && (
                     <div style={styles.hint}>

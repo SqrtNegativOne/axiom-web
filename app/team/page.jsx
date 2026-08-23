@@ -58,8 +58,8 @@ export default function Team() {
                 >
                     Axiom is the philosophy society of Netaji Subhas University
                     of Technology. Founded by a group of students who believed
-                    that the engineer's mind is incomplete without the
-                    philosopher's eye, we have grown into a vibrant community of
+                    that the engineer&apos;s mind is incomplete without the
+                    philosopher&apos;s eye, we have grown into a vibrant community of
                     curious thinkers.
                 </p>
             </section>

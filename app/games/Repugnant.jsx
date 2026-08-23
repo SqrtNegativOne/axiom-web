@@ -520,7 +520,7 @@ export default function GameRepugnant() {
 
         return (
             <div
-                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS]" style={{padding: 60px 20px 80px,}}
+                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS]" style={{padding: '60px 20px 80px',}}
             >
                 <style>{`
           .reset-rp { background:transparent; color:#3a6a44; border:1px solid #1a3c1f; padding:10px 24px; font-family:${MONO}; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer; transition:all .15s; }
@@ -528,12 +528,12 @@ export default function GameRepugnant() {
         `}</style>
                 <div style={{ maxWidth: 580, margin: '0 auto' }}>
                     <p
-                        className="text-[length:10] tracking-[0.22em] text-[#2a5c30] uppercase font-[family:MONO]" style={{margin: 0 0 10px,}}
+                        className="text-[length:10] tracking-[0.22em] text-[#2a5c30] uppercase font-[family:MONO]" style={{margin: '0 0 10px',}}
                     >
                         Conclusion
                     </p>
                     <h2
-                        className="text-[length:34] font-bold text-[#c8e6d0] leading-[1.2]" style={{margin: 0 0 32px,}}
+                        className="text-[length:34] font-bold text-[#c8e6d0] leading-[1.2]" style={{margin: '0 0 32px',}}
                         role="status"
                         aria-live="polite"
                     >
@@ -544,10 +544,10 @@ export default function GameRepugnant() {
 
                     {/* Full chain */}
                     <div
-                        className="bg-[#060e08] mb-[28]" style={{border: 1px solid #0d2010, padding: 20px 22px,}}
+                        className="bg-[#060e08] mb-[28]" style={{border: '1px solid #0d2010', padding: '20px 22px',}}
                     >
                         <p
-                            className="text-[length:10] text-[#2a4c2f] font-[family:MONO] tracking-[0.14em] uppercase" style={{margin: 0 0 12px,}}
+                            className="text-[length:10] text-[#2a4c2f] font-[family:MONO] tracking-[0.14em] uppercase" style={{margin: '0 0 12px',}}
                         >
                             Your complete chain of endorsements
                         </p>
@@ -600,12 +600,12 @@ export default function GameRepugnant() {
                                 }}
                             >
                                 <p
-                                    className="text-[length:14] text-[#c8e6d0] font-[600]" style={{margin: 0 0 12px,}}
+                                    className="text-[length:14] text-[#c8e6d0] font-[600]" style={{margin: '0 0 12px',}}
                                 >
-                                    By transitivity of "at least as good as":
+                                    By transitivity of &quot;at least as good as&quot;:
                                 </p>
                                 <p
-                                    className="text-[length:16] text-[GREEN] font-[family:MONO] font-bold" style={{margin: 0 0 12px,}}
+                                    className="text-[length:16] text-[GREEN] font-[family:MONO] font-bold" style={{margin: '0 0 12px',}}
                                 >
                                     World Z ≥ World A
                                 </p>
@@ -622,7 +622,7 @@ export default function GameRepugnant() {
                                     Your chain of endorsements — each
                                     individually reasonable — implies the vast,
                                     miserable Z is at least as good as the
-                                    small, flourishing A. This is Parfit's{' '}
+                                    small, flourishing A. This is Parfit&apos;s{' '}
                                     <strong className="text-[#c8e6d0]">
                                         Repugnant Conclusion
                                     </strong>
@@ -631,7 +631,7 @@ export default function GameRepugnant() {
                             </div>
 
                             <p
-                                className="text-[length:13] text-[#5a8c64] leading-[1.85]" style={{margin: 0 0 14px,}}
+                                className="text-[length:13] text-[#5a8c64] leading-[1.85]" style={{margin: '0 0 14px',}}
                             >
                                 The conclusion follows from two widely-shared
                                 intuitions: (1) adding happy lives to the world
@@ -643,10 +643,10 @@ export default function GameRepugnant() {
                         </>
                     ) : (
                         <div
-                            className="bg-[#0a1f0e] mb-[28]" style={{border: 1.5px solid #3a7a44, padding: 22px 24px,}}
+                            className="bg-[#0a1f0e] mb-[28]" style={{border: '1.5px solid #3a7a44', padding: '22px 24px',}}
                         >
                             <p
-                                className="text-[length:13] text-[#c8e6d0] font-[600]" style={{margin: 0 0 10px,}}
+                                className="text-[length:13] text-[#c8e6d0] font-[600]" style={{margin: '0 0 10px',}}
                             >
                                 You broke the chain at step {firstRefusal + 1}.
                             </p>
@@ -667,7 +667,7 @@ export default function GameRepugnant() {
 
                     {/* Responses */}
                     <h3
-                        className="text-[length:11] font-[family:MONO] tracking-[0.18em] uppercase text-[#2a5c30]" style={{margin: 0 0 20px,}}
+                        className="text-[length:11] font-[family:MONO] tracking-[0.18em] uppercase text-[#2a5c30]" style={{margin: '0 0 20px',}}
                     >
                         Proposed exits
                     </h3>
@@ -691,7 +691,7 @@ export default function GameRepugnant() {
                     ].map(([name, desc]) => (
                         <div
                             key={name}
-                            className="pl-[18] mb-[20]" style={{borderLeft: 2px solid #1a3c1f,}}
+                            className="pl-[18] mb-[20]" style={{borderLeft: '2px solid #1a3c1f',}}
                         >
                             <strong
                                 className="text-[length:13] text-[#a8d4b0] block mb-[5]"

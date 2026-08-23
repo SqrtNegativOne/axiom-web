@@ -543,8 +543,7 @@ export default function FallacyDetective() {
                                 {/* Mobile toggle bar */}
                                 <button
                                     onClick={() => setCtrlOpen((o) => !o)}
-                                    className="fd-mobile-toggle"
-                                    className="items-center justify-between px-4 py-[.6rem] bg-[var(--panel2)] border-none border-b border-[var(--border2)] cursor-pointer w-full font-[family:var(--ff-mono)] text-[.68rem] tracking-[.1em] text-[rgba(240,232,216,.6)] uppercase" 
+                                    className="fd-mobile-toggle items-center justify-between px-4 py-[.6rem] bg-[var(--panel2)] border-none border-b border-[var(--border2)] cursor-pointer w-full font-[family:var(--ff-mono)] text-[.68rem] tracking-[.1em] text-[rgba(240,232,216,.6)] uppercase" 
                                 >
                                     <span>
                                         {selCount > 0
@@ -763,7 +762,7 @@ export default function FallacyDetective() {
                                             Wrong type? Try again on the same
                                             sentence.
                                             <br />
-                                            "Close the case" reveals what you
+                                            &quot;Close the case&quot; reveals what you
                                             missed.
                                         </div>
                                     </div>
@@ -846,7 +845,7 @@ export default function FallacyDetective() {
                                         <div
                                             className="font-[family:var(--ff-body)] text-[length:.9rem] text-[var(--paper)] italic mb-[.3rem] leading-[1.5]"
                                         >
-                                            "{sent}"
+                                            &quot;{sent}&quot;
                                         </div>
                                         <div
                                             className="font-[family:var(--ff-mono)] text-[length:.64rem] text-[rgba(240] leading-[1.65]"
@@ -861,8 +860,7 @@ export default function FallacyDetective() {
                             >
                                 <button
                                     onClick={() => setPhase('intro')}
-                                    className="fd-clip"
-                                    className="flex-1 font-[family:var(--ff-mono)] text-[length:.74rem] tracking-[.14em] uppercase text-[#17140f] bg-[#c49a28] border-none p-[.75rem] cursor-pointer font-bold"
+                                    className="fd-clip flex-1 font-[family:var(--ff-mono)] text-[length:.74rem] tracking-[.14em] uppercase text-[#17140f] bg-[#c49a28] border-none p-[.75rem] cursor-pointer font-bold"
                                 >
                                     Return to Case Files →
                                 </button>
@@ -891,7 +889,7 @@ export default function FallacyDetective() {
                         <p
                             className="font-[family:var(--ff-head)] italic text-[length:1rem] text-[rgba(240] mb-8"
                         >
-                            Here's your final assessment, Detective.
+                            Here&apos;s your final assessment, Detective.
                         </p>
                         <div
                             className="bg-[var(--panel)] mb-[1.75rem] text-center border border-[var(--border)] py-[1.75rem] px-[3.5rem]"
