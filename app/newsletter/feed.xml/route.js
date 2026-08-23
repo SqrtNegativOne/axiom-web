@@ -1,4 +1,4 @@
-import { getAllPosts } from '../../lib/mdx'
+import { getAllPosts } from '../../../lib/mdx'
 
 export async function GET() {
     const posts = getAllPosts()
@@ -7,7 +7,7 @@ export async function GET() {
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Axiom Newsletter</title>
     <subtitle>The official newsletter of Axiom, the philosophy society at NSUT.</subtitle>
-    <link href="https://axiomnsut.in/feed.xml" rel="self"/>
+    <link href="https://axiomnsut.in/newsletter/feed.xml" rel="self"/>
     <link href="https://axiomnsut.in/"/>
     <updated>${posts.length > 0 ? new Date(posts[0].frontmatter.date).toISOString() : new Date().toISOString()}</updated>
     <id>https://axiomnsut.in/</id>
@@ -31,3 +31,5 @@ export async function GET() {
         },
     })
 }
+
+
