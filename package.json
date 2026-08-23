@@ -1,27 +1,39 @@
 {
-  "name": "axiom-web",
+  "name": "temp_next",
+  "version": "0.1.0",
   "private": true,
-  "type": "module",
-  "workspaces": [
-    "react-app",
-    "newsletter"
-  ],
   "scripts": {
-    "dev": "concurrently \"cd react-app && npm run dev\" \"cd newsletter && npm run dev\"",
-    "build:bloom": "node scripts/build-bloom.js",
-    "prebuild": "node scripts/build-bloom.js",
-    "build": "cd react-app && npm run build && cd ../newsletter && npm run build",
-    "postbuild": "node scripts/generate-image-manifest.js && node scripts/optimize-images.mjs && node scripts/postbuild.js && node scripts/make-og-images.mjs && node scripts/generate-pages.js && node -e \"fs.rmSync('react-app/dist-server', {recursive:true, force:true}); fs.rmSync('newsletter/dist', {recursive:true, force:true})\"",
-    "preview": "npm run preview --workspace=react-app",
-    "lint": "oxlint --ignore-path=.gitignore"
-  },
-  "devDependencies": {
-    "an-array-of-english-words": "^2.0.0",
-    "concurrently": "^8.2.2",
-    "wordlist-english": "^1.2.1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
-    "oxlint": "^1.76.0",
-    "sharp": "^0.35.3"
-  }
+    "an-array-of-english-words": "^2.0.0",
+    "gray-matter": "^4.0.3",
+    "lenis": "^1.3.26",
+    "next": "16.3.2",
+    "next-mdx-remote": "^6.0.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remark-gfm": "^4.0.1",
+    "sharp": "^0.35.3",
+    "swiper": "^14.1.0",
+    "wordlist-english": "^1.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.2",
+    "tailwindcss": "^4.3.3"
+  },
+  "packageManager": "bun@1.3.11",
+  "ignoreScripts": [
+    "sharp",
+    "unrs-resolver"
+  ],
+  "trustedDependencies": [
+    "sharp",
+    "unrs-resolver"
+  ]
 }
