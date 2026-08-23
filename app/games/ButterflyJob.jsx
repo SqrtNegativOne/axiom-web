@@ -456,7 +456,7 @@ export default function GameButterflyJob() {
 
     useEffect(() => {
         if (phase !== 'consequence' || !pickedChoice) return
-        setBarWidth(0)
+        const f0 = setTimeout(() => setBarWidth(0), 0)
         const f1 = requestAnimationFrame(() => {
             requestAnimationFrame(() => setBarWidth(pickedChoice.dv))
         })

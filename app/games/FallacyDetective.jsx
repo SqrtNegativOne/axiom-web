@@ -93,7 +93,7 @@ const FEEDBACK_STYLES = {
 }
 
 export default function FallacyDetective() {
-    const rounds = useRef(CASE_RAWS.map(parseCaseMarkdown))
+    const [roundsData] = useState(() => CASE_RAWS.map(parseCaseMarkdown))
 
     const [phase, setPhase] = useState('intro') // intro | game | results | final
     const [curRound, setCurRound] = useState(0)
@@ -121,7 +121,7 @@ export default function FallacyDetective() {
     const searchRef = useRef(null)
     const comboRef = useRef(null)
 
-    const R = rounds.current[curRound]
+    const R = roundsData[curRound]
 
     // ── Combobox ──────────────────────────────────────────────────────────────
     const filteredFallacies = FALLACIES.filter((f) => {
@@ -273,7 +273,7 @@ export default function FallacyDetective() {
 
     // ── Finish round ──────────────────────────────────────────────────────────
     function finishRound() {
-        const R_curr = rounds.current[curRound]
+        const R_curr = roundsData[curRound]
         const count = foundFallacies.size
         const total = R_curr.fallacies.length
         const pct = total ? Math.round((count / total) * 100) : 0
@@ -302,7 +302,7 @@ export default function FallacyDetective() {
     const selCount = selectedSents.size
     
     const overallFound = Object.values(scores).reduce((sum, s) => sum + s.found, 0)
-    const totalFallacies = rounds.current.reduce(
+    const totalFallacies = roundsData.reduce(
         (s, r) => s + r.fallacies.length,
         0,
     )
@@ -415,7 +415,7 @@ export default function FallacyDetective() {
                                 textAlign: 'left',
                             }}
                         >
-                            {rounds.current.map((r, i) => {
+                            {roundsData.map((r, i) => {
                                 const score = scores[i]
                                 return (
                                     <div
@@ -543,7 +543,7 @@ export default function FallacyDetective() {
                                     color: 'rgba(240,232,216,.35)',
                                 }}
                             >
-                                Case {curRound + 1} of {rounds.current.length}
+                                Case {curRound + 1} of {roundsData.length}
                             </span>
                             <span
                                 style={{
