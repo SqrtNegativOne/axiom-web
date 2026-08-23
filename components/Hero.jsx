@@ -47,8 +47,11 @@ function TypewriterPrompt() {
                 )
                 return () => clearTimeout(t)
             } else {
-                setIdx((i) => (i + 1) % PROMPTS.length)
-                setPhase('typing')
+                const t = setTimeout(() => {
+                    setIdx((i) => (i + 1) % PROMPTS.length)
+                    setPhase('typing')
+                }, 0)
+                return () => clearTimeout(t)
             }
         }
     }, [displayed, phase, idx])

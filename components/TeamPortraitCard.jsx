@@ -25,7 +25,7 @@ function useSingleLineName(name) {
             words.pop()
             el.textContent = words.join(' ')
             if (el.offsetHeight <= lineHeight * 1.4) {
-                setDisplayName(words.join(' '))
+                const newName = words.join(' '); setTimeout(() => setDisplayName(newName), 0)
                 return
             }
         }
@@ -36,12 +36,12 @@ function useSingleLineName(name) {
             chars = chars.slice(0, -1)
             el.textContent = chars + '..'
             if (el.offsetHeight <= lineHeight * 1.4) {
-                setDisplayName(chars + '..')
+                const finalChars = chars + '..'; setTimeout(() => setDisplayName(finalChars), 0)
                 return
             }
         }
 
-        setDisplayName(chars + '..')
+        const fallback = chars + '..'; setTimeout(() => setDisplayName(fallback), 0)
     }, [name])
 
     return { ref, displayName }

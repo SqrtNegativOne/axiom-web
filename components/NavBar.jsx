@@ -19,7 +19,8 @@ export default function NavBar() {
     }, [])
 
     useEffect(() => {
-        setMenuOpen(false)
+        const t = setTimeout(() => setMenuOpen(false), 0)
+        return () => clearTimeout(t)
     }, [pathname])
 
     const isHome = pathname === '/'

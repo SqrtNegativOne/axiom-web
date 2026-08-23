@@ -6,7 +6,10 @@ export default function ThemeToggle() {
 
     // Sync with whatever the anti-flash script set on <html>
     useEffect(() => {
-        setDark(document.documentElement.classList.contains('dark'))
+        const t = setTimeout(() => {
+            setDark(document.documentElement.classList.contains('dark'))
+        }, 0)
+        return () => clearTimeout(t)
     }, [])
 
     const toggle = () => {
