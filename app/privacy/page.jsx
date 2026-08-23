@@ -88,7 +88,7 @@ export default function PrivacyPolicy() {
                                     </span>
                                     <span className="text-ink/70 dark:text-ink/70">
                                         Analytics data is stored on
-                                        GoatCounter's servers. See the{' '}
+                                        GoatCounter&apos;s servers. See the{' '}
                                         <a
                                             href="https://www.goatcounter.com/help/privacy"
                                             target="_blank"
@@ -129,7 +129,7 @@ export default function PrivacyPolicy() {
                             <p>
                                 This site links to third-party platforms
                                 (Instagram, LinkedIn, YouTube, etc.). Visiting
-                                those links is subject to each platform's own
+                                those links is subject to each platform&apos;s own
                                 privacy policy. We have no control over and
                                 accept no responsibility for the content or
                                 privacy practices of external sites.

@@ -245,7 +245,7 @@ function GameBoard({ puzzle, onNewGame }) {
                                 className="font-heading font-light text-ink leading-relaxed"
                                 style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.35rem)' }}
                             >
-                                "{puzzle.falseSynthesis}"
+                                &quot;{puzzle.falseSynthesis}&quot;
                             </p>
                         </div>
                     </div>

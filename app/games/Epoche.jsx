@@ -301,10 +301,10 @@ function GameBoard({ puzzle, onNewGame }) {
                         </p>
                         <blockquote className="border-l-4 border-terracotta pl-4 mb-3">
                             <p className="font-heading font-light text-ink text-base italic leading-relaxed">
-                                "We put out of action the general positing which
+                                &quot;We put out of action the general positing which
                                 belongs to the essence of the natural attitude;
                                 we parenthesize everything which that positing
-                                encompasses."
+                                encompasses.&quot;
                             </p>
                         </blockquote>
                         <p className="font-mono text-xs tracking-widest uppercase text-gold/70">

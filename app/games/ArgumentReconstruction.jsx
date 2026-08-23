@@ -242,7 +242,7 @@ export default function ArgumentReconstruction() {
                     {showNote && (
                         <div style={T.noteBox}>
                             <div style={T.noteLabel}>HIDDEN PREMISE</div>
-                            <div style={T.noteText}>"{arg.hiddenPremise}"</div>
+                            <div style={T.noteText}>&quot;{arg.hiddenPremise}&quot;</div>
                             <div style={T.noteExpl}>{arg.note}</div>
                         </div>
                     )}

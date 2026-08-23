@@ -290,7 +290,7 @@ function SoritesBoard({ onNewGame }) {
                     />
 
                     <p
-                        className="text-[length:22] text-center text-[INK] font-[500]" style={{margin: 0 0 32px,}}
+                        className="text-[length:22] text-center text-[INK] font-[500]" style={{margin: '0 0 32px',}}
                     >
                         Is this{' '}
                         <span className="text-[toRGB(0)]">
@@ -351,7 +351,7 @@ function SoritesBoard({ onNewGame }) {
             const escapedRGB = favCount === N ? favColour.rgb : leastColour.rgb
             const monoCSS = `rgb(${escapedRGB.join(',')})`
             return (
-                <div className="font-[family:MONO]" style={{padding: 0 0 80px,}}>
+                <div className="font-[family:MONO]" style={{padding: '0 0 80px',}}>
                     <div
                         className="flex w-full h-[22] mb-[56]"
                     >
@@ -363,38 +363,38 @@ function SoritesBoard({ onNewGame }) {
                         ))}
                     </div>
                     <div
-                        className="text-center" style={{maxWidth: 560, margin: 0 auto,}}
+                        className="text-center" style={{maxWidth: 560, margin: '0 auto',}}
                     >
                         <p
-                            className="text-[length:9] tracking-[0.3em] text-[monoCSS] uppercase" style={{margin: 0 0 20px,}}
+                            className="text-[length:9] tracking-[0.3em] text-[monoCSS] uppercase" style={{margin: '0 0 20px',}}
                         >
                             Easter Egg · Heap Escaper
                         </p>
                         <h2
-                            className="text-[length:52] font-bold tracking-[0.06em] text-[monoCSS] leading-[1]" style={{margin: 0 0 8px,}}
+                            className="text-[length:52] font-bold tracking-[0.06em] text-[monoCSS] leading-[1]" style={{margin: '0 0 8px',}}
                         >
                             PARADOX
                         </h2>
                         <h2
-                            className="text-[length:52] font-bold tracking-[0.06em] text-[INK] leading-[1]" style={{margin: 0 0 40px,}}
+                            className="text-[length:52] font-bold tracking-[0.06em] text-[INK] leading-[1]" style={{margin: '0 0 40px',}}
                         >
                             ESCAPED
                         </h2>
                         <p
-                            className="text-[length:12] text-[var(--sor-muted-dark] leading-[1.85] ml-[auto] mr-[auto]" style={{margin: 0 0 36px, maxWidth: 440,}}
+                            className="text-[length:12] text-[var(--sor-muted-dark] leading-[1.85] ml-[auto] mr-[auto]" style={{margin: '0 0 36px', maxWidth: 440,}}
                         >
                             {favCount === N
                                 ? `You called all ${N} patches ${favName} — absorbing ${leastColour.name} into your favourite colour. The sorites paradox cannot arise if the predicate swallows the entire spectrum.`
                                 : `You called nothing ${favName} — not even the pure ${favName} at position 1. The paradox dissolves when the predicate has no extension at all.`}
                         </p>
                         <div
-                            className="pl-[20] text-left" style={{borderLeft: 3px solid, borderColor: monoCSS, margin: 0 auto 48px, maxWidth: 440,}}
+                            className="pl-[20] text-left" style={{borderLeft: '3px solid', borderColor: monoCSS, margin: '0 auto 48px', maxWidth: 440,}}
                         >
                             <p
-                                className="text-[length:14] italic text-[INK] leading-[1.8]" style={{margin: 0 0 8px,}}
+                                className="text-[length:14] italic text-[INK] leading-[1.8]" style={{margin: '0 0 8px',}}
                             >
-                                "Everything is vague to a degree you do not
-                                realise till you have tried to make it precise."
+                                &quot;Everything is vague to a degree you do not
+                                realise till you have tried to make it precise.&quot;
                             </p>
                             <p
                                 className="text-[length:10] tracking-[0.15em] text-[var(--sor-muted] uppercase m-0"
@@ -437,15 +437,15 @@ function SoritesBoard({ onNewGame }) {
 
 
         return (
-            <div className="font-[family:MONO]" style={{padding: 0 0 80px,}}>
+            <div className="font-[family:MONO]" style={{padding: '0 0 80px',}}>
                 <div style={{ maxWidth: 600, margin: '0 auto' }}>
                     <p
-                        className="text-[length:10] tracking-[0.22em] text-[var(--sor-muted] uppercase" style={{margin: 0 0 10px,}}
+                        className="text-[length:10] tracking-[0.22em] text-[var(--sor-muted] uppercase" style={{margin: '0 0 10px',}}
                     >
                         Analysis
                     </p>
                     <output
-                        className="block text-[length:28] font-[600] text-[INK] font-[family:MONO]" style={{margin: 0 0 40px,}}
+                        className="block text-[length:28] font-[600] text-[INK] font-[family:MONO]" style={{margin: '0 0 40px',}}
                         aria-live="polite"
                     >
                         Your classifications
@@ -490,7 +490,7 @@ function SoritesBoard({ onNewGame }) {
                     {/* Inversion */}
                     {hasInversion && notFavPatch && favPatch && (
                         <div
-                            className="bg-[#b50000] text-[#fff] mb-[32]" style={{padding: 22px 28px,}}
+                            className="bg-[#b50000] text-[#fff] mb-[32]" style={{padding: '22px 28px',}}
                         >
                             <strong
                                 className="text-[length:10] tracking-[0.18em] uppercase block mb-[10]"
@@ -513,10 +513,10 @@ function SoritesBoard({ onNewGame }) {
                     {cleanBoundary && favPatch && notFavPatch && (
                         <>
                             <div
-                                className="bg-[INK] text-[BG] mb-[32]" style={{padding: 22px 28px,}}
+                                className="bg-[INK] text-[BG] mb-[32]" style={{padding: '22px 28px',}}
                             >
                                 <p
-                                    className="text-[length:13] leading-[1.85]" style={{margin: 0 0 14px,}}
+                                    className="text-[length:13] leading-[1.85]" style={{margin: '0 0 14px',}}
                                 >
                                     You drew a line.
                                 </p>
@@ -563,12 +563,12 @@ function SoritesBoard({ onNewGame }) {
                             </div>
 
                             <h3
-                                className="text-[length:11] uppercase tracking-[0.18em] text-[var(--sor-muted] font-[family:MONO]" style={{margin: 0 0 14px,}}
+                                className="text-[length:11] uppercase tracking-[0.18em] text-[var(--sor-muted] font-[family:MONO]" style={{margin: '0 0 14px',}}
                             >
                                 The tolerance chain
                             </h3>
                             <p
-                                className="text-[length:12] text-[var(--sor-muted-dark] leading-[1.9]" style={{margin: 0 0 20px,}}
+                                className="text-[length:12] text-[var(--sor-muted-dark] leading-[1.9]" style={{margin: '0 0 20px',}}
                             >
                                 <strong className="text-[INK]">P1:</strong>{' '}
                                 <Swatch color={toRGB(0)} size={12} /> {favName} (position
@@ -633,7 +633,7 @@ function SoritesBoard({ onNewGame }) {
                             </div>
 
                             <div
-                                className="bg-[#b50000] text-[#fff] mb-[48]" style={{padding: 22px 28px,}}
+                                className="bg-[#b50000] text-[#fff] mb-[48]" style={{padding: '22px 28px',}}
                             >
                                 <strong
                                     className="text-[length:10] tracking-[0.18em] uppercase block mb-[10]"
@@ -654,7 +654,7 @@ function SoritesBoard({ onNewGame }) {
                     )}
 
                     <h3
-                        className="text-[length:11] uppercase tracking-[0.18em] text-[var(--sor-muted] font-[family:MONO]" style={{margin: 0 0 20px,}}
+                        className="text-[length:11] uppercase tracking-[0.18em] text-[var(--sor-muted] font-[family:MONO]" style={{margin: '0 0 20px',}}
                     >
                         Four exits from the paradox
                     </h3>
@@ -682,7 +682,7 @@ function SoritesBoard({ onNewGame }) {
                     ].map(([name, url, desc]) => (
                         <div
                             key={name}
-                            className="pl-[18] mb-[22]" style={{borderLeft: 2px solid #ddd,}}
+                            className="pl-[18] mb-[22]" style={{borderLeft: '2px solid #ddd',}}
                         >
                             <a
                                 href={url}
@@ -710,7 +710,7 @@ function SoritesBoard({ onNewGame }) {
 
                     <button
                         onClick={onNewGame}
-                        className="mt-[40] bg-transparent font-[family:MONO] text-[length:11] tracking-[0.14em] uppercase cursor-pointer text-[var(--sor-muted-dark]" style={{padding: 12px 28px, border: 1px solid #ccc, transition: all .15s,}}
+                        className="mt-[40] bg-transparent font-[family:MONO] text-[length:11] tracking-[0.14em] uppercase cursor-pointer text-[var(--sor-muted-dark]" style={{padding: '12px 28px', border: '1px solid #ccc', transition: 'all .15s',}}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.borderColor = INK
                             e.currentTarget.style.color = INK
