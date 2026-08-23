@@ -120,16 +120,22 @@ export default function Team() {
                             }}
                         >
                             Our signature event,{' '}
-                            <span
+                            <button
                                 onClick={() => setCpcClicked(true)}
                                 style={{
                                     cursor: cpcClicked ? 'default' : 'pointer',
+                                    background: 'none',
+                                    border: 'none',
+                                    padding: 0,
+                                    font: 'inherit',
+                                    color: 'inherit',
+                                    display: 'inline',
                                 }}
                             >
                                 {cpcClicked
                                     ? 'Charas Par Charcha'
                                     : 'Chai Pe Charcha'}
-                            </span>{' '}
+                            </button>{' '}
                             (CPC), remains the beating heart of Axiom. Every
                             week, without fail, students gather over hot cups of
                             chai to debate, discuss, and occasionally disagree —
