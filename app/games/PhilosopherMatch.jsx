@@ -107,7 +107,7 @@ export default function PhilosopherMatch() {
     const [quoteIdx, setQuoteIdx] = useState(0)
     const [attempts, setAttempts] = useState(0)
     const [revealed, setRevealed] = useState(0) // 0 = no hints, 1 = detail, 2 = century, 3 = tradition
-    const [selected, setSelected] = useState(null)
+    
     const [correct, setCorrect] = useState(false)
     const [score, setScore] = useState(0)
     const [total, setTotal] = useState(0)

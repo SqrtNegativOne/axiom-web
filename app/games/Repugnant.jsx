@@ -283,7 +283,7 @@ export default function GameRepugnant() {
     if (phase === 'intro')
         return (
             <div
-                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS] flex flex-col items-center justify-center" style={{padding: 40px 24px,}}
+                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS] flex flex-col items-center justify-center py-[40px] px-[24px]"
             >
                 <style>{`
         /* Self-hosted fonts (latin subset) — served from /data/fonts/games/ */
@@ -311,26 +311,26 @@ export default function GameRepugnant() {
                         ))}
                     </div>
                     <p
-                        className="text-[length:10] tracking-[0.22em] text-[#2a5c30] uppercase font-[family:MONO]" style={{margin: 0 0 12px,}}
+                        className="text-[length:10px] tracking-[0.22em] text-[#2a5c30] uppercase font-[family:MONO] mb-[12px]"
                     >
                         Population Ethics · Parfit 1984
                     </p>
                     <h1
-                        className="text-[length:42] font-bold text-[#c8e6d0] leading-[1.1]" style={{margin: 0 0 28px,}}
+                        className="text-[length:42px] font-bold text-[#c8e6d0] leading-[1.1] mb-[28px]"
                     >
                         The Repugnant
                         <br />
                         Conclusion
                     </h1>
                     <p
-                        className="text-[length:14] text-[#5a8c64] leading-[1.85]" style={{margin: 0 0 16px,}}
+                        className="text-[length:14px] text-[#5a8c64] leading-[1.85] mb-[16px]"
                     >
                         You will make a series of comparisons between possible
                         worlds. Each comparison will seem reasonable. Follow
                         your own reasoning to its conclusion.
                     </p>
                     <p
-                        className="text-[length:14] text-[#5a8c64] leading-[1.85]" style={{margin: 0 0 44px,}}
+                        className="text-[length:14px] text-[#5a8c64] leading-[1.85] mb-[44px]"
                     >
                         This experiment has {STEPS.length} steps.
                     </p>
@@ -347,7 +347,7 @@ export default function GameRepugnant() {
     if (phase === 'game')
         return (
             <div
-                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS]" style={{padding: 40px 20px 80px,}}
+                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS] pt-[40px] px-[20px] pb-[80px]"
             >
                 <style>{`
         .next-rp { background:${GREEN}; color:#040a06; border:none; padding:12px 32px; font-family:${MONO}; font-size:12px; font-weight:700; letter-spacing:0.12em; cursor:pointer; transition:opacity .15s; }
@@ -376,17 +376,17 @@ export default function GameRepugnant() {
                     </div>
 
                     <p
-                        className="text-[length:10] tracking-[0.2em] text-[#5a8c64] uppercase font-[family:MONO]" style={{margin: 0 0 8px,}}
+                        className="text-[length:10px] tracking-[0.2em] text-[#5a8c64] uppercase font-[family:MONO] mb-[8px]"
                     >
                         Step {step + 1} of {STEPS.length}
                     </p>
                     <h2
-                        className="text-[length:22] font-[600] text-[#c8e6d0]" style={{margin: 0 0 8px,}}
+                        className="text-[length:22px] font-[600] text-[#c8e6d0] mb-[8px]"
                     >
                         {current.aLabel} vs {current.bLabel}
                     </h2>
                     <p
-                        className="text-[length:13] text-[#8aaa94] leading-[1.85]" style={{margin: 0 0 28px,}}
+                        className="text-[length:13px] text-[#8aaa94] leading-[1.85] mb-[28px]"
                     >
                         {current.prompt}
                     </p>
@@ -445,10 +445,10 @@ export default function GameRepugnant() {
                     {selected !== null && (
                         <div className="rp-reveal mb-[24]" >
                             <div
-                                className="bg-[#0a1f0e] mb-[16]" style={{border: 1px solid #1a3c1f, padding: 16px 20px,}}
+                                className="bg-[#0a1f0e] mb-[16px] border border-[#1a3c1f] py-[16px] px-[20px]"
                             >
                                 <p
-                                    className="text-[length:10] text-[#3a7a44] font-[family:MONO] tracking-[0.14em] uppercase" style={{margin: 0 0 8px,}}
+                                    className="text-[length:10px] text-[#3a7a44] font-[family:MONO] tracking-[0.14em] uppercase mb-[8px]"
                                 >
                                     Reasoning for{' '}
                                     {selected ? current.bLabel : current.aLabel}
@@ -473,10 +473,10 @@ export default function GameRepugnant() {
                     {/* Chain so far */}
                     {choices.length > 0 && (
                         <div
-                            className="mt-[32] bg-[#060e08]" style={{padding: 14px 18px, border: 1px solid #0d1f10,}}
+                            className="mt-[32px] bg-[#060e08] py-[14px] px-[18px] border border-[#0d1f10]"
                         >
                             <p
-                                className="text-[length:10] text-[#5a8c64] font-[family:MONO] tracking-[0.14em] uppercase" style={{margin: 0 0 8px,}}
+                                className="text-[length:10px] text-[#5a8c64] font-[family:MONO] tracking-[0.14em] uppercase mb-[8px]"
                             >
                                 Your chain so far
                             </p>

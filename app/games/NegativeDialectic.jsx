@@ -293,9 +293,8 @@ function GameBoard({ puzzle, onNewGame }) {
 
             {/* Win banner */}
             {status === 'win' && (
-                <div
+                <output
                     className="mt-8 bg-green/10 border border-green/30 rounded-lg px-6 py-5 animate-pop-in max-w-2xl mx-auto text-center"
-                    role="status"
                     aria-live="polite"
                 >
                     <p className="font-mono text-xs tracking-widest uppercase text-green/80 mb-2">
@@ -304,14 +303,13 @@ function GameBoard({ puzzle, onNewGame }) {
                     <p className="font-body text-sm text-ink/75 leading-relaxed">
                         You successfully identified the non-identical remainder. The false synthesis has been dismantled.
                     </p>
-                </div>
+                </output>
             )}
 
             {/* Lose banner */}
             {status === 'lose' && (
-                <div
+                <output
                     className="mt-8 bg-terracotta/8 border border-terracotta/25 rounded-lg px-6 py-5 animate-pop-in max-w-2xl mx-auto text-center"
-                    role="status"
                     aria-live="polite"
                 >
                     <p className="font-mono text-xs tracking-widest uppercase text-terracotta/80 mb-3">
@@ -327,7 +325,7 @@ function GameBoard({ puzzle, onNewGame }) {
                     <p className="font-body text-sm text-ink/75 leading-relaxed">
                         The correct residual is highlighted above. Critical theory demands we always look for what the system excludes.
                     </p>
-                </div>
+                </output>
             )}
 
             {/* Play again */}

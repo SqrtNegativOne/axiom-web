@@ -205,9 +205,8 @@ function GameBoard({ puzzle, onNewGame }) {
 
             {/* Win banner */}
             {status === 'win' && (
-                <div
+                <output
                     className="bg-green/10 border border-green/30 rounded-lg px-5 py-4 animate-pop-in"
-                    role="status"
                     aria-live="polite"
                 >
                     <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-1">
@@ -220,14 +219,13 @@ function GameBoard({ puzzle, onNewGame }) {
                         </span>
                         .
                     </p>
-                </div>
+                </output>
             )}
 
             {/* Lose banner */}
             {status === 'lose' && (
-                <div
+                <output
                     className="bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 animate-pop-in"
-                    role="status"
                     aria-live="polite"
                 >
                     <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-2">
@@ -241,7 +239,7 @@ function GameBoard({ puzzle, onNewGame }) {
                         </span>
                         .
                     </p>
-                </div>
+                </output>
             )}
 
             {/* Play again */}

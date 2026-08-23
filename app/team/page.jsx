@@ -12,13 +12,6 @@ import PullQuote from '../../components/PullQuote'
 export default function Team() {
     const [cpcClicked, setCpcClicked] = useState(false)
 
-    const people = [
-        ...core.flatMap((group) =>
-            group.members.map((member) => ({ ...member, jobTitle: group.role })),
-        ),
-        ...members.map((member) => ({ ...member, jobTitle: 'Member' })),
-    ]
-
     // Easter egg (2026): if any rendered text contains "Sunrise parabellum", wrap it
     // in a link to the Disco Elysium fitgirl page. No data-file changes needed.
     useEffect(() => {

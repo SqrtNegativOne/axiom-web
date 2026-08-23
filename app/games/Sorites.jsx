@@ -38,7 +38,7 @@ const MONO = "'IBM Plex Mono', 'Courier New', monospace"
 function Swatch({ color, size = 16 }) {
     return (
         <span
-            className="inline-block w-[size] h-[size] bg-[color] shrink-0" style={{verticalAlign: middle, margin: 0 3px,}}
+            className="inline-block w-[size] h-[size] bg-[color] shrink-0 align-middle mx-[3px]"
         />
     )
 }
@@ -95,7 +95,7 @@ function SoritesBoard({ onNewGame }) {
 
         return (
             <div
-                className="font-[family:MONO] flex flex-col items-center" style={{padding: 40px 0 80px,}}
+                className="font-[family:MONO] flex flex-col items-center pt-[40px] pb-[80px]"
             >
                 <style>{`
           .sor-swatch { border: none; padding: 0; cursor: pointer; background: transparent; text-align: center; }
@@ -105,20 +105,20 @@ function SoritesBoard({ onNewGame }) {
         `}</style>
                 <div className="w-full" style={{maxWidth: 520,}}>
                     <p
-                        className="text-[length:10] tracking-[0.22em] text-[var(--sor-muted] uppercase" style={{margin: 0 0 14px,}}
+                        className="text-[length:10px] tracking-[0.22em] text-[var(--sor-muted)] uppercase mb-[14px]"
                     >
                         Setup ·{' '}
                         {setupStep === 'fav' ? 'Step 1 of 2' : 'Step 2 of 2'}
                     </p>
                     <h2
-                        className="text-[length:34] font-[600] text-[INK] leading-[1.15] font-[family:MONO]" style={{margin: 0 0 10px,}}
+                        className="text-[length:34px] font-[600] text-[INK] leading-[1.15] font-[family:MONO] mb-[10px]"
                     >
                         {setupStep === 'fav'
                             ? 'Choose your favourite colour.'
                             : 'Choose your least favourite.'}
                     </h2>
                     <p
-                        className="text-[length:12] text-[var(--sor-muted] leading-[1.8]" style={{margin: 0 0 36px,}}
+                        className="text-[length:12px] text-[var(--sor-muted)] leading-[1.8] mb-[36px]"
                     >
                         {setupStep === 'fav'
                             ? 'The gradient will run from this colour. You will be asked: "Is this [your colour]?"'
@@ -146,7 +146,7 @@ function SoritesBoard({ onNewGame }) {
                     )}
 
                     <div
-                        className="grid gap-[12] mb-[20]" style={{gridTemplateColumns: repeat(4,}}
+                        className="grid gap-[12px] mb-[20px] grid-cols-4"
                     >
                         {pickerColours.map((colour) => (
                             <button
@@ -184,7 +184,7 @@ function SoritesBoard({ onNewGame }) {
     if (phase === 'intro')
         return (
             <div
-                className="font-[family:MONO] flex flex-col items-center" style={{padding: 40px 0 80px,}}
+                className="font-[family:MONO] flex flex-col items-center pt-[40px] pb-[80px]"
             >
                 <style>{`
           .sor-start-btn { background:${INK}; color:${BG}; border:none; padding:14px 40px; font-family:${MONO}; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer; transition:opacity .15s; }
@@ -193,19 +193,19 @@ function SoritesBoard({ onNewGame }) {
                 <div className="w-full" style={{maxWidth: 520,}}>
                     {stripBar()}
                     <p
-                        className="text-[length:10] tracking-[0.22em] text-[var(--sor-muted] uppercase" style={{margin: 0 0 14px,}}
+                        className="text-[length:10px] tracking-[0.22em] text-[var(--sor-muted)] uppercase mb-[14px]"
                     >
                         Experiment · The Sorites Paradox
                     </p>
                     <h2
-                        className="text-[length:40] font-[600] text-[INK] leading-[1.1] font-[family:MONO]" style={{margin: 0 0 28px,}}
+                        className="text-[length:40px] font-[600] text-[INK] leading-[1.1] font-[family:MONO] mb-[28px]"
                     >
                         Where does
                         <br />
                         {favColour.name} end?
                     </h2>
                     <p
-                        className="text-[length:13] text-[var(--sor-muted-dark] leading-[1.85]" style={{margin: 0 0 12px,}}
+                        className="text-[length:13px] text-[var(--sor-muted-dark)] leading-[1.85] mb-[12px]"
                     >
                         You will be shown {N} colour patches running from{' '}
                         <span className="text-[toRGB(0)] font-[600]">
@@ -218,7 +218,7 @@ function SoritesBoard({ onNewGame }) {
                         , one at a time. For each, answer a single question:
                     </p>
                     <p
-                        className="text-[length:16] text-[INK] font-[500] tracking-[0.02em]" style={{margin: 0 0 28px,}}
+                        className="text-[length:16px] text-[INK] font-[500] tracking-[0.02em] mb-[28px]"
                     >
                         Is this{' '}
                         <span className="text-[toRGB(0)]">
@@ -227,7 +227,7 @@ function SoritesBoard({ onNewGame }) {
                         ?
                     </p>
                     <p
-                        className="text-[length:12] text-[var(--sor-muted] leading-[1.8]" style={{margin: 0 0 44px,}}
+                        className="text-[length:12px] text-[var(--sor-muted)] leading-[1.8] mb-[44px]"
                     >
                         No trick. Answer honestly. You will be shown your own
                         contradictions at the end.
@@ -250,7 +250,7 @@ function SoritesBoard({ onNewGame }) {
         const isAnchor = step < 2
         return (
             <div
-                className="font-[family:MONO] flex flex-col items-center" style={{padding: 40px 0 80px,}}
+                className="font-[family:MONO] flex flex-col items-center pt-[40px] pb-[80px]"
             >
                 <style>{`
           .sor-cls-btn { flex:1; padding:18px 0; font-family:${MONO}; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer; border:1.5px solid; transition:all .12s; background:transparent; }
@@ -286,7 +286,7 @@ function SoritesBoard({ onNewGame }) {
                     </div>
 
                     <div
-                        className="w-full bg-[toRGB(p.t)] mb-[44]" style={{aspectRatio: 4/3, transition: background 0.35s ease,}}
+                        className="w-full mb-[44px] aspect-[4/3] transition-colors duration-[0.35s] ease-in-out" style={{ backgroundColor: toRGB(p.t) }}
                     />
 
                     <p

@@ -178,7 +178,7 @@ function Keyboard({ keyState, onKey }) {
 
     return (
         <div className="flex flex-col items-center gap-1.5 mt-6 select-none">
-            {KB_ROWS.map((row, ri) => (
+            {KB_ROWS.map((row) => (
                 <div key={row[0]} className="flex gap-1">
                     {row.map((key) => {
                         const isWide = key === 'ENTER' || key === '⌫'
