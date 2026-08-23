@@ -131,9 +131,8 @@ function GameBoard({ puzzle, onNewGame }) {
 
             {/* Win banner */}
             {status === 'win' && (
-                <div
+                <output
                     className="mt-6 bg-green/10 border border-green/30 rounded-lg px-5 py-4 animate-pop-in"
-                    role="status"
                     aria-live="polite"
                 >
                     <p className="font-mono text-xs tracking-widest uppercase text-green/70 mb-1">
@@ -147,14 +146,13 @@ function GameBoard({ puzzle, onNewGame }) {
                         {guesses.length === 1 ? 'guess' : 'guesses'} with{' '}
                         {shown} {shown === 1 ? 'clue' : 'clues'} revealed.
                     </p>
-                </div>
+                </output>
             )}
 
             {/* Lose banner */}
             {status === 'lose' && (
-                <div
+                <output
                     className="mt-6 bg-terracotta/8 border border-terracotta/25 rounded-lg px-5 py-4 animate-pop-in"
-                    role="status"
                     aria-live="polite"
                 >
                     <p className="font-mono text-xs tracking-widest uppercase text-terracotta/70 mb-1">
@@ -171,7 +169,7 @@ function GameBoard({ puzzle, onNewGame }) {
                         . All clues trace this concept through its key
                         appearances in Western philosophy.
                     </p>
-                </div>
+                </output>
             )}
 
             {/* Play again */}

@@ -79,7 +79,7 @@ export default function ArgumentReconstruction() {
     const [argIdx, setArgIdx] = useState(0)
     const [items, setItems] = useState(() => initItems(ARGUMENTS[0].correct))
     const [dragging, setDragging] = useState(null)
-    const [dragOver, setDragOver] = useState(null)
+    
     const [submitted, setSubmitted] = useState(false)
     const [score, setScore] = useState(0)
     const [showNote, setShowNote] = useState(false)

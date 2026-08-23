@@ -82,7 +82,6 @@ const NAV_LINK_STYLE =
 const SOCIAL_LABEL_STYLE = NAV_LABEL_STYLE
 const SOCIAL_LINK_STYLE = NAV_LINK_STYLE + ' flex items-center gap-2'
 const FEED_LINK_STYLE = NAV_LINK_STYLE + ' flex items-center gap-1'
-const FEED_ROW_STYLE = 'flex items-start h-5 gap-3'
 const SOCIAL_COL_STYLE = 'flex flex-col gap-2'
 const DIVIDER_STYLE = 'border-t border-gold/20 mt-10 pt-6'
 const COPYRIGHT_STYLE =

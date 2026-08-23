@@ -25,9 +25,14 @@ export default function GalleryCarousel() {
         setLoaded((prev) => new Set(prev).add(idx))
     }, [])
 
-    const prev = () =>
-        show((current - 1 + galleryImages.length) % galleryImages.length)
-    const next = () => show((current + 1) % galleryImages.length)
+    const prev = useCallback(
+        () => show((current - 1 + galleryImages.length) % galleryImages.length),
+        [current, show]
+    )
+    const next = useCallback(
+        () => show((current + 1) % galleryImages.length),
+        [current, show]
+    )
 
     useEffect(() => {
         const onVisibility = () => setPaused(document.hidden)
@@ -41,7 +46,7 @@ export default function GalleryCarousel() {
             intervalRef.current = setInterval(next, 4000)
         }
         return () => clearInterval(intervalRef.current)
-    }, [paused, current, show])
+    }, [paused, next])
 
     return (
         <div

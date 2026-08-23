@@ -399,7 +399,7 @@ export default function FallacyDetective() {
                                         <div className="text-[.85rem] text-[rgba(240,232,216,.5)] leading-[1.4] italic line-clamp-2" >
                                             {r.context}
                                         </div>
-                                    </div>
+                                    </button>
                                 )
                             })}
                         </div>
@@ -605,7 +605,7 @@ export default function FallacyDetective() {
                                                 placeholder="Search 50+ fallacies…"
                                                 autoComplete="off"
                                                 spellCheck={false}
-                                                className="w-full bg-[rgba(0] text-[var(--paper)] font-[family:var(--ff-mono)] text-[length:.7rem]" style={{border: 1px solid rgba(196, padding: .5rem .65rem, outline: none, appearance: none,}}
+                                                className="w-full bg-[rgba(0,0,0,0.35)] text-[var(--paper)] border border-[rgba(196,154,40,0.22)] px-[0.65rem] py-[0.5rem] font-[family:var(--ff-mono)] text-[0.7rem] outline-none appearance-none"
                                                 onFocus2={() =>
                                                     setShowDropdown(true)
                                                 }
@@ -676,7 +676,7 @@ export default function FallacyDetective() {
                                         </button>
                                         {feedback && (
                                             <div
-                                                className="mt-[.65rem] font-[family:var(--ff-mono)] text-[length:.7rem] leading-[1.55]" style={{padding: .6rem .75rem, borderLeft: 3px solid,}}
+                                                className="mt-[.65rem] font-[family:var(--ff-mono)] text-[length:.7rem] leading-[1.55] py-[0.6rem] px-[0.75rem] border-l-[3px] border-solid"
                                             >
                                                 {feedback.msg}
                                             </div>
@@ -706,11 +706,10 @@ export default function FallacyDetective() {
                                                 return (
                                                     <li
                                                         key={i}
-                                                        className="fd-progress-item flex items-center gap-[.45rem] font-[family:var(--ff-mono)] text-[length:.67rem] text-[#7fcf9f]"
-                                                         style={{padding: .25rem 0, borderBottom: 1px solid rgba(196,}}
+                                                         className="fd-progress-item flex items-center gap-[.45rem] font-[family:var(--ff-mono)] text-[length:.67rem] text-[#7fcf9f] py-[0.25rem] border-b border-[rgba(196,154,40,0.3)]"
                                                     >
                                                         <span
-                                                            className="w-[7] h-[7] rounded-[50%] bg-[#7fcf9f] shrink-0 inline-block" style={{border: 1px solid #7fcf9f,}}
+                                                            className="w-[7px] h-[7px] rounded-[50%] bg-[#7fcf9f] shrink-0 inline-block border border-[#7fcf9f]"
                                                         />
                                                         {fname}
                                                     </li>
@@ -718,10 +717,10 @@ export default function FallacyDetective() {
                                             })}
                                             {!allFound && (
                                                 <li
-                                                    className="flex items-center gap-[.45rem] font-[family:var(--ff-mono)] text-[length:.67rem] text-[rgba(240]" style={{padding: .25rem 0,}}
+                                                    className="flex items-center gap-[.45rem] font-[family:var(--ff-mono)] text-[length:.67rem] text-[rgba(240,232,216,0.35)] py-[0.25rem]"
                                                 >
                                                     <span
-                                                        className="w-[7] h-[7] rounded-[50%] shrink-0 inline-block" style={{border: 1px solid rgba(240,}}
+                                                        className="w-[7px] h-[7px] rounded-[50%] shrink-0 inline-block border border-[rgba(240,232,216,0.2)]"
                                                     />
                                                     <span
                                                         className="italic tracking-[.08em]"
@@ -733,7 +732,7 @@ export default function FallacyDetective() {
                                         </ul>
                                         {allFound && (
                                             <div
-                                                className="mt-[.65rem] font-[family:var(--ff-mono)] text-[length:.68rem] tracking-[.05em] bg-[rgba(42] text-[#7fcf9f] text-center" style={{padding: .55rem .75rem, border: 1px solid rgba(42,}}
+                                                className="mt-[.65rem] font-[family:var(--ff-mono)] text-[length:.68rem] tracking-[.05em] bg-[rgba(42,102,68,0.15)] text-[#7fcf9f] text-center py-[0.55rem] px-[0.75rem] border border-[rgba(42,102,68,0.5)]"
                                             >
                                                 All fallacies found — close the
                                                 case!
@@ -743,7 +742,7 @@ export default function FallacyDetective() {
 
                                     {/* Notes */}
                                     <div
-                                        className="flex-1" style={{padding: .9rem 1.1rem,}}
+                                        className="flex-1 py-[0.9rem] px-[1.1rem]"
                                     >
                                         <div
                                             className="font-[family:var(--ff-mono)] text-[length:.58rem] tracking-[.22em] uppercase text-[#c49a28] mb-2 opacity-[0.75]"
@@ -771,7 +770,7 @@ export default function FallacyDetective() {
 
                                     <button
                                         onClick={finishRound}
-                                        className="font-[family:var(--ff-mono)] text-[length:.7rem] tracking-[.12em] uppercase text-[rgba(240] bg-transparent p-[.55rem] cursor-pointer" style={{margin: auto 1.1rem 1.1rem, border: 1px solid rgba(240,}}
+                                        className="font-[family:var(--ff-mono)] text-[length:.7rem] tracking-[.12em] uppercase text-[rgba(240,232,216,0.85)] bg-transparent p-[.55rem] cursor-pointer mx-[1.1rem] mt-auto mb-[1.1rem] border border-[rgba(240,232,216,0.3)]"
                                     >
                                         Close This Case →
                                     </button>
@@ -784,14 +783,13 @@ export default function FallacyDetective() {
                 {/* ═══ RESULTS OVERLAY ════════════════════════════════════════════════ */}
                 {phase === 'results' && (
                     <div
-                        className="bg-[rgba(23] flex items-center justify-center p-[1.5rem]" style={{position: fixed, inset: 0, zIndex: 200, backdropFilter: blur(5px),}}
+                        className="bg-[rgba(23,12,7,0.75)] flex items-center justify-center p-[1.5rem] fixed inset-0 z-[200] backdrop-blur-[5px]"
                     >
                         <div
-                            className="fd-scrollbar fd-results-panel bg-[var(--panel2)] w-full overflow-y-auto p-8 relative"
-                             style={{border: 1px solid var(--border), maxWidth: 600, maxHeight: 85vh,}}
+                             className="fd-scrollbar fd-results-panel bg-[var(--panel2)] w-full overflow-y-auto p-8 relative border border-[var(--border)] max-w-[600px] max-h-[85vh]"
                         >
                             <div
-                                className="absolute font-[family:var(--ff-mono)] text-[length:.58rem] tracking-[.28em] text-[#b83232] opacity-[0.65]" style={{top: 1.2rem, right: 1.2rem, border: 1px solid #b83232, padding: .2rem .55rem,}}
+                                className="absolute font-[family:var(--ff-mono)] text-[length:.58rem] tracking-[.28em] text-[#b83232] opacity-[0.65] top-[1.2rem] right-[1.2rem] border border-[#b83232] py-[0.2rem] px-[0.55rem]"
                             >
                                 Case Closed
                             </div>
@@ -879,7 +877,7 @@ export default function FallacyDetective() {
                         className="flex flex-col items-center justify-center min-h-[calc(100vh - 64px)] text-center p-8 bg-[radial-gradient(ellipse 70% 50% at 50% 50%]"
                     >
                         <div
-                            className="font-[family:var(--ff-mono)] text-[length:.62rem] tracking-[.3em] uppercase text-[#c49a28] mb-[1.5rem] opacity-[0.7]" style={{border: 1px solid #c49a28, padding: .28rem .8rem,}}
+                            className="font-[family:var(--ff-mono)] text-[length:.62rem] tracking-[.3em] uppercase text-[#c49a28] mb-[1.5rem] opacity-[0.7] border border-[#c49a28] py-[0.28rem] px-[0.8rem]"
                         >
                             Investigation Complete
                         </div>
@@ -896,7 +894,7 @@ export default function FallacyDetective() {
                             Here's your final assessment, Detective.
                         </p>
                         <div
-                            className="bg-[var(--panel)] mb-[1.75rem] text-center" style={{border: 1px solid var(--border), padding: 1.75rem 3.5rem,}}
+                            className="bg-[var(--panel)] mb-[1.75rem] text-center border border-[var(--border)] py-[1.75rem] px-[3.5rem]"
                         >
                             <div
                                 className="font-[family:var(--ff-head)] text-[length:4.5rem] font-black text-[#c49a28] leading-[1]"
@@ -928,8 +926,7 @@ export default function FallacyDetective() {
                         </p>
                         <button
                             onClick={() => setPhase('intro')}
-                            className="fd-clip"
-                            className="font-[family:var(--ff-mono)] text-[length:.78rem] tracking-[.18em] uppercase text-[#17140f] bg-[#c49a28] border-none cursor-pointer font-bold" style={{padding: .85rem 2.5rem,}}
+                            className="fd-clip font-[family:var(--ff-mono)] text-[length:.78rem] tracking-[.18em] uppercase text-[#17140f] bg-[#c49a28] border-none cursor-pointer font-bold py-[0.85rem] px-[2.5rem]"
                         >
                             Return to Case Files
                         </button>

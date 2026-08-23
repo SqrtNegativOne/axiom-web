@@ -237,6 +237,7 @@ export default function ParadigmShift() {
                             style={style}
                             onClick={() => handleSelect(ph.id)}
                             disabled={submitted}
+                            aria-label={ph.id}
                         >
                             <div
                                 style={{
