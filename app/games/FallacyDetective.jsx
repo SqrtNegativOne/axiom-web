@@ -418,13 +418,16 @@ export default function FallacyDetective() {
                             {rounds.current.map((r, i) => {
                                 const score = scores[i]
                                 return (
-                                    <div
+                                    <button
                                         key={i}
                                         onClick={() => {
                                             startRound(i)
                                             setPhase('game')
                                         }}
                                         style={{
+                                            textAlign: 'left',
+                                            display: 'block',
+                                            width: '100%',
                                             background: 'var(--panel)',
                                             border: '1px solid var(--border)',
                                             padding: '1.2rem',
@@ -643,12 +646,22 @@ export default function FallacyDetective() {
                                                 .filter(Boolean)
                                                 .join(' ')
                                             return (
-                                                <span
+                                                <button
                                                     key={i}
                                                     className={cls}
                                                     onClick={() =>
                                                         toggleSentence(i)
                                                     }
+                                                    style={{
+                                                        background: 'none',
+                                                        border: 'none',
+                                                        padding: 0,
+                                                        font: 'inherit',
+                                                        color: 'inherit',
+                                                        display: 'inline',
+                                                        textAlign: 'left',
+                                                        cursor: 'pointer',
+                                                    }}
                                                 >
                                                     {txt}{' '}
                                                     {badge && (
@@ -656,7 +669,7 @@ export default function FallacyDetective() {
                                                             {badge}
                                                         </span>
                                                     )}
-                                                </span>
+                                                </button>
                                             )
                                         })}
                                     </div>
@@ -813,7 +826,7 @@ export default function FallacyDetective() {
                                                     <div className="fd-dropdown fd-scrollbar">
                                                         {filteredFallacies.map(
                                                             (f) => (
-                                                                <div
+                                                                <button
                                                                     key={f.id}
                                                                     className={`fd-opt${f.id === selectedFallacyId ? ' fd-opt-sel' : ''}`}
                                                                     onMouseDown={(
@@ -824,9 +837,19 @@ export default function FallacyDetective() {
                                                                             f,
                                                                         )
                                                                     }}
+                                                                    style={{
+                                                                        width: '100%',
+                                                                        textAlign: 'left',
+                                                                        background: 'none',
+                                                                        border: 'none',
+                                                                        padding: '.5rem',
+                                                                        font: 'inherit',
+                                                                        color: 'inherit',
+                                                                        cursor: 'pointer',
+                                                                    }}
                                                                 >
                                                                     {f.name}
-                                                                </div>
+                                                                </button>
                                                             ),
                                                         )}
                                                     </div>
