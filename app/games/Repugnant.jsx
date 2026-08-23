@@ -93,14 +93,7 @@ function World({ n, w, groups, label, selected, pending, onSelect, disabled }) {
 
             {/* Bar chart */}
             <div
-                style={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    gap: 2,
-                    height: 80,
-                    marginBottom: 8,
-                    overflow: 'hidden',
-                }}
+                className="flex items-end gap-[2] h-[80] mb-[8] overflow-hidden"
             >
                 {bars.map((barW, i) => (
                     <div
@@ -120,13 +113,7 @@ function World({ n, w, groups, label, selected, pending, onSelect, disabled }) {
                 ))}
                 {totalN > 20 && (
                     <span
-                        style={{
-                            fontSize: 9,
-                            color: '#5aaa64',
-                            alignSelf: 'center',
-                            marginLeft: 4,
-                            fontFamily: "'Space Mono', monospace",
-                        }}
+                        className="text-[length:9] text-[#5aaa64] ml-[4] font-[family:'Space Mono]" style={{alignSelf: center,}}
                     >
                         +{totalN > 1000 ? (totalN - 20).toLocaleString() : totalN - 20} more
                     </span>
@@ -293,17 +280,7 @@ export default function GameRepugnant() {
     if (phase === 'intro')
         return (
             <div
-                style={{
-                    minHeight: '100vh',
-                    background: BG,
-                    color: '#c8e6d0',
-                    fontFamily: SANS,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '40px 24px',
-                }}
+                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS] flex flex-col items-center justify-center" style={{padding: 40px 24px,}}
             >
                 <style>{`
         /* Self-hosted fonts (latin subset) — served from /data/fonts/games/ */
@@ -316,14 +293,9 @@ export default function GameRepugnant() {
         .start-rp { background:${GREEN}; color:#040a06; border:none; padding:14px 44px; font-family:${MONO}; font-size:13px; font-weight:700; letter-spacing:0.12em; cursor:pointer; transition:opacity .15s; }
         .start-rp:hover { opacity:0.85; }
       `}</style>
-                <div style={{ maxWidth: 500, width: '100%' }}>
+                <div className="w-full" style={{maxWidth: 500,}}>
                     <div
-                        style={{
-                            display: 'flex',
-                            gap: 1,
-                            marginBottom: 48,
-                            height: 4,
-                        }}
+                        className="flex gap-[1] mb-[48] h-[4]"
                     >
                         {Array.from({ length: 20 }).map((_, i) => (
                             <div
@@ -336,49 +308,26 @@ export default function GameRepugnant() {
                         ))}
                     </div>
                     <p
-                        style={{
-                            fontSize: 10,
-                            letterSpacing: '0.22em',
-                            color: '#2a5c30',
-                            textTransform: 'uppercase',
-                            margin: '0 0 12px',
-                            fontFamily: MONO,
-                        }}
+                        className="text-[length:10] tracking-[0.22em] text-[#2a5c30] uppercase font-[family:MONO]" style={{margin: 0 0 12px,}}
                     >
                         Population Ethics · Parfit 1984
                     </p>
                     <h1
-                        style={{
-                            fontSize: 42,
-                            fontWeight: 700,
-                            color: '#c8e6d0',
-                            margin: '0 0 28px',
-                            lineHeight: 1.1,
-                        }}
+                        className="text-[length:42] font-bold text-[#c8e6d0] leading-[1.1]" style={{margin: 0 0 28px,}}
                     >
                         The Repugnant
                         <br />
                         Conclusion
                     </h1>
                     <p
-                        style={{
-                            fontSize: 14,
-                            color: '#5a8c64',
-                            lineHeight: 1.85,
-                            margin: '0 0 16px',
-                        }}
+                        className="text-[length:14] text-[#5a8c64] leading-[1.85]" style={{margin: 0 0 16px,}}
                     >
                         You will make a series of comparisons between possible
                         worlds. Each comparison will seem reasonable. Follow
                         your own reasoning to its conclusion.
                     </p>
                     <p
-                        style={{
-                            fontSize: 14,
-                            color: '#5a8c64',
-                            lineHeight: 1.85,
-                            margin: '0 0 44px',
-                        }}
+                        className="text-[length:14] text-[#5a8c64] leading-[1.85]" style={{margin: 0 0 44px,}}
                     >
                         This experiment has {STEPS.length} steps.
                     </p>
@@ -395,13 +344,7 @@ export default function GameRepugnant() {
     if (phase === 'game')
         return (
             <div
-                style={{
-                    minHeight: '100vh',
-                    background: BG,
-                    color: '#c8e6d0',
-                    fontFamily: SANS,
-                    padding: '40px 20px 80px',
-                }}
+                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS]" style={{padding: 40px 20px 80px,}}
             >
                 <style>{`
         .next-rp { background:${GREEN}; color:#040a06; border:none; padding:12px 32px; font-family:${MONO}; font-size:12px; font-weight:700; letter-spacing:0.12em; cursor:pointer; transition:opacity .15s; }
@@ -411,7 +354,7 @@ export default function GameRepugnant() {
       `}</style>
                 <div style={{ maxWidth: 600, margin: '0 auto' }}>
                     {/* Progress */}
-                    <div style={{ display: 'flex', gap: 4, marginBottom: 44 }}>
+                    <div className="flex gap-[4] mb-[44]">
                         {STEPS.map((_, i) => (
                             <div
                                 key={i}
@@ -430,40 +373,23 @@ export default function GameRepugnant() {
                     </div>
 
                     <p
-                        style={{
-                            fontSize: 10,
-                            letterSpacing: '0.2em',
-                            color: '#5a8c64',
-                            textTransform: 'uppercase',
-                            margin: '0 0 8px',
-                            fontFamily: MONO,
-                        }}
+                        className="text-[length:10] tracking-[0.2em] text-[#5a8c64] uppercase font-[family:MONO]" style={{margin: 0 0 8px,}}
                     >
                         Step {step + 1} of {STEPS.length}
                     </p>
                     <h2
-                        style={{
-                            fontSize: 22,
-                            fontWeight: 600,
-                            color: '#c8e6d0',
-                            margin: '0 0 8px',
-                        }}
+                        className="text-[length:22] font-[600] text-[#c8e6d0]" style={{margin: 0 0 8px,}}
                     >
                         {current.aLabel} vs {current.bLabel}
                     </h2>
                     <p
-                        style={{
-                            fontSize: 13,
-                            color: '#8aaa94',
-                            lineHeight: 1.85,
-                            margin: '0 0 28px',
-                        }}
+                        className="text-[length:13] text-[#8aaa94] leading-[1.85]" style={{margin: 0 0 28px,}}
                     >
                         {current.prompt}
                     </p>
 
                     {/* World comparison */}
-                    <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
+                    <div className="flex gap-[10] mb-[20]">
                         <World
                             n={current.a.n}
                             w={current.a.w}
@@ -496,19 +422,14 @@ export default function GameRepugnant() {
 
                     {selected === null && pendingChoice === null && (
                         <p
-                            style={{
-                                fontSize: 11,
-                                color: '#5a8c64',
-                                fontFamily: MONO,
-                                textAlign: 'center',
-                            }}
+                            className="text-[length:11] text-[#5a8c64] font-[family:MONO] text-center"
                         >
                             Click a world to select it, then submit.
                         </p>
                     )}
 
                     {selected === null && pendingChoice !== null && (
-                        <div style={{ textAlign: 'center', marginBottom: 20 }}>
+                        <div className="text-center mb-[20]">
                             <button
                                 className="next-rp"
                                 onClick={() => choose(pendingChoice)}
@@ -519,35 +440,18 @@ export default function GameRepugnant() {
                     )}
 
                     {selected !== null && (
-                        <div className="rp-reveal" style={{ marginBottom: 24 }}>
+                        <div className="rp-reveal mb-[24]" >
                             <div
-                                style={{
-                                    background: '#0a1f0e',
-                                    border: '1px solid #1a3c1f',
-                                    padding: '16px 20px',
-                                    marginBottom: 16,
-                                }}
+                                className="bg-[#0a1f0e] mb-[16]" style={{border: 1px solid #1a3c1f, padding: 16px 20px,}}
                             >
                                 <p
-                                    style={{
-                                        margin: '0 0 8px',
-                                        fontSize: 10,
-                                        color: '#3a7a44',
-                                        fontFamily: MONO,
-                                        letterSpacing: '0.14em',
-                                        textTransform: 'uppercase',
-                                    }}
+                                    className="text-[length:10] text-[#3a7a44] font-[family:MONO] tracking-[0.14em] uppercase" style={{margin: 0 0 8px,}}
                                 >
                                     Reasoning for{' '}
                                     {selected ? current.bLabel : current.aLabel}
                                 </p>
                                 <p
-                                    style={{
-                                        margin: 0,
-                                        fontSize: 13,
-                                        color: '#8ab893',
-                                        lineHeight: 1.8,
-                                    }}
+                                    className="m-0 text-[length:13] text-[#8ab893] leading-[1.8]"
                                 >
                                     {selected
                                         ? current.bArgument
@@ -566,33 +470,15 @@ export default function GameRepugnant() {
                     {/* Chain so far */}
                     {choices.length > 0 && (
                         <div
-                            style={{
-                                marginTop: 32,
-                                padding: '14px 18px',
-                                background: '#060e08',
-                                border: '1px solid #0d1f10',
-                            }}
+                            className="mt-[32] bg-[#060e08]" style={{padding: 14px 18px, border: 1px solid #0d1f10,}}
                         >
                             <p
-                                style={{
-                                    margin: '0 0 8px',
-                                    fontSize: 10,
-                                    color: '#5a8c64',
-                                    fontFamily: MONO,
-                                    letterSpacing: '0.14em',
-                                    textTransform: 'uppercase',
-                                }}
+                                className="text-[length:10] text-[#5a8c64] font-[family:MONO] tracking-[0.14em] uppercase" style={{margin: 0 0 8px,}}
                             >
                                 Your chain so far
                             </p>
                             <p
-                                style={{
-                                    margin: 0,
-                                    fontSize: 11,
-                                    color: '#6aaa74',
-                                    fontFamily: MONO,
-                                    lineHeight: 2,
-                                }}
+                                className="m-0 text-[length:11] text-[#6aaa74] font-[family:MONO] leading-[2]"
                             >
                                 {STEPS.slice(0, choices.length).map((s, i) => (
                                     <span
@@ -631,13 +517,7 @@ export default function GameRepugnant() {
 
         return (
             <div
-                style={{
-                    minHeight: '100vh',
-                    background: BG,
-                    color: '#c8e6d0',
-                    fontFamily: SANS,
-                    padding: '60px 20px 80px',
-                }}
+                className="min-h-[100vh] bg-[BG] text-[#c8e6d0] font-[family:SANS]" style={{padding: 60px 20px 80px,}}
             >
                 <style>{`
           .reset-rp { background:transparent; color:#3a6a44; border:1px solid #1a3c1f; padding:10px 24px; font-family:${MONO}; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer; transition:all .15s; }
@@ -645,25 +525,12 @@ export default function GameRepugnant() {
         `}</style>
                 <div style={{ maxWidth: 580, margin: '0 auto' }}>
                     <p
-                        style={{
-                            fontSize: 10,
-                            letterSpacing: '0.22em',
-                            color: '#2a5c30',
-                            textTransform: 'uppercase',
-                            margin: '0 0 10px',
-                            fontFamily: MONO,
-                        }}
+                        className="text-[length:10] tracking-[0.22em] text-[#2a5c30] uppercase font-[family:MONO]" style={{margin: 0 0 10px,}}
                     >
                         Conclusion
                     </p>
                     <h2
-                        style={{
-                            fontSize: 34,
-                            fontWeight: 700,
-                            color: '#c8e6d0',
-                            margin: '0 0 32px',
-                            lineHeight: 1.2,
-                        }}
+                        className="text-[length:34] font-bold text-[#c8e6d0] leading-[1.2]" style={{margin: 0 0 32px,}}
                         role="status"
                         aria-live="polite"
                     >
@@ -674,22 +541,10 @@ export default function GameRepugnant() {
 
                     {/* Full chain */}
                     <div
-                        style={{
-                            background: '#060e08',
-                            border: '1px solid #0d2010',
-                            padding: '20px 22px',
-                            marginBottom: 28,
-                        }}
+                        className="bg-[#060e08] mb-[28]" style={{border: 1px solid #0d2010, padding: 20px 22px,}}
                     >
                         <p
-                            style={{
-                                margin: '0 0 12px',
-                                fontSize: 10,
-                                color: '#2a4c2f',
-                                fontFamily: MONO,
-                                letterSpacing: '0.14em',
-                                textTransform: 'uppercase',
-                            }}
+                            className="text-[length:10] text-[#2a4c2f] font-[family:MONO] tracking-[0.14em] uppercase" style={{margin: 0 0 12px,}}
                         >
                             Your complete chain of endorsements
                         </p>
@@ -699,12 +554,7 @@ export default function GameRepugnant() {
                             return (
                                 <div
                                     key={i}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: 10,
-                                        marginBottom: 8,
-                                    }}
+                                    className="flex items-center gap-[10] mb-[8]"
                                 >
                                     <div
                                         style={{
@@ -747,33 +597,17 @@ export default function GameRepugnant() {
                                 }}
                             >
                                 <p
-                                    style={{
-                                        margin: '0 0 12px',
-                                        fontSize: 14,
-                                        color: '#c8e6d0',
-                                        fontWeight: 600,
-                                    }}
+                                    className="text-[length:14] text-[#c8e6d0] font-[600]" style={{margin: 0 0 12px,}}
                                 >
                                     By transitivity of "at least as good as":
                                 </p>
                                 <p
-                                    style={{
-                                        margin: '0 0 12px',
-                                        fontSize: 16,
-                                        color: GREEN,
-                                        fontFamily: MONO,
-                                        fontWeight: 700,
-                                    }}
+                                    className="text-[length:16] text-[GREEN] font-[family:MONO] font-bold" style={{margin: 0 0 12px,}}
                                 >
                                     World Z ≥ World A
                                 </p>
                                 <p
-                                    style={{
-                                        margin: 0,
-                                        fontSize: 13,
-                                        color: '#8ab893',
-                                        lineHeight: 1.85,
-                                    }}
+                                    className="m-0 text-[length:13] text-[#8ab893] leading-[1.85]"
                                 >
                                     World A: 10 people at welfare 100
                                     (flourishing).
@@ -786,7 +620,7 @@ export default function GameRepugnant() {
                                     individually reasonable — implies the vast,
                                     miserable Z is at least as good as the
                                     small, flourishing A. This is Parfit's{' '}
-                                    <strong style={{ color: '#c8e6d0' }}>
+                                    <strong className="text-[#c8e6d0]">
                                         Repugnant Conclusion
                                     </strong>
                                     .
@@ -794,12 +628,7 @@ export default function GameRepugnant() {
                             </div>
 
                             <p
-                                style={{
-                                    fontSize: 13,
-                                    color: '#5a8c64',
-                                    lineHeight: 1.85,
-                                    margin: '0 0 14px',
-                                }}
+                                className="text-[length:13] text-[#5a8c64] leading-[1.85]" style={{margin: 0 0 14px,}}
                             >
                                 The conclusion follows from two widely-shared
                                 intuitions: (1) adding happy lives to the world
@@ -811,30 +640,15 @@ export default function GameRepugnant() {
                         </>
                     ) : (
                         <div
-                            style={{
-                                background: '#0a1f0e',
-                                border: '1.5px solid #3a7a44',
-                                padding: '22px 24px',
-                                marginBottom: 28,
-                            }}
+                            className="bg-[#0a1f0e] mb-[28]" style={{border: 1.5px solid #3a7a44, padding: 22px 24px,}}
                         >
                             <p
-                                style={{
-                                    margin: '0 0 10px',
-                                    fontSize: 13,
-                                    color: '#c8e6d0',
-                                    fontWeight: 600,
-                                }}
+                                className="text-[length:13] text-[#c8e6d0] font-[600]" style={{margin: 0 0 10px,}}
                             >
                                 You broke the chain at step {firstRefusal + 1}.
                             </p>
                             <p
-                                style={{
-                                    margin: 0,
-                                    fontSize: 13,
-                                    color: '#8ab893',
-                                    lineHeight: 1.85,
-                                }}
+                                className="m-0 text-[length:13] text-[#8ab893] leading-[1.85]"
                             >
                                 You refused to endorse{' '}
                                 {STEPS[firstRefusal].bLabel} over{' '}
@@ -850,14 +664,7 @@ export default function GameRepugnant() {
 
                     {/* Responses */}
                     <h3
-                        style={{
-                            fontSize: 11,
-                            fontFamily: MONO,
-                            letterSpacing: '0.18em',
-                            textTransform: 'uppercase',
-                            color: '#2a5c30',
-                            margin: '0 0 20px',
-                        }}
+                        className="text-[length:11] font-[family:MONO] tracking-[0.18em] uppercase text-[#2a5c30]" style={{margin: 0 0 20px,}}
                     >
                         Proposed exits
                     </h3>
@@ -881,29 +688,15 @@ export default function GameRepugnant() {
                     ].map(([name, desc]) => (
                         <div
                             key={name}
-                            style={{
-                                borderLeft: '2px solid #1a3c1f',
-                                paddingLeft: 18,
-                                marginBottom: 20,
-                            }}
+                            className="pl-[18] mb-[20]" style={{borderLeft: 2px solid #1a3c1f,}}
                         >
                             <strong
-                                style={{
-                                    fontSize: 13,
-                                    color: '#a8d4b0',
-                                    display: 'block',
-                                    marginBottom: 5,
-                                }}
+                                className="text-[length:13] text-[#a8d4b0] block mb-[5]"
                             >
                                 {name}
                             </strong>
                             <p
-                                style={{
-                                    fontSize: 12,
-                                    color: '#5a8c64',
-                                    margin: 0,
-                                    lineHeight: 1.8,
-                                }}
+                                className="text-[length:12] text-[#5a8c64] m-0 leading-[1.8]"
                             >
                                 {desc}
                             </p>
