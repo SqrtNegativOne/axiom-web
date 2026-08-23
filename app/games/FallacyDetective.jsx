@@ -317,103 +317,50 @@ export default function FallacyDetective() {
             <style>{css}</style>
 
             <div
-                className="fd-root"
-                style={{
-                    minHeight: 'calc(100vh - 64px)',
-                    fontFamily: 'var(--ff-body)',
-                }}
+                className="fd-root min-h-[calc(100vh - 64px)] font-[family:var(--ff-body)]"
+                
             >
                 {/* ═══ INTRO ══════════════════════════════════════════════════════════ */}
                 {phase === 'intro' && (
                     <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            minHeight: 'calc(100vh - 64px)',
-                            textAlign: 'center',
-                            padding: '2rem',
-                            background:
-                                'radial-gradient(ellipse 80% 60% at 30% 50%,rgba(196,154,40,.06) 0%,transparent 70%), radial-gradient(ellipse 60% 80% at 75% 55%,rgba(184,50,50,.05) 0%,transparent 70%), #17140f',
-                        }}
+                        className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] text-center p-8 bg-[radial-gradient(ellipse 80% 60% at 30% 50%]"
+                        
                     >
                         <div
-                            className="fd-fade-1"
-                            style={{
-                                fontFamily: 'var(--ff-mono)',
-                                fontSize: '.62rem',
-                                letterSpacing: '.3em',
-                                textTransform: 'uppercase',
-                                color: '#c49a28',
-                                border: '1px solid #c49a28',
-                                padding: '.28rem .8rem',
-                                marginBottom: '2rem',
-                                opacity: 0.75,
-                            }}
+                            className="fd-fade-1 font-[family:var(--ff-mono)] text-[.62rem] tracking-[.3em] uppercase text-[#c49a28] border border-[#c49a28] px-3 py-1 mb-8 opacity-75"
+                             
                         >
                             Logic Investigation Bureau · Est. mmxxv
                         </div>
                         <h1
-                            className="fd-fade-2"
-                            style={{
-                                fontFamily: 'var(--ff-head)',
-                                fontSize: 'clamp(3rem,9vw,5.5rem)',
-                                fontWeight: 900,
-                                color: '#f0e8d8',
-                                lineHeight: 0.95,
-                                letterSpacing: '-.02em',
-                                marginBottom: '.5rem',
-                            }}
+                            className="fd-fade-2 font-[family:var(--ff-head)] text-[length:clamp(3rem,9vw,5.5rem)] font-black text-[#f0e8d8] leading-[0.95] tracking-[-.02em] mb-2"
+                             
                         >
                             Fallacy
                             <br />
                             <em
-                                style={{
-                                    color: '#b83232',
-                                    fontStyle: 'italic',
-                                }}
+                                className="text-[#b83232] italic" 
                             >
                                 Detective
                             </em>
                         </h1>
                         <p
-                            className="fd-fade-2"
-                            style={{
-                                fontFamily: 'var(--ff-head)',
-                                fontStyle: 'italic',
-                                fontSize: '1.05rem',
-                                color: 'rgba(240,232,216,.4)',
-                                marginBottom: '2rem',
-                                letterSpacing: '.06em',
-                            }}
+                            className="fd-fade-2 font-[family:var(--ff-head)] italic text-[1.05rem] text-[rgba(240,232,216,.4)] mb-8 tracking-[.06em]"
+                             
                         >
                             Can you spot the flawed reasoning?
                         </p>
                         <p
-                            className="fd-fade-3"
-                            style={{
-                                maxWidth: 500,
-                                fontSize: '1rem',
-                                lineHeight: 1.75,
-                                color: 'rgba(240,232,216,.68)',
-                                marginBottom: '2.5rem',
-                            }}
+                            className="fd-fade-3 max-w-[500px] text-[1rem] leading-[1.75] text-[rgba(240,232,216,.68)] mb-10"
+                             
                         >
-                            Select a <strong style={{ color: '#f0e8d8' }}>case file</strong> below. They are real-world documents laced with hidden logical fallacies. Your job: find them, name them, close the case.
+                            Select a <strong className="text-[#f0e8d8]" >case file</strong> below. They are real-world documents laced with hidden logical fallacies. Your job: find them, name them, close the case.
                         </p>
 
                         <div
-                            className="fd-fade-4"
-                            style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                                gap: '1rem',
-                                maxWidth: 800,
-                                width: '100%',
-                                marginBottom: '2.5rem',
-                                textAlign: 'left',
-                            }}
+                            className="fd-fade-4 grid gap-4 max-w-[800px] w-full mb-10 text-left"
+                            
+                            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}
                         >
                             {rounds.current.map((r, i) => {
                                 const score = scores[i]
@@ -424,13 +371,7 @@ export default function FallacyDetective() {
                                             startRound(i)
                                             setPhase('game')
                                         }}
-                                        style={{
-                                            background: 'var(--panel)',
-                                            border: '1px solid var(--border)',
-                                            padding: '1.2rem',
-                                            cursor: 'pointer',
-                                            transition: 'border-color 0.2s, background 0.2s',
-                                        }}
+                                        className="bg-[var(--panel)] border border-[var(--border)] p-[1.2rem] cursor-pointer transition-colors duration-200" 
                                         onMouseEnter={(e) => {
                                             e.currentTarget.style.borderColor = 'rgba(196,154,40,0.5)'
                                             e.currentTarget.style.background = 'var(--panel2)'
@@ -440,33 +381,22 @@ export default function FallacyDetective() {
                                             e.currentTarget.style.background = 'var(--panel)'
                                         }}
                                     >
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '.5rem' }}>
-                                            <div style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.62rem',
-                                                letterSpacing: '.15em',
-                                                textTransform: 'uppercase',
-                                                color: score ? (score.pct === 100 ? '#7fcf9f' : '#c49a28') : '#b83232',
-                                            }}>
+                                        <div className="flex justify-between items-center mb-2" >
+                                            <div className="font-[family:var(--ff-mono)] text-[.62rem] tracking-[.15em] uppercase"
+                                                style={{ color: score ? (score.pct === 100 ? '#7fcf9f' : '#c49a28') : '#b83232' }}>
                                                 {r.label}
                                             </div>
                                             {score && (
-                                                <div style={{
-                                                    fontFamily: 'var(--ff-mono)',
-                                                    fontSize: '.65rem',
-                                                    color: score.pct === 100 ? '#7fcf9f' : 'rgba(240,232,216,.6)',
-                                                    background: 'rgba(0,0,0,0.2)',
-                                                    padding: '.2rem .5rem',
-                                                    borderRadius: '2px',
-                                                }}>
+                                                <div className="font-[family:var(--ff-mono)] text-[.65rem] bg-[rgba(0,0,0,0.2)] px-2 py-1 rounded-[2px]"
+                                                    style={{ color: score.pct === 100 ? '#7fcf9f' : 'rgba(240,232,216,.6)' }}>
                                                     {score.pct}% ({score.found}/{score.total})
                                                 </div>
                                             )}
                                         </div>
-                                        <div style={{ fontFamily: 'var(--ff-head)', fontSize: '1.2rem', color: 'var(--paper)', marginBottom: '.4rem', fontWeight: 700 }}>
+                                        <div className="font-[family:var(--ff-head)] text-[1.2rem] text-[var(--paper)] mb-[.4rem] font-bold" >
                                             {r.title}
                                         </div>
-                                        <div style={{ fontSize: '.85rem', color: 'rgba(240,232,216,.5)', lineHeight: 1.4, fontStyle: 'italic', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                                        <div className="text-[.85rem] text-[rgba(240,232,216,.5)] leading-[1.4] italic line-clamp-2" >
                                             {r.context}
                                         </div>
                                     </div>
@@ -475,26 +405,12 @@ export default function FallacyDetective() {
                         </div>
                         
                         <div
-                            className="fd-fade-5"
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '1rem'
-                            }}
+                            className="fd-fade-5 flex items-center gap-4"
+                             
                         >
                             <button
                                 onClick={() => setPhase('final')}
-                                style={{
-                                    fontFamily: 'var(--ff-mono)',
-                                    fontSize: '.65rem',
-                                    letterSpacing: '.12em',
-                                    textTransform: 'uppercase',
-                                    color: 'rgba(240,232,216,.4)',
-                                    background: 'transparent',
-                                    border: '1px solid rgba(240,232,216,.15)',
-                                    padding: '.6rem 1rem',
-                                    cursor: 'pointer',
-                                }}
+                                className="font-[family:var(--ff-mono)] text-[.65rem] tracking-[.12em] uppercase text-[rgba(240,232,216,.4)] bg-transparent border border-[rgba(240,232,216,.15)] px-4 py-2 cursor-pointer" 
                             >
                                 View Final Assessment →
                             </button>
@@ -505,53 +421,24 @@ export default function FallacyDetective() {
                 {/* ═══ GAME ═══════════════════════════════════════════════════════════ */}
                 {phase === 'game' && (
                     <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: 'calc(100vh - 64px)',
-                        }}
+                        className="flex flex-col h-[calc(100vh-64px)]" 
                     >
                         {/* Header */}
                         <div
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                padding: '.55rem 1.2rem',
-                                borderBottom: '1px solid var(--border)',
-                                background: 'var(--panel)',
-                                flexShrink: 0,
-                            }}
+                            className="flex items-center justify-between px-[1.2rem] py-[.55rem] border-b border-[var(--border)] bg-[var(--panel)] shrink-0" 
                         >
                             <span
-                                style={{
-                                    fontFamily: 'var(--ff-head)',
-                                    fontSize: '.95rem',
-                                    fontWeight: 700,
-                                    color: '#c49a28',
-                                    letterSpacing: '.04em',
-                                }}
+                                className="font-[family:var(--ff-head)] text-[.95rem] font-bold text-[#c49a28] tracking-[.04em]" 
                             >
                                 Fallacy Detective
                             </span>
                             <span
-                                style={{
-                                    fontFamily: 'var(--ff-mono)',
-                                    fontSize: '.65rem',
-                                    letterSpacing: '.18em',
-                                    textTransform: 'uppercase',
-                                    color: 'rgba(240,232,216,.35)',
-                                }}
+                                className="font-[family:var(--ff-mono)] text-[.65rem] tracking-[.18em] uppercase text-[rgba(240,232,216,.35)]" 
                             >
                                 Case {curRound + 1} of {rounds.current.length}
                             </span>
                             <span
-                                style={{
-                                    fontFamily: 'var(--ff-mono)',
-                                    fontSize: '.75rem',
-                                    color: '#c49a28',
-                                    letterSpacing: '.08em',
-                                }}
+                                className="font-[family:var(--ff-mono)] text-[.75rem] text-[#c49a28] tracking-[.08em]" 
                             >
                                 Found: {foundFallacies.size} / {R.fallacies.length}
                             </span>
@@ -559,68 +446,36 @@ export default function FallacyDetective() {
 
                         {/* Body — responsive split */}
                         <div
-                            style={{
-                                display: 'flex',
-                                flex: 1,
-                                minHeight: 0,
-                                overflow: 'hidden',
-                                flexDirection: 'column',
-                            }}
-                            className="md-row"
+                            className="flex flex-1 min-h-0 overflow-hidden flex-col md-row" 
+                            
                         >
                             <style>{`.md-row { flex-direction: column; } @media (min-width: 768px) { .md-row { flex-direction: row !important; } }`}</style>
 
                             {/* Document panel */}
                             <div
-                                className="fd-scrollbar"
+                                className="fd-scrollbar flex-1 min-w-0 overflow-y-auto px-4 py-6 bg-[var(--bg)]"
+                                
                                 style={{
-                                    flex: 1,
-                                    minWidth: 0,
-                                    overflowY: 'auto',
-                                    padding: '1.5rem 1rem',
-                                    background: 'var(--bg)',
                                     backgroundImage:
                                         'repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(196,154,40,.03) 27px,rgba(196,154,40,.03) 28px)',
                                 }}
                             >
                                 <div className="fd-case-paper">
                                     <div
-                                        style={{
-                                            marginBottom: '1.2rem',
-                                            paddingBottom: '.8rem',
-                                            borderBottom:
-                                                '1px solid var(--paper2)',
-                                        }}
+                                        className="mb-[1.2rem] pb-[.8rem] border-b border-[var(--paper2)]" 
                                     >
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.62rem',
-                                                letterSpacing: '.22em',
-                                                textTransform: 'uppercase',
-                                                color: '#b83232',
-                                                marginBottom: '.4rem',
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[.62rem] tracking-[.22em] uppercase text-[#b83232] mb-[.4rem]" 
                                         >
                                             {R.label}
                                         </div>
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-head)',
-                                                fontSize: '1.3rem',
-                                                fontWeight: 700,
-                                                color: 'var(--ink)',
-                                                marginBottom: '.25rem',
-                                            }}
+                                            className="font-[family:var(--ff-head)] text-[1.3rem] font-bold text-[var(--ink)] mb-1" 
                                         >
                                             {R.title}
                                         </div>
                                         <div
-                                            style={{
-                                                fontSize: '.9rem',
-                                                fontStyle: 'italic',
-                                                color: 'var(--ink2)',
-                                            }}
+                                            className="text-[.9rem] italic text-[var(--ink2)]" 
                                         >
                                             {R.context}
                                         </div>
@@ -679,29 +534,14 @@ export default function FallacyDetective() {
                                 <button
                                     onClick={() => setCtrlOpen((o) => !o)}
                                     className="fd-mobile-toggle"
-                                    style={{
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                        padding: '.6rem 1rem',
-                                        background: 'var(--panel2)',
-                                        border: 'none',
-                                        borderBottom:
-                                            '1px solid var(--border2)',
-                                        cursor: 'pointer',
-                                        width: '100%',
-                                        fontFamily: 'var(--ff-mono)',
-                                        fontSize: '.68rem',
-                                        letterSpacing: '.1em',
-                                        color: 'rgba(240,232,216,.6)',
-                                        textTransform: 'uppercase',
-                                    }}
+                                    className="items-center justify-between px-4 py-[.6rem] bg-[var(--panel2)] border-none border-b border-[var(--border2)] cursor-pointer w-full font-[family:var(--ff-mono)] text-[.68rem] tracking-[.1em] text-[rgba(240,232,216,.6)] uppercase" 
                                 >
                                     <span>
                                         {selCount > 0
                                             ? `${selCount} sentence${selCount > 1 ? 's' : ''} selected${selectedFallacy ? ` · ${selectedFallacy.name}` : ''}`
                                             : 'Controls'}
                                     </span>
-                                    <span style={{ color: '#c49a28' }}>
+                                    <span className="text-[#c49a28]" >
                                         {ctrlOpen ? '▲' : '▼'}
                                     </span>
                                 </button>
@@ -709,36 +549,16 @@ export default function FallacyDetective() {
                                 <div className="fd-ctrl-body">
                                     {/* Selection status */}
                                     <div
-                                        style={{
-                                            padding: '.9rem 1.1rem',
-                                            borderBottom:
-                                                '1px solid var(--border2)',
-                                        }}
+                                        className="py-[.9rem] px-[1.1rem] border-b border-[var(--border2)]" 
                                     >
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.58rem',
-                                                letterSpacing: '.22em',
-                                                textTransform: 'uppercase',
-                                                color: '#c49a28',
-                                                marginBottom: '.55rem',
-                                                opacity: 0.75,
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[.58rem] tracking-[.22em] uppercase text-[#c49a28] mb-[.55rem] opacity-75" 
                                         >
                                             Selection
                                         </div>
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.72rem',
-                                                color:
-                                                    selCount > 0
-                                                        ? 'rgba(240,232,216,.85)'
-                                                        : 'rgba(240,232,216,.4)',
-                                                minHeight: '2rem',
-                                                lineHeight: 1.55,
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[.72rem] min-h-[2rem] leading-[1.55]"
+                                            style={{ color: selCount > 0 ? 'rgba(240,232,216,.85)' : 'rgba(240,232,216,.4)' }}
                                         >
                                             {selCount > 0
                                                 ? `${selCount} sentence${selCount > 1 ? 's' : ''} selected`
@@ -748,31 +568,16 @@ export default function FallacyDetective() {
 
                                     {/* Fallacy picker */}
                                     <div
-                                        style={{
-                                            padding: '.9rem 1.1rem',
-                                            borderBottom:
-                                                '1px solid var(--border2)',
-                                        }}
+                                        className="py-[.9rem] px-[1.1rem] border-b border-[var(--border2)]" 
                                     >
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.58rem',
-                                                letterSpacing: '.22em',
-                                                textTransform: 'uppercase',
-                                                color: '#c49a28',
-                                                marginBottom: '.6rem',
-                                                opacity: 0.75,
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[.58rem] tracking-[.22em] uppercase text-[#c49a28] mb-[.6rem] opacity-75" 
                                         >
                                             Identify the Fallacy
                                         </div>
                                         <div
                                             ref={comboRef}
-                                            style={{
-                                                position: 'relative',
-                                                marginBottom: '.45rem',
-                                            }}
+                                            className="relative mb-[.45rem]" 
                                         >
                                             <input
                                                 ref={searchRef}
@@ -790,19 +595,7 @@ export default function FallacyDetective() {
                                                 placeholder="Search 50+ fallacies…"
                                                 autoComplete="off"
                                                 spellCheck={false}
-                                                style={{
-                                                    width: '100%',
-                                                    background:
-                                                        'rgba(0,0,0,.35)',
-                                                    color: 'var(--paper)',
-                                                    border: '1px solid rgba(196,154,40,.22)',
-                                                    padding: '.5rem .65rem',
-                                                    fontFamily:
-                                                        'var(--ff-mono)',
-                                                    fontSize: '.7rem',
-                                                    outline: 'none',
-                                                    appearance: 'none',
-                                                }}
+                                                className="w-full bg-[rgba(0] text-[var(--paper)] font-[family:var(--ff-mono)] text-[length:.7rem]" style={{border: 1px solid rgba(196, padding: .5rem .65rem, outline: none, appearance: none,}}
                                                 onFocus2={() =>
                                                     setShowDropdown(true)
                                                 }
@@ -833,14 +626,7 @@ export default function FallacyDetective() {
                                                 )}
                                         </div>
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.65rem',
-                                                color: 'rgba(240,232,216,.38)',
-                                                fontStyle: 'italic',
-                                                lineHeight: 1.5,
-                                                minHeight: '1.8rem',
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[length:.65rem] text-[rgba(240] italic leading-[1.5] min-h-[1.8rem]"
                                         >
                                             {selectedFallacy?.desc || ''}
                                         </div>
@@ -870,18 +656,7 @@ export default function FallacyDetective() {
                                         </button>
                                         {feedback && (
                                             <div
-                                                style={{
-                                                    marginTop: '.65rem',
-                                                    padding: '.6rem .75rem',
-                                                    fontFamily:
-                                                        'var(--ff-mono)',
-                                                    fontSize: '.7rem',
-                                                    lineHeight: 1.55,
-                                                    borderLeft: '3px solid',
-                                                    ...FEEDBACK_STYLES[
-                                                        feedback.type
-                                                    ],
-                                                }}
+                                                className="mt-[.65rem] font-[family:var(--ff-mono)] text-[length:.7rem] leading-[1.55]" style={{padding: .6rem .75rem, borderLeft: 3px solid,}}
                                             >
                                                 {feedback.msg}
                                             </div>
@@ -890,31 +665,15 @@ export default function FallacyDetective() {
 
                                     {/* Progress */}
                                     <div
-                                        style={{
-                                            padding: '.9rem 1.1rem',
-                                            borderBottom:
-                                                '1px solid var(--border2)',
-                                        }}
+                                        className="py-[.9rem] px-[1.1rem] border-b border-[var(--border2)]" 
                                     >
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.58rem',
-                                                letterSpacing: '.22em',
-                                                textTransform: 'uppercase',
-                                                color: '#c49a28',
-                                                marginBottom: '.6rem',
-                                                opacity: 0.75,
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[.58rem] tracking-[.22em] uppercase text-[#c49a28] mb-[.6rem] opacity-75" 
                                         >
                                             Case Progress
                                         </div>
                                         <ul
-                                            style={{
-                                                listStyle: 'none',
-                                                padding: 0,
-                                                margin: 0,
-                                            }}
+                                            className="p-0 m-0" style={{listStyle: none,}}
                                         >
                                             {R.fallacies.map((f, i) => {
                                                 const done =
@@ -927,34 +686,11 @@ export default function FallacyDetective() {
                                                 return (
                                                     <li
                                                         key={i}
-                                                        className="fd-progress-item"
-                                                        style={{
-                                                            display: 'flex',
-                                                            alignItems:
-                                                                'center',
-                                                            gap: '.45rem',
-                                                            fontFamily:
-                                                                'var(--ff-mono)',
-                                                            fontSize: '.67rem',
-                                                            color: '#7fcf9f',
-                                                            padding: '.25rem 0',
-                                                            borderBottom:
-                                                                '1px solid rgba(196,154,40,.07)',
-                                                        }}
+                                                        className="fd-progress-item flex items-center gap-[.45rem] font-[family:var(--ff-mono)] text-[length:.67rem] text-[#7fcf9f]"
+                                                         style={{padding: .25rem 0, borderBottom: 1px solid rgba(196,}}
                                                     >
                                                         <span
-                                                            style={{
-                                                                width: 7,
-                                                                height: 7,
-                                                                borderRadius:
-                                                                    '50%',
-                                                                background:
-                                                                    '#7fcf9f',
-                                                                border: '1px solid #7fcf9f',
-                                                                flexShrink: 0,
-                                                                display:
-                                                                    'inline-block',
-                                                            }}
+                                                            className="w-[7] h-[7] rounded-[50%] bg-[#7fcf9f] shrink-0 inline-block" style={{border: 1px solid #7fcf9f,}}
                                                         />
                                                         {fname}
                                                     </li>
@@ -962,34 +698,13 @@ export default function FallacyDetective() {
                                             })}
                                             {!allFound && (
                                                 <li
-                                                    style={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        gap: '.45rem',
-                                                        fontFamily:
-                                                            'var(--ff-mono)',
-                                                        fontSize: '.67rem',
-                                                        color: 'rgba(240,232,216,.35)',
-                                                        padding: '.25rem 0',
-                                                    }}
+                                                    className="flex items-center gap-[.45rem] font-[family:var(--ff-mono)] text-[length:.67rem] text-[rgba(240]" style={{padding: .25rem 0,}}
                                                 >
                                                     <span
-                                                        style={{
-                                                            width: 7,
-                                                            height: 7,
-                                                            borderRadius: '50%',
-                                                            border: '1px solid rgba(240,232,216,.22)',
-                                                            flexShrink: 0,
-                                                            display:
-                                                                'inline-block',
-                                                        }}
+                                                        className="w-[7] h-[7] rounded-[50%] shrink-0 inline-block" style={{border: 1px solid rgba(240,}}
                                                     />
                                                     <span
-                                                        style={{
-                                                            fontStyle: 'italic',
-                                                            letterSpacing:
-                                                                '.08em',
-                                                        }}
+                                                        className="italic tracking-[.08em]"
                                                     >
                                                         keep looking…
                                                     </span>
@@ -998,19 +713,7 @@ export default function FallacyDetective() {
                                         </ul>
                                         {allFound && (
                                             <div
-                                                style={{
-                                                    marginTop: '.65rem',
-                                                    padding: '.55rem .75rem',
-                                                    fontFamily:
-                                                        'var(--ff-mono)',
-                                                    fontSize: '.68rem',
-                                                    letterSpacing: '.05em',
-                                                    background:
-                                                        'rgba(42,102,68,.2)',
-                                                    border: '1px solid rgba(42,102,68,.4)',
-                                                    color: '#7fcf9f',
-                                                    textAlign: 'center',
-                                                }}
+                                                className="mt-[.65rem] font-[family:var(--ff-mono)] text-[length:.68rem] tracking-[.05em] bg-[rgba(42] text-[#7fcf9f] text-center" style={{padding: .55rem .75rem, border: 1px solid rgba(42,}}
                                             >
                                                 All fallacies found — close the
                                                 case!
@@ -1020,37 +723,19 @@ export default function FallacyDetective() {
 
                                     {/* Notes */}
                                     <div
-                                        style={{
-                                            padding: '.9rem 1.1rem',
-                                            flex: 1,
-                                        }}
+                                        className="flex-1" style={{padding: .9rem 1.1rem,}}
                                     >
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.58rem',
-                                                letterSpacing: '.22em',
-                                                textTransform: 'uppercase',
-                                                color: '#c49a28',
-                                                marginBottom: '.5rem',
-                                                opacity: 0.75,
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[length:.58rem] tracking-[.22em] uppercase text-[#c49a28] mb-2 opacity-[0.75]"
                                         >
                                             Notes
                                         </div>
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.64rem',
-                                                lineHeight: 1.75,
-                                                color: 'rgba(240,232,216,.33)',
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[length:.64rem] leading-[1.75] text-[rgba(240]"
                                         >
                                             Click{' '}
                                             <strong
-                                                style={{
-                                                    color: 'rgba(240,232,216,.52)',
-                                                }}
+                                                className="text-[rgba(240]"
                                             >
                                                 one sentence
                                             </strong>{' '}
@@ -1066,18 +751,7 @@ export default function FallacyDetective() {
 
                                     <button
                                         onClick={finishRound}
-                                        style={{
-                                            margin: 'auto 1.1rem 1.1rem',
-                                            fontFamily: 'var(--ff-mono)',
-                                            fontSize: '.7rem',
-                                            letterSpacing: '.12em',
-                                            textTransform: 'uppercase',
-                                            color: 'rgba(240,232,216,.52)',
-                                            background: 'transparent',
-                                            border: '1px solid rgba(240,232,216,.18)',
-                                            padding: '.55rem',
-                                            cursor: 'pointer',
-                                        }}
+                                        className="font-[family:var(--ff-mono)] text-[length:.7rem] tracking-[.12em] uppercase text-[rgba(240] bg-transparent p-[.55rem] cursor-pointer" style={{margin: auto 1.1rem 1.1rem, border: 1px solid rgba(240,}}
                                     >
                                         Close This Case →
                                     </button>
@@ -1090,79 +764,30 @@ export default function FallacyDetective() {
                 {/* ═══ RESULTS OVERLAY ════════════════════════════════════════════════ */}
                 {phase === 'results' && (
                     <div
-                        style={{
-                            position: 'fixed',
-                            inset: 0,
-                            background: 'rgba(23,20,15,.9)',
-                            zIndex: 200,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            padding: '1.5rem',
-                            backdropFilter: 'blur(5px)',
-                        }}
+                        className="bg-[rgba(23] flex items-center justify-center p-[1.5rem]" style={{position: fixed, inset: 0, zIndex: 200, backdropFilter: blur(5px),}}
                     >
                         <div
-                            className="fd-scrollbar fd-results-panel"
-                            style={{
-                                background: 'var(--panel2)',
-                                border: '1px solid var(--border)',
-                                maxWidth: 600,
-                                width: '100%',
-                                maxHeight: '85vh',
-                                overflowY: 'auto',
-                                padding: '2rem',
-                                position: 'relative',
-                            }}
+                            className="fd-scrollbar fd-results-panel bg-[var(--panel2)] w-full overflow-y-auto p-8 relative"
+                             style={{border: 1px solid var(--border), maxWidth: 600, maxHeight: 85vh,}}
                         >
                             <div
-                                style={{
-                                    position: 'absolute',
-                                    top: '1.2rem',
-                                    right: '1.2rem',
-                                    fontFamily: 'var(--ff-mono)',
-                                    fontSize: '.58rem',
-                                    letterSpacing: '.28em',
-                                    color: '#b83232',
-                                    border: '1px solid #b83232',
-                                    padding: '.2rem .55rem',
-                                    opacity: 0.65,
-                                }}
+                                className="absolute font-[family:var(--ff-mono)] text-[length:.58rem] tracking-[.28em] text-[#b83232] opacity-[0.65]" style={{top: 1.2rem, right: 1.2rem, border: 1px solid #b83232, padding: .2rem .55rem,}}
                             >
                                 Case Closed
                             </div>
                             <h2
-                                style={{
-                                    fontFamily: 'var(--ff-head)',
-                                    fontSize: '1.7rem',
-                                    fontWeight: 700,
-                                    color: 'var(--paper)',
-                                    marginBottom: '.25rem',
-                                }}
+                                className="font-[family:var(--ff-head)] text-[length:1.7rem] font-bold text-[var(--paper)] mb-[.25rem]"
                             >
                                 {R.title}
                             </h2>
                             <div
-                                style={{
-                                    fontFamily: 'var(--ff-mono)',
-                                    fontSize: '.82rem',
-                                    color: '#c49a28',
-                                    marginBottom: '1.75rem',
-                                    letterSpacing: '.08em',
-                                }}
+                                className="font-[family:var(--ff-mono)] text-[length:.82rem] text-[#c49a28] mb-[1.75rem] tracking-[.08em]"
                             >
                                 {roundPct}% — {foundCount} of{' '}
                                 {R.fallacies.length} fallacies identified
                             </div>
                             <div
-                                style={{
-                                    fontFamily: 'var(--ff-mono)',
-                                    fontSize: '.58rem',
-                                    letterSpacing: '.22em',
-                                    textTransform: 'uppercase',
-                                    color: 'rgba(240,232,216,.28)',
-                                    marginBottom: '.9rem',
-                                }}
+                                className="font-[family:var(--ff-mono)] text-[length:.58rem] tracking-[.22em] uppercase text-[rgba(240] mb-[.9rem]"
                             >
                                 Fallacy Report
                             </div>
@@ -1201,24 +826,12 @@ export default function FallacyDetective() {
                                             {fallacy?.name || f.fid}
                                         </div>
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-body)',
-                                                fontSize: '.9rem',
-                                                color: 'var(--paper)',
-                                                fontStyle: 'italic',
-                                                marginBottom: '.3rem',
-                                                lineHeight: 1.5,
-                                            }}
+                                            className="font-[family:var(--ff-body)] text-[length:.9rem] text-[var(--paper)] italic mb-[.3rem] leading-[1.5]"
                                         >
                                             "{sent}"
                                         </div>
                                         <div
-                                            style={{
-                                                fontFamily: 'var(--ff-mono)',
-                                                fontSize: '.64rem',
-                                                color: 'rgba(240,232,216,.45)',
-                                                lineHeight: 1.65,
-                                            }}
+                                            className="font-[family:var(--ff-mono)] text-[length:.64rem] text-[rgba(240] leading-[1.65]"
                                         >
                                             {f.expl}
                                         </div>
@@ -1226,28 +839,12 @@ export default function FallacyDetective() {
                                 )
                             })}
                             <div
-                                style={{
-                                    display: 'flex',
-                                    gap: '.8rem',
-                                    marginTop: '1.75rem',
-                                }}
+                                className="flex gap-[.8rem] mt-[1.75rem]"
                             >
                                 <button
                                     onClick={() => setPhase('intro')}
                                     className="fd-clip"
-                                    style={{
-                                        flex: 1,
-                                        fontFamily: 'var(--ff-mono)',
-                                        fontSize: '.74rem',
-                                        letterSpacing: '.14em',
-                                        textTransform: 'uppercase',
-                                        color: '#17140f',
-                                        background: '#c49a28',
-                                        border: 'none',
-                                        padding: '.75rem',
-                                        cursor: 'pointer',
-                                        fontWeight: 700,
-                                    }}
+                                    className="flex-1 font-[family:var(--ff-mono)] text-[length:.74rem] tracking-[.14em] uppercase text-[#17140f] bg-[#c49a28] border-none p-[.75rem] cursor-pointer font-bold"
                                 >
                                     Return to Case Files →
                                 </button>
@@ -1259,111 +856,47 @@ export default function FallacyDetective() {
                 {/* ═══ FINAL ══════════════════════════════════════════════════════════ */}
                 {phase === 'final' && (
                     <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            minHeight: 'calc(100vh - 64px)',
-                            textAlign: 'center',
-                            padding: '2rem',
-                            background:
-                                'radial-gradient(ellipse 70% 50% at 50% 50%,rgba(196,154,40,.07) 0%,transparent 70%),#17140f',
-                        }}
+                        className="flex flex-col items-center justify-center min-h-[calc(100vh - 64px)] text-center p-8 bg-[radial-gradient(ellipse 70% 50% at 50% 50%]"
                     >
                         <div
-                            style={{
-                                fontFamily: 'var(--ff-mono)',
-                                fontSize: '.62rem',
-                                letterSpacing: '.3em',
-                                textTransform: 'uppercase',
-                                color: '#c49a28',
-                                border: '1px solid #c49a28',
-                                padding: '.28rem .8rem',
-                                marginBottom: '1.5rem',
-                                opacity: 0.7,
-                            }}
+                            className="font-[family:var(--ff-mono)] text-[length:.62rem] tracking-[.3em] uppercase text-[#c49a28] mb-[1.5rem] opacity-[0.7]" style={{border: 1px solid #c49a28, padding: .28rem .8rem,}}
                         >
                             Investigation Complete
                         </div>
                         <h1
-                            style={{
-                                fontFamily: 'var(--ff-head)',
-                                fontSize: 'clamp(2.2rem,7vw,4.5rem)',
-                                fontWeight: 900,
-                                color: 'var(--paper)',
-                                lineHeight: 0.95,
-                                marginBottom: '.45rem',
-                            }}
+                            className="font-[family:var(--ff-head)] text-[length:clamp(2.2rem] font-black text-[var(--paper)] leading-[0.95] mb-[.45rem]"
                         >
                             Case Files
                             <br />
                             Closed
                         </h1>
                         <p
-                            style={{
-                                fontFamily: 'var(--ff-head)',
-                                fontStyle: 'italic',
-                                fontSize: '1rem',
-                                color: 'rgba(240,232,216,.38)',
-                                marginBottom: '2rem',
-                            }}
+                            className="font-[family:var(--ff-head)] italic text-[length:1rem] text-[rgba(240] mb-8"
                         >
                             Here's your final assessment, Detective.
                         </p>
                         <div
-                            style={{
-                                background: 'var(--panel)',
-                                border: '1px solid var(--border)',
-                                padding: '1.75rem 3.5rem',
-                                marginBottom: '1.75rem',
-                                textAlign: 'center',
-                            }}
+                            className="bg-[var(--panel)] mb-[1.75rem] text-center" style={{border: 1px solid var(--border), padding: 1.75rem 3.5rem,}}
                         >
                             <div
-                                style={{
-                                    fontFamily: 'var(--ff-head)',
-                                    fontSize: '4.5rem',
-                                    fontWeight: 900,
-                                    color: '#c49a28',
-                                    lineHeight: 1,
-                                }}
+                                className="font-[family:var(--ff-head)] text-[length:4.5rem] font-black text-[#c49a28] leading-[1]"
                             >
                                 {finalPct}%
                             </div>
                             <div
-                                style={{
-                                    fontFamily: 'var(--ff-mono)',
-                                    fontSize: '.68rem',
-                                    letterSpacing: '.1em',
-                                    color: 'rgba(240,232,216,.38)',
-                                    marginTop: '.35rem',
-                                }}
+                                className="font-[family:var(--ff-mono)] text-[length:.68rem] tracking-[.1em] text-[rgba(240] mt-[.35rem]"
                             >
                                 {overallFound} of {totalFallacies} fallacies
                                 identified
                             </div>
                             <div
-                                style={{
-                                    fontFamily: 'var(--ff-mono)',
-                                    fontSize: '.58rem',
-                                    letterSpacing: '.22em',
-                                    textTransform: 'uppercase',
-                                    color: 'rgba(240,232,216,.22)',
-                                    marginTop: '.45rem',
-                                }}
+                                className="font-[family:var(--ff-mono)] text-[length:.58rem] tracking-[.22em] uppercase text-[rgba(240] mt-[.45rem]"
                             >
                                 Detection Rate
                             </div>
                         </div>
                         <p
-                            style={{
-                                fontFamily: 'var(--ff-head)',
-                                fontSize: '1.25rem',
-                                fontStyle: 'italic',
-                                color: 'rgba(240,232,216,.65)',
-                                marginBottom: '2rem',
-                            }}
+                            className="font-[family:var(--ff-head)] text-[length:1.25rem] italic text-[rgba(240] mb-8"
                         >
                             {finalPct === 100
                                 ? '"Perfect case closure. A first-rate detective."'
@@ -1376,18 +909,7 @@ export default function FallacyDetective() {
                         <button
                             onClick={() => setPhase('intro')}
                             className="fd-clip"
-                            style={{
-                                fontFamily: 'var(--ff-mono)',
-                                fontSize: '.78rem',
-                                letterSpacing: '.18em',
-                                textTransform: 'uppercase',
-                                color: '#17140f',
-                                background: '#c49a28',
-                                border: 'none',
-                                padding: '.85rem 2.5rem',
-                                cursor: 'pointer',
-                                fontWeight: 700,
-                            }}
+                            className="font-[family:var(--ff-mono)] text-[length:.78rem] tracking-[.18em] uppercase text-[#17140f] bg-[#c49a28] border-none cursor-pointer font-bold" style={{padding: .85rem 2.5rem,}}
                         >
                             Return to Case Files
                         </button>

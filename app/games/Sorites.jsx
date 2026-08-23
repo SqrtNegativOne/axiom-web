@@ -38,15 +38,7 @@ const MONO = "'IBM Plex Mono', 'Courier New', monospace"
 function Swatch({ color, size = 16 }) {
     return (
         <span
-            style={{
-                display: 'inline-block',
-                width: size,
-                height: size,
-                background: color,
-                verticalAlign: 'middle',
-                margin: '0 3px',
-                flexShrink: 0,
-            }}
+            className="inline-block w-[size] h-[size] bg-[color] shrink-0" style={{verticalAlign: middle, margin: 0 3px,}}
         />
     )
 }
@@ -81,17 +73,12 @@ function SoritesBoard({ onNewGame }) {
     function stripBar() {
         return (
             <div
-                style={{
-                    display: 'flex',
-                    width: '100%',
-                    height: 18,
-                    marginBottom: 40,
-                }}
+                className="flex w-full h-[18] mb-[40]"
             >
                 {patches.map((p) => (
                     <div
                         key={p.id}
-                        style={{ flex: 1, background: toRGB(p.t) }}
+                        className="flex-1 bg-[toRGB(p.t)]"
                     />
                 ))}
             </div>
@@ -108,13 +95,7 @@ function SoritesBoard({ onNewGame }) {
 
         return (
             <div
-                style={{
-                    fontFamily: MONO,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    padding: '40px 0 80px',
-                }}
+                className="font-[family:MONO] flex flex-col items-center" style={{padding: 40px 0 80px,}}
             >
                 <style>{`
           .sor-swatch { border: none; padding: 0; cursor: pointer; background: transparent; text-align: center; }
@@ -122,40 +103,22 @@ function SoritesBoard({ onNewGame }) {
           .sor-swatch:hover .sor-swatch-inner { transform: scale(1.06); outline-color: ${INK}; }
           .sor-swatch-label { font-family: ${MONO}; font-size: 9px; color: #888; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-top: 5px; }
         `}</style>
-                <div style={{ maxWidth: 520, width: '100%' }}>
+                <div className="w-full" style={{maxWidth: 520,}}>
                     <p
-                        style={{
-                            fontSize: 10,
-                            letterSpacing: '0.22em',
-                            color: 'var(--sor-muted, #999)',
-                            textTransform: 'uppercase',
-                            margin: '0 0 14px',
-                        }}
+                        className="text-[length:10] tracking-[0.22em] text-[var(--sor-muted] uppercase" style={{margin: 0 0 14px,}}
                     >
                         Setup ·{' '}
                         {setupStep === 'fav' ? 'Step 1 of 2' : 'Step 2 of 2'}
                     </p>
                     <h2
-                        style={{
-                            fontSize: 34,
-                            fontWeight: 600,
-                            color: INK,
-                            margin: '0 0 10px',
-                            lineHeight: 1.15,
-                            fontFamily: MONO,
-                        }}
+                        className="text-[length:34] font-[600] text-[INK] leading-[1.15] font-[family:MONO]" style={{margin: 0 0 10px,}}
                     >
                         {setupStep === 'fav'
                             ? 'Choose your favourite colour.'
                             : 'Choose your least favourite.'}
                     </h2>
                     <p
-                        style={{
-                            fontSize: 12,
-                            color: 'var(--sor-muted, #888)',
-                            lineHeight: 1.8,
-                            margin: '0 0 36px',
-                        }}
+                        className="text-[length:12] text-[var(--sor-muted] leading-[1.8]" style={{margin: 0 0 36px,}}
                     >
                         {setupStep === 'fav'
                             ? 'The gradient will run from this colour. You will be asked: "Is this [your colour]?"'
@@ -164,12 +127,7 @@ function SoritesBoard({ onNewGame }) {
 
                     {setupStep === 'least' && favColour && (
                         <div
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 10,
-                                marginBottom: 28,
-                            }}
+                            className="flex items-center gap-[10] mb-[28]"
                         >
                             <div
                                 style={{
@@ -180,12 +138,7 @@ function SoritesBoard({ onNewGame }) {
                                 }}
                             />
                             <span
-                                style={{
-                                    fontSize: 10,
-                                    color: 'var(--sor-muted, #aaa)',
-                                    letterSpacing: '0.1em',
-                                    textTransform: 'uppercase',
-                                }}
+                                className="text-[length:10] text-[var(--sor-muted] tracking-[0.1em] uppercase"
                             >
                                 favourite: {favColour.name}
                             </span>
@@ -193,12 +146,7 @@ function SoritesBoard({ onNewGame }) {
                     )}
 
                     <div
-                        style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(4, 1fr)',
-                            gap: 12,
-                            marginBottom: 20,
-                        }}
+                        className="grid gap-[12] mb-[20]" style={{gridTemplateColumns: repeat(4,}}
                     >
                         {pickerColours.map((colour) => (
                             <button
@@ -236,85 +184,50 @@ function SoritesBoard({ onNewGame }) {
     if (phase === 'intro')
         return (
             <div
-                style={{
-                    fontFamily: MONO,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    padding: '40px 0 80px',
-                }}
+                className="font-[family:MONO] flex flex-col items-center" style={{padding: 40px 0 80px,}}
             >
                 <style>{`
           .sor-start-btn { background:${INK}; color:${BG}; border:none; padding:14px 40px; font-family:${MONO}; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer; transition:opacity .15s; }
           .sor-start-btn:hover { opacity:0.75; }
         `}</style>
-                <div style={{ maxWidth: 520, width: '100%' }}>
+                <div className="w-full" style={{maxWidth: 520,}}>
                     {stripBar()}
                     <p
-                        style={{
-                            fontSize: 10,
-                            letterSpacing: '0.22em',
-                            color: 'var(--sor-muted, #999)',
-                            textTransform: 'uppercase',
-                            margin: '0 0 14px',
-                        }}
+                        className="text-[length:10] tracking-[0.22em] text-[var(--sor-muted] uppercase" style={{margin: 0 0 14px,}}
                     >
                         Experiment · The Sorites Paradox
                     </p>
                     <h2
-                        style={{
-                            fontSize: 40,
-                            fontWeight: 600,
-                            color: INK,
-                            margin: '0 0 28px',
-                            lineHeight: 1.1,
-                            fontFamily: MONO,
-                        }}
+                        className="text-[length:40] font-[600] text-[INK] leading-[1.1] font-[family:MONO]" style={{margin: 0 0 28px,}}
                     >
                         Where does
                         <br />
                         {favColour.name} end?
                     </h2>
                     <p
-                        style={{
-                            fontSize: 13,
-                            color: 'var(--sor-muted-dark, #555)',
-                            lineHeight: 1.85,
-                            margin: '0 0 12px',
-                        }}
+                        className="text-[length:13] text-[var(--sor-muted-dark] leading-[1.85]" style={{margin: 0 0 12px,}}
                     >
                         You will be shown {N} colour patches running from{' '}
-                        <span style={{ color: toRGB(0), fontWeight: 600 }}>
+                        <span className="text-[toRGB(0)] font-[600]">
                             {favColour.name}
                         </span>{' '}
                         to{' '}
-                        <span style={{ color: toRGB(1), fontWeight: 600 }}>
+                        <span className="text-[toRGB(1)] font-[600]">
                             {leastColour.name}
                         </span>
                         , one at a time. For each, answer a single question:
                     </p>
                     <p
-                        style={{
-                            fontSize: 16,
-                            color: INK,
-                            fontWeight: 500,
-                            margin: '0 0 28px',
-                            letterSpacing: '0.02em',
-                        }}
+                        className="text-[length:16] text-[INK] font-[500] tracking-[0.02em]" style={{margin: 0 0 28px,}}
                     >
                         Is this{' '}
-                        <span style={{ color: toRGB(0) }}>
+                        <span className="text-[toRGB(0)]">
                             {favColour.name}
                         </span>
                         ?
                     </p>
                     <p
-                        style={{
-                            fontSize: 12,
-                            color: 'var(--sor-muted, #888)',
-                            lineHeight: 1.8,
-                            margin: '0 0 44px',
-                        }}
+                        className="text-[length:12] text-[var(--sor-muted] leading-[1.8]" style={{margin: 0 0 44px,}}
                     >
                         No trick. Answer honestly. You will be shown your own
                         contradictions at the end.
@@ -337,13 +250,7 @@ function SoritesBoard({ onNewGame }) {
         const isAnchor = step < 2
         return (
             <div
-                style={{
-                    fontFamily: MONO,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    padding: '40px 0 80px',
-                }}
+                className="font-[family:MONO] flex flex-col items-center" style={{padding: 40px 0 80px,}}
             >
                 <style>{`
           .sor-cls-btn { flex:1; padding:18px 0; font-family:${MONO}; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer; border:1.5px solid; transition:all .12s; background:transparent; }
@@ -352,22 +259,12 @@ function SoritesBoard({ onNewGame }) {
           .sor-no-b { border-color:#bbb; color:#999; }
           .sor-no-b:hover { background:#bbb; color:${BG}; border-color:#bbb; }
         `}</style>
-                <div style={{ maxWidth: 480, width: '100%' }}>
+                <div className="w-full" style={{maxWidth: 480,}}>
                     <div
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 14,
-                            marginBottom: 52,
-                        }}
+                        className="flex items-center gap-[14] mb-[52]"
                     >
                         <div
-                            style={{
-                                flex: 1,
-                                height: 1,
-                                background: 'var(--sor-border, #ddd)',
-                                position: 'relative',
-                            }}
+                            className="flex-1 h-[1] bg-[var(--sor-border] relative"
                         >
                             <div
                                 style={{
@@ -382,43 +279,27 @@ function SoritesBoard({ onNewGame }) {
                             />
                         </div>
                         <span
-                            style={{
-                                fontSize: 10,
-                                color: 'var(--sor-muted, #aaa)',
-                                whiteSpace: 'nowrap',
-                            }}
+                            className="text-[length:10] text-[var(--sor-muted]" style={{whiteSpace: nowrap,}}
                         >
                             {step + 1} / {N}
                         </span>
                     </div>
 
                     <div
-                        style={{
-                            width: '100%',
-                            aspectRatio: '4/3',
-                            background: toRGB(p.t),
-                            marginBottom: 44,
-                            transition: 'background 0.35s ease',
-                        }}
+                        className="w-full bg-[toRGB(p.t)] mb-[44]" style={{aspectRatio: 4/3, transition: background 0.35s ease,}}
                     />
 
                     <p
-                        style={{
-                            fontSize: 22,
-                            textAlign: 'center',
-                            color: INK,
-                            margin: '0 0 32px',
-                            fontWeight: 500,
-                        }}
+                        className="text-[length:22] text-center text-[INK] font-[500]" style={{margin: 0 0 32px,}}
                     >
                         Is this{' '}
-                        <span style={{ color: toRGB(0) }}>
+                        <span className="text-[toRGB(0)]">
                             {favColour.name}
                         </span>
                         ?
                     </p>
 
-                    <div style={{ display: 'flex', gap: 10 }}>
+                    <div className="flex gap-[10]">
                         <button
                             className="sor-cls-btn sor-yes-b"
                             onClick={() => classify(true)}
@@ -435,13 +316,7 @@ function SoritesBoard({ onNewGame }) {
 
                     {isAnchor && (
                         <p
-                            style={{
-                                fontSize: 10,
-                                color: 'var(--sor-subtle, #ccc)',
-                                textAlign: 'center',
-                                marginTop: 20,
-                                letterSpacing: '0.1em',
-                            }}
+                            className="text-[length:10] text-[var(--sor-subtle] text-center mt-[20] tracking-[0.1em]"
                         >
                             {lerpRGB(favColour.rgb, leastColour.rgb, p.t)}
                         </p>
@@ -476,109 +351,53 @@ function SoritesBoard({ onNewGame }) {
             const escapedRGB = favCount === N ? favColour.rgb : leastColour.rgb
             const monoCSS = `rgb(${escapedRGB.join(',')})`
             return (
-                <div style={{ fontFamily: MONO, padding: '0 0 80px' }}>
+                <div className="font-[family:MONO]" style={{padding: 0 0 80px,}}>
                     <div
-                        style={{
-                            display: 'flex',
-                            width: '100%',
-                            height: 22,
-                            marginBottom: 56,
-                        }}
+                        className="flex w-full h-[22] mb-[56]"
                     >
                         {patches.map((p) => (
                             <div
                                 key={p.id}
-                                style={{ flex: 1, background: monoCSS }}
+                                className="flex-1 bg-[monoCSS]"
                             />
                         ))}
                     </div>
                     <div
-                        style={{
-                            maxWidth: 560,
-                            margin: '0 auto',
-                            textAlign: 'center',
-                        }}
+                        className="text-center" style={{maxWidth: 560, margin: 0 auto,}}
                     >
                         <p
-                            style={{
-                                fontSize: 9,
-                                letterSpacing: '0.3em',
-                                color: monoCSS,
-                                textTransform: 'uppercase',
-                                margin: '0 0 20px',
-                            }}
+                            className="text-[length:9] tracking-[0.3em] text-[monoCSS] uppercase" style={{margin: 0 0 20px,}}
                         >
                             Easter Egg · Heap Escaper
                         </p>
                         <h2
-                            style={{
-                                fontSize: 52,
-                                fontWeight: 700,
-                                letterSpacing: '0.06em',
-                                color: monoCSS,
-                                margin: '0 0 8px',
-                                lineHeight: 1,
-                            }}
+                            className="text-[length:52] font-bold tracking-[0.06em] text-[monoCSS] leading-[1]" style={{margin: 0 0 8px,}}
                         >
                             PARADOX
                         </h2>
                         <h2
-                            style={{
-                                fontSize: 52,
-                                fontWeight: 700,
-                                letterSpacing: '0.06em',
-                                color: INK,
-                                margin: '0 0 40px',
-                                lineHeight: 1,
-                            }}
+                            className="text-[length:52] font-bold tracking-[0.06em] text-[INK] leading-[1]" style={{margin: 0 0 40px,}}
                         >
                             ESCAPED
                         </h2>
                         <p
-                            style={{
-                                fontSize: 12,
-                                color: 'var(--sor-muted-dark, #666)',
-                                lineHeight: 1.85,
-                                margin: '0 0 36px',
-                                maxWidth: 440,
-                                marginLeft: 'auto',
-                                marginRight: 'auto',
-                            }}
+                            className="text-[length:12] text-[var(--sor-muted-dark] leading-[1.85] ml-[auto] mr-[auto]" style={{margin: 0 0 36px, maxWidth: 440,}}
                         >
                             {favCount === N
                                 ? `You called all ${N} patches ${favName} — absorbing ${leastColour.name} into your favourite colour. The sorites paradox cannot arise if the predicate swallows the entire spectrum.`
                                 : `You called nothing ${favName} — not even the pure ${favName} at position 1. The paradox dissolves when the predicate has no extension at all.`}
                         </p>
                         <div
-                            style={{
-                                borderLeft: '3px solid',
-                                borderColor: monoCSS,
-                                paddingLeft: 20,
-                                textAlign: 'left',
-                                margin: '0 auto 48px',
-                                maxWidth: 440,
-                            }}
+                            className="pl-[20] text-left" style={{borderLeft: 3px solid, borderColor: monoCSS, margin: 0 auto 48px, maxWidth: 440,}}
                         >
                             <p
-                                style={{
-                                    fontSize: 14,
-                                    fontStyle: 'italic',
-                                    color: INK,
-                                    lineHeight: 1.8,
-                                    margin: '0 0 8px',
-                                }}
+                                className="text-[length:14] italic text-[INK] leading-[1.8]" style={{margin: 0 0 8px,}}
                             >
                                 "Everything is vague to a degree you do not
                                 realise till you have tried to make it precise."
                             </p>
                             <p
-                                style={{
-                                    fontSize: 10,
-                                    letterSpacing: '0.15em',
-                                    color: 'var(--sor-muted, #999)',
-                                    textTransform: 'uppercase',
-                                    margin: 0,
-                                }}
+                                className="text-[length:10] tracking-[0.15em] text-[var(--sor-muted] uppercase m-0"
                             >
                                 Bertrand Russell
                             </p>
@@ -618,51 +437,29 @@ function SoritesBoard({ onNewGame }) {
 
 
         return (
-            <div style={{ fontFamily: MONO, padding: '0 0 80px' }}>
+            <div className="font-[family:MONO]" style={{padding: 0 0 80px,}}>
                 <div style={{ maxWidth: 600, margin: '0 auto' }}>
                     <p
-                        style={{
-                            fontSize: 10,
-                            letterSpacing: '0.22em',
-                            color: 'var(--sor-muted, #999)',
-                            textTransform: 'uppercase',
-                            margin: '0 0 10px',
-                        }}
+                        className="text-[length:10] tracking-[0.22em] text-[var(--sor-muted] uppercase" style={{margin: 0 0 10px,}}
                     >
                         Analysis
                     </p>
                     <output
-                        style={{
-                            display: 'block',
-                            fontSize: 28,
-                            fontWeight: 600,
-                            color: INK,
-                            margin: '0 0 40px',
-                            fontFamily: MONO,
-                        }}
+                        className="block text-[length:28] font-[600] text-[INK] font-[family:MONO]" style={{margin: 0 0 40px,}}
                         aria-live="polite"
                     >
                         Your classifications
                     </output>
 
                     {/* Classified strip */}
-                    <div style={{ display: 'flex', marginBottom: 6 }}>
+                    <div className="flex mb-[6]">
                         {sorted.map((p) => (
                             <div
                                 key={p.id}
-                                style={{
-                                    flex: 1,
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                }}
+                                className="flex-1 flex flex-col items-center"
                             >
                                 <div
-                                    style={{
-                                        width: '100%',
-                                        height: 36,
-                                        background: toRGB(p.t),
-                                    }}
+                                    className="w-full h-[36] bg-[toRGB(p.t)]"
                                 />
                                 <div
                                     style={{
@@ -680,16 +477,12 @@ function SoritesBoard({ onNewGame }) {
                         ))}
                     </div>
                     <div
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            marginBottom: 48,
-                        }}
+                        className="flex justify-between mb-[48]"
                     >
-                        <span style={{ fontSize: 10, color: 'var(--sor-muted, #999)' }}>
+                        <span className="text-[length:10] text-[var(--sor-muted]">
                             ▲ {favName} ({favCount})
                         </span>
-                        <span style={{ fontSize: 10, color: 'var(--sor-subtle-dark, #bbb)' }}>
+                        <span className="text-[length:10] text-[var(--sor-subtle-dark]">
                             ▲ not {favName} ({N - favCount})
                         </span>
                     </div>
@@ -697,30 +490,15 @@ function SoritesBoard({ onNewGame }) {
                     {/* Inversion */}
                     {hasInversion && notFavPatch && favPatch && (
                         <div
-                            style={{
-                                background: '#b50000',
-                                color: '#fff',
-                                padding: '22px 28px',
-                                marginBottom: 32,
-                            }}
+                            className="bg-[#b50000] text-[#fff] mb-[32]" style={{padding: 22px 28px,}}
                         >
                             <strong
-                                style={{
-                                    fontSize: 10,
-                                    letterSpacing: '0.18em',
-                                    textTransform: 'uppercase',
-                                    display: 'block',
-                                    marginBottom: 10,
-                                }}
+                                className="text-[length:10] tracking-[0.18em] uppercase block mb-[10]"
                             >
                                 Direct contradiction
                             </strong>
                             <p
-                                style={{
-                                    margin: 0,
-                                    fontSize: 13,
-                                    lineHeight: 1.85,
-                                }}
+                                className="m-0 text-[length:13] leading-[1.85]"
                             >
                                 You called <Swatch color={toRGB(notFavPatch.t)} /> NOT{' '}
                                 {favName}, but also called{' '}
@@ -735,74 +513,41 @@ function SoritesBoard({ onNewGame }) {
                     {cleanBoundary && favPatch && notFavPatch && (
                         <>
                             <div
-                                style={{
-                                    background: INK,
-                                    color: BG,
-                                    padding: '22px 28px',
-                                    marginBottom: 32,
-                                }}
+                                className="bg-[INK] text-[BG] mb-[32]" style={{padding: 22px 28px,}}
                             >
                                 <p
-                                    style={{
-                                        margin: '0 0 14px',
-                                        fontSize: 13,
-                                        lineHeight: 1.85,
-                                    }}
+                                    className="text-[length:13] leading-[1.85]" style={{margin: 0 0 14px,}}
                                 >
                                     You drew a line.
                                 </p>
                                 <div
-                                    style={{
-                                        display: 'flex',
-                                        gap: 16,
-                                        marginBottom: 14,
-                                        alignItems: 'center',
-                                    }}
+                                    className="flex gap-[16] mb-[14] items-center"
                                 >
                                     <div
-                                        style={{
-                                            width: 40,
-                                            height: 40,
-                                            background: toRGB(favPatch.t),
-                                            flexShrink: 0,
-                                        }}
+                                        className="w-[40] h-[40] bg-[toRGB(favPatch.t)] shrink-0"
                                     />
-                                    <span style={{ fontSize: 12 }}>
+                                    <span className="text-[length:12]">
                                         position {lastFavIdx + 1}/{N} →{' '}
-                                        <strong style={{ color: toRGB(0) }}>
+                                        <strong className="text-[toRGB(0)]">
                                             {favName.toUpperCase()}
                                         </strong>
                                     </span>
                                 </div>
                                 <div
-                                    style={{
-                                        display: 'flex',
-                                        gap: 16,
-                                        marginBottom: 14,
-                                        alignItems: 'center',
-                                    }}
+                                    className="flex gap-[16] mb-[14] items-center"
                                 >
                                     <div
-                                        style={{
-                                            width: 40,
-                                            height: 40,
-                                            background: toRGB(notFavPatch.t),
-                                            flexShrink: 0,
-                                        }}
+                                        className="w-[40] h-[40] bg-[toRGB(notFavPatch.t)] shrink-0"
                                     />
-                                    <span style={{ fontSize: 12 }}>
+                                    <span className="text-[length:12]">
                                         position {firstNotFavIdx + 1}/{N} →{' '}
-                                        <strong style={{ color: 'var(--sor-muted, #888)' }}>
+                                        <strong className="text-[var(--sor-muted]">
                                             NOT {favName.toUpperCase()}
                                         </strong>
                                     </span>
                                 </div>
                                 <p
-                                    style={{
-                                        margin: 0,
-                                        fontSize: 12,
-                                        color: 'var(--sor-muted, #aaa)',
-                                    }}
+                                    className="m-0 text-[length:12] text-[var(--sor-muted]"
                                 >
                                     Gap: {firstNotFavIdx - lastFavIdx} step
                                     {firstNotFavIdx - lastFavIdx !== 1
@@ -818,30 +563,18 @@ function SoritesBoard({ onNewGame }) {
                             </div>
 
                             <h3
-                                style={{
-                                    fontSize: 11,
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.18em',
-                                    color: 'var(--sor-muted, #999)',
-                                    margin: '0 0 14px',
-                                    fontFamily: MONO,
-                                }}
+                                className="text-[length:11] uppercase tracking-[0.18em] text-[var(--sor-muted] font-[family:MONO]" style={{margin: 0 0 14px,}}
                             >
                                 The tolerance chain
                             </h3>
                             <p
-                                style={{
-                                    fontSize: 12,
-                                    color: 'var(--sor-muted-dark, #666)',
-                                    lineHeight: 1.9,
-                                    margin: '0 0 20px',
-                                }}
+                                className="text-[length:12] text-[var(--sor-muted-dark] leading-[1.9]" style={{margin: 0 0 20px,}}
                             >
-                                <strong style={{ color: INK }}>P1:</strong>{' '}
+                                <strong className="text-[INK]">P1:</strong>{' '}
                                 <Swatch color={toRGB(0)} size={12} /> {favName} (position
                                 1) is {favName}. <em>(You agreed — step 1.)</em>
                                 <br />
-                                <strong style={{ color: INK }}>P2:</strong> If S
+                                <strong className="text-[INK]">P2:</strong> If S
                                 is {favName}, and S′ is one step further in the
                                 gradient,
                                 <br />
@@ -852,7 +585,7 @@ function SoritesBoard({ onNewGame }) {
                                     negligible.)
                                 </em>
                                 <br />
-                                <strong style={{ color: INK }}>
+                                <strong className="text-[INK]">
                                     C:
                                 </strong> By {firstNotFavIdx} applications of
                                 P2: <Swatch color={toRGB(notFavPatch.t)} size={12} />{' '}
@@ -860,23 +593,14 @@ function SoritesBoard({ onNewGame }) {
                             </p>
 
                             <div
-                                style={{
-                                    display: 'flex',
-                                    flexWrap: 'wrap',
-                                    gap: 3,
-                                    marginBottom: 32,
-                                }}
+                                className="flex gap-[3] mb-[32]" style={{flexWrap: wrap,}}
                             >
                                 {sorted
                                     .slice(0, firstNotFavIdx + 1)
                                     .map((p) => (
                                         <div
                                             key={p.id}
-                                            style={{
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                alignItems: 'center',
-                                            }}
+                                            className="flex flex-col items-center"
                                         >
                                             <div
                                                 style={{
@@ -909,30 +633,15 @@ function SoritesBoard({ onNewGame }) {
                             </div>
 
                             <div
-                                style={{
-                                    background: '#b50000',
-                                    color: '#fff',
-                                    padding: '22px 28px',
-                                    marginBottom: 48,
-                                }}
+                                className="bg-[#b50000] text-[#fff] mb-[48]" style={{padding: 22px 28px,}}
                             >
                                 <strong
-                                    style={{
-                                        fontSize: 10,
-                                        letterSpacing: '0.18em',
-                                        textTransform: 'uppercase',
-                                        display: 'block',
-                                        marginBottom: 10,
-                                    }}
+                                    className="text-[length:10] tracking-[0.18em] uppercase block mb-[10]"
                                 >
                                     Contradiction
                                 </strong>
                                 <p
-                                    style={{
-                                        margin: 0,
-                                        fontSize: 13,
-                                        lineHeight: 1.85,
-                                    }}
+                                    className="m-0 text-[length:13] leading-[1.85]"
                                 >
                                     The tolerance chain forces position{' '}
                                     {firstNotFavIdx + 1} to be {favName}. You
@@ -945,14 +654,7 @@ function SoritesBoard({ onNewGame }) {
                     )}
 
                     <h3
-                        style={{
-                            fontSize: 11,
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.18em',
-                            color: 'var(--sor-muted, #999)',
-                            margin: '0 0 20px',
-                            fontFamily: MONO,
-                        }}
+                        className="text-[length:11] uppercase tracking-[0.18em] text-[var(--sor-muted] font-[family:MONO]" style={{margin: 0 0 20px,}}
                     >
                         Four exits from the paradox
                     </h3>
@@ -980,24 +682,13 @@ function SoritesBoard({ onNewGame }) {
                     ].map(([name, url, desc]) => (
                         <div
                             key={name}
-                            style={{
-                                borderLeft: '2px solid #ddd',
-                                paddingLeft: 18,
-                                marginBottom: 22,
-                            }}
+                            className="pl-[18] mb-[22]" style={{borderLeft: 2px solid #ddd,}}
                         >
                             <a
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                style={{
-                                    fontSize: 13,
-                                    color: INK,
-                                    display: 'block',
-                                    marginBottom: 5,
-                                    textDecoration: 'none',
-                                    fontWeight: 600,
-                                }}
+                                className="text-[length:13] text-[INK] block mb-[5] font-[600]" style={{textDecoration: none,}}
                                 onMouseEnter={(e) => {
                                     e.currentTarget.style.textDecoration =
                                         'underline'
@@ -1010,12 +701,7 @@ function SoritesBoard({ onNewGame }) {
                                 {name} ↗
                             </a>
                             <p
-                                style={{
-                                    fontSize: 12,
-                                    color: 'var(--sor-muted-dark, #666)',
-                                    margin: 0,
-                                    lineHeight: 1.8,
-                                }}
+                                className="text-[length:12] text-[var(--sor-muted-dark] m-0 leading-[1.8]"
                             >
                                 {desc}
                             </p>
@@ -1024,19 +710,7 @@ function SoritesBoard({ onNewGame }) {
 
                     <button
                         onClick={onNewGame}
-                        style={{
-                            marginTop: 40,
-                            padding: '12px 28px',
-                            border: '1px solid #ccc',
-                            background: 'transparent',
-                            fontFamily: MONO,
-                            fontSize: 11,
-                            letterSpacing: '0.14em',
-                            textTransform: 'uppercase',
-                            cursor: 'pointer',
-                            color: 'var(--sor-muted-dark, #666)',
-                            transition: 'all .15s',
-                        }}
+                        className="mt-[40] bg-transparent font-[family:MONO] text-[length:11] tracking-[0.14em] uppercase cursor-pointer text-[var(--sor-muted-dark]" style={{padding: 12px 28px, border: 1px solid #ccc, transition: all .15s,}}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.borderColor = INK
                             e.currentTarget.style.color = INK
@@ -1098,8 +772,8 @@ export default function GameSorites() {
                                 <span className="text-gold/30">/</span>
                             </div>
                             <h1
-                                className="font-heading font-light text-green uppercase tracking-wide"
-                                style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}
+                                className="font-heading font-light text-green uppercase tracking-wide text-[length:clamp(1.8rem]"
+                                
                             >
                                 Sorites
                             </h1>
