@@ -29,9 +29,12 @@ function World({ n, w, groups, label, selected, pending, onSelect, disabled }) {
     }
 
     return (
-        <div
+        <button
             onClick={disabled ? undefined : onSelect}
             style={{
+                display: 'block',
+                width: '100%',
+                textAlign: 'left',
                 flex: 1,
                 background: selected
                     ? '#0d2b1e'
@@ -143,7 +146,7 @@ function World({ n, w, groups, label, selected, pending, onSelect, disabled }) {
                     {selected ? '✓' : '◉'}
                 </div>
             )}
-        </div>
+        </button>
     )
 }
 
