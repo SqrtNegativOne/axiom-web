@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Hero from '../components/Hero'
+import Link from 'next/link'
 import PullQuote from '../components/PullQuote'
 import SectionDivider from '../components/SectionDivider'
 import SpotlightCard from '../components/SpotlightCard'
@@ -79,8 +80,8 @@ export default async function Home() {
 
                     {/* Right Column: Image */}
                     <div className="hidden md:flex justify-center md:justify-end mt-8 md:mt-0">
-                        <img
-                            src="/data/the-thinker.png"
+                        <Image
+                            src="/data/the-thinker.png" width={500} height={500}
                             alt="The Thinker"
                             className="w-full max-w-sm md:max-w-md object-contain"
                             loading="lazy"
@@ -126,19 +127,19 @@ export default async function Home() {
                                     {description}
                                 </p>
                                 {internal ? (
-                                    <a
+                                    <Link
                                         href={link}
                                         className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
                                     >
                                         explore →
-                                    </a>
+                                    </Link>
                                 ) : (
-                                    <a
+                                    <Link
                                         href={link}
                                         className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
                                     >
                                         explore →
-                                    </a>
+                                    </Link>
                                 )}
                                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                             </SpotlightCard>
@@ -156,12 +157,12 @@ export default async function Home() {
                         <p className="label-mono mb-2">— Latest writing</p>
                         <h2 className="section-heading">From the Newsletter</h2>
                     </div>
-                    <a
+                    <Link
                         href="/newsletter/"
                         className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
                     >
                         all essays →
-                    </a>
+                    </Link>
                 </div>
 
                 {latestPosts.length > 0 ? (
@@ -173,7 +174,7 @@ export default async function Home() {
                                         {post.dateReadable}
                                     </span>
                                     <div className="flex-1">
-                                        <a href={post.url} className="block">
+                                        <Link href={post.url} className="block">
                                             <h3
                                                 className="font-heading font-light text-green group-hover:text-terracotta transition-colors duration-200"
                                                 style={{
@@ -183,7 +184,7 @@ export default async function Home() {
                                             >
                                                 {post.title}
                                             </h3>
-                                        </a>
+                                        </Link>
                                         {post.author && (
                                             <p className="font-body text-xs text-ink/50 mt-1">
                                                 by {post.author}
@@ -195,19 +196,19 @@ export default async function Home() {
                                             </p>
                                         )}
                                     </div>
-                                    <a
+                                    <Link
                                         href={post.url}
                                         className="font-mono text-xs text-terracotta/70 group-hover:text-terracotta transition-colors duration-200 tracking-wider flex-shrink-0 self-start md:self-center"
                                     >
                                         read →
-                                    </a>
+                                    </Link>
                                 </div>
                             </article>
                         ))}
                     </div>
                 ) : (
                     <p className="font-mono text-xs text-ink/40 tracking-wider">
-                        // no posts yet — check back soon
+                        {/* no posts yet — check back soon */}
                     </p>
                 )}
             </section>

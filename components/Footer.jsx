@@ -66,6 +66,7 @@ const SOCIAL_LINKS = [
 ]
 
 import { FOOTER_LINKS } from '../data/navLinks'
+import Link from 'next/link'
 
 // Footer style classes
 const FOOTER_STYLE = 'bg-green dark:bg-[#0C1610] text-cream/80'
@@ -110,12 +111,12 @@ export default function Footer() {
                             {FOOTER_LINKS.map(({ label, to, internal }) =>
                                 internal ? (
                                     <li key={to}>
-                                        <a
+                                        <Link
                                             href={to}
                                             className={NAV_LINK_STYLE}
                                         >
                                             {label}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ) : (
                                     <li key={to}>

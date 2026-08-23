@@ -1,5 +1,6 @@
 "use client";
 import SectionDivider from '../../components/SectionDivider'
+import Link from 'next/link'
 
 import { externalExperiments, externalGames } from '../../data/externalGamesList'
 
@@ -50,13 +51,13 @@ export default function Games() {
                             </>
                         )
                         return href ? (
-                            <a key={href} href={href} className={cardClass}>
+                            <Link key={href} href={href} className={cardClass}>
                                 {cardInner}
-                            </a>
+                            </Link>
                         ) : (
-                            <a key={path} href={`/games/${path}`} className={cardClass}>
+                            <Link key={path} href={`/games/${path}`} className={cardClass}>
                                 {cardInner}
-                            </a>
+                            </Link>
                         )
                     })}
                 </div>

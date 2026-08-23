@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { core, members } from '../../data/team-2026'
 import alumniQuotes from '../../data/alumni-quotes'
 import TeamPortraitCard from '../../components/TeamPortraitCard'
@@ -198,12 +199,12 @@ export default function Team() {
                     ))}
                 </div>
                 <div className="mt-8 text-center">
-                    <a
+                    <Link
                         href="/team/2025"
                         className="font-body text-sm text-terracotta hover:text-green transition-colors duration-200 underline underline-offset-4"
                     >
                         See previous leadership &rarr;
-                    </a>
+                    </Link>
                 </div>
             </section>
 
