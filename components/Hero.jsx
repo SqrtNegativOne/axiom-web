@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react'
 import Dither from './Dither'
+import Image from 'next/image'
 
 const PROMPTS = [
     '> What do you know?',
@@ -115,8 +116,9 @@ export default function Hero() {
                             transform: 'translateZ(0)',
                         }}
                     >
-                        <img
+                        <Image
                             src="/data/icarus.png"
+                            fill
                             alt="Fall of Icarus"
                             className="w-full h-full object-contain"
                             style={{
