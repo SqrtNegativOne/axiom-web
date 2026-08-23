@@ -114,13 +114,13 @@ export default function NavBar() {
                     aria-controls="mobile-menu"
                 >
                     <span
-                        className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}
+                        className={`block w-6 h-px bg-green transition-all duration-300 transform origin-center ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}
                     />
                     <span
-                        className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}
+                        className={`block w-6 h-px bg-green transition-all duration-300 transform origin-center ${menuOpen ? 'opacity-0' : ''}`}
                     />
                     <span
-                        className={`block w-6 h-px bg-green transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}
+                        className={`block w-6 h-px bg-green transition-all duration-300 transform origin-center ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}
                     />
                 </button>
             </nav>
@@ -128,7 +128,7 @@ export default function NavBar() {
             {/* Mobile menu */}
             <div
                 id="mobile-menu"
-                className={`md:hidden overflow-hidden transition-all duration-300 ${
+                className={`md:hidden overflow-hidden transition-all duration-300 transform origin-center ${
                     menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
                 }`}
             >
@@ -169,4 +169,5 @@ export default function NavBar() {
         </header>
     )
 }
+
 

@@ -1,5 +1,3 @@
-"use client";
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Hero from '../components/Hero'
 import PullQuote from '../components/PullQuote'
@@ -33,20 +31,13 @@ const ctaCards = [
 ]
 
 // ── Newsletter preview ──────────────────────────────────────────────────────
-function useLatestPosts(n = 3) {
-    const [posts, setPosts] = useState([])
-    useEffect(() => {
-        fetch('/newsletter/posts.json')
-            .then((r) => (r.ok ? r.json() : []))
-            .then((data) => setPosts(data.slice(0, n)))
-            .catch(() => {})
-    }, [n])
-    return posts
-}
+
 
 // ── Home page ───────────────────────────────────────────────────────────────
-export default function Home() {
-    const latestPosts = useLatestPosts(3)
+import { getAllPosts } from '../lib/mdx'
+
+export default async function Home() {
+    const latestPosts = getAllPosts().slice(0, 3).map(p => ({ title: p.frontmatter.title, description: p.frontmatter.description, dateReadable: new Date(p.frontmatter.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }), url: `/newsletter/${p.slug}` }))
 
     return (
         <div>
@@ -270,6 +261,7 @@ export default function Home() {
         </div>
     )
 }
+
 
 
 
