@@ -1,0 +1,85 @@
+/* Axiom Design Tokens — Single source of truth for colors and fonts */
+
+/* Self-hosted fonts — latin subset only */
+/* Cormorant Garamond (all normal weights 300–600 share one binary; italic 300–500 share another) */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('/data/fonts/cormorant-garamond-normal-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url('/data/fonts/cormorant-garamond-italic-latin.woff2') format('woff2');
+}
+
+/* DM Sans (all weights 300–600 share one binary) */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('/data/fonts/dm-sans-latin.woff2') format('woff2');
+}
+
+/* IBM Plex Mono */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/data/fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/data/fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
+}
+
+:root {
+  /* Colors */
+  --color-cream: #F8F4EC;
+  --color-cream-rgb: 248 244 236;
+  --color-cream-dark: #EDE9DF;
+  --color-cream-dark-rgb: 237 233 223;
+  --color-green: #2C4A3E;
+  --color-green-rgb: 44 74 62;
+  --color-terracotta: #C4704F;
+  --color-terracotta-rgb: 196 112 79;
+  --color-gold: #C9A44C;
+  --color-gold-rgb: 201 164 76;
+  --color-ink: #1A1A18;
+  --color-ink-rgb: 26 26 24;
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Spacing rhythm */
+  --section-padding: clamp(3rem, 6vw, 6rem);
+
+  /* Transitions */
+  --transition-base: 200ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Decorative */
+  --rule-color: var(--color-gold);
+  --rule-width: 0.5px;
+}
+
+/* Dark mode: override the tokens that need to change */
+.dark {
+  --color-cream-dark: #142219;
+  --color-cream-dark-rgb: 20 34 25;
+  --color-green: #9DBFB5;
+  --color-green-rgb: 157 191 181;
+  --color-ink: #DDD8CD;
+  --color-ink-rgb: 221 216 205;
+}

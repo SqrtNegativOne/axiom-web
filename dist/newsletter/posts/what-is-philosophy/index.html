@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="If you didn&#39;t notice, this is a philosophy society." />
+  <title>What Is Philosophy, Anyway? ⋅ Axiom Newsletter</title>
+  <link rel="canonical" href="https://axiomnsut.in/newsletter/posts/what-is-philosophy/" />
+
+  <!-- Color scheme -->
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F4EC" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0E1A14" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/svg+xml" href="/data/logo.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Axiom — The Philosophy Society" />
+  <meta property="og:title" content="What Is Philosophy, Anyway? — Axiom Newsletter" />
+  <meta property="og:description" content="If you didn&#39;t notice, this is a philosophy society." />
+  <meta property="og:url" content="https://axiomnsut.in/newsletter/posts/what-is-philosophy/" />
+  <meta property="og:image" content="https://axiomnsut.in/assets/logo.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Axiom — The Philosophy Society logo" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="What Is Philosophy, Anyway? — Axiom Newsletter" />
+  <meta name="twitter:description" content="If you didn&#39;t notice, this is a philosophy society." />
+  <meta name="twitter:image" content="https://axiomnsut.in/assets/logo.png" />
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is Philosophy, Anyway?",
+    "description": "If you didn't notice, this is a philosophy society.",
+    "author": {
+      "@type": "Person",
+      "name": "Ark Malhotra"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axiom — The Philosophy Society",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://axiomnsut.in/assets/logo.png"
+      }
+    },
+    "datePublished": "2025-02-28T00:00:00Z",
+    "dateModified": "2025-02-28T00:00:00Z",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://axiomnsut.in/newsletter/posts/what-is-philosophy/"
+    },
+    "url": "https://axiomnsut.in/newsletter/posts/what-is-philosophy/"
+  }
+  </script>
+  
+
+  <!-- Feed discovery -->
+  <link rel="alternate" type="application/rss+xml" title="Axiom Newsletter RSS" href="https://axiomnsut.in/newsletter/feed.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Axiom Newsletter Atom" href="https://axiomnsut.in/newsletter/atom.xml" />
+
+  <!-- Shared design tokens -->
+  <link rel="stylesheet" href="/newsletter/css/design-tokens.css" />
+
+  <!-- Anti-flash: apply dark class before first paint, syncing with React app -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('axiom-theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else if (t === 'light') {
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--color-cream);
+      color: var(--color-ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 244, 236, 0.95);
+      backdrop-filter: blur(4px);
+      border-bottom: 0.5px solid rgba(201, 164, 76, 0.3);
+      padding: 1rem 1.5rem;
+    }
+    .nav-inner {
+      max-width: 64rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--color-green);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-green);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--color-terracotta);
+    }
+
+    /* Main content */
+    .main {
+      max-width: 48rem;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Page header */
+    .page-header {
+      text-align: center;
+      padding: 2.5rem 0 2rem;
+      border-bottom: 0.5px solid rgba(201, 164, 76, 0.3);
+      margin-bottom: 2rem;
+    }
+    .page-header .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--color-green);
+    }
+    .page-header p {
+      color: rgba(26, 26, 24, 0.6);
+      margin-top: 1rem;
+      font-size: 1.05rem;
+    }
+
+    /* Monospace accents — tech font for dates/metadata */
+    .post-date,
+    .post-author,
+    .article-meta,
+    .post-read-more,
+    .back-link {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    }
+    .post-date { font-size: 0.65rem; letter-spacing: 0.2em; }
+    .post-read-more { font-size: 0.7rem; letter-spacing: 0.1em; }
+    .back-link { font-size: 0.7rem; letter-spacing: 0.1em; }
+
+    /* Post list */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .post-item {
+      padding: 2rem 0;
+      border-bottom: 0.5px solid rgba(201, 164, 76, 0.2);
+    }
+    .post-item:last-child { border-bottom: none; }
+    .post-date {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.5rem;
+    }
+    .post-title a {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 2.8vw, 1.9rem);
+      font-weight: 400;
+      color: var(--color-green);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .post-title a:hover { color: var(--color-terracotta); }
+    .post-author {
+      font-size: 0.8rem;
+      color: rgba(26, 26, 24, 0.5);
+      margin-top: 0.25rem;
+    }
+    .post-excerpt {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      color: rgba(26, 26, 24, 0.65);
+      line-height: 1.7;
+    }
+    .post-read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--color-terracotta);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .post-read-more:hover { color: var(--color-green); }
+
+    /* Article */
+    .article-header {
+      text-align: center;
+      padding: 2.5rem 0 2rem;
+      border-bottom: 0.5px solid rgba(201, 164, 76, 0.3);
+      margin-bottom: 2rem;
+    }
+    .article-header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 300;
+      color: var(--color-green);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .article-meta {
+      font-size: 0.8rem;
+      color: rgba(26, 26, 24, 0.5);
+    }
+    .article-meta span { color: var(--color-gold); }
+
+    /* Article body */
+    .article-body { line-height: 1.8; }
+    .article-body h2 {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--color-green);
+      margin: 2.5rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--color-green);
+      margin: 2rem 0 0.75rem;
+    }
+    .article-body p { margin-bottom: 1.25rem; color: rgba(26, 26, 24, 0.8); font-size: 1.1rem; }
+    .article-body blockquote {
+      border-left: 4px solid var(--color-terracotta);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: var(--color-green);
+      line-height: 1.6;
+    }
+    .article-body blockquote p { font-size: 1.25rem; color: var(--color-green); }
+    .article-body ol, .article-body ul {
+      margin: 1rem 0 1.25rem 1.5rem;
+      color: rgba(26, 26, 24, 0.8);
+    }
+    .article-body li { margin-bottom: 0.4rem; }
+    .article-body em { font-style: italic; }
+    .article-body strong { font-weight: 600; }
+    .article-body a { color: var(--color-terracotta); text-decoration: underline; }
+    .article-body hr {
+      border: none;
+      border-top: 0.5px solid var(--color-gold);
+      margin: 2.5rem 0;
+    }
+    .article-body figure {
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .article-body img {
+      display: block;
+      max-width: 100%;
+      max-height: 70vh;
+      width: auto;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+    .article-body figcaption {
+      margin-top: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: rgba(26, 26, 24, 0.45);
+    }
+
+    /* Footnotes (markdown-it-footnote) */
+    .footnotes-sep {
+      border: none;
+      border-top: 0.5px solid rgba(201, 164, 76, 0.3);
+      margin: 3rem 0 1.5rem;
+    }
+    .footnotes {
+      font-size: 0.82rem;
+      color: rgba(26, 26, 24, 0.55);
+      line-height: 1.7;
+    }
+    .footnotes ol {
+      margin-left: 1.25rem;
+    }
+    .footnotes li { margin-bottom: 0.35rem; }
+    .footnotes a { color: var(--color-terracotta); text-decoration: none; }
+    .footnotes a:hover { text-decoration: underline; }
+    /* Superscript footnote ref in body */
+    .footnote-ref { font-size: 0.7em; vertical-align: super; line-height: 0; }
+    .footnote-ref a {
+      color: var(--color-terracotta);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+    .footnote-ref a:hover { text-decoration: underline; }
+    /* Back-reference arrow */
+    .footnote-backref { font-size: 0.8em; }
+
+    /* Text selection */
+    ::selection { background: #1A1A18; color: #F8F4EC; }
+
+    /* Feed strip */
+    .feed-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(248, 244, 236, 0.5);
+    }
+    .feed-strip a {
+      color: var(--color-gold);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .feed-strip a:hover { color: #F8F4EC; }
+    .feed-strip .sep { color: rgba(248, 244, 236, 0.25); }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: rgba(26, 26, 24, 0.5);
+      text-decoration: none;
+      transition: color 200ms ease;
+      margin-bottom: 2rem;
+    }
+    .back-link:hover { color: var(--color-terracotta); }
+
+    /* Footer */
+    .footer {
+      background: var(--color-green);
+      color: rgba(248, 244, 236, 0.7);
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.8rem;
+    }
+    .footer a {
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.65rem; }
+    }
+
+    /* ── Dark mode ──────────────────────────────────────────────────────── */
+    /* Applied via .dark class (set by anti-flash script from localStorage)  */
+    /* and via prefers-color-scheme as a JS-disabled fallback.               */
+
+    /* 1. CSS variable overrides for .dark class */
+    .dark {
+      --color-cream-dark: #142219;
+      --color-cream-dark-rgb: 20 34 25;
+      --color-green: #9DBFB5;
+      --color-green-rgb: 157 191 181;
+      --color-ink: #DDD8CD;
+      --color-ink-rgb: 221 216 205;
+    }
+
+    .dark body { background-color: #0E1A14; }
+    .dark .nav { background: rgba(14, 26, 20, 0.95); }
+    .dark .page-header p { color: rgb(var(--color-ink-rgb) / 0.6); }
+    .dark .post-author { color: rgb(var(--color-ink-rgb) / 0.5); }
+    .dark .post-excerpt { color: rgb(var(--color-ink-rgb) / 0.65); }
+    .dark .article-body p { color: rgb(var(--color-ink-rgb) / 0.8); }
+    .dark .article-body ol,
+    .dark .article-body ul { color: rgb(var(--color-ink-rgb) / 0.8); }
+    .dark .article-body figcaption { color: rgb(var(--color-ink-rgb) / 0.45); }
+    .dark .article-meta { color: rgb(var(--color-ink-rgb) / 0.5); }
+    .dark .footnotes { color: rgb(var(--color-ink-rgb) / 0.55); }
+    .dark .back-link { color: rgb(var(--color-ink-rgb) / 0.5); }
+
+    /* 2. prefers-color-scheme fallback (for when JS is disabled) */
+    @media (prefers-color-scheme: dark) {
+      html:not(.light) {
+        --color-cream-dark: #142219;
+        --color-cream-dark-rgb: 20 34 25;
+        --color-green: #9DBFB5;
+        --color-green-rgb: 157 191 181;
+        --color-ink: #DDD8CD;
+        --color-ink-rgb: 221 216 205;
+      }
+      html:not(.light) body { background-color: #0E1A14; }
+      html:not(.light) .nav { background: rgba(14, 26, 20, 0.95); }
+      html:not(.light) .page-header p { color: rgb(var(--color-ink-rgb) / 0.6); }
+      html:not(.light) .post-author { color: rgb(var(--color-ink-rgb) / 0.5); }
+      html:not(.light) .post-excerpt { color: rgb(var(--color-ink-rgb) / 0.65); }
+      html:not(.light) .article-body p { color: rgb(var(--color-ink-rgb) / 0.8); }
+      html:not(.light) .article-body ol,
+      html:not(.light) .article-body ul { color: rgb(var(--color-ink-rgb) / 0.8); }
+      html:not(.light) .article-body figcaption { color: rgb(var(--color-ink-rgb) / 0.45); }
+      html:not(.light) .article-meta { color: rgb(var(--color-ink-rgb) / 0.5); }
+      html:not(.light) .footnotes { color: rgb(var(--color-ink-rgb) / 0.55); }
+      html:not(.light) .back-link { color: rgb(var(--color-ink-rgb) / 0.5); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav — links back to React hash routes -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">AXIOM</a>
+      <ul class="nav-links">
+        
+          <li>
+            <a href="/">
+              Home
+            </a>
+          </li>
+        
+          <li>
+            <a href="/about">
+              About Us
+            </a>
+          </li>
+        
+          <li>
+            <a href="/events">
+              Events
+            </a>
+          </li>
+        
+          <li>
+            <a href="/newsletter/" class="active">
+              Newsletter
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="main">
+  <a href="/newsletter/" class="back-link">← All essays</a>
+
+  <header class="article-header">
+    <h1>What Is Philosophy, Anyway?</h1>
+    <p class="article-meta">
+      <span>Ark Malhotra</span> · 
+      <time datetime="2025-02-28">February 28, 2025</time>
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>If you didn’t notice, this is a philosophy society.</p>
+<p>Surely there must be something about it. As of February, 2026, this society has 79 members, and has been around for 8 years. We have a newsletter, a Whatsapp group, an Instagram page, and weekly public events, several of which are open to all. And the one question that gets asked, is…</p>
+<p>“What is philosophy?”</p>
+<p>Never in the “thoughtful” or “academic” manner, no, but in the “What the hell are you guys even doing?” one. I can’t blame them, it’s a damn fair question. Why would one waste their formative years in pursuing this unwonted and primeval field in the humanities and not even get something to put on their resume? And I have a confession: I don’t know the exact answer to it.</p>
+<p>But in my defense, it doesn’t look like anyone else does either.</p>
+<figure><img src="../whatisphilosophy.jpg" alt="Maybe one day we will know."><figcaption>Maybe one day we will know.</figcaption></figure>
+<p>The Wikipedia page on philosophy tells us the following.</p>
+<blockquote>
+<p>Philosophy (from Ancient Greek <em>philosophía</em>, lit. ‘love of wisdom’) is a systematic study of general and fundamental questions concerning topics like existence, knowledge, mind, reason, language, and value. It is a rational and critical inquiry that reflects on its methods and assumptions.</p>
+</blockquote>
+<p>Good enough, I guess. But could you <em>possibly</em> get any vaguer?</p>
+<p>Do physicsists not care about the nature of existence and the Universe? Do pychologists not care about the nature of the mind and consciousness? Do mathematicians and linguistics not care about reason and language, respectively? Do all of them hate wisdom? Can’t you do a “systematic study” of all of the above through some eclectic combination of the fields aforementioned?</p>
+<blockquote>
+<p>Trying to define philosophy is philosophy itself.</p>
+</blockquote>
+<h1>Welcome to the Metaverse</h1>
+<p>If you would allow me an opinion: a more applicable, dare I say more intuitive, definition of philosophy, is that it is the practice of Meta-ness.</p>
+<p>We prepend the “meta-” prefix to all sorts of things — meta-ethics, meta-cognition, in literature and media we have “metanarrative”, “metatext”, “metafiction”, “metacommunication”, “metanalysis”, and in programming we have “metaprogramming”, “metaobjects”, “metaclasses”, “metadata” and so on.</p>
+<p>I think you see the concept-space I am referring to. The “meta-” prefix is acting as an operator to refer to a higher level of abstraction on the same concept. Philosophy, then, is merely the set of all concepts obtained through, say, at least two levels of this; a meta-analysis of meta. Thus, applying the meta operator to philosophy, <strong>gives you philosophy itself</strong>. Reflections on our reflections.</p>
+<p>And what does that give us?</p>
+<h1>A programming language for attention</h1>
+<p>In short, when you strip bare my contrived formalisms, it simply reduces to the <strong>practice</strong> of <strong>refusing to let things go unexamined.</strong></p>
+<p>Ever come out of a room and immediately forget why you went in there? Absentmindedly get your shoes before your socks? Open your phone to do something and start scrolling for no reason? Having to read the same paragraph again because you realised midway you forgot to <code>npm start brain</code> before it?</p>
+<p>Automaticity, habit loops, autopilot, context-drift, plain absentmindedness, doorway effect, action slips, prospective memory failure, whatever you want to call it. It’s a fact of life that we are not in control of our attention.</p>
+<p>And it’s not really its fault. The human brain is a wonderful thing; scientists used 100% of their brain power to only recently estimate that we get (in the range of) 10 million <a href="https://en.wikipedia.org/wiki/Shannon_(unit)">Shannon bits of information</a> <em>every</em> second, through all 5 of our (main) senses. While our conscious mind, the “speed limit” of our narrow light cone of attention in this vast universe, so to speak, is 10.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<figure><img src="../berries.png" alt="Yeah"><figcaption>Yeah</figcaption></figure>
+<p>Surprising to think that the brain even works despite this. And I am not referring to the ability to simply ignore 999,999,999 bits of information every second, that’s pretty easy; you can do that by killing yourself.</p>
+<p>What really begs the question is the fact that we can do what we can do, <em>despite</em> this.</p>
+<blockquote>
+<p>Mice can see, but they can’t understand seeing. You can understand seeing, and because of that, you can do things that mice cannot do. Take a moment to marvel at this, for it is indeed marvelous.<br>
+Mice see, but they don’t know they have visual cortexes, so they can’t correct for optical illusions. A mouse lives in a mental world that includes cats, holes, cheese and mousetraps—but not mouse brains. Their camera does not take pictures of its own lens. But we, as humans, can look at a seemingly bizarre image, and realize that part of what we’re seeing is the lens itself. You don’t always have to believe your own eyes, but you have to realize that you have eyes—you must have distinct mental buckets for the map and the territory, for the senses and reality. Lest you think this a trivial ability, remember how rare it is in the animal kingdom.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+</blockquote>
+<p>Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of choosing your own damn lenses, and then looking through them to see the world in a way that surprises you.</p>
+<h1>What was the point of this, miss?</h1>
+<p>Every day people go about their lives. They go to work, write code, make money, have fun, fall in love, go to the dentist and so on. And they do it without wondering about the metaphysical nature of existence.</p>
+<p>We are aware of the irony of philosophy society existing at a technical university. And the cliché of an arts professor yelling at clouds on how important the arts is and how engineers just want to make money, yeah, everyone knows it.</p>
+<p>And if there is anything to learn from Peter Watt’s seminal novel <em>Blindsight</em>, it’s the fact that humans can lose against aliens with 0 metacognition. Novices prepare while experts… just do; Michael Phelps probably doesn’t need to understand the Navier-Stokes equations to win. So why bother with philosophy?</p>
+<h1>It’s human.</h1>
+<p>We do it because we fucking can and because we have to. Once you get high on the supply of yet-elegant derivations of the structure of this universe, you’re fucked. We are always doing philosophy. Even when you think you’re not doing it you’re doing it, so you might as well do it explicitly.</p>
+<p>Animals eat because they have to so they grab whatever they get on their hands. We eat because we can, so we make meals. Sure, it would be efficient not to, but we do it anyway, only because it’s human.</p>
+<figure><img src="../matrixmeal.jpg" alt="Even Neo does it."></figure>
+<p>Every major decision in technology rests on a philosophical foundation:</p>
+<ol>
+<li><strong>Should we build this?</strong> (ethics)</li>
+<li><strong>Who gets to decide?</strong> (political philosophy)</li>
+<li><strong>What does “better” mean here?</strong> (value theory)</li>
+<li><strong>Can we know if it’s working?</strong> (epistemology)</li>
+<li><strong>Who counts as a person in this system?</strong> (metaphysics of mind)</li>
+</ol>
+<p>And as our world’s greatest leaders in Artificial Intelligence race to make the Torture Nexus from the hit indie book “Don’t Build the fucking Torture Nexus” you should think about this questions before you hear it from a Beer Biceps podcast. Nothing worse than a reductionist interpretation of a quagmire.</p>
+<h1>What We Do at Axiom</h1>
+<p>At Axiom, no one pretends to have all the answers. What we have instead is a coterie of rag-tag communists mucking around in the campus, helplessly writhing in the mud of unsolvable questions, and slinging it by on to innocent passeer-byy.</p>
+<p>Maybe that’s the true definition of philosophy. Mucking around.</p>
+<hr>
+<p><em>Ark Malhotra is an Executive Committee member at Axiom.</em></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>See <a href="https://www.cell.com/neuron/fulltext/S0896-6273(24)00808-0">The unbearable slowness of being: Why do we live at 10 bits/s?</a>. See also, <a href="https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two">The Magical Number Seven, Plus or Minus Two</a>, also known as <em>Miller’s Law</em>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>See the brilliant <a href="https://www.lesswrong.com/posts/46qnWRSR7L2eyNbMA/the-lens-that-sees-its-flaws">The Lens That Sees Its Flaws</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+  </div>
+</div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© Axiom Newsletter · <a href="/">axiom.nsut</a></p>
+    <div style="margin-top: 0.75rem; display: flex; justify-content: center;">
+      <div class="feed-strip">
+        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24" style="color: var(--color-gold); flex-shrink:0;">
+          <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 006.18 7.27V4.44M4 10.1a9.9 9.9 0 019.9 9.9H11.1A7.07 7.07 0 004 12.93V10.1z"/>
+        </svg>
+        Subscribe via
+        <a href="/newsletter/feed.xml">RSS</a>
+        <span class="sep">⋅</span>
+        <a href="/newsletter/atom.xml">Atom</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css">
+  <script>
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  </script>
+</body>
+</html>
