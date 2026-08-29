@@ -1,3 +1,5 @@
+import socialsData from '@/data/socials.json'
+
 export default function PrivacyPolicy() {
     return (
         <div className="bg-cream dark:bg-[#0E1A14] min-h-screen">
@@ -159,7 +161,7 @@ export default function PrivacyPolicy() {
                             If you have any questions about this policy, you can
                             reach us via our{' '}
                             <a
-                                href="https://www.instagram.com/axiomnsut"
+                                href={socialsData.instagram.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-terracotta hover:underline"
@@ -168,7 +170,7 @@ export default function PrivacyPolicy() {
                             </a>{' '}
                             or{' '}
                             <a
-                                href="https://www.linkedin.com/company/axiom-nsut"
+                                href={socialsData.linkedin.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-terracotta hover:underline"

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import PullQuote from '../components/PullQuote'
 import SectionDivider from '../components/SectionDivider'
 import SpotlightCard from '../components/SpotlightCard'
+import socialsData from '@/data/socials.json'
 const ctaCards = [
     {
         num: '01',
@@ -250,7 +251,7 @@ export default async function Home() {
                         JOIN US
                     </h2>
                     <a
-                        href="https://chat.whatsapp.com/DGTXdFZKd53B93VvDbPuv6"
+                        href={socialsData.whatsapp.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block border border-cream/40 text-cream/90 px-10 py-4 font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-cream hover:text-ink hover:border-cream"
