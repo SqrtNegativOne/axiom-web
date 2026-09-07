@@ -40,24 +40,28 @@ export default async function NewsletterPost({ params }) {
     }
 
     return (
-        <article className="pt-20 max-w-3xl mx-auto px-6 py-16 animate-on-load prose prose-lg dark:prose-invert prose-headings:font-heading prose-headings:text-green prose-a:text-terracotta hover:prose-a:text-green prose-a:transition-colors">
+        <article className="pt-20 max-w-3xl mx-auto px-6 py-16 animate-on-load">
             <Link
                 href="/newsletter"
-                className="not-prose label-mono mb-8 inline-block hover:text-terracotta transition-colors"
+                className="label-mono mb-8 inline-block hover:text-terracotta transition-colors"
             >
                 &larr; Back to Newsletter
             </Link>
             
-            <h1 className="section-heading mb-4 leading-tight">{post.frontmatter.title}</h1>
-            <p className="font-mono text-sm text-gold tracking-widest uppercase mb-12">
-                {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                })}
-            </p>
+            <header className="mb-12">
+                <h1 className="section-heading mb-4 leading-tight">{post.frontmatter.title}</h1>
+                <p className="font-mono text-xs text-gold tracking-widest uppercase">
+                    {post.frontmatter.author && <span className="text-ink/60 dark:text-ink/60">{post.frontmatter.author} · </span>}
+                    {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    })}
+                </p>
+                <div className="h-px w-16 bg-gold/40 mt-6" />
+            </header>
             
-            <div className="content">
+            <div className="article-body">
                 {post.content}
             </div>
         </article>

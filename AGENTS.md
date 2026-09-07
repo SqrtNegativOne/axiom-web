@@ -1,68 +1,66 @@
-This is the website for **Axiom**, the philosophy society at NSUT. Built with React + Vite + Tailwind (main site, statically pre-rendered via SSR) and Eleventy (newsletter).
+This is the website for **Axiom**, the philosophy society at NSUT. Built with Next.js (App Router, React 19) + Tailwind CSS + MDX.
 
 ## Architecture & Build Process
 
-Two build systems, one merged output, statically pre-rendered:
+Unified Next.js App Router project:
 
 ```
 axiom-web/
-├── data/               # Static assets (images, fonts, logos) served directly
-├── react-app/          # Vite + React + Tailwind (Home, Team, Events, Games)
-│   ├── src/entry-client.jsx  # Client hydration entry
-│   └── src/entry-server.jsx  # SSR entry for pre-rendering
-├── newsletter/         # Eleventy (newsletter index + posts)
-├── shared/             # design-tokens.css (shared by both)
-├── scripts/            # Build scripts (generate-pages.js, postbuild.js)
-├── dist/               # Final merged output at repo root (deployed to Vercel)
-└── dist-server/        # Temporary SSR bundle used during build
+├── app/                # Next.js App Router (pages, layouts, route handlers)
+│   ├── layout.jsx      # Root layout (theme init script, nav, main, footer)
+│   ├── page.jsx        # Home page
+│   ├── team/           # /team and /team/[year]
+│   ├── events/         # /events and /events/[year]
+│   ├── games/          # /games and /games/[slug]
+│   ├── newsletter/     # /newsletter, /newsletter/[slug], feed.xml/
+│   ├── colophon/       # /colophon
+│   ├── privacy/        # /privacy
+│   └── globals.css     # Global Tailwind styles & typography
+├── components/         # Reusable React components (NavBar, Footer, Hero, ThemeToggle, etc.)
+├── content/            # Newsletter markdown files (content/newsletter/*.md)
+├── data/               # Data files (events.json, team-*.js, alumni-quotes.js, gamesList.js)
+├── lib/                # Utilities & helpers (lib/mdx.js for MDX compilation & post loading)
+├── public/             # Static assets served at root (public/data/ for images, icons)
+├── shared/             # design-tokens.css
+└── utils/              # Client-side helper functions (bloomFilter.js)
 ```
-
-**Build Pipeline:**
-1. Vite builds the client bundle (`dist/`) and the SSR bundle (`dist-server/`).
-2. Eleventy builds the newsletter to `newsletter/dist/`.
-3. `scripts/postbuild.js` copies `newsletter/dist/` into `dist/newsletter/` and symlinks/copies the root `data/` folder to `dist/data/`.
-4. `scripts/generate-pages.js` uses the SSR bundle (`dist-server/entry-server.js`) to generate static HTML pages (SSG) for all React routes, injecting specific OpenGraph meta tags so social crawlers can read them.
-
 
 ## Commands
 
 Run from the repo root:
 
 ```bash
-bun install            # Install all workspace dependencies
-bun run dev            # React :5173 + Eleventy :8081 in parallel (serves /data dynamically)
-bun run build          # Full production build (both systems + postbuild SSG)
-bun run preview        # Serve dist/ at :4173
+bun install            # Install all dependencies
+bun dev                # Next.js dev server (http://localhost:3000)
+bun run build          # Full production build (SSG prerendering)
+bun start              # Serve production build locally
+bun run lint           # Run ESLint
 ```
-
-Installing packages for the React app specifically:
-```bash
-bun install <pkg> --workspace=react-app --legacy-peer-deps
-```
-Always use `--legacy-peer-deps` when installing into the react-app workspace.
 
 ## Tech Stack
 
 | Tool | Version | Role |
 |------|---------|------|
-| React | ^18.3.1 | UI (Client + SSR) |
-| React Router | ^6.28.0 | BrowserRouter — clean URL routing (`/team`, `/events`, `/privacy`) |
-| Vite | ^6.0.5 | Dev server + bundler |
-| Tailwind CSS | ^3.4.16 | Utility CSS |
-| Eleventy | ^3.0.0 | Newsletter static site |
-| Concurrently | ^8.2.2 | Parallel dev scripts |
+| Next.js | ^16.3.2 | Framework (App Router, Turbopack, SSG prerendering, RSC) |
+| React | ^19.2.8 | UI (Server Components + Client Components) |
+| Tailwind CSS | ^4.3.3 | Utility CSS (via @tailwindcss/postcss) |
+| MDX / Remark | ^6.0.0 / ^4.0.1 | Markdown/MDX parser for newsletter (`next-mdx-remote`) |
+| Bun | ^1.3.11 | Package manager & runtime |
 
 **Do not install three.js / @react-three/fiber.** The Canvas element captures pointer events and can crash the React tree without an ErrorBoundary.
 
 ## Routing
 
-React uses **BrowserRouter** — routes are `/`, `/team`, `/team/:year`, `/events`, `/events/:year`, `/colophon`, `/privacy`. A catch-all `path="*"` renders the 404 page. The static pre-rendering in `generate-pages.js` ensures every route has a physical `index.html` file in `dist/`.
-
-The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a `<Link>`), crossing the build-system boundary.
+Next.js App Router file-system routing:
+- Clean URLs: `/`, `/team`, `/team/:year`, `/events`, `/events/:year`, `/games`, `/games/:slug`, `/newsletter`, `/newsletter/:slug`, `/colophon`, `/privacy`.
+- Dynamic routes use `generateStaticParams()` to pre-render static HTML at build time.
+- Catch-all not-found handled by `app/not-found.jsx`.
+- Internal links use Next.js `<Link href="...">` for client-side transitions.
+- The newsletter Atom feed is served at `/newsletter/feed.xml`.
 
 ## Design System
 
-**Single source of truth**: `shared/design-tokens.css` — imported by `react-app/src/index.css` AND inlined in `newsletter/src/_includes/base.njk`.
+**Single source of truth**: Theme definitions in `app/globals.css` and tokens in `shared/design-tokens.css`.
 
 ### Palette
 
@@ -92,13 +90,12 @@ The Newsletter link in the React nav is a plain `<a href="/newsletter/">` (not a
 
 ## Images and Assets
 
-**CRITICAL:** Assets (images, fonts, logos) are **NO LONGER in `react-app/public/assets/`**. 
-They are located in the **root `/data/` directory**.
+Static assets (images, fonts, logos) are located in **`public/data/`**:
 
 ```
-axiom-web/data/
+axiom-web/public/data/
 ├── logo.png / logo.svg / logo-axiom.svg
-├── portraits/      — team member portraits
+├── portraits/      — team member portraits (.jpg, .webp, .avif)
 ├── alumni/         — alumni headshots
 ├── events/         — event photos
 ├── gallery/        — carousel images
@@ -106,24 +103,25 @@ axiom-web/data/
 ```
 
 **How they are served:**
-During dev, `vite.config.js` uses a custom middleware to serve requests to `/data/*` directly from the root `/data/` directory. In production, `postbuild.js` symlinks (or copies) `/data/` to `dist/data/`.
-**Usage in code:** Reference paths as `/data/portraits/filename.jpg`. *Never import images through Vite*.
+Next.js serves everything inside `public/` directly at the root. Reference paths as `/data/portraits/filename.jpg` using Next.js `<Image>`.
 
 ## Content Data Files
 
-Content files are located in `react-app/src/data/`:
+Content data files are located in root **`data/`**:
 
 | File | Content |
 |------|---------|
-| `team-2024.js`, `team-2025.js` | Executive committee members for specific years |
-| `2026.js`, `2027.js`, etc. | General members by batch year |
+| `team-2024.js`, `team-2025.js`, `team-2026.js` | Executive committee members for specific years |
+| `2026.js`, `2027.js`, `2028.js`, `2029.js` | General members by batch year |
 | `events.json` | All events data |
 | `alumni-quotes.js` | Testimonials from alumni |
+| `gamesList.js`, `externalGamesList.js` | Games directory data |
+| `socials.json`, `navLinks.js` | Social links and navigation items |
 
 ## Games
 
 Route: `/games` (index) and `/games/<slug>`.
-Game components and their respective data logic are located in `react-app/src/pages/games/`.
+Game components and their respective data logic are located in `app/games/`.
 
 ### Game Roster
 | Component | Route |
@@ -142,22 +140,28 @@ Game components and their respective data logic are located in `react-app/src/pa
 | `ArgumentReconstruction.jsx`| `/games/argument-reconstruction`|
 | `ParadigmShift.jsx` | `/games/paradigm-shift` |
 
-**Puzzle Data:** Unlike other content, game data files (e.g., `dialectic.js`, `epoche.js`, `philosophle.js`) are co-located with the game components inside `react-app/src/pages/games/`. Fallacy Detective cases live in `react-app/src/pages/games/cases/*.md`.
+**Puzzle Data:** Game data files (e.g., `dialectic.js`, `epoche.js`, `philosophle.js`) are co-located with the game components inside `app/games/`. Fallacy Detective cases live in `app/games/cases/*.md`.
 
 **Design system exception:** Individual game pages are exempt from the Axiom design system.
 
 ## Newsletter Posts
 
-Create: `newsletter/src/posts/YYYY-MM-slug.md`
+Create: `content/newsletter/slug.md` (or `YYYY-MM-slug.md`)
 
-- **Required frontmatter:** `layout: post.njk`, `title`, `date`, `tags: [posts]`
-- Posts are automatically sorted newest-first on the index.
-- Uses `markdown-it` configured in `.eleventy.js`.
-
-The React app fetches the recent newsletter posts via `/newsletter/posts.json` (generated by `posts.json.11ty.js`). During dev, Vite proxies `/newsletter/` to the Eleventy dev server (`http://localhost:8081`).
+- **Required frontmatter:**
+  ```yaml
+  ---
+  title: "Essay Title"
+  date: "2025-02-28"
+  description: "Short excerpt or summary"
+  ---
+  ```
+- Posts are automatically retrieved, sorted newest-first, and compiled via `lib/mdx.js`.
+- Renders dynamically or statically at `/newsletter` and `/newsletter/[slug]`.
+- Atom feed served at `/newsletter/feed.xml`.
 
 ## Deployment (Vercel)
 
-Vercel reads `vercel.json` at the repo root.
-- `"framework": null` is required to prevent Vercel from overriding `outputDirectory`.
-- The **Root Directory** setting in the Vercel dashboard must be empty (repo root), not `react-app`.
+Vercel deployment:
+- Framework preset: Next.js (automatically detected).
+- The **Root Directory** setting in the Vercel dashboard must be empty (repo root).

@@ -1,8 +1,22 @@
-Website for Axiom, the philosophy society.
+# Axiom
 
-Built with React for main site UI design, ReactBits for components, and Eleventy for the newsletter blog.
+The official website for **Axiom**, the philosophy society at NSUT.
 
-Run locally using the `run.ps1` file.
+Built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS**, and **MDX** for the newsletter.
+
+## Getting Started
+
+```bash
+bun install
+bun dev
+```
+
+Or run locally using the `run.ps1` script.
+
+To produce a production build:
+```bash
+bun run build
+```
 
 Pull requests welcome. Encouraged, actually.
 

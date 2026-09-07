@@ -66,42 +66,36 @@ export default function Colophon() {
                             {[
                                 {
                                     index: '01',
-                                    tool: 'React 18',
+                                    tool: 'React 19',
                                     tag: 'UI',
-                                    desc: 'Component library with BrowserRouter for clean URL routing.',
+                                    desc: 'Component architecture powering interactive games, interfaces, and UI elements.',
                                 },
                                 {
                                     index: '02',
-                                    tool: 'Vite',
-                                    tag: 'Tooling',
-                                    desc: 'Development server and production bundler with hot module replacement.',
+                                    tool: 'Next.js 16',
+                                    tag: 'Framework',
+                                    desc: 'App Router framework providing server components, Turbopack, and static pre-rendering.',
                                 },
                                 {
                                     index: '03',
                                     tool: 'Tailwind CSS',
                                     tag: 'Styling',
-                                    desc: 'Utility-first CSS framework driven by custom design tokens.',
+                                    desc: 'Utility-first styling with modern PostCSS engine driven by custom design tokens.',
                                 },
                                 {
                                     index: '04',
-                                    tool: 'Eleventy',
+                                    tool: 'MDX & Remark',
                                     tag: 'Content',
-                                    desc: 'Static site generator powering the newsletter layer.',
+                                    desc: 'Markdown and MDX processing pipeline powering essays and newsletter publications.',
                                 },
                                 {
                                     index: '05',
-                                    tool: 'markdown-it',
-                                    tag: 'Content',
-                                    desc: 'Markdown renderer with footnote plugin for newsletter posts.',
+                                    tool: 'Vercel',
+                                    tag: 'Deploy',
+                                    desc: 'Edge hosting and global CDN with automated deployments from the main branch.',
                                 },
                                 {
                                     index: '06',
-                                    tool: 'Vercel',
-                                    tag: 'Deploy',
-                                    desc: 'Edge hosting with automatic deploys from the main branch.',
-                                },
-                                {
-                                    index: '07',
                                     tool: 'GoatCounter',
                                     tag: 'Analytics',
                                     desc: 'Open-source, cookieless, privacy-respecting page view tracking.',
@@ -210,10 +204,10 @@ export default function Colophon() {
                             <code className="font-mono text-xs bg-cream-dark dark:bg-cream-dark px-1.5 py-0.5 rounded">
                                 main
                             </code>{' '}
-                            branch. The site ships as a single static directory
-                            merging two independent build systems — React/Vite
-                            for the main site and Eleventy for the newsletter —
-                            via a Node.js postbuild script.
+                            branch. The site ships as a high-performance,
+                            statically pre-rendered Next.js application,
+                            leveraging React Server Components and MDX for
+                            unified essays and interactive pages.
                         </p>
                         <a
                             href="https://github.com/SqrtNegativOne/axiom-web"
