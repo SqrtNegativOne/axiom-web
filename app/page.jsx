@@ -82,7 +82,7 @@ export default async function Home() {
                     {/* Right Column: Image */}
                     <div className="hidden md:flex justify-center md:justify-end mt-8 md:mt-0">
                         <Image
-                            src="/data/the-thinker.png" width={500} height={500}
+                            src="/data/the-thinker.webp" width={500} height={500}
                             alt="The Thinker"
                             className="w-full max-w-sm md:max-w-md object-contain"
                             loading="lazy"

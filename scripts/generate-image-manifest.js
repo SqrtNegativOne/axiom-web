@@ -1,4 +1,4 @@
-﻿// Generate the image manifest for the Axiom website.
+// Generate the image manifest for the Axiom website.
 //
 // Usage (run from the project root):
 //   node scripts/generate-image-manifest.js
@@ -19,24 +19,17 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 
 const EVENTS_DIR = join(ROOT, "public", "data", "events");
+const PORTRAITS_DIR = join(ROOT, "public", "data", "portraits");
 const MANIFEST_OUT = join(ROOT, "data", "images-manifest.json");
 
-const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".JPG", ".png", ".webp", ".avif"]);
+const IMAGE_EXTENSIONS = new Set([".webp"]);
 
 // Natural sort comparator so "2" < "10" (not lexicographic).
 function naturalSort(a, b) {
   return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
 }
 
-// 1. Read existing manifest to preserve the "portraits" key.
-let existing = {};
-try {
-  existing = JSON.parse(readFileSync(MANIFEST_OUT, "utf8"));
-} catch {
-  // No existing manifest -- start fresh.
-}
-
-// 2. Scan event folders.
+// 1. Scan event folders.
 const folders = readdirSync(EVENTS_DIR, { withFileTypes: true })
   .filter((d) => d.isDirectory())
   .map((d) => d.name)
@@ -52,11 +45,16 @@ for (const folder of folders) {
   events[folder] = files;
 }
 
+// 2. Scan portraits folder.
+const portraits = readdirSync(PORTRAITS_DIR, { withFileTypes: true })
+  .filter((f) => f.isFile() && f.name.endsWith(".webp"))
+  .map((f) => f.name)
+  .sort(naturalSort);
+
 // 3. Build and write manifest.
 const manifest = {
   events,
-  // Keep existing portraits list (or empty array if none existed).
-  portraits: existing.portraits ?? [],
+  portraits,
 };
 
 writeFileSync(MANIFEST_OUT, JSON.stringify(manifest, null, 2) + "\n", "utf8");

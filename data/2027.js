@@ -1,7 +1,7 @@
 const batch2027 = {
   'Adarsh Jain': {
     name: 'Adarsh Jain',
-    image: '/data/portraits/adarsh-jain.jpg',
+    image: '/data/portraits/adarsh-jain.webp',
     quote: 'Do not take life seriously. You will never get out of it alive.',
     socials: {
       linkedin: 'https://www.linkedin.com/in/adarsh-jain-ba2801291/',
@@ -11,7 +11,7 @@ const batch2027 = {
   Vivek: { name: 'Vivek' },
   'Aman Kumar': {
     name: 'Aman Kumar',
-    image: '/data/portraits/aman-kumar.jpg',
+    image: '/data/portraits/aman-kumar.webp',
     quote: 'Make The Logo Bigger',
     socials: {
       linkedin: 'https://in.linkedin.com/in/aman-kumar-meena-754816288'
