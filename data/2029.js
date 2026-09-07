@@ -1,7 +1,7 @@
 const batch2029 = {
   'Adit Gaur': {
     name: 'Adit Gaur',
-    image: '/data/portraits/adit-gaur.jpeg',
+    image: '/data/portraits/adit-gaur.webp',
     quote: 'To pray is to accept defeat',
     socials: {
       linkedin: 'https://www.linkedin.com/in/aditgaur/',
@@ -10,7 +10,7 @@ const batch2029 = {
   },
   'Aditi Poonia': {
     name: 'Aditi Poonia',
-    image: '/data/portraits/aditi-poonia.jpeg',
+    image: '/data/portraits/aditi-poonia.webp',
     quote: 'He who has a why to live can bear almost any how.',
     socials: {
       linkedin: 'https://in.linkedin.com/in/aditi-poonia-55638b3a5',
@@ -19,13 +19,13 @@ const batch2029 = {
   },
   'Adwita Suri': {
     name: 'Adwita Suri',
-    image: '/data/portraits/adwita-suri.jpg',
+    image: '/data/portraits/adwita-suri.webp',
     quote: 'I exist. In thousand of agonies I exist.',
     socials: { instagram: 'https://www.instagram.com/adwitasuri' }
   },
   Anju: {
     name: 'Anju',
-    image: '/data/portraits/anju.jpg',
+    image: '/data/portraits/anju.webp',
     quote: 'Every season serves a purpose!',
     socials: {
       linkedin: 'https://www.linkedin.com/in/anju-kumari-a12a0936b',
@@ -34,7 +34,7 @@ const batch2029 = {
   },
   'Ankit Kumar': {
     name: 'Ankit Kumar',
-    image: '/data/portraits/ankit-kumar.jpg',
+    image: '/data/portraits/ankit-kumar.webp',
     quote: 'Climb mountain so you can see the world, not so the world can see you.',
     socials: {
       linkedin: 'https://in.linkedin.com/in/ankit-kumar-42800a37b',
@@ -43,7 +43,7 @@ const batch2029 = {
   },
   'Ashish Joshi': {
     name: 'Ashish Joshi',
-    image: '/data/portraits/ashish-joshi.jpg',
+    image: '/data/portraits/ashish-joshi.webp',
     quote: 'Life is pointless, so make sure to embarrass yourself in every possible way',
     socials: {
       linkedin: 'https://www.linkedin.com/in/ashishjoshi540',
@@ -52,7 +52,7 @@ const batch2029 = {
   },
   'Charu Vats': {
     name: 'Charu Vats',
-    image: '/data/portraits/charu-vats.jpg',
+    image: '/data/portraits/charu-vats.webp',
     socials: {
       linkedin: 'https://www.linkedin.com/in/charu-vats-a93586338',
       instagram: 'https://www.instagram.com/designdiaries5'
@@ -60,7 +60,7 @@ const batch2029 = {
   },
   'Dev Manchanda': {
     name: 'Dev Manchanda',
-    image: '/data/portraits/dev-manchanda.png',
+    image: '/data/portraits/dev-manchanda.webp',
     quote: 'I always get to where I’m going by walking away from where I’ve been. — Winnie the Pooh',
     socials: {
       linkedin: 'https://www.linkedin.com/in/dev-manchanda-7a0867269/',
@@ -69,13 +69,13 @@ const batch2029 = {
   },
   'Dhruv Bansal': {
     name: 'Dhruv Bansal',
-    image: '/data/portraits/dhruv-bansal.jpeg',
+    image: '/data/portraits/dhruv-bansal.webp',
     quote: 'We only feel free because we lack the language to articulate our unfreedom',
     socials: { linkedin: 'https://www.linkedin.com/in/dhruv-bansal-35270b302' }
   },
   'Dushyant Singh Rathore': {
     name: 'Dushyant Singh Rathore',
-    image: '/data/portraits/dushyant-rathore.jpg',
+    image: '/data/portraits/dushyant-rathore.webp',
     quote: 'Loyalty is tested when betrayal is the most profitable option',
     socials: {
       linkedin: 'https://www.linkedin.com/in/dushyant-singh-rathore-7bb319242',
@@ -84,7 +84,7 @@ const batch2029 = {
   },
   Himanshi: {
     name: 'Himanshi',
-    image: '/data/portraits/himanshi.jpeg',
+    image: '/data/portraits/himanshi.webp',
     quote: 'Whatever will be, will be',
     socials: {
       linkedin: 'https://www.linkedin.com/in/himanshi-b2b478359',
@@ -93,7 +93,7 @@ const batch2029 = {
   },
   'Joseph Jisso Aliyath': {
     name: 'Joseph Jisso Aliyath',
-    image: '/data/portraits/joseph-aliyath.jpg',
+    image: '/data/portraits/joseph-aliyath.webp',
     quote: 'Hallelujah',
     socials: {
       linkedin: 'https://www.linkedin.com/in/josephjissoa',
@@ -102,13 +102,13 @@ const batch2029 = {
   },
   'Khushi Mittal': {
     name: 'Khushi Mittal',
-    image: '/data/portraits/khushi-mittal.jpeg',
+    image: '/data/portraits/khushi-mittal.webp',
     quote: 'A smile is a curve that sets everything straight.',
     socials: { instagram: 'https://www.instagram.com/khushi_mittal01' }
   },
   'Md Rashid Iqbal': {
     name: 'Md Rashid Iqbal',
-    image: '/data/portraits/md-rashid-iqbal.jpg',
+    image: '/data/portraits/md-rashid-iqbal.webp',
     quote: 'One is never afraid of the unknown; one is afraid of the known coming to an end',
     socials: {
       linkedin: 'https://www.linkedin.com/in/md-rashid-iqbal01',
@@ -117,7 +117,7 @@ const batch2029 = {
   },
   'Navratan Choudhary': {
     name: 'Navratan Choudhary',
-    image: '/data/portraits/navratan-choudhary.jpeg',
+    image: '/data/portraits/navratan-choudhary.webp',
     quote: 'It is better to die on your feet than to live on your knees.',
     socials: {
       linkedin: 'https://www.linkedin.com/in/navratan-choudhary-aa81bb325',
@@ -126,19 +126,19 @@ const batch2029 = {
   },
   'Prachetas Shukla': {
     name: 'Prachetas Shukla',
-    image: '/data/portraits/prachetas-shukla.jpeg',
+    image: '/data/portraits/prachetas-shukla.webp',
     quote: 'Curiosity is Discipline disguised as Wonder',
     socials: { linkedin: 'https://www.linkedin.com/in/prachetasshukla/' }
   },
   'Prince Gangwar': {
     name: 'Prince Gangwar',
-    image: '/data/portraits/prince-gangwar.jpg',
+    image: '/data/portraits/prince-gangwar.webp',
     quote: 'The truth is rarely pure and never simple.',
     socials: { instagram: 'https://www.instagram.com/ern1l/' }
   },
   'Shivangi Amat': {
     name: 'Shivangi Amat',
-    image: '/data/portraits/shivangi-amat.png',
+    image: '/data/portraits/shivangi-amat.webp',
     quote: 'Life is short. Smile while you still have teeth.',
     socials: {
       linkedin: 'https://www.linkedin.com/in/shivangi-amat-431112369/',
@@ -147,7 +147,7 @@ const batch2029 = {
   },
   'Tushar Kumar Karn': {
     name: 'Tushar Kumar Karn',
-    image: '/data/portraits/tushar-karn.png',
+    image: '/data/portraits/tushar-karn.webp',
     quote: 'If you can be anything in this world, be kind.',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tushar-kumar-karn-9a5356378',
@@ -156,7 +156,7 @@ const batch2029 = {
   },
   'Vinayak Mittal': {
     name: 'Vinayak Mittal',
-    image: '/data/portraits/vinayak-mittal.png',
+    image: '/data/portraits/vinayak-mittal.webp',
     quote: 'The universe is under no obligation to make sense to you. — Neil deGrasse Tyson',
     socials: {
       linkedin: 'https://www.linkedin.com/in/vinayak-mittal-2846b4312/',
