@@ -126,19 +126,6 @@ export default function Footer() {
                                     </svg>
                                     RSS
                                 </a>
-                                <a
-                                    href="/newsletter/atom.xml"
-                                    className={FEED_LINK_STYLE}
-                                >
-                                    <svg
-                                        className="w-4 h-4 flex-shrink-0"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 006.18 7.27V4.44M4 10.1a9.9 9.9 0 019.9 9.9H11.1A7.07 7.07 0 004 12.93V10.1z" />
-                                    </svg>
-                                    Atom
-                                </a>
                             </div>
                             {/* Social links */}
                             {SOCIAL_LINKS.map(({ label, href, icon }) => (

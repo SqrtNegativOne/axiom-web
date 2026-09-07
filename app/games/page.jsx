@@ -1,4 +1,3 @@
-"use client";
 import SectionDivider from '../../components/SectionDivider'
 import Link from 'next/link'
 

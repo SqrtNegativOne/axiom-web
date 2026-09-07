@@ -9,6 +9,7 @@
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --animate-blink: blink 1s step-end infinite;
 }
 .dark {
     --color-cream-dark: #142219;
@@ -272,6 +273,11 @@
 }
 .animate-slide-up {
     animation: slideUp 0.28s ease both;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* ── Event Carousel (Swiper 3D Coverflow) ───────────────────────────── */

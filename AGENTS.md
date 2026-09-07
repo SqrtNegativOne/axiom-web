@@ -85,7 +85,7 @@ Next.js App Router file-system routing:
 
 ### Tailwind utilities & Custom conventions
 - Use mapped colors: `text-green`, `bg-terracotta`, `border-gold`.
-- `label-mono`: defined in `index.css` for eyebrow labels (`font-mono text-xs tracking-[0.2em] uppercase text-gold`).
+- `label-mono`: defined in `globals.css` for eyebrow labels (`font-mono text-xs tracking-[0.2em] uppercase text-gold`).
 - Section headings: `font-heading font-light text-green` at `clamp(2rem, 4vw, 3rem)`.
 
 ## Images and Assets
@@ -129,7 +129,8 @@ Game components and their respective data logic are located in `app/games/`.
 | `Hermeneutic.jsx` | `/games/hermeneutic` |
 | `Epoche.jsx` | `/games/epoche` |
 | `Fallacy.jsx` | `/games/fallacy` |
-| `Dialectic.jsx` | `/games/dialectic` |
+| `Dialectic.jsx` | `/games/dialectics` |
+| `NegativeDialectic.jsx` | `/games/negative-dialectics` |
 | `Sorites.jsx` | `/games/sorites` |
 | `Repugnant.jsx` | `/games/repugnant` |
 | `Philosophle.jsx` | `/games/philosophle` |
@@ -140,7 +141,7 @@ Game components and their respective data logic are located in `app/games/`.
 | `ArgumentReconstruction.jsx`| `/games/argument-reconstruction`|
 | `ParadigmShift.jsx` | `/games/paradigm-shift` |
 
-**Puzzle Data:** Game data files (e.g., `dialectic.js`, `epoche.js`, `philosophle.js`) are co-located with the game components inside `app/games/`. Fallacy Detective cases live in `app/games/cases/*.md`.
+**Puzzle Data:** Game data files (e.g., `dialectic.js`, `epoche.js`, `philosophle.js`) are co-located with the game components inside `app/games/`. Fallacy Detective cases live in `app/games/cases/*.js` (JS modules exporting raw markdown strings).
 
 **Design system exception:** Individual game pages are exempt from the Axiom design system.
 
