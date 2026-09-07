@@ -127,21 +127,12 @@ export default async function Home() {
                                 <p className="font-body text-base text-ink/60 leading-relaxed mb-8">
                                     {description}
                                 </p>
-                                {internal ? (
-                                    <Link
-                                        href={link}
-                                        className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
-                                    >
-                                        explore →
-                                    </Link>
-                                ) : (
-                                    <Link
-                                        href={link}
-                                        className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
-                                    >
-                                        explore →
-                                    </Link>
-                                )}
+                                <Link
+                                    href={link}
+                                    className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
+                                >
+                                    explore →
+                                </Link>
                                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                             </SpotlightCard>
                         ),

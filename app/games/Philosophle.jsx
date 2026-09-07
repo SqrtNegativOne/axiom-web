@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from 'react'
+import Link from 'next/link'
 import { PHILOSOPHLE, ALL_WORDS } from './philosophle'
 import { loadBloomFilter } from '../../utils/bloomFilter'
 
@@ -496,12 +497,12 @@ export default function GamePhilosophle() {
             {/* Header */}
             <section className="max-w-2xl mx-auto px-6 py-10">
                 <div className="flex items-center gap-3 mb-6">
-                    <a
+                    <Link
                         href="/games"
                         className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
                     >
                         ← Games
-                    </a>
+                    </Link>
                     <span className="text-gold/30">/</span>
                     <span className="font-mono text-xs tracking-widest uppercase text-ink/40">
                         Philosophle

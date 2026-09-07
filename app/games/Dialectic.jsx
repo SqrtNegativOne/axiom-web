@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react'
+import Link from 'next/link'
 import { DIALECTIC } from './dialectic'
 
 function rand(arr) {
@@ -271,12 +272,12 @@ export default function GameDialectic() {
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
                     <div>
                         <div className="flex items-center gap-3 mb-4">
-                            <a
+                            <Link
                                 href="/games"
                                 className="font-mono text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors duration-150"
                             >
                                 ← Games
-                            </a>
+                            </Link>
                             <span className="text-gold/30">/</span>
                         </div>
                         <h1

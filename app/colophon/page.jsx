@@ -53,7 +53,7 @@ export default function Colophon() {
                             </div>
                         </div>
                         <p className="text-xs text-ink/40 mt-4">
-                            All fonts served via Google Fonts.
+                            All fonts are self-hosted and served from /data/fonts/.
                         </p>
                     </section>
 

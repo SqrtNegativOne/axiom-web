@@ -1,4 +1,5 @@
 import './globals.css'
+import Script from 'next/script'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 
@@ -23,6 +24,11 @@ export default function RootLayout({ children }) {
               } catch (_) {}
             `,
           }}
+        />
+        <Script
+          data-goatcounter="https://axiomnsut.goatcounter.com/count"
+          src="//gc.zgo.at/count.js"
+          strategy="afterInteractive"
         />
         <a
           href="#main-content"
