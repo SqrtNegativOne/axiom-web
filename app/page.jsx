@@ -167,7 +167,7 @@ export default async function Home() {
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
                     {DEPARTMENT_LINKS.map(({ label, to, icon }) => (
                         <Link
                             key={to}

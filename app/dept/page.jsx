@@ -6,7 +6,7 @@ import { DEPARTMENTS } from '../../data/departments'
 export const metadata = {
     title: 'Departments | Axiom',
     description:
-        'The podcast, design, filmmaking, and content arms of Axiom — the philosophy society at NSUT.',
+        'The podcast, design, filmmaking, content, and tech arms of Axiom — the philosophy society at NSUT.',
 }
 
 export default function DepartmentsIndex() {
@@ -19,7 +19,7 @@ export default function DepartmentsIndex() {
                 className="font-body text-ink/70 leading-relaxed max-w-2xl mb-14"
                 style={{ fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)' }}
             >
-                Axiom is more than discussions. Four departments turn the
+                Axiom is more than discussions. Five departments turn the
                 society&apos;s thinking into things you can watch, hear, read,
                 and look at.
             </p>

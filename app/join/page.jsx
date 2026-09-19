@@ -68,6 +68,10 @@ const FAQS = [
         q: 'What if I get something factually wrong?',
         a: 'Many of our members have larped and given completely wrong answers to concrete questions and still been hired — because they showed that they cared. That is enough.',
     },
+    {
+        q: 'I want to join the Tech department. Will I be asked coding questions?',
+        a: 'No. No questions of tech will be asked in the interview at all if you are seeking to join the Tech department. No knowledge of JavaScript, CSS, HTML, or React is required — we will teach you. We only want you to be interested.',
+    },
 ]
 
 export const metadata = {
