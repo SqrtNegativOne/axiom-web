@@ -60,6 +60,16 @@
   src: url('/data/fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
 }
 
+/* Material Icons Outlined — subset to the icons in data/icons.js.
+   Regenerate with: node scripts/fetch-material-icons.mjs */
+@font-face {
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/data/fonts/material-icons-outlined.woff2') format('woff2');
+}
+
 
 
 /* Import design tokens */
@@ -137,6 +147,23 @@
         @apply font-mono text-gold tracking-widest uppercase;
         font-size: 0.65rem;
         letter-spacing: 0.25em;
+    }
+
+    /* Google Material Icons (Outlined) — ligature icon font */
+    .material-icons-outlined {
+        font-family: 'Material Icons Outlined';
+        font-weight: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        font-feature-settings: 'liga';
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
     }
 
     /* ── Spotlight Card ──────────────────────────────────────────────── */
