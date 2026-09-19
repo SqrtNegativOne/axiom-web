@@ -104,6 +104,11 @@ export const DEPARTMENTS = [
                 href: '/newsletter/',
                 external: false,
             },
+            {
+                label: 'Digital Library',
+                href: 'https://axiomarchive.notion.site/Axiom-Digital-Library-3758d41a5dce80b99cd2c2d0a27022c2',
+                external: true,
+            },
         ],
         cta: {
             text: 'Do you have a penchant for writing? Join us now at /join!',

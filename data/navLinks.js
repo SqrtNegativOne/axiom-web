@@ -20,6 +20,11 @@ export const EXPLORE_LINKS = [
 export const MORE_LINKS = [
     { label: 'Join Us', to: '/join', internal: true },
     {
+        label: 'Digital Library',
+        to: 'https://axiomarchive.notion.site/Axiom-Digital-Library-3758d41a5dce80b99cd2c2d0a27022c2',
+        internal: false,
+    },
+    {
         label: 'Branding',
         to: 'https://drive.google.com/drive/folders/1ghyc8NSUbn0NVhi1VjHnhtuaOrUcy2FQ',
         internal: false,
