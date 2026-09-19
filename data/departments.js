@@ -1,0 +1,126 @@
+/**
+ * Axiom departments.
+ *
+ * Each department gets a page at /dept/<slug>, generated statically from this
+ * file. `icon` is a Google Material Symbols ligature name — the stylesheet is
+ * loaded in app/layout.jsx.
+ *
+ * `embed.list` is a YouTube uploads-playlist id (channel id with the leading
+ * "UC" swapped for "UU").
+ */
+
+export const DEPARTMENTS = [
+    {
+        slug: 'podcast',
+        name: 'Podcast',
+        icon: 'podcasts',
+        blurb: 'We talk about stuff. Go listen.',
+        tagline: 'Conversations worth sitting with.',
+        intro: [
+            'The Axiom Podcast is where we slow down and talk. Long-form conversation, half-formed hunches, and the occasional genuinely good idea — nothing scripted, nothing rehearsed.',
+            'We record episodes around campus, in classrooms after hours, and anywhere a conversation decides to happen. Philosophy, culture, absurd hypotheticals, bad opinions defended well.',
+        ],
+        links: [
+            {
+                label: 'YouTube — @axiom_nsut',
+                href: 'https://www.youtube.com/@axiom_nsut',
+                external: true,
+            },
+        ],
+        comingSoon: ['Apple Podcasts', 'Spotify', 'RSS'],
+        embed: {
+            type: 'youtube-playlist',
+            title: 'Axiom Podcast',
+            list: 'UU7Lt0ux2UL4rhxIy1V0aAZg',
+        },
+        cta: {
+            text: 'Do you have a penchant for talking? Join us now at /join!',
+            href: '/join',
+            label: 'Join the society',
+            icon: 'mic',
+        },
+    },
+    {
+        slug: 'design',
+        name: 'Design',
+        icon: 'palette',
+        blurb: 'Check our Instagram!',
+        tagline: 'Making philosophy look the way it feels.',
+        intro: [
+            'The Design department builds the visual language of Axiom — posters, carousels, reels, event branding, merch, and the odd questionable type experiment.',
+            'We care about restraint, contrast, and the kind of detail nobody consciously notices but everybody feels. The feed is the portfolio.',
+        ],
+        links: [
+            {
+                label: 'Instagram — @axiomnsut',
+                href: 'https://www.instagram.com/axiomnsut',
+                external: true,
+            },
+        ],
+        cta: {
+            text: 'Do you have a penchant for d— … you get it.',
+            href: '/join',
+            label: 'Join the society',
+            icon: 'palette',
+        },
+    },
+    {
+        slug: 'filmmaking',
+        name: 'Filmmaking',
+        icon: 'movie',
+        blurb: 'Check YouTube @AxiomNSUT.',
+        tagline: 'Moving pictures, moving arguments.',
+        intro: [
+            'The Filmmaking department shoots Axiom. Event aftermovies, sketches, interviews, short documentaries, and whatever else the semester allows us to get away with.',
+            'From storyboards to colour grades, we make things you can watch. Cameras, mics, and an unreasonable tolerance for re-shoots provided.',
+        ],
+        links: [
+            {
+                label: 'YouTube — @AxiomNSUT',
+                href: 'https://www.youtube.com/@AxiomNSUT',
+                external: true,
+            },
+        ],
+        cta: {
+            text: 'Do you ha—',
+            href: '/join',
+            label: 'Join the society',
+            icon: 'movie',
+        },
+    },
+    {
+        slug: 'content',
+        name: 'Content',
+        icon: 'edit_note',
+        blurb: 'Check our newsletter!',
+        tagline: 'Words, edited until they behave.',
+        intro: [
+            'The Content department writes and edits the Axiom Newsletter — long-form essays, philosophical musings, and ideas worth sitting with.',
+            'We read closely, argue gently, and cut everything that is only there to sound clever. If you have ever wanted your thinking to survive an editorial pass, this is the room for it.',
+        ],
+        links: [
+            {
+                label: 'Newsletter',
+                href: '/newsletter/',
+                external: false,
+            },
+        ],
+        cta: {
+            text: 'Do you have a penchant for writing? Join us now at /join!',
+            href: '/join',
+            label: 'Join the society',
+            icon: 'edit_note',
+        },
+    },
+]
+
+export function getDepartment(slug) {
+    return DEPARTMENTS.find((d) => d.slug === slug)
+}
+
+export const DEPARTMENT_LINKS = DEPARTMENTS.map(({ name, slug, icon }) => ({
+    label: name,
+    to: `/dept/${slug}`,
+    internal: true,
+    icon,
+}))

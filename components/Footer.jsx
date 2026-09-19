@@ -39,18 +39,24 @@ const SOCIAL_ICONS = {
     ),
 }
 
+// Both YouTube channels share the play icon; the accessible label distinguishes them.
+SOCIAL_ICONS.podcastYoutube = SOCIAL_ICONS.youtube
+
 const SOCIAL_LINKS = Object.entries(socialsData).map(([key, data]) => ({
+    key,
     ...data,
-    icon: SOCIAL_ICONS[key],
+    icon: SOCIAL_ICONS[key] ?? SOCIAL_ICONS.youtube,
 }))
 
-import { FOOTER_LINKS } from '../data/navLinks'
+import { EXPLORE_LINKS, MORE_LINKS } from '../data/navLinks'
+import { DEPARTMENT_LINKS } from '../data/departments'
 import Link from 'next/link'
 
 // Footer style classes
 const FOOTER_STYLE = 'bg-green dark:bg-[#0C1610] text-cream/80'
 const CONTAINER_STYLE = 'max-w-6xl mx-auto px-6 py-12'
-const GRID_STYLE = 'grid grid-cols-1 md:grid-cols-3 gap-10'
+const GRID_STYLE =
+    'grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10'
 const BRAND_TITLE_STYLE =
     'font-heading text-2xl font-light tracking-[0.15em] text-cream mb-3'
 const BRAND_DESC_STYLE = 'font-body text-sm leading-relaxed text-cream/60'
@@ -58,16 +64,41 @@ const NAV_LABEL_STYLE =
     'font-body text-xs tracking-widest uppercase text-gold mb-4'
 const NAV_LINK_STYLE =
     'font-body text-sm text-cream/70 hover:text-cream transition-colors duration-200'
-const SOCIAL_LABEL_STYLE = NAV_LABEL_STYLE
-const SOCIAL_LINK_STYLE = NAV_LINK_STYLE + ' flex items-center gap-2'
-const FEED_LINK_STYLE = NAV_LINK_STYLE + ' flex items-center gap-1'
-const SOCIAL_COL_STYLE = 'flex flex-col gap-2'
+const SOCIAL_ROW_STYLE =
+    'flex flex-wrap items-center gap-2.5'
+const SOCIAL_LINK_STYLE =
+    'flex items-center justify-center w-9 h-9 border border-gold/20 text-cream/60 hover:text-cream hover:border-gold/50 transition-colors duration-200'
 const DIVIDER_STYLE = 'border-t border-gold/20 mt-10 pt-6'
-const COPYRIGHT_STYLE =
-    'font-body text-xs text-cream/40 text-center sm:text-left'
 
-// Footer navigation links (imported from navLinks.js)
-// FOOTER_LINKS: [{ label, to, internal }]
+function FooterColumn({ label, links }) {
+    return (
+        <nav aria-label={label}>
+            <p className={NAV_LABEL_STYLE}>{label}</p>
+            <ul className="flex flex-col gap-2">
+                {links.map(({ label: linkLabel, to, internal }) =>
+                    internal ? (
+                        <li key={to + linkLabel}>
+                            <Link href={to} className={NAV_LINK_STYLE}>
+                                {linkLabel}
+                            </Link>
+                        </li>
+                    ) : (
+                        <li key={to + linkLabel}>
+                            <a
+                                href={to}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={NAV_LINK_STYLE}
+                            >
+                                {linkLabel}
+                            </a>
+                        </li>
+                    ),
+                )}
+            </ul>
+        </nav>
+    )
+}
 
 export default function Footer() {
     return (
@@ -75,77 +106,63 @@ export default function Footer() {
             <div className={CONTAINER_STYLE}>
                 <div className={GRID_STYLE}>
                     {/* Brand */}
-                    <div>
+                    <div className="col-span-2 md:col-span-1">
                         <p className={BRAND_TITLE_STYLE}>AXIOM</p>
                         <p className={BRAND_DESC_STYLE}>
-                            The Philosophy Society
+                            The Philosophy Society at NSUT.
                         </p>
+                        <Link
+                            href="/join"
+                            className="inline-block mt-5 border border-cream/30 px-5 py-2.5 font-mono text-[11px] tracking-[0.2em] uppercase text-cream/90 hover:bg-cream hover:text-green hover:border-cream transition-all duration-300"
+                        >
+                            Join us →
+                        </Link>
                     </div>
 
-                    {/* Navigation */}
-                    <nav aria-label="Footer navigation">
-                        <p className={NAV_LABEL_STYLE}>Navigate</p>
-                        <ul className="flex flex-col gap-2">
-                            {FOOTER_LINKS.map(({ label, to, internal }) =>
-                                internal ? (
-                                    <li key={to}>
-                                        <Link
-                                            href={to}
-                                            className={NAV_LINK_STYLE}
-                                        >
-                                            {label}
-                                        </Link>
-                                    </li>
-                                ) : (
-                                    <li key={to}>
-                                        <a href={to} className={NAV_LINK_STYLE}>
-                                            {label}
-                                        </a>
-                                    </li>
-                                ),
-                            )}
-                        </ul>
-                    </nav>
+                    {/* Explore */}
+                    <FooterColumn label="Explore" links={EXPLORE_LINKS} />
 
-                    {/* Social */}
-                    <div>
-                        <p className={SOCIAL_LABEL_STYLE}>Connect</p>
-                        <div className={SOCIAL_COL_STYLE}>
-                            {/* Feeds section: RSS and Atom on separate lines */}
-                            <div className="flex flex-col gap-1 mb-1">
-                                <a
-                                    href="/newsletter/feed.xml"
-                                    className={FEED_LINK_STYLE}
-                                >
-                                    <svg
-                                        className="w-4 h-4 flex-shrink-0"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 006.18 7.27V4.44M4 10.1a9.9 9.9 0 019.9 9.9H11.1A7.07 7.07 0 004 12.93V10.1z" />
-                                    </svg>
-                                    RSS
-                                </a>
-                            </div>
-                            {/* Social links */}
-                            {SOCIAL_LINKS.map(({ label, href, icon }) => (
-                                <a
-                                    key={href}
-                                    href={href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={SOCIAL_LINK_STYLE}
-                                >
-                                    {icon}
-                                    {label}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
+                    {/* Departments */}
+                    <FooterColumn label="Departments" links={DEPARTMENT_LINKS} />
+
+                    {/* More */}
+                    <FooterColumn label="More" links={MORE_LINKS} />
                 </div>
 
+                {/* Connect — compact icon row */}
                 <div className={DIVIDER_STYLE}>
-                    <p className={COPYRIGHT_STYLE}>
+                    <p className={NAV_LABEL_STYLE}>Connect</p>
+                    <div className={SOCIAL_ROW_STYLE}>
+                        {SOCIAL_LINKS.map(({ key, label, href, icon }) => (
+                            <a
+                                key={key}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={label}
+                                title={label}
+                                className={SOCIAL_LINK_STYLE}
+                            >
+                                {icon}
+                            </a>
+                        ))}
+                        <a
+                            href="/newsletter/feed.xml"
+                            aria-label="RSS feed"
+                            title="RSS feed"
+                            className={SOCIAL_LINK_STYLE}
+                        >
+                            <svg
+                                className="w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 006.18 7.27V4.44M4 10.1a9.9 9.9 0 019.9 9.9H11.1A7.07 7.07 0 004 12.93V10.1z" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <p className="font-body text-xs text-cream/40 mt-6">
                         © {new Date().getFullYear()} Axiom — The Philosophy
                         Society. All rights reserved.
                     </p>
