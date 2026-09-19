@@ -1,14 +1,14 @@
 /**
- * Google Material Symbols icon.
+ * Google Material Icons (Outlined) icon.
  *
- * The stylesheet is loaded in app/layout.jsx. `name` is a ligature name,
- * e.g. "podcasts", "palette", "movie", "edit_note". Size and colour are set
- * with Tailwind utility classes passed through `className`.
+ * `name` is a ligature name, e.g. "podcasts", "palette", "movie". The font is
+ * loaded in app/layout.jsx and subset to the names in data/icons.js — add new
+ * names there too. Size and colour are set with Tailwind classes.
  */
 export default function MaterialIcon({ name, className = '', ...props }) {
     return (
         <span
-            className={`material-symbols-outlined ${className}`}
+            className={`material-icons-outlined ${className}`}
             aria-hidden="true"
             {...props}
         >
