@@ -1,30 +1,42 @@
 {
   "instagram": {
-    "label": "@axiomnsut",
+    "label": "Instagram",
+    "handle": "@axiomnsut",
     "href": "https://www.instagram.com/axiomnsut"
   },
   "linkedin": {
-    "label": "Axiom NSUT",
+    "label": "LinkedIn",
+    "handle": "Axiom NSUT",
     "href": "https://www.linkedin.com/company/axiom-nsut"
   },
   "facebook": {
-    "label": "axiom.nsit",
+    "label": "Facebook",
+    "handle": "axiom.nsit",
     "href": "https://www.facebook.com/axiom.nsit"
   },
   "substack": {
     "label": "Substack",
+    "handle": "Substack",
     "href": "https://substack.com/@axiomnsut"
   },
   "whatsapp": {
     "label": "WhatsApp Community",
+    "handle": "WhatsApp Community",
     "href": "https://chat.whatsapp.com/Gki3aAdOY0SIk3lDlw1Y9H"
   },
   "youtube": {
-    "label": "YouTube",
+    "label": "YouTube (Films)",
+    "handle": "@AxiomNSUT",
     "href": "https://www.youtube.com/@AxiomNSUT"
+  },
+  "podcastYoutube": {
+    "label": "YouTube (Podcast)",
+    "handle": "@axiom_nsut",
+    "href": "https://www.youtube.com/@axiom_nsut"
   },
   "linktree": {
     "label": "Linktree",
+    "handle": "Linktree",
     "href": "https://linktr.ee/AxiomNSUT_Official"
   }
 }

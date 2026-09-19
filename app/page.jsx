@@ -4,7 +4,9 @@ import Link from 'next/link'
 import PullQuote from '../components/PullQuote'
 import SectionDivider from '../components/SectionDivider'
 import SpotlightCard from '../components/SpotlightCard'
+import MaterialIcon from '../components/MaterialIcon'
 import socialsData from '@/data/socials.json'
+import { DEPARTMENT_LINKS } from '../data/departments'
 const ctaCards = [
     {
         num: '01',
@@ -29,6 +31,14 @@ const ctaCards = [
             'Long-form essays, philosophical musings, and ideas worth sitting with.',
         link: '/newsletter/',
         internal: false,
+    },
+    {
+        num: '04',
+        title: 'Join Axiom',
+        description:
+            'Recruitment opens every odd semester. Here is how to become a member.',
+        link: '/join',
+        internal: true,
     },
 ]
 
@@ -104,7 +114,7 @@ export default async function Home() {
                     Where would you like to go?
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {ctaCards.map(
                         ({ num, title, description, link, internal }) => (
                             <SpotlightCard
@@ -137,6 +147,45 @@ export default async function Home() {
                             </SpotlightCard>
                         ),
                     )}
+                </div>
+            </section>
+
+            <SectionDivider className="w-[90%] max-w-5xl mx-auto" />
+
+            {/* ── DEPARTMENTS ───────────────────────────────────────────────────── */}
+            <section className="w-[90%] max-w-5xl mx-auto py-14">
+                <div className="flex items-baseline justify-between mb-10 flex-wrap gap-4">
+                    <div>
+                        <p className="label-mono mb-2">— Departments</p>
+                        <h2 className="section-heading">What we make</h2>
+                    </div>
+                    <Link
+                        href="/dept"
+                        className="font-mono text-xs text-terracotta hover:text-green transition-colors duration-200 tracking-wider"
+                    >
+                        all departments →
+                    </Link>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    {DEPARTMENT_LINKS.map(({ label, to, icon }) => (
+                        <Link
+                            key={to}
+                            href={to}
+                            className="group flex flex-col gap-4 border border-gold/20 p-6 hover:border-gold/50 transition-colors duration-300"
+                        >
+                            <MaterialIcon
+                                name={icon}
+                                className="text-3xl text-gold/60 group-hover:text-gold transition-colors duration-200"
+                            />
+                            <span className="font-heading text-xl text-green">
+                                {label}
+                            </span>
+                            <span className="font-mono text-xs text-terracotta/70 group-hover:text-terracotta transition-colors duration-200 tracking-wider mt-auto">
+                                explore →
+                            </span>
+                        </Link>
+                    ))}
                 </div>
             </section>
 
@@ -241,14 +290,22 @@ export default async function Home() {
                     >
                         JOIN US
                     </h2>
-                    <a
-                        href={socialsData.whatsapp.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block border border-cream/40 text-cream/90 px-10 py-4 font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-cream hover:text-ink hover:border-cream"
-                    >
-                        Apply Now →
-                    </a>
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <Link
+                            href="/join"
+                            className="inline-block border border-cream/40 text-cream/90 px-10 py-4 font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-cream hover:text-ink hover:border-cream"
+                        >
+                            How to Join →
+                        </Link>
+                        <a
+                            href={socialsData.whatsapp.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-mono text-xs tracking-[0.2em] uppercase text-cream/60 hover:text-cream transition-colors duration-300"
+                        >
+                            WhatsApp Community →
+                        </a>
+                    </div>
                 </div>
             </section>
         </div>

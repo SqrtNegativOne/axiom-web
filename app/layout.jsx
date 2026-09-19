@@ -25,6 +25,11 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+        {/* Google Material Symbols — used for department icons */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
         <Script
           data-goatcounter="https://axiomnsut.goatcounter.com/count"
           src="//gc.zgo.at/count.js"
