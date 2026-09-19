@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "icons": "node scripts/fetch-material-icons.mjs"
   },
   "dependencies": {
     "an-array-of-english-words": "^2.0.0",

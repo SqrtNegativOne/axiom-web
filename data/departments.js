@@ -130,9 +130,14 @@ export const DEPARTMENTS = [
         ],
         links: [
             {
-                label: 'GitHub — axiom-web',
+                label: 'Star our GitHub repository',
                 href: 'https://github.com/SqrtNegativOne/axiom-web',
                 external: true,
+            },
+            {
+                label: 'Colophon',
+                href: '/colophon',
+                external: false,
             },
         ],
         cta: {

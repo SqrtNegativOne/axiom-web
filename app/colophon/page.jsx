@@ -209,6 +209,10 @@ export default function Colophon() {
                             leveraging React Server Components and MDX for
                             unified essays and interactive pages.
                         </p>
+                        <p className="font-body text-sm text-ink/70 mb-4">
+                            If you like what you see, star our GitHub
+                            repository!
+                        </p>
                         <a
                             href="https://github.com/SqrtNegativOne/axiom-web"
                             target="_blank"
