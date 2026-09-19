@@ -117,6 +117,31 @@ export const DEPARTMENTS = [
             icon: 'edit_note',
         },
     },
+    {
+        slug: 'tech',
+        name: 'Tech',
+        icon: 'code',
+        blurb: 'We build the website you are looking at right now.',
+        tagline: 'The website you are looking at right now.',
+        intro: [
+            'The Tech department designs, builds, and maintains this website — the games, the pages, the small interactions you barely notice, all of it. This page is our work.',
+            'And no, you do not need to know anything about making websites to join. No knowledge of JavaScript, CSS, HTML, or React is required. We will teach you.',
+            'We are not looking for people who already know how to code. We are looking for people who are interested — genuinely, stubbornly curious. That is the entire bar.',
+        ],
+        links: [
+            {
+                label: 'GitHub — axiom-web',
+                href: 'https://github.com/SqrtNegativOne/axiom-web',
+                external: true,
+            },
+        ],
+        cta: {
+            text: 'If you are seeking to join this department, no questions of tech will be asked in the interview at all. Just bring your interest.',
+            href: '/join',
+            label: 'Join the society',
+            icon: 'code',
+        },
+    },
 ]
 
 export function getDepartment(slug) {
