@@ -2,6 +2,7 @@ import './globals.css'
 import Script from 'next/script'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
+import { ICON_FONT_HREF } from '../data/icons'
 
 export const metadata = {
   title: 'Axiom | The Philosophy Society of NSUT',
@@ -25,11 +26,8 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        {/* Google Material Symbols — used for department icons */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        />
+        {/* Google Material Icons (Outlined), subset to only the icons we use */}
+        <link rel="stylesheet" href={ICON_FONT_HREF} />
         <Script
           data-goatcounter="https://axiomnsut.goatcounter.com/count"
           src="//gc.zgo.at/count.js"

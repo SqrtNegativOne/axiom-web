@@ -162,7 +162,7 @@ export default function JoinPage() {
                 <div className="border border-gold/30 bg-cream-dark dark:bg-cream-dark p-8 sm:p-10">
                     <div className="flex items-center gap-3 mb-5">
                         <MaterialIcon
-                            name="edit_document"
+                            name="assignment"
                             className="text-2xl text-gold"
                         />
                         <p className="label-mono">The form</p>
