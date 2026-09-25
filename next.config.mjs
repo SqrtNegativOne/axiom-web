@@ -25,7 +25,7 @@ const nextConfig = {
             {
                 source: '/((?!newsletter).*)',
                 headers: [
-                    { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://upload.wikimedia.org; font-src 'self'; connect-src 'self' https://axiomnsut.goatcounter.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests" },
+                    { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://upload.wikimedia.org; font-src 'self'; connect-src 'self' https://axiomnsut.goatcounter.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests" },
                     {
                         key: "Link",
                         value: '<https://axiomnsut.in/sitemap.xml>; rel="sitemap", <https://axiomnsut.in/newsletter/feed.xml>; rel="alternate"; type="application/rss+xml", <https://axiomnsut.in/llms.txt>; rel="alternate"; type="text/plain", <https://axiomnsut.in/.well-known/security.txt>; rel="help"'
