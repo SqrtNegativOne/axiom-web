@@ -1,4 +1,7 @@
 @import "tailwindcss";
+/* Tailwind v4 defaults the `dark:` variant to prefers-color-scheme.
+   This site toggles a `.dark` class on <html>, so bind the variant to that class. */
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
     --color-cream: #F8F4EC;
     --color-cream-dark: #EDE9DF;
