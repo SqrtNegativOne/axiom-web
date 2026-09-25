@@ -29,7 +29,7 @@ The Wikipedia page on philosophy tells us the following.
 
 Good enough, I guess. But could you *possibly* get any vaguer?
 
-Do physicsists not care about the nature of existence and the Universe? Do pychologists not care about the nature of the mind and consciousness? Do mathematicians and linguistics not care about reason and language, respectively? Do all of them hate wisdom? Can't you do a "systematic study" of all of the above through some eclectic combination of the fields aforementioned?
+Do physicists not care about the nature of existence and the Universe? Do psychologists not care about the nature of the mind and consciousness? Do mathematicians and linguistics not care about reason and language, respectively? Do all of them hate wisdom? Can't you do a "systematic study" of all of the above through some eclectic combination of the fields aforementioned?
 
 > Trying to define philosophy is philosophy itself.
 
@@ -62,15 +62,15 @@ What really begs the question is the fact that we can do what we can do, *despit
 > Mice can see, but they can’t understand seeing. You can understand seeing, and because of that, you can do things that mice cannot do. Take a moment to marvel at this, for it is indeed marvelous.<br/>
 > Mice see, but they don’t know they have visual cortexes, so they can’t correct for optical illusions. A mouse lives in a mental world that includes cats, holes, cheese and mousetraps—but not mouse brains. Their camera does not take pictures of its own lens. But we, as humans, can look at a seemingly bizarre image, and realize that part of what we’re seeing is the lens itself. You don’t always have to believe your own eyes, but you have to realize that you have eyes—you must have distinct mental buckets for the map and the territory, for the senses and reality. Lest you think this a trivial ability, remember how rare it is in the animal kingdom.[^lens-flaws]
 
-Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of choosing your own damn lenses, and then looking through them to see the world in a way that surprises you.
+Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of saying "I can choose my own damn lenses, thank you very much!" And looking through them to see the world in a view that surprises you.
 
 # What was the point of this, miss?
 
 Every day people go about their lives. They go to work, write code, make money, have fun, fall in love, go to the dentist and so on. And they do it without wondering about the metaphysical nature of existence.
 
-We are aware of the irony of philosophy society existing at a technical university. And the cliché of an arts professor yelling at clouds on how important the arts is and how engineers just want to make money, yeah, everyone knows it.
+We are aware of the irony of philosophy society existing at a technical university. And the cliché of an arts professor yelling at clouds on the importance of the arts is completely true, we agree with it btw.
 
-And if there is anything to learn from Peter Watt's seminal novel *Blindsight*, it's the fact that humans can lose against aliens with 0 metacognition. Novices prepare while experts... just do; Michael Phelps probably doesn't need to understand the Navier-Stokes equations to win. So why bother with philosophy?
+And if there is anything to learn from Peter Watt's seminal novel *Blindsight*, it's the fact that humans can lose against aliens with 0 metacognition. Novices prepare while experts... just do; Michael Phelps probably doesn't need to understand the Navier-Stokes equations to win. Savants don't need the Cornell Notetaking System or knowledge of spaced-repetition, so why bother with philosophy?
 
 # It's human.
 
@@ -80,19 +80,12 @@ Animals eat because they have to so they grab whatever they get on their hands. 
 
 ![Even Neo does it.](../matrixmeal.jpg)
 
-Every major decision in technology rests on a philosophical foundation:
+Philosophy is a profoundly human thing. It began with humanity, and can only end with the end of humanity. And fuck it, that's reason enough.
 
-1. **Should we build this?** (ethics)
-2. **Who gets to decide?** (political philosophy)
-3. **What does "better" mean here?** (value theory)
-4. **Can we know if it's working?** (epistemology)
-5. **Who counts as a person in this system?** (metaphysics of mind)
-
-And as our world's greatest leaders in Artificial Intelligence race to make the Torture Nexus from the hit indie book "Don't Build the fucking Torture Nexus" you should think about this questions before you hear it from a Beer Biceps podcast. Nothing worse than a reductionist interpretation of a quagmire.
+And as our world's greatest leaders in Artificial Intelligence race to make the Torture Nexus from the hit indie book "Don't Build the fucking Torture Nexus" you should think about this questions before you hear it from a Beer Biceps podcast. There are few things worse than a reductionist interpretation of a quagmire we are present for, the victims for, and responsible for.
 
 # What We Do at Axiom
-
-At Axiom, no one pretends to have all the answers. What we have instead is a coterie of rag-tag communists mucking around in the campus, helplessly writhing in the mud of unsolvable questions, and slinging it by on to innocent passeer-byy.
+At Axiom, no one pretends to have all the answers. What we have instead is a coterie of rag-tag communists mucking around in the campus, helplessly writhing in the mud of unsolvable questions, and slinging it by on to innocent passerby's.
 
 Maybe that's the true definition of philosophy. Mucking around.
 
