@@ -13,11 +13,11 @@ navActive: newsletter
 
 If you didn't notice, this is a philosophy society.
 
-Surely there must be something about it. As of February, 2026, this society has 79 members, and has been around for 8 years. We have a newsletter, a Whatsapp group, an Instagram page, and weekly public events, several of which are open to all. And the one question that gets asked, is...
+Surely there must be something about it. As of February, 2025, this society has 79 members, and has been around for 8 years. We have a newsletter, a Whatsapp group, an Instagram page, a podcast! and weekly public events, several of which are open to all. And the one question that gets asked the most, is...
 
 "What is philosophy?"
 
-Never in the "thoughtful" or "academic" manner, no, but in the "What the hell are you guys even doing?" one. I can't blame them, it's a damn fair question. Why would one waste their formative years in pursuing this unwonted and primeval field in the humanities and not even get something to put on their resume? And I have a confession: I don't know the exact answer to it.
+Never in the "thoughtful" or "academic" manner, no, but in the "_What the hell are you guys even doing_" one. I can't blame them: Why _would_ one waste their formative years in pursuing an unwonted and primeval field in the humanities and not even get something to put on their resume? And I have a confession: I don't know the exact answer to it.
 
 But in my defense, it doesn't look like anyone else does either.
 
@@ -29,25 +29,25 @@ The Wikipedia page on philosophy tells us the following.
 
 Good enough, I guess. But could you *possibly* get any vaguer?
 
-Do physicists not care about the nature of existence and the Universe? Do psychologists not care about the nature of the mind and consciousness? Do mathematicians and linguistics not care about reason and language, respectively? Do all of them hate wisdom? Can't you do a "systematic study" of all of the above through some eclectic combination of the fields aforementioned?
+Do physicists not care about the nature of existence and the Universe? Do psychologists not care about the nature of the mind and consciousness? Do mathematicians and linguistics not care about reason and language, respectively? Do all of them, just, hate wisdom? Can't you do a "systematic study" of all of the above through some eclectic combination of the fields aforementioned?
 
 > Trying to define philosophy is philosophy itself.
 
 # Welcome to the Metaverse
 
-If you would allow me an opinion: a more applicable, dare I say more intuitive, definition of philosophy, is that it is the practice of Meta-ness.
+Unfortunately, philosophy isn't an exact science. It's full of opinions. So here's a really good one: a more applicable, dare I say more intuitive, definition of philosophy, is that it's the practice of Meta-ness.
 
 We prepend the "meta-" prefix to all sorts of things — meta-ethics, meta-cognition, in literature and media we have "metanarrative", "metatext", "metafiction", "metacommunication", "metanalysis", and in programming we have "metaprogramming", "metaobjects", "metaclasses", "metadata" and so on.
 
-I think you see the concept-space I am referring to. The "meta-" prefix is acting as an operator to refer to a higher level of abstraction on the same concept. Philosophy, then, is merely the set of all concepts obtained through, say, at least two levels of this; a meta-analysis of meta. Thus, applying the meta operator to philosophy, **gives you philosophy itself**. Reflections on our reflections.
+I hope you see the concept-space I am referring to. The "meta-" prefix is acting as an operator, to refer to a higher level of abstraction, on the same concept. Philosophy, then, is merely the set of all concepts obtained through, say, at least two levels of this; a meta-analysis of meta. Anything too unnerving for the sciences. Thus, applying the meta operator to philosophy, **gives you philosophy itself**. Reflections on our reflections. A lens whose refractive index is so high up, that its focal length can image the inside of it.
 
 And what does that give us?
 
 # A programming language for attention
 
-In short, when you strip bare my contrived formalisms, it simply reduces to the **practice** of **refusing to let things go unexamined.**
+In short, when you strip bare my contrived formalisms, it simply reduces to the **practice** of **refusing to let things go unexamined.**[^socrates]
 
-Ever come out of a room and immediately forget why you went in there? Absentmindedly get your shoes before your socks? Open your phone to do something and start scrolling for no reason? Having to read the same paragraph again because you realised midway you forgot to `npm start brain` before it?
+Ever come out of a room and immediately forget why you went in there? Absentmindedly get your shoes before your socks? Open your phone to do something and start scrolling for no reason? Having to read the same paragraph again because you realised midway you forgot to start your brain before it?
 
 Automaticity, habit loops, autopilot, context-drift, plain absentmindedness, doorway effect, action slips, prospective memory failure, whatever you want to call it. It's a fact of life that we are not in control of our attention.
 
@@ -62,7 +62,7 @@ What really begs the question is the fact that we can do what we can do, *despit
 > Mice can see, but they can’t understand seeing. You can understand seeing, and because of that, you can do things that mice cannot do. Take a moment to marvel at this, for it is indeed marvelous.<br/>
 > Mice see, but they don’t know they have visual cortexes, so they can’t correct for optical illusions. A mouse lives in a mental world that includes cats, holes, cheese and mousetraps—but not mouse brains. Their camera does not take pictures of its own lens. But we, as humans, can look at a seemingly bizarre image, and realize that part of what we’re seeing is the lens itself. You don’t always have to believe your own eyes, but you have to realize that you have eyes—you must have distinct mental buckets for the map and the territory, for the senses and reality. Lest you think this a trivial ability, remember how rare it is in the animal kingdom.[^lens-flaws]
 
-Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of saying "I can choose my own damn lenses, thank you very much!" And looking through them to see the world in a view that surprises you.
+Philosophy is simply the application of this inner-muscle. The practice of noticing the scratches of the lens we see the world through. The practice of breaking out of autopilot, deleting inherited or borrowed assumptions, unquestioned habits of thought. The practice of saying "I can choose my own damn lenses, thank you very much" and looking through them to see the world in a view that surprises you.
 
 # What was the point of this, miss?
 
@@ -80,18 +80,19 @@ Animals eat because they have to so they grab whatever they get on their hands. 
 
 ![Even Neo does it.](../matrixmeal.jpg)
 
-Philosophy is a profoundly human thing. It began with humanity, and can only end with the end of humanity. And fuck it, that's reason enough.
+Philosophy is a profoundly human thing. It began with humanity, and can only end with the end of humanity. And fuck it, that's reason enough to do it, given that's the only common thread that binds us together to this earth; the only thing that can save us from squabbles over arbitrary schisms, the only thing that can save humanity from humanity: is humanity itself.
 
-And as our world's greatest leaders in Artificial Intelligence race to make the Torture Nexus from the hit indie book "Don't Build the fucking Torture Nexus" you should think about this questions before you hear it from a Beer Biceps podcast. There are few things worse than a reductionist interpretation of a quagmire we are present for, the victims for, and responsible for.
+And as our world's greatest leaders in Artificial Intelligence race to make the Torture Nexus from the hit indie book "Don't Build the fucking Torture Nexus" you should think about these questions before you hear it from a Beer Biceps podcast. There are very few things worse than a reductionist interpretation of a quagmire we are present for, the victims for, and responsible for.
 
 # What We Do at Axiom
-At Axiom, no one pretends to have all the answers. What we have instead is a coterie of rag-tag communists mucking around in the campus, helplessly writhing in the mud of unsolvable questions, and slinging it by on to innocent passerby's.
+At Axiom, no one pretends to have all the answers. What we have instead is a coterie of rag-tag communists mucking around in the campus, helplessly writhing in the mud of unsolvable questions, and slinging it onto innocent passerby's.
 
 Maybe that's the true definition of philosophy. Mucking around.
 
 ---
 
-*Ark Malhotra is an Executive Committee member at Axiom.*
+*Ark Malhotra is an Executive Committee member at Axiom. Used to be. Now isn't.*
 
+[^socrates]: Socrates.
 [^speed-limit]: See [The unbearable slowness of being: Why do we live at 10 bits/s?](https://www.cell.com/neuron/fulltext/S0896-6273(24)00808-0). See also, [The Magical Number Seven, Plus or Minus Two](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two), also known as _Miller's Law_.
 [^lens-flaws]: See the brilliant [The Lens That Sees Its Flaws](https://www.lesswrong.com/posts/46qnWRSR7L2eyNbMA/the-lens-that-sees-its-flaws)
