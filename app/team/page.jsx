@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { core, members } from '../../data/team-2026'
+import { grandfathers, core, members } from '../../data/team-2026'
 import alumniQuotes from '../../data/alumni-quotes'
 import TeamPortraitCard from '../../components/TeamPortraitCard'
 import AlumniQuoteCard from '../../components/AlumniQuoteCard'
@@ -136,6 +136,22 @@ export default function Team() {
                             loudly, joyfully, philosophically.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            <SectionDivider className="px-6 max-w-6xl mx-auto" />
+
+            <section className="max-w-6xl mx-auto px-6 py-16">
+                <h2 className="section-heading text-center mb-3">Grandfathers</h2>
+                <p className="font-body text-ink/60 text-center mb-14 max-w-xl mx-auto">
+                    The venerable elders and guiding spirits of Axiom.
+                </p>
+                <div className="flex flex-wrap justify-center gap-10">
+                    {grandfathers.map((member) => (
+                        <div key={member.name} className="w-40">
+                            <TeamPortraitCard {...member} />
+                        </div>
+                    ))}
                 </div>
             </section>
 

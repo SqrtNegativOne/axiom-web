@@ -1,5 +1,8 @@
+import batch2027 from './2027';
 import batch2028 from './2028';
 import batch2029 from './2029';
+
+export const grandfathers = Object.values(batch2027);
 
 export const core = [
     {

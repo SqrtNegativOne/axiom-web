@@ -23,9 +23,6 @@ community continuity.
       Guided on-ramp: "Never read philosophy? Do these five things in this
       order." Gives the site a non-games entry point; doubles as a membership
       pitch.
-- [ ] **Join / Membership page**
-      There is currently no obvious "how do I become a member". Include what
-      Axiom does, meeting cadence, selection process (if any), and an FAQ.
 
 ## Medium effort, strong identity
 
